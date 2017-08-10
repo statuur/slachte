@@ -1,4 +1,4 @@
-@font-face {
+@font-face { 
   font-family: 'Frutiger LT Std';
   src: url('../fonts/FrutigerLTStd-Bold.eot'); /* IE9 Compat Modes */
   src: url('../fonts/FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -6,10 +6,10 @@
        url('../fonts/FrutigerLTStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../fonts/FrutigerLTStd-Bold.svg#ac79850832f70f68e612ede79991fba5') format('svg'); /* Legacy iOS */
        
-  font-style:   normal;
+  font-style:   normal; 
   font-weight:  700;
 }
-
+  
 @font-face {
   font-family: 'Frutiger LT Std';
   src: url('../fonts/FrutigerLTStd-Light.eot'); /* IE9 Compat Modes */
