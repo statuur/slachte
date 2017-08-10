@@ -1,0 +1,38 @@
+<div id="overzicht" class="row show-grid" style="background:#ededed;">
+		  
+		<div class="col-xs-12" style="background:#dcdcdc;">
+	  		<h1 style="font-size:28px;background:#dcdcdc;padding:16px 0;"><span translate>Introducé</span> {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}}</h1>
+		</div>
+		
+				
+		<div class="slide-animate-container">
+			<div id="persoonsgegevens-stap" class="slide-animate" ng-include="templates.gegevens[states['gegevens']]"></div>
+		</div>
+	
+		<div class="col-xs-12"><hr class="grey" style="border-top: 1px solid #a5a5a5"/></div>
+			
+		<!-- BIJ INIT WORDT DE DATA GEKOPIEERD NAAR DE INTRODUCEES templates['starttijd'][states['starttijd']]-->
+		<div class="slide-animate-container">
+			<div id="startttijd-stap" class="slide-animate" ng-init="setIntroduceData($index)" ng-include="templates.starttijd[states['starttijd']]"></div>
+		</div>
+		
+		<div class="col-xs-12"><hr class="grey" style="border-top: 1px solid #a5a5a5"/></div>
+			
+		
+		<div class="slide-animate-container">
+			<div id="startttijd-stap" class="slide-animate" ng-include="templates.vervoer[states['vervoer']]"></div>
+		</div>
+		
+		<div class="col-xs-12"><hr class="grey" style="border-top: 1px solid #a5a5a5"/></div>
+			
+		
+		<div class="slide-animate-container">
+			<div id="startttijd-stap" class="slide-animate" ng-include="templates.slapen[states['slapen']]"></div>
+		</div>
+		
+		
+
+	
+			
+</div>
+	

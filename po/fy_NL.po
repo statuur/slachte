@@ -1,0 +1,367 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fy_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "1 keer"
+msgstr "1 kear"
+
+#: app/views/form-slapen.html:83
+msgid "1 persoon extra"
+msgstr "1 persoan ekstra"
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "2 keer"
+msgstr "2 kear"
+
+#: app/views/form-slapen.html:84
+msgid "2 personen extra"
+msgstr "1 persoanen ekstra"
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "3 keer"
+msgstr "3 kear"
+
+#: app/views/form-slapen.html:85
+msgid "3 personen extra"
+msgstr "3 persoanen ekstra"
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "4 keer"
+msgstr "4 kear"
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "5 keer"
+msgstr "5 kear"
+
+#: app/views/form-vervoer.html:6
+msgid ""
+"<img src=\"images/bus.svg\" alt=\"\" align=\"abmiddle\"><span>Per bus</span>"
+msgstr ""
+
+#: app/views/form-vervoer.html:8
+msgid ""
+"<img src=\"images/eigen-vervoer.svg\" alt=\"\" align=\"absmiddle\">\n"
+"        Eigen vervoer"
+msgstr ""
+
+#: app/views/form-slapen.html:9
+msgid ""
+"<img src=\"images/fiets.svg\" alt=\"\" align=\"absmiddle\"><span>Ik slaap "
+"thuis</span>"
+msgstr ""
+
+#: app/views/form-slapen.html:105
+msgid ""
+"<img src=\"images/fiets.svg\" alt=\"\" align=\"absmiddle\"><span>Nee</span>"
+msgstr ""
+
+#: app/views/form-vervoer.html:23
+msgid ""
+"<img src=\"images/fiets.svg\" alt=\"\" align=\"absmiddle\">Ik kom lopend of "
+"met de fiets"
+msgstr ""
+
+#: app/views/form-slapen.html:7
+msgid ""
+"<img src=\"images/kiss-en-ride.svg\" alt=\"\" align=\"absmiddle\"><span>In "
+"één van út en thús dorpen langs de route</span>"
+msgstr ""
+
+#: app/views/form-slapen.html:103
+msgid ""
+"<img src=\"images/kiss-en-ride.svg\" alt=\"\" align=\"absmiddle\"><span>Ja, "
+"graag vrijdag meenemen</span>"
+msgstr ""
+
+#: app/views/form-vervoer.html:22
+msgid ""
+"<img src=\"images/kiss-en-ride.svg\" alt=\"\" align=\"absmiddle\">Ik word "
+"gebracht (kiss & ride)"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:36
+msgid "Achternaam"
+msgstr "Efternamme"
+
+#: app/views/form-inloggen.html:2
+msgid ""
+"Als freon heb je eerder van ons een e-mail gekregen met een gebruikersnaam "
+"en een wachtwoord."
+msgstr ""
+
+#: app/views/form-slapen.html:97
+msgid "Bagage"
+msgstr "Bagaazje"
+
+#: app/views/form-slapen.html:51
+msgid "Bij iemand thuis"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:7
+msgid "E-mail"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:19
+msgid "E-mail ter controle"
+msgstr "E-mail ter kontrôle"
+
+#: app/views/form-slapen.html:54
+msgid "Eigen camper"
+msgstr ""
+
+#: app/views/form-slapen.html:53
+msgid "Eigen tent"
+msgstr ""
+
+#: app/views/form-slapen.html:52
+msgid ""
+"Festipi (grote gezamelijke slaaptent van de organisatie, zelf apart te "
+"boeken: meer info in bevestitgingsmail)"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:67
+msgid "Geboortedatum"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:70
+msgid "Geslacht"
+msgstr ""
+
+#: app/views/form-starttijd.html:2
+msgid ""
+"Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons "
+"uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor "
+"geen garanties gegeven. Indeling gebeurt op basis van volgorde van "
+"inschrijving."
+msgstr ""
+
+#: app/views/form-vervoer.html:2
+msgid "Hoe kom je bij de start?"
+msgstr "Hoe komst by de start?"
+
+#: app/views/form-persoonlijke-gegevens.html:78
+msgid "Hoe vaak heb je deelgenomen aan de Slachte?"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:48
+msgid "Huisnummer"
+msgstr ""
+
+#: app/views/form-slapen.html:68
+msgid "Ik regel het zelf"
+msgstr ""
+
+#: app/views/form-slapen.html:50
+msgid "In een groepsaccomodatie (dorpshuis of sporthal)"
+msgstr ""
+
+#: app/views/form-inloggen.html:1
+msgid "Inloggen"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:2
+msgid "Je kunt later nog extra personen toevoegen"
+msgstr "Kinst letter nog ekstra minsken tafoeche"
+
+#: app/views/form-slapen.html:21
+msgid "Kies een dorp waar je wilt slapen"
+msgstr ""
+
+#: app/views/form-welkom.html:5
+msgid "Kies een taal"
+msgstr "Kies in taal"
+
+#: app/views/form-starttijd.html:6
+#, fuzzy
+#| msgid "Kies een taal"
+msgid "Kies een tijdstip:"
+msgstr "Kies in taal"
+
+#: app/views/form-slapen.html:82
+msgid "Nee"
+msgstr ""
+
+#: app/views/form-slapen.html:81
+msgid "Neem je iemand mee?"
+msgstr ""
+
+#: app/views/form-slapen.html:69
+msgid "Organisatie regelt dat voor mij"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:1
+msgid "Persoonlijke gegevens"
+msgstr "Persoanlike gegefens"
+
+#: app/views/form-persoonlijke-gegevens.html:55
+msgid "Postcode"
+msgstr ""
+
+#: app/views/form-slapen.html:1
+msgid "Slapen"
+msgstr ""
+
+#: app/views/form-starttijd.html:1
+msgid "Starttijd"
+msgstr "Starttyd"
+
+#: app/views/form-persoonlijke-gegevens.html:43
+msgid "Straatnaam"
+msgstr ""
+
+#: app/views/form-starttijd.html:8
+msgid "Tussen 06:00 en 07:00"
+msgstr ""
+
+#: app/views/form-starttijd.html:9
+msgid "Tussen 07:00 en 08:00"
+msgstr ""
+
+#: app/views/form-starttijd.html:10
+msgid "Tussen 08:00 en 09:00"
+msgstr ""
+
+#: app/views/form-starttijd.html:11
+msgid "Tussen 09:00 en 10:00"
+msgstr ""
+
+#: app/views/form-starttijd.html:12
+msgid "Tussen 10:00 en 11:00"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:31
+msgid "Tussenvoegsels"
+msgstr "Tuskenfoechsels"
+
+#: app/views/form-vervoer.html:1
+msgid "Vervoer"
+msgstr "Ferfier"
+
+#: app/views/form-persoonlijke-gegevens.html:85
+#: app/views/form-starttijd.html:19
+msgid "Volgende stap"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:26
+msgid "Voornaam"
+msgstr "Foarnamme"
+
+#: app/views/form.html:3
+msgid "Vorige stap"
+msgstr ""
+
+#: app/views/form-slapen.html:2
+msgid "Waar wil je het liefste slapen?"
+msgstr ""
+
+#: app/views/form-slapen.html:49
+msgid "Wat voor soort overnachting zou je willen?"
+msgstr ""
+
+#: app/views/form-slapen.html:98
+msgid ""
+"Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je "
+"slaapplek wordt gebracht en op zaterdag naar de finish?"
+msgstr ""
+
+#: app/views/form-slapen.html:67
+msgid "Wil je zelf je slaapplek regelen of doen wij dat voor je?"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:60
+msgid "Woonplaats"
+msgstr ""
+
+#: app/views/form-starttijd.html:13
+msgid "Zo laat mogelijk"
+msgstr ""
+
+#: app/views/form-starttijd.html:7
+msgid "Zo vroeg mogelijk"
+msgstr ""
+
+#: app/views/vertalen-menu.html:32
+msgid "form.bagage"
+msgstr "Bagaazje"
+
+#: app/views/vertalen-menu.html:40
+msgid "form.betalen"
+msgstr "Betelje"
+
+#: app/views/vertalen-menu.html:12
+#, fuzzy
+#| msgid "form.bagage"
+msgid "form.inloggen"
+msgstr "Bagaazje"
+
+#: app/views/vertalen-menu.html:36
+msgid "form.overzicht"
+msgstr "Oersicht"
+
+#: app/views/vertalen-menu.html:7
+msgid "form.persoonlijke-gegevens"
+msgstr "Persoanlike gegefens"
+
+#: app/views/vertalen-menu.html:28
+msgid "form.shirts"
+msgstr "Shirts"
+
+#: app/views/vertalen-menu.html:24
+msgid "form.slapen"
+msgstr "Sliepe"
+
+#: app/views/vertalen-menu.html:16
+msgid "form.starttijd"
+msgstr "Starttyd"
+
+#: app/views/vertalen-menu.html:20
+msgid "form.vervoer"
+msgstr "Ferfier"
+
+#: app/views/vertalen-menu.html:3
+msgid "form.welkom"
+msgstr "Wolkom"
+
+#: app/views/form-persoonlijke-gegevens.html:71
+msgid "man"
+msgstr ""
+
+#: app/views/form-persoonlijke-gegevens.html:79
+msgid "nog nooit"
+msgstr "nog nea"
+
+#: app/views/form-persoonlijke-gegevens.html:71
+msgid "vrouw"
+msgstr ""
+
+#~ msgid "Ticketservice"
+#~ msgstr "Ticketservice"
+
+#~ msgid "About"
+#~ msgstr "Oer"
+
+#~ msgid "Hello"
+#~ msgstr "Goeie"
+
+#~ msgid "This is the about view."
+#~ msgstr "Dit is de oer view."
+
+#~ msgid "Toggle navigation"
+#~ msgstr "Toggle navigaasje"
+
+#~ msgid "Contact"
+#~ msgstr "ContactFY"
+
+#~ msgid "Home"
+#~ msgstr "Tûs"

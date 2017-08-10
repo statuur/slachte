@@ -1,0 +1,734 @@
+@font-face {
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Bold.svg#ac79850832f70f68e612ede79991fba5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Light.svg#576be8a9f1d37c9f23e9d713f716b54e') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Roman.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Roman.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Roman.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Roman.svg#51efdb7670e30fa7b02572ed1d807c20') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+/* rood: #E00915 */
+html, body {
+    height: 100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    background:#ededed;
+    font-family: 'Frutiger LT Std';
+    overflow: hidden;
+    font-weight: 400;
+    font-size:16px;
+}
+
+#background{
+	width:100%;
+	height:100%;
+	position: absolute;
+	background:#ededed url('../images/slachtemarathon-2018.jpg') center center / 100% auto no-repeat;
+}
+
+#overzicht h1{
+	font-weight: 200;
+	color:#000;
+	overflow:hidden;
+}
+
+#overzicht h1 span{
+	font-weight: 700;
+}
+	
+#logo{
+	position: fixed;
+	z-index:112;
+	left:50%;
+	top:0px;
+	transform: translate(-50%,50%);
+}
+
+h1, h2, h3{
+	margin:0px;
+	padding:0px;
+	color:#000;
+	font-weight:  400;
+}
+
+h1{
+	font-size:38px;
+	color:#E00915;
+}
+
+
+
+h2{
+	font-size:35px;
+	color:#E00915;
+	margin:64px 0 20px 0;
+}
+
+
+h1.welkom{
+	margin-top:64px;
+	font-size:50px;
+	color:#E00915;
+}
+
+ui-view{
+	width:1280px;
+	display: block;
+	margin: 64px auto;
+	background:#fff;
+	height: calc(100% - 128px);
+	padding:0px;
+	overflow-y:auto;
+	overflow-x: hidden;
+}
+
+#stappen{
+	padding:0px;
+	margin-left:32px;
+	font-weight: 200;
+	position:fixed;
+}
+
+#stappen:after{
+	content:"Finish";
+	position:relative;
+	left:-15px;
+	top:7px;
+	color: #CFCFCF;
+}
+
+/* stappen die nog moeten*/
+#stappen li a:before{
+	content:"";
+	display:block;
+	width:8px;
+	height:8px;
+	background:#CFCFCF;
+	position: absolute;
+	top:-0px;
+	left:-5px;
+}
+
+#stappen li.passed a:before{
+	background:#000;
+	width:12px;
+	height:12px;
+	top:-2px;
+	left:-7px
+}
+
+#stappen li.active a:before{
+	background:#E00915;
+	width:20px;
+	height:20px;
+	top:-4px;
+	left:-11px;
+}
+
+#stappen li.active a{
+	color:#E00915!important;
+}
+
+#stappen li{
+	list-style-type: none;
+	font-size:16px;
+	line-height:40px;
+	border-left:2px solid #CFCFCF;
+	font-weight: 400;	
+}
+
+#stappen li.active{
+	border-left:2px solid #CFCFCF!important;
+}
+
+#stappen li.passed{
+	border-left:2px solid #000;
+	font-weight: 200;
+}
+
+#stappen li.active{
+	font-weight: 700;
+
+}
+
+#stappen li.passed a{
+	color:#000;
+	cursor: pointer;
+}
+
+#stappen li a{
+	padding: 0px 0px 0px 32px;	
+	position: relative;
+	top:-15px;
+	cursor: default;
+	/*pointer-events: none;	*/
+	color:#CFCFCF;
+}
+
+
+pre{
+	position:absolute;
+	bottom:8px;
+	left:50%;
+	transform: translate(-50%, 0);
+	font-size: 9px;
+}
+
+.btn{
+	border:none;
+	border-radius: 0;
+	font-size:15px;
+	font-weight:  700;
+}
+
+.btn-info{
+	border:1px solid #A5A5A5;
+	color:#000;
+}
+
+b{
+	font-weight:  700;
+}
+
+.form-control{
+	height:auto;
+}
+/*
+input.ng-invalid{
+	border:1px solid red!important;
+}
+*/
+
+.alert{
+	font-size:14px;
+	padding:4px 32px 4px 4px;
+	margin:8px 0 0 0;
+	background:transparent;
+	border:none;
+	color:#e10915!important;
+
+}
+
+form.ng-invalid button{
+	spointer-events: none;
+	sopacity:0.5;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.show-grid {
+    margin-bottom: 15px;
+}
+
+input{/*.ng-valid */
+	font-size:16px!important;
+	line-height: 16px!important;
+	border-radius:0!important;
+	border:1px solid #a5a5a5!important;
+	padding:10px!important; 
+	overflow: visible;
+	background:#ededed!important;	
+}
+
+/* we put label on top of the input */
+input[type=date].ng-empty{
+color: transparent!important;
+}
+
+input:focus[type=date]{
+color: #555!important;
+}
+
+input[type=password] ~ label,
+input[type=text] ~ label,
+input[type=email] ~ label,
+input[type=date] ~ label{
+	position: absolute;
+	top: 0;
+	right: 1px;
+	bottom: 1px;
+	left: 2em;
+	z-index: 1;
+	height: 1em;
+	font-size: 16px;
+	line-height: 3em;
+	color:#666;
+	white-space: nowrap;
+	cursor: text;
+	transition:all .1s ease;
+}
+
+input:not(.ng-empty) ~ label,
+input:focus[type=password] ~ label,
+input:focus[type=text] ~ label,
+input:focus[type=email] ~ label,
+input:focus[type=date] ~ label{
+	font-size:11px;
+	font-weight:bold;
+	left:25px;
+	top:-16px;
+	color:#000;
+}
+/*
+input[type=password] ~ label,
+input[type=text] ~ label,
+input[type=email] ~ label,
+input[type=date] ~ label{
+	font-size:11px;
+	font-weight:bold;
+	left:25px;
+	top:-14px;
+	color:#000;
+}
+*/
+.btn{
+	font-size:16px;
+}
+.btn-slg:last-child{
+	margin-left:-1px;
+}
+
+i.pull-right:after{
+	content:"info +";
+	position:absolute;
+	left:-50px;
+	font-family: 'Frutiger LT Std';
+	font-weight:200;
+}
+.panel-title span > span{
+	color:#828282;
+}
+
+.panel-open i.pull-right:after{
+	content:"info -";
+	color:#E00915;
+
+}
+
+.btn-slg{
+	padding:27px;	
+	white-space:normal;
+	dissplay: table;
+}
+
+.btn-slg > span{
+	padding-top:24px;
+	display: inline-block;
+}
+
+.btn-slg img{
+	margin-right:27px;
+	float: left;
+}
+
+.btn-block + .btn-block{
+	margin-top:-1px;
+}
+
+.btn-info + .btn-info{
+	margin-left:-1px;
+}
+
+.btn-info{
+	text-align: left;
+	font-weight: 400;
+}
+
+.prev span:last-child{
+	font-weight: 200;
+}
+
+.prev:before{
+	content: "";
+	width:15px;
+	height:15px;
+	transform:rotate(-90deg);
+	background: url("../images/pijl.svg") center center / 18px 15px;
+	display: inline-block;
+	margin-right: 11px;
+
+}
+
+.man:before{
+	content: "";
+	width:17px;
+	height:17px;
+	background: url("../images/man.svg") center center / 17px 17px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+.vrouw:before{
+	content: "";
+	width:17px;
+	height:17px;
+	background: url("../images/vrouw.svg") center center / 17px 17px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+.x:before{
+	content: "";
+	width:17px;
+	height:17px;
+	background: url("../images/x.svg") center center / 17px 17px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+
+.btn-info:active, .btn-info:hover, .btn-info.active:hover, .btn-info.active, .open > .dropdown-toggle.btn-info{
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+	background: #fff;
+	color:#000;
+	
+}
+
+.btn-info.active,.btn-info:active, .btn-info.active:hover{
+	border-left: 3px solid #E00915;
+}
+
+.btn-el.active{
+	padding-left:48px;
+}
+
+.vervoer.active:before{
+	content: "";
+	position: absolute;
+	width:38px;
+	color:#fff;
+	height:35px;
+	background: url("../images/selected.svg") center center / 38px 35px no-repeat;
+	display: inline-block;
+	margin: 8px 0 0 -72px;
+	
+}
+
+.btn-el.active:before{
+	content: "";
+	position: absolute;
+	width:19px;
+	color:#fff;
+	height:19px;
+	background: url("../images/selected.svg") center center / 18px 15px no-repeat;
+	display: inline-block;
+	margin: -2px 0 0 -32px;
+}
+
+.btn-el, .panel-heading{
+	padding:19px;
+}
+
+.dorpicon img{
+	position:relative;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+uib-accordion h3{
+	font-size:26px;
+	color:#E00915;
+	margin:33px 0 22px 0;
+}
+
+.vraag{
+	font-size: 20px;
+	margin-bottom:16px;
+}
+
+.toelichting{
+	font-size: 16px;
+	color:#606060;
+	line-height: 22px;
+	margin:16px 0 23px 0;
+}
+
+.toelichting:before{
+	content:"!";
+	color:#E00915;
+	font-size: 20px;
+	padding-right:8px;
+	font-weight:700;
+}
+
+.panel-default > .panel-heading{
+	background:#ededed;
+}
+
+.panel{
+	border-radius: 0px!important;
+}
+
+.panel-group .panel + .panel{
+	margin-top:-1px;
+}
+
+uib-accordion a:hover,
+uib-accordion a:active{
+	text-decoration: none;
+}
+
+hr.hr-30{
+	border:none;
+	border-top:2px solid #E00915;
+	margin:46px auto!important;
+	width:30%;
+}
+
+.slanted{
+	position: relative;
+}
+.volgende{
+	padding:13px 64px 13px 32px;
+	font-size:20px;
+}
+.volgende:before{
+	content: "";
+	position: absolute;
+	width:28px;
+	color:#fff;
+	height:23px;
+	transform:rotate(90deg);
+	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
+	display: inline-block;
+	left: calc(100% - 48px);
+}
+.slanted:after {
+    content:"";
+    position:absolute;
+    top:100%;
+    left:100%;
+    border-width:0px 0px 10px 10px;
+    border-style:solid;
+    border-color:transparent #fff #fff transparent;
+    transform: translate(-100%, -100%)
+}
+.deelnemer{
+	background:#000;
+	padding: 10px 48px 10px 16px;
+}
+.deelnemer:before{
+	content: "+"!important;
+	position: absolute;
+	color:#fff;
+	font-size:30px;
+	display: inline-block;
+	top:0px;
+	left: calc(100% - 32px);
+	font-weight: 200;	
+}
+
+.wit{
+	padding:32px;	
+}
+
+.wit .slanted:after {
+	 border-color:transparent #ededed #ededed transparent!important;
+}
+ 
+.wit input{
+	background:#fff!important
+}
+
+/*** OVERZICHT ******/
+#overzicht{
+	line-height: 28px;
+	background:#ededed;
+	padding-bottom:16px;
+}
+
+#overzicht h2{
+	font-size:26px;
+	color:#E00915;
+	margin: 0px 0px 26px 0px;
+}
+/* AANPASSEN*/
+#overzicht .col-xs-5{
+	font-weight: 200;
+}
+#overzicht .col-xs-7{
+	font-weight: 700;
+}
+
+#overzicht .wijzigen{
+	font-size: 16px;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+/* enter animation */
+
+#form-views{
+	position:relative;
+}
+
+#aform-views.forwards{
+	border:2px solid green;
+}
+
+#aform-views.backwards{
+	border:2px solid red;
+}
+
+#form-views.ng-enter,
+#form-views.ng-leave      { 
+	position:absolute; 
+	transition:1s all ease; 
+    -moz-transition:1s all ease; 
+    -webkit-transition:1s all ease; 
+}
+
+#form-views.forwards.ng-enter{
+	-webkit-animation:slideEnterForwards 1s both ease;
+    -moz-animation:slideEnterForwards 1s both ease;
+    animation:slideEnterForwards 1s both ease;
+}
+
+#form-views.forwards.ng-leave{
+	-webkit-animation:slideLeaveForwards 1s both ease;
+    -moz-animation:slideLeaveForwards 1s both ease;
+    animation:slideLeaveForwards 1s both ease;
+}
+
+#form-views.backwards.ng-enter{
+	-webkit-animation:slideEnterBackwards 1s both ease;
+    -moz-animation:slideEnterBackwards 1s both ease;
+    animation:slideEnterBackwards 1s both ease;
+}
+
+#form-views.backwards.ng-leave{
+	-webkit-animation:slideLeaveBackwards 1s both ease;
+    -moz-animation:slideLeaveBackwards 1s both ease;
+    animation:slideLeaveBackwards 1s both ease;
+}
+
+@keyframes slideEnterBackwards{
+    from    { transform: translateY(-200%); }
+    to      { transform: translateY(0%);}
+}
+
+@keyframes slideLeaveBackwards{
+    from    { transform: translateY(0%); }
+    to      { transform: translateY(200%);}
+}
+
+@keyframes slideEnterForwards{
+    from    { transform: translateY(200%); }
+    to      { transform: translateY(0%);}
+}
+
+@keyframes slideLeaveForwards{
+    from    { transform: translateY(0%); }
+    to      { transform: translateY(-200%);}
+}
+
+ul.validation-list{
+	padding:0px;
+	margin:0px;
+}
+
+ul.validation-list li{
+	list-style-type: none;
+	
+}
+
+.tooltip-arrow{
+	border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:5px solid #E00915!important;
+}
+
+.tooltip-inner{
+	background: #E00915;
+	border-radius: 0px;
+}
+
+
+.slide-animate-container {
+  position:relative;
+ }
+
+.slide-animate {
+
+}
+
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  	sposition:absolute; 
+	transition:1s all ease; 
+    -moz-transition:1s all ease; 
+    -webkit-transition:1s all ease; 
+}
+
+.slide-animate.ng-enter {
+  -webkit-animation:slideEnter 1s both ease;
+    -moz-animation:slideEnter 1s both ease;
+    animation:slideEnter 1s both ease;
+}
+
+.slide-animate.ng-leave {
+ 	-webkit-animation:slideLeave 1s both ease;
+    -moz-animation:slideLeave 1s both ease;
+    animation:slideLeave 1s both ease;
+ 	
+}
+
+
+@keyframes slideEnter{
+    from    { opacity:0 }
+    to      { opacity:1}
+}
+
+@keyframes slideLeave{
+    from    { opacity:1 }
+    to      { opacity:0}
+}
+
+@media (max-width:768px){
+	.col-xs-9 {
+	    width: 50%!important;
+	}
+}

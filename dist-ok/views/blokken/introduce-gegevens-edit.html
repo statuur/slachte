@@ -1,0 +1,107 @@
+<div class="wit" ng-class="{wit:pwijzigen}">  
+
+<div class="row form-group">
+	<div class="col-xs-12">
+			<h2 style="padding:16px 0;margin-bottom:0px;font-size:22px;">
+				<span translate>Persoonlijke gegevens</span>
+							</h2>
+		</div>
+	
+	<div class="col col-xs-12">			
+		<input type="text" class="form-control" name="email" id="email" ng-model="formData.introducees[$index].email" required>
+		<label for="email{{index}}" translate>E-mail</label>
+  	</div>
+</div>
+
+<div class="row form-group">	
+  	<div class="col col-xs-12">			
+		<input type="text" class="form-control" placeholder="" name="iemail2" id="iemail2" ng-model="formData.introducees[$index].email2"  required>
+		<label for="iemail2" translate>E-mail ter controle</label>
+		
+		<validation-tooltip target="iemail2" show-when="formData.introducees[$index].email2.$invalid && (formData.introducees[$index].email2.$dirty)">
+            <ul class="validation-list">
+                <li validation-message ng-if="$field.$error.required" translate>E-mail veld mag niet leeg zijn</li>
+                <li validation-message ng-if="$field.$error.email" translate>E-mail is verkeerd geschreven</li>
+                <li validation-message ng-if="$field.$error.match" translate>De e-mail velden zijn niet hetzelfde </li>
+            </ul>
+        </validation-tooltip>
+        
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col col-xs-4">			
+		
+		<input type="text" class="form-control" placeholder="" name="voornaam" id="voornaam" ng-model="formData.introducees[$index].voornaam" required>
+		<label for="voornaam" translate>Voornaam</label>
+  	</div>
+  
+  	<div class="col col-xs-3"> 			
+  		<input type="text" class="form-control" placeholder="" name="tussenvoegsels" id="tussenvoegsels" ng-model="formData.introducees[$index].tussenvoegsels">
+  		<label for="tussenvoegsels" translate>Tussenvoegsels</label>
+  	</div>
+  
+  	<div class="col col-xs-5">
+  		<input type="text" class="form-control" placeholder="" name="achternaam" id="achternaam" ng-model="formData.introducees[$index].achternaam" required>
+  		<label for="achternaam" translate>Achternaam</label>
+  	</div>
+</div>  
+
+<div class="row show-grid">
+	<div class="col col-xs-10"> 			
+  		<input type="text" class="form-control" placeholder="" name="straatnaam" id="straatnaam" aria-invalid="true" ng-model="formData.introducees[$index].straatnaam" required>
+  		<label for="straatnaam" translate>Straatnaam</label>
+  	</div>
+  		
+  	<div class="col col-xs-2"> 			
+  		<input type="text" class="form-control" placeholder="" name="huisnummer" id="huisnummer" ng-model="formData.introducees[$index].huisnummer">
+  		<label for="huisnummer" translate>Huisnummer</label>
+  	</div>  		
+</div>
+
+<div class="row show-grid">
+	<div class="col col-xs-5">			
+		<input type="text" class="form-control" placeholder="" name="postcode" id="postcode" ng-model="formData.introducees[$index].postcode" required>
+		<label for="postcode" translate>Postcode</label>
+  	</div>
+  
+  	<div class="col col-xs-7"> 			
+  		<input type="text" class="form-control" placeholder="" name="woonplaats" id="woonplaats" ng-model="formData.introducees[$index].woonplaats">
+  		<label for="woonplaats" translate>Woonplaats</label>
+  	</div>
+</div>
+
+<div class="row form-group" ng-class="{ 'has-error' : form.reg.email.$invalid && (form.reg.email.$dirty) }">
+	<div class="col col-xs-12 has-error">			
+		<input type="text" class="form-control" placeholder="" ng-minlength="10" name="telefoon" id="telefoon" ng-model="formData.introducees[$index].telefoon" required>
+		<label for="email" translate>Telefoon </label>
+		 
+		<validation-tooltip target="telefoon" show-when="form.reg.telefoon.$invalid && (form.reg.telefoon.$dirty)">
+            <ul class="validation-list">
+                <li validation-message ng-if="$field.$error.required" translate>Dit veld mag niet leeg zijn</li>
+            </ul>
+        </validation-tooltip>
+		
+  	</div>
+</div>
+
+
+<div class="row show-grid">
+	<div class="col col-xs-5">			
+		<input type="date" data-date-format="DD MM YYYY" min="{{minDate | date:'1935-01-01'}}") max="{{maxDate | date:'2003-01-01'}}" class="form-control" placeholder="" name="geboortedatum" id="geboortedatum" ng-model="formData.geboortedatum" required>
+		<label for="geboortedatum" translate>Geboortedatum</label>
+  	</div>
+  		
+  	<div class="col col-xs-7btn-group"><span translate>Geslacht</span>: 
+	    <label class="btn btn-lg btn-info" ng-model="formData.geslacht" uib-btn-radio="'man'" translate>man</label><label class="btn btn-lg btn-info" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'vrouw'" translate>vrouw</label><label class="btn btn-lg btn-info" ng-model="formData.geslacht" uib-btn-radio="'x'">x</label> 
+	</div>
+	
+		<div class="col-xs-12">
+			<button class="btn btn-primary btn-lg slanted pull-right" ng-click="toggleTemplate('gegevens', 'view', $index)">Gegevens Opslaan</button>
+		</div>
+	
+	
+</div>	
+
+		
+

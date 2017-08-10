@@ -1,0 +1,29 @@
+<div ng-class="{wit:pwijzigen}"> 
+	<p class="toelichting" translate>Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor geen garanties gegeven. Indeling gebeurt op basis van volgorde van inschrijving.</p>
+	<div class="row form-group">
+		<div class="col col-xs-12">			
+			<div class="vraag" translate>Kies een tijdstip:</div>
+	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 06:00-07:00'" uncheckable translate>Tussen 06:00 en 07:00</label>
+	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 07:00-08:00'" uncheckable translate>Tussen 07:00 en 08:00</label>
+	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 08:00-09:00'" uncheckable translate>Tussen 08:00 en 09:00</label>
+	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 09:00-10:00'" uncheckable translate>Tussen 09:00 en 10:00</label>
+	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 10:00-11:00'" uncheckable translate>Tussen 10:00 en 11:00</label>
+	  	</div>
+	  	
+	  	
+	</div>
+	
+	<div ng-show='pwijzigen'>
+			<div class="col-xs-12">
+				<button class="btn btn-primary btn-lg slanted pull-right" ng-click="togglepTemplate('starttijd', 'view')" translate>Gegevens opslaan</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row show-grid" ng-hide="pwijzigen">
+		<div class="col-xs-12"><!-- -->
+	  		<button class="btn btn-primary btn-lg volgende slanted spull-right" ng-disabled="!formData.reg.starttijd" ng-click="setStap(stap+1,1)"  translate>Volgende stap</button>
+		</div>
+	</div>
+	
+</div>

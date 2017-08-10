@@ -1,0 +1,30 @@
+<h2>T-shirts</h2>
+<div class="vraag" translate>Wil je ook mooie t-shirts bestellen?</div>
+
+<div class="row form-group" ng-show="$index==1 || (formData.shirts[$index-1].gender!=null && formData.shirts[$index-1].size!=null)" ng-repeat="x in [].constructor( (formData.kaarten *2)+1) track by $index">
+	<div class="col col-xs-12" >
+		<span style="padding-right:16px;" translate>Geslacht:</span>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].gender" uib-btn-radio="'m'" translate uncheckable>man</label>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].gender" uib-btn-radio="'v'" translate uncheckable>vrouw</label>
+		<span style="padding:0px 16px;" translate>Maat:</span>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'s'" uncheckable>s</label>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'m'" uncheckable>m</label>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'l'" uncheckable>l</label>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xl'" uncheckable>xl</label>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xxl'" uncheckable>xxl</label>
+		
+	</div>
+	
+</div>	
+
+<div class="row show-grid">
+	<div class="col-xs-12">
+  		<hr class="hr-30"/>
+	</div>
+</div>
+
+<div class="row show-grid">
+	<div class="col-xs-12"><!-- -->
+  		<button class="btn btn-primary btn-lg slanted pull-right" ng-click="setStap(stap+1,1)" translate>Volgende stap</button>
+	</div>
+</div>

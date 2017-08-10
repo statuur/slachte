@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views/form-persoonlijke-gegevens.html:6
+msgid "Je kunt later nog extra personen toevoegen"
+msgstr "You can add extra persons later"
+
+#: app/views/form-welkom.html:6
+msgid "Kies een taal"
+msgstr "Choose a language"
+
+#: app/views/form-persoonlijke-gegevens.html:5
+msgid "Persoonlijke gegevens"
+msgstr "Personal data"
+
+#: app/views/vertalen-menu.html:27
+msgid "form.bagage"
+msgstr "Luggage"
+
+#: app/views/vertalen-menu.html:35
+msgid "form.betalen"
+msgstr "Payment"
+
+#: app/views/vertalen-menu.html:31
+msgid "form.overzicht"
+msgstr "Overview"
+
+#: app/views/vertalen-menu.html:7
+msgid "form.persoonlijke-gegevens"
+msgstr "Personal data"
+
+#: app/views/vertalen-menu.html:23
+msgid "form.shirts"
+msgstr "Shirts"
+
+#: app/views/vertalen-menu.html:19
+msgid "form.slapen"
+msgstr "Sleeping"
+
+#: app/views/vertalen-menu.html:11
+msgid "form.starttijd"
+msgstr "Start time"
+
+#: app/views/vertalen-menu.html:15
+msgid "form.vervoer"
+msgstr "Transportation"
+
+#: app/views/vertalen-menu.html:3
+msgid "form.welkom"
+msgstr "Welcome"
