@@ -62,8 +62,8 @@
 		  	<hr class="hr-30"/>
 		</div>
 	</div>
-		
-	<div class="row show-grid" ng-show="(formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis' || formData.reg.soortovernachting==='Festipi') && formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.soortovernachting">
+		<!-- || formData.reg.soortovernachting==='Festipi'-->
+	<div class="row show-grid" ng-show="(formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.soortovernachting">
 		<div class="col-xs-12">
 		  	<div class="vraag" translate>Wil je zelf je slaapplek regelen of doen wij dat voor je?</div>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.slaapplek" uib-btn-radio="'Ik regel het zelf'" uncheckable translate>Ik regel het zelf</label>
