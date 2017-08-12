@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
     
     $scope.formData.user 	= "test";
     $scope.formData.password= "testpersoon1234";
-    console.log(typeof $scope.formData.introducees);
+    
     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */
     $scope.formData.introducees 	= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
     $scope.formData.introducees[0] 	= (typeof $scope.formData.introducees[0]==="undefined") ? {"email":"maaike@statuur.nl", "pwijzigen":"edit"} : $scope.formData.introducees[0];
@@ -115,9 +115,7 @@ angular.module('app.controllers', [])
 		//console.log($scope.formData.introducees[index]);
     }
     
-    
-   	//user: test pw: testpersoon1234
-   	$scope.logingIn 	= false;
+    $scope.logingIn 	= false;
    	$scope.loginError	= false;
    	
    	$scope.inloggen = function(){
@@ -133,8 +131,10 @@ angular.module('app.controllers', [])
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
 	    		$scope.parseData(response.data.data);
-				$scope.direction = "forwards";
-				$state.go('form.persoonlijke-gegevens');
+				//$scope.direction = "forwards";
+				//$scope.stap = 2;
+				$scope.setStap(2,'forwards');
+				//$state.go('form.persoonlijke-gegevens');
 	    	}else{
 		    	$scope.loginError = true;
 	    	}
@@ -146,7 +146,7 @@ angular.module('app.controllers', [])
 	} 	
 		
 	$scope.parseData = function(data){
-		console.log(data);
+		//console.log(data);
 		$scope.formData.reg.userID 			= data.ID;
 		
 		$scope.formData.reg.email 			= data.user_email;
@@ -163,6 +163,8 @@ angular.module('app.controllers', [])
 		$scope.formData.reg.geslacht 		= data.Geslacht;
 		$cookies.putObject('formData', $scope.formData); 
 	}
+	
+	
 	// function to process the form
     $scope.processForm = function() {
        //console.log($.param($scope.formData));
@@ -194,14 +196,15 @@ angular.module('app.controllers', [])
 		$anchorScroll();
     };
     
-    $scope.setStap	= function(stap, go){
-		$scope.stap		= stap;
-		$scope.direction = ($scope.prevstap > $scope.stap) ? "backwards" : "forwards";
-		console.log($scope.direction);
-		if(go){//alleen in testfase
-		    $state.go($scope.stappen[stap].name);
-	    }
-		$cookies.putObject('formData', $scope.formData); 	   	       
+    $scope.setStap	= function(stap, direction){
+		$scope.stap		= stap;		
+		$scope.direction = direction;//($scope.prevstap > $scope.stap) ? "backwards" : "forwards";		
+		console.log($scope.stap, $scope.direction);
+		setTimeout(function(){
+			$state.go($scope.stappen[stap].name);			
+		}, 50)
+	    
+	    $cookies.putObject('formData', $scope.formData); 	   	       
 		$scope.prevstap = stap;
 		
 	};
@@ -240,7 +243,7 @@ angular.module('app.controllers', [])
         $scope.formData.taal = lang;
         $scope.direction = "forwards";    
         //$state.go('form.inloggen');
-        $scope.setStap($scope.stap+1,1);
+        $scope.setStap($scope.stap+1,'forwards');
 
         $scope.menu();
         
@@ -248,11 +251,12 @@ angular.module('app.controllers', [])
     //get dorpen info
     $http({
 		method: 'GET',
-		url: 'json/dorpen.json'
+		url: 'http://slachtemarathon.statuur.nl/api/dorpen/get_dorpen'
 	}).then(function successCallback(response) {
+		delete response.data.status;
 		$scope.dorpen = response.data;
-		//console.log($scope.dorpen);
-  	}, function errorCallback(response) {
+		
+		}, function errorCallback(response) {
     	console.error("ERROR code:"+response.data);
      });
    

@@ -124,7 +124,9 @@ ui-view{
 	top:7px;
 	color: #CFCFCF;
 }
-
+#stappen.finished:after{
+	color:#000;
+}
 /* stappen die nog moeten*/
 #stappen li a:before{
 	content:"";
@@ -605,42 +607,43 @@ hr.hr-30{
 #form-views{
 	position:relative;
 }
-
-#aform-views.forwards{
+/*
+#form-views.forwards{
 	border:2px solid green;
 }
 
-#aform-views.backwards{
+#form-views.backwards{
 	border:2px solid red;
 }
-
+*/
 #form-views.ng-enter,
 #form-views.ng-leave      { 
-	position:absolute; 
+	position:absolute;
+	width:calc(100% - 30px); 
 	transition:1s all ease; 
     -moz-transition:1s all ease; 
     -webkit-transition:1s all ease; 
 }
 
-#form-views.forwards.ng-enter{
+.forwards.ng-enter{
 	-webkit-animation:slideEnterForwards 1s both ease;
     -moz-animation:slideEnterForwards 1s both ease;
     animation:slideEnterForwards 1s both ease;
 }
 
-#form-views.forwards.ng-leave{
+.forwards.ng-leave{
 	-webkit-animation:slideLeaveForwards 1s both ease;
     -moz-animation:slideLeaveForwards 1s both ease;
     animation:slideLeaveForwards 1s both ease;
 }
 
-#form-views.backwards.ng-enter{
+.backwards.ng-enter{
 	-webkit-animation:slideEnterBackwards 1s both ease;
     -moz-animation:slideEnterBackwards 1s both ease;
     animation:slideEnterBackwards 1s both ease;
 }
 
-#form-views.backwards.ng-leave{
+.backwards.ng-leave{
 	-webkit-animation:slideLeaveBackwards 1s both ease;
     -moz-animation:slideLeaveBackwards 1s both ease;
     animation:slideLeaveBackwards 1s both ease;

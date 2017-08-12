@@ -20,21 +20,21 @@
 	<div class="row show-grid" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route'">
 		<div class="col col-xs-12" >					
 			<div class="vraag" translate>Kies een dorp waar je wilt slapen</div>
-			<uib-accordion close-others="truse">					
+			<uib-accordion close-others="true">					
 							<div uib-accordion-group ng-repeat="(key, dorp) in dorpen" is-sopen="dorp.post_title=='Kubaard'" class="panel-default">
-							  	<uib-accordion-heading>{{dorp.post_title}}, <span>{{dorp.typering}}</span><i class="pull-right glyphicon" ></i></uib-accordion-heading>
+							  	<uib-accordion-heading>{{dorp.post_title}}, <span>{{dorp.typering | lowercase}}</span><i class="pull-right glyphicon" ></i></uib-accordion-heading>
 							  	<div class="row row-eq-height"> 						  	
-							  		<div class="col col-xs-4 dorpicon"><img src="images/dorp.svg" alt="{{dorp.post_title}}" title="{{dorp.post_title}}"/></div>
+							  		<div class="col col-xs-4 dorpicon"><img ng-src="{{dorp.afbeelding}}" alt="{{dorp.post_title}}" title="{{dorp.post_title}}"/></div>
 								  	<div class="col col-xs-8">
-										<h3>{{dorp.typering}}</h3>
-										{{dorp.post_content}} <a href="#" target="_blank">Ga naar dorpspagina</a> <br/>
+										<h3>{{dorp.typering | lowercase}}</h3>
+										<div ng-bind-html="dorp.post_content"></div> <a href="http://slachtemarathon.statuur.nl/dorp/{{dorp.post_name}}" target="_blank">Ga naar dorpspagina</a> <br/>
 										<button style="margin-top:22px;" type="button" class="btn btn-primary btn-lg slanted volgende" ng-click="kiesdorp(dorp.post_title);">Hier wil ik slapen</button>
 									</div>
 							  	</div>	
 			
 			</uib-accordion>
 		</div>
-			<p class="toelichting"> Meer informatie over de dorpen en hun karakter is <a href='#'>hier te vinden</a></p>
+			<p class="toelichting"> Meer informatie over de dorpen en hun karakter is <a href='http://slachtemarathon.statuur.nl/dorp'>hier te vinden</a></p>
 	</div>
 	</div>
 	<div class="row show-grid" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.dorp">
@@ -113,7 +113,7 @@
 
 	<div class="row show-grid" ng-hide="pwijzigen">
 		<div class="col-xs-12"><!-- -->
-	  		<button class="btn btn-primary btn-lg slanted volgende" ng-disabled="!formData.reg.slapen" ng-click="setStap(stap+1,1)"  translate>Volgende stap</button>
+	  		<button class="btn btn-primary btn-lg slanted volgende" ng-disabled="!formData.reg.slapen" ng-click="setStap(stap+1,'forwards')"  translate>Volgende stap</button>
 		</div>
 	</div>
 	

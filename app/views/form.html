@@ -1,6 +1,6 @@
 	<!-- form.html ng-click="setStap(stap.stap)" ng-submit="processForm()"-->
  
-<button type="button" class="prev btn btn-info btn-lg" style="z-index:8;position: fixed" ng-show="stap > 0" ng-click="setStap(stap-1, 1)"><span translate>Vorige stap</span>: <span>{{stappen[stap-1].title}}</span></button>
+<button type="button" class="prev btn btn-info btn-lg" style="z-index:8;position: fixed" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')"><span translate>Vorige stap</span>: <span>{{stappen[stap-1].title}}</span></button>
 </div>
 <div class="row form-group" style="padding:0 0 64px 0">
   <div class="container-fluid" style="width:100%;padding: 0px 32px">
@@ -9,16 +9,16 @@
 	  	 <form id="signup-form" name="form" angular-validator angular-validator-submit="processForm()" novalidate>
 			<input type="hidden" name="totaalbedrag" id="totaalbedrag" ng-model="totaalbedrag">
 			<!-- our nested state views will be injected here -->
-            <div id="form-views" ui-view ng-class="direction"></div>
+            <div id="form-views" ng-class="direction" ui-view></div>
         </form>
 	  		  	
   	</div>
   	
   	<div class="col-xs-3" style="padding-top:72px;">
 	  	
-	  	<ul id="stappen">
+	  <ul id="stappen" class="" ng-class="(stap==8)?'finished':''">
 	 <li ng-repeat="stap in stappen" ng-class="{passed : stap.passed, active : stap.active}">
-        <a ui-sref-active="active" ui-sref="{{stap.name}}" title="{{stap.name}}" ng-click="setStap(stap.stap)">{{stap.title}}</a>
+        <a ui-sref-active="active" ui-sref="{{stap.name}}" title="{{stap.name}}" sng-click="setStap(stap.stap)">{{stap.title}}</a>
       </li>             
  </ul>
 	  		  	
