@@ -85,6 +85,9 @@ h1{
 }
 
 
+h2:first-child{
+	margin:130px 0 20px 0;
+}
 
 h2{
 	font-size:35px;
@@ -367,6 +370,11 @@ i.pull-right:after{
 .btn-info{
 	text-align: left;
 	font-weight: 400;
+}
+
+.prev{
+	border:none;
+	padding: 19px 20px;
 }
 
 .prev span:last-child{

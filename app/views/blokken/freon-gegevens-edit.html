@@ -108,8 +108,7 @@
 	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required="required">{{keer}}</label>
 		
 	    <div ng-show='form.deelgenomen.$error.required && form.$dirty' class="alert alert-danger" role="alert">
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			<span ng-if="form.deelgenomen.$error.required" translate>Maak een keuze</span>
+			<span ng-if="form.deelgenomen.$error.required" style="display:inline;line-height:32px;" translate>Maak een keuze</span>
 		</div>
   	</div>
 </div>
@@ -124,7 +123,10 @@
 <div class="row show-grid">
 	<div class="col col-xs-12 btn-group">			
 		<span translate>Hoeveel kaarten wil je bestellen?</span><br/>    
-	    <label ng-repeat="i in maxkaarten" class="btn btn-lg btn-info" ng-model="formData.kaarten" uib-btn-radio="{{i}}">{{i}}</label>
+	    <label ng-repeat="i in maxkaarten" class="btn btn-lg btn-info" name="kaarten" id="kaarten" ng-model="formData.kaarten" uib-btn-radio="{{i}}" required>{{i}}</label>
+	    <div ng-show='form.kaarten.$error.required && form.$dirty' class="alert alert-danger" role="alert">
+			<span ng-if="form.kaarten.$error.required" style="display:inline;padding-left:32px;" translate>Maak een keuze</span>
+		</div>
   	</div>
 </div>
 

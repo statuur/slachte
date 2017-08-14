@@ -24,7 +24,7 @@ msgstr ""
 msgid "Achternaam"
 msgstr ""
 
-#: app/views/form-betalen.html:47
+#: app/views/form-betalen.html:31
 msgid "Akkoord en betalen"
 msgstr ""
 
@@ -37,8 +37,17 @@ msgstr ""
 msgid "Bagage"
 msgstr ""
 
+#: app/views/bedankt.html:1
+msgid "Bedankt!"
+msgstr ""
+
+#: app/views/form-betalen-simulatie.html:5
 #: app/views/form-betalen.html:1
 msgid "Betalen"
+msgstr ""
+
+#: app/views/form-betalen-simulatie.html:1
+msgid "Betalen simulatie"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:53
@@ -129,7 +138,7 @@ msgstr ""
 msgid "Gegevens Opslaan"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:133
+#: app/views/blokken/freon-gegevens-edit.html:135
 #: app/views/blokken/freon-slapen-edit.html:109
 #: app/views/blokken/freon-starttijd-edit.html:18
 #: app/views/blokken/freon-vervoer-edit.html:29
@@ -175,7 +184,7 @@ msgstr ""
 msgid "Hoe vaak heb je deelgenomen aan de Slachte?"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:126
+#: app/views/blokken/freon-gegevens-edit.html:125
 msgid "Hoeveel kaarten wil je bestellen?"
 msgstr ""
 
@@ -238,7 +247,7 @@ msgstr ""
 msgid "Je kunt later nog extra personen toevoegen"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:122
+#: app/views/blokken/freon-gegevens-edit.html:121
 msgid "Kaarten"
 msgstr ""
 
@@ -252,7 +261,8 @@ msgstr ""
 msgid "Kies een tijdstip:"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:112
+#: app/views/blokken/freon-gegevens-edit.html:111
+#: app/views/blokken/freon-gegevens-edit.html:128
 msgid "Maak een keuze"
 msgstr ""
 
@@ -404,6 +414,10 @@ msgstr ""
 msgid "Tussenvoegsels"
 msgstr ""
 
+#: app/views/bedankt.html:4
+msgid "Veel plezier gewenst tijdens de Slachtemarathon"
+msgstr ""
+
 #: app/views/blokken/introduce-vervoer-view.html:3
 #: app/views/form-overzicht.html:40
 #: app/views/form-vervoer.html:1
@@ -415,7 +429,7 @@ msgstr ""
 msgid "Vervoer wijzigen"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:140
+#: app/views/blokken/freon-gegevens-edit.html:142
 #: app/views/blokken/freon-slapen-edit.html:116
 #: app/views/blokken/freon-starttijd-edit.html:25
 #: app/views/blokken/freon-vervoer-edit.html:36
@@ -496,6 +510,10 @@ msgstr ""
 
 #: app/views/vertalen-menu.html:40
 msgid "form.betalen"
+msgstr ""
+
+#: app/views/vertalen-menu.html:45
+msgid "form.betalensimulatie"
 msgstr ""
 
 #: app/views/vertalen-menu.html:12

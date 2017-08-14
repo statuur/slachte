@@ -77,6 +77,15 @@ angular
 	.state('form.betalen', {
             url: '/betalen',
             templateUrl: 'views/form-betalen.html'
+        })
+        
+    .state('form.betalensimulatie', {
+            url: '/betalen',
+            templateUrl: 'views/form-betalen-simulatie.html'
+        })
+    .state('bedankt', {
+            url: '/betalen',
+            templateUrl: 'views/bedankt.html'
         });
     
  $urlRouterProvider.otherwise('/form/welkom');

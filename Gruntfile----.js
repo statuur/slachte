@@ -31,7 +31,7 @@ module.exports = function (grunt) {
   	nggettext_extract: {
     pot: {
       files: {
-        'po/template.pot': ['app/views/*.html', 'app/index.html', 'www/js/*.js']
+        'po/template.pot': ['app/{,*/}{,*/}/*.html', 'app/views/blokken/*.html', 'app/index.html', 'www/js/*.js']
       }
     },
   },
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/{,*/}{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -154,31 +154,6 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
-	
-	bowercopy: {
-  options: {
-    srcPrefix: 'bower_components'
-  },
-  scripts: {
-    options: {
-      destPrefix: 'dist/bower_components'
-    },
-    files: {
-      'jquery/dist/jquery.min.js': 'jquery/dist/jquery.min.js',
-      'angular/angular.min.js': 'angular/angular.min.js',
-      'bootstrap/dist/js/bootstrap.min.js' : 'bootstrap/dist/js/bootstrap.min.js',
-      'angular-animate/angular-animate.min.js': 'angular-animate/angular-animate.min.js',
-      'angular-cookies/angular-cookies.min.js':'angular-cookies/angular-cookies.min.js',
-      'angular-messages/angular-messages.min.js':'angular-messages/angular-messages.min.js',
-      'angular-touch/angular-touch.min.js':'angular-touch/angular-touch.min.js',
-      'angular-gettext/dist/angular-gettext.min.js':'angular-gettext/dist/angular-gettext.min.js',
-      'angular-ui-router/release/angular-ui-router.min.js':'angular-ui-router/release/angular-ui-router.min.js',
-      'angular-bootstrap/ui-bootstrap-tpls.min.js':'angular-bootstrap/ui-bootstrap-tpls.min.js',
-      'angular-ui-validate/dist/validate.min.js':'angular-ui-validate/dist/validate.min.js',
-      
-    }
-  }
-},
 
     // Make sure code styles are up to par
     jscs: {
@@ -196,7 +171,7 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
-	
+
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -239,7 +214,7 @@ module.exports = function (grunt) {
         }]
       }
     },
-
+	
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -281,9 +256,11 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       html: '<%= yeoman.app %>/index.html',
+        
       options: {
+        root: './',
+      
         dest: '<%= yeoman.dist %>',
-        //root: './',
         flow: {
           html: {
             steps: {
@@ -378,7 +355,7 @@ module.exports = function (grunt) {
       }
     },
 
-     ngtemplates: {
+    ngtemplates: {
       dist: {
         options: {
           module: 'slachtemarathonApp',
@@ -386,7 +363,7 @@ module.exports = function (grunt) {
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: '{,*/}*.html',
+        src: 'viewsssssssssssss/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
     },
@@ -422,7 +399,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '*.html',
-            '{,*/}{,*/}*.html',
+            '{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*'
           ]
@@ -509,7 +486,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    //'bowercopy',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

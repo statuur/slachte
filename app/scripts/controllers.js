@@ -6,37 +6,38 @@ angular.module('app.controllers', [])
 	// we will store all of our form data in this object
    
     //$cookies.putObject('formData', $scope.formData); 
-    $scope.svs				= ["starttijd", "vervoer", "slapen"];
+    $scope.svs							= ["starttijd", "vervoer", "slapen"];
     
-    $scope.deelname			= ["1 keer", "2 keer","3 keer","4 keer","5 keer", "nog nooit"];
-    $scope.formData 		= (typeof $cookies.getObject('formData')==="undefined")? {} : $cookies.getObject('formData', $scope.formData); 
-    $scope.direction 		= "forwards";
-    $scope.formData.kaarten = (typeof $scope.formData.kaarten==="unefined") ? 2 : $scope.formData.kaarten;
-    $scope.formData.shirts 	= {};
-    $scope.formData.reg 	= (typeof $scope.formData.reg==="undefined")? {} : $scope.formData.reg;
+    $scope.deelname						= ["1 keer", "2 keer","3 keer","4 keer","5 keer", "nog nooit"];
+    $scope.formData 					= (typeof $cookies.getObject('formData')==="undefined")? {} : $cookies.getObject('formData', $scope.formData); 
+    $scope.direction 					= "forwards";
+    $scope.formData.kaarten 			= (typeof $scope.formData.kaarten==="unefined") ? 2 : $scope.formData.kaarten;
+    $scope.formData.shirts 				= {};
+    $scope.formData.reg 				= (typeof $scope.formData.reg==="undefined")? {} : $scope.formData.reg;
     $scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
+    $scope.formData.reg.betaald 		= (typeof $scope.formData.reg==="undefined") ? "" : 0;
     
-    $scope.formData.user 	= "test";
-    $scope.formData.password= "testpersoon1234";
+    $scope.formData.user 				= "test";
+    $scope.formData.password			= "testpersoon1234";
     
     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */
-    $scope.formData.introducees 	= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
-    $scope.formData.introducees[0] 	= (typeof $scope.formData.introducees[0]==="undefined") ? {"email":"maaike@statuur.nl", "pwijzigen":"edit"} : $scope.formData.introducees[0];
-    $scope.formData.introducees[1] 	= (typeof $scope.formData.introducees[1]==="undefined") ? {"email":"laarif@gmail.com", "pwijzigen":"edit"} : $scope.formData.introducees[1];
-    $scope.formData.introducees[2] 	= (typeof $scope.formData.introducees[2]==="undefined") ? {"email":"bastiaaaan@yahoo.com", "pwijzigen":"edit"} : $scope.formData.introducees[2];
+    $scope.formData.introducees 		= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
+    $scope.formData.introducees[0] 		= (typeof $scope.formData.introducees[0]==="undefined") ? {"email":"maaike@statuur.nl", "pwijzigen":"edit"} : $scope.formData.introducees[0];
+    $scope.formData.introducees[1] 		= (typeof $scope.formData.introducees[1]==="undefined") ? {"email":"laarif@gmail.com", "pwijzigen":"edit"} : $scope.formData.introducees[1];
+    $scope.formData.introducees[2] 		= (typeof $scope.formData.introducees[2]==="undefined") ? {"email":"bastiaaaan@yahoo.com", "pwijzigen":"edit"} : $scope.formData.introducees[2];
     
     
     /** functie voor togglen intrducee edit <> view **/
-    $scope.states					= [{"gegevens":"edit", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"}];
-    $scope.ticketprice		= 82.50;
-	$scope.tshirtprice		= 12.50;
-	$scope.overnachting		= 19.50;
-    $scope.genders 			= ["m","v"];
-    $scope.sizes 			= ["s","m","l","xl", "xxl"];
-    $scope.maxkaarten 		= [1,2,3,4]; 
-	$scope.pwijzigen		= 0;	
-    $scope.stap 			= 1;
-    $scope.prevstap 		= 0;
+    $scope.states						= [{"gegevens":"edit", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"}];
+    $scope.ticketprice					= 82.50;
+	$scope.tshirtprice					= 12.50;
+	$scope.overnachting					= 19.50;
+    $scope.genders 						= ["m","v"];
+    $scope.sizes 						= ["s","m","l","xl", "xxl"];
+    $scope.maxkaarten 					= [1,2,3,4]; 
+	$scope.pwijzigen					= 0;	
+    $scope.stap 						= 1;
+    $scope.prevstap 					= 0;
     
     //to update the menu at the right timing
     $transitions.onSuccess( {}, function(){		
@@ -164,7 +165,12 @@ angular.module('app.controllers', [])
 		$cookies.putObject('formData', $scope.formData); 
 	}
 	
-	
+	 $scope.Bedankt = function() {
+   	 
+   	 //get user_id and update it to betalen ajax regust to deeelnemer betaald
+   	 //$scope.formData.reg.betaald
+   	 $state.go('bedankt');
+   	 }
 	// function to process the form
     $scope.processForm = function() {
        //console.log($.param($scope.formData));
@@ -177,8 +183,7 @@ angular.module('app.controllers', [])
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
-	    		
-				$state.go('form.betalen');
+				$state.go('form.betalensimulatie');
 	    	}else{
 		    	//$scope.loginError = true;
 	    	}
@@ -217,6 +222,7 @@ angular.module('app.controllers', [])
 		 var passed	 = 1;
 		 var i = 0;
 		 angular.forEach(formsteps, function(stap, key) {
+		 	 if (stap.name.match(/(form.betalensimulatie)/i)) return false;
 		 	 if (stap.name.match(/(form.)/i)) {
 		 	 	 
 		 	 	 var translated = gettextCatalog.getString(stap.name);
@@ -232,7 +238,7 @@ angular.module('app.controllers', [])
 		 	 }	 	 
 		}, stappen);     
 		$scope.stappen = stappen;            
-		//console.log(stappen[$scope.stap].title);
+		
     };	
     
     $scope.menu(); 

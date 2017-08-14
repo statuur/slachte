@@ -240,16 +240,16 @@ module.exports = function (grunt) {
     }, 
 
     // Renames files for browser caching purposes
-    filerev: {
-      dist: {
-        src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
-          '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
-        ]
-      }
-    },
+    //filerev: {
+    //  dist: {
+    //    src: [
+    //      '<%= yeoman.dist %>/scripts/{,*/}*.js',
+    //      '<%= yeoman.dist %>/styles/{,*/}*.css',
+    //      '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+    //      '<%= yeoman.dist %>/styles/fonts/*'
+    //    ]
+    //  }
+    //},
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -275,7 +275,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/{,*/}{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       js: ['<%= yeoman.dist %>/scripts/{,*/}*.js'],
       options: {
@@ -341,6 +341,7 @@ module.exports = function (grunt) {
     htmlmin: {
       dist: {
         options: {
+          removeComments: true,
           collapseWhitespace: true,
           conservativeCollapse: true,
           collapseBooleanAttributes: true,
@@ -349,8 +350,19 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html'],
+          src: '*.html',
           dest: '<%= yeoman.dist %>'
+        },
+        {
+          expand: true,
+          cwd: '<%= yeoman.dist %>/views',
+          src: '*.html',
+          dest: '<%= yeoman.dist %>/views'
+        },{
+          expand: true,
+          cwd: '<%= yeoman.dist %>/views/blokken',
+          src: ['*.html', '!freon-gegevens-edit.html', '!introduce-gegevens-edit.html'],
+          dest: '<%= yeoman.dist %>/views/blokken'
         }]
       }
     },
@@ -398,8 +410,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '*.html',
-            '{,*/}*.html',
+            //'*.html',
+            '{,*/}{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*'
           ]
@@ -490,16 +502,17 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
+    'copy:dist',
     'ngtemplates',
     'concat',
     'ngAnnotate',
-    'copy:dist',
+    
     //'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
+    //'filerev',
     'usemin',
-    'htmlmin'
+  //  'htmlmin'
   ]);
 
   grunt.registerTask('default', [
