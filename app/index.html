@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="welkom">
   <head>
     <meta charset="utf-8">
     <title>Slachtemarathon 2018  | Ticketservice</title>
@@ -34,8 +34,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="slachtemarathonApp" ng-controller="welkomController" style="margin:16px;">
-  <div id="background" style="width: calc(100% - 32px);height: calc(100% - 32px);">
-	  
+  <div id="background">
   <div class="view">
   	<div ng-show="inschrijving_status==1">
 		<h1 class="welkom">Welkom <span>|</span> Wolkom <span>|</span> Welcome</h1>
@@ -65,8 +64,14 @@
 	<p class="toelichting" translate>Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn.</p>	
 </div>
   </div>
-  <img src="images/slachtemarathon-logo.svg" alt="slachtemarathon" title="slachtemarathon" id="logo"/> 
-  
+  <img src="images/slachtemarathon-logo.svg" alt="slachtemarathon" title="slachtemarathon" id="logo"/>   
+ 
+  <div ng-hide="cookieAgree==1" style="width:100%;bottom:00px;left:0px;height:92px;padding:10px 15px 32px 15px;position:absolute;background:rgba(255,255,255,0.95);z-index:113;">
+  	<div class="melding alert alert-warning">
+  		<strong translate>Cookie Instellingen</strong> <span translate>Deze website maakt gebruikt van cookies om de voortgang van het invullen van uw persoonsgegevens en keuzes tijdelijk op te slaan</span>
+  			<button type="button" class="btn btn-primary btn-lg slanted pull-right" ng-click="cookieAgreement()" sng-disabled="!formData.bagage">Akkoord</button>
+	</div>
+  </div>
   <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

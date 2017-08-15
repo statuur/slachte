@@ -34,6 +34,32 @@
   font-weight:  400;
 }
 
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+}
+
 /* rood: #E00915 */
 html, body {
     height: 100%;
@@ -47,11 +73,42 @@ html, body {
     font-size:16px;
 }
 
+.welkom.body{
+	margin:16px;
+}
+.welkom#background{
+	width:calc(100% - 32px);
+	height:calc(100% - 32px);
+}
+
+.whitebar{
+	max-width:1280px;
+	height:70px;
+	width:calc(100% - 64px);
+	background:#fff;
+	z-index:10;
+	position:absolute;
+}
+
 #background{
 	width:100%;
 	height:100%;
 	position: absolute;
 	background:#ededed url('../images/slachtemarathon-2018.jpg') center center / 100% auto no-repeat;
+}
+
+ui-view{
+	background:#fff;
+}
+
+.view{
+	width:1280px;
+	display: block;
+	margin: 64px auto;
+	height: calc(100% - 128px);
+	padding:0;
+	overflow-y:auto;
+	overflow-x: hidden!important;
 }
 
 #overzicht h1{
@@ -109,19 +166,7 @@ h1.welkom span{
 	padding: 0px 12px;
 }
 
-ui-view{
-	background:#fff;
-}
 
-.view{
-	width:1280px;
-	display: block;
-	margin: 64px auto;
-	height: calc(100% - 128px);
-	padding:0px;
-	overflow-y:auto;
-	overflow-x: hidden;
-}
 
 #stappen{
 	padding:0px;
@@ -624,8 +669,12 @@ hr.hr-30{
 	line-height: 28px;
 	background:#ededed;
 	padding-bottom:16px;
+	margin:0px;
 }
 
+#overzicht h2:first-child{
+	margin: 18px 0px 26px 0px;
+}
 #overzicht h2{
 	font-size:26px;
 	color:#E00915;
@@ -640,11 +689,15 @@ hr.hr-30{
 }
 
 #overzicht .wijzigen{
+	margin-right:13px;
 	font-size: 16px;
 	text-decoration: underline;
 	cursor:pointer;
 }
-
+.grey{
+	border-top: 1px solid #a5a5a5;
+	margin:9px 15px 2px 15px;
+}
 
 /* ANIMATIONS
 ============================================================================= */
@@ -736,7 +789,6 @@ ul.validation-list li{
 	border-radius: 0px;
 }
 
-
 .slide-animate-container {
   position:relative;
  }
@@ -775,9 +827,38 @@ ul.validation-list li{
     from    { opacity:1 }
     to      { opacity:0}
 }
-
+/*
 @media (max-width:768px){
 	.col-xs-9 {
 	    width: 50%!important;
 	}
+}
+*/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	.view{
+	width: calc(100% - 64px);
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
 }

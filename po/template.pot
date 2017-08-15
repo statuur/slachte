@@ -55,9 +55,17 @@ msgstr ""
 msgid "Bij iemand thuis"
 msgstr ""
 
+#: app/index.html:71
+msgid "Cookie Instellingen"
+msgstr ""
+
 #: app/views/blokken/freon-gegevens-edit.html:33
 #: app/views/blokken/introduce-gegevens-edit.html:28
 msgid "De e-mail velden zijn niet hetzelfde"
+msgstr ""
+
+#: app/index.html:71
+msgid "Deze website maakt gebruikt van cookies om de voortgang van het invullen van uw persoonsgegevens en keuzes tijdelijk op te slaan"
 msgstr ""
 
 #: app/views/form-inloggen.html:20
@@ -144,10 +152,10 @@ msgstr ""
 msgid "Gegevens Opslaan"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:153
+#: app/views/blokken/freon-gegevens-edit.html:152
 #: app/views/blokken/freon-slapen-edit.html:109
 #: app/views/blokken/freon-starttijd-edit.html:18
-#: app/views/blokken/freon-vervoer-edit.html:29
+#: app/views/blokken/freon-vervoer-edit.html:28
 msgid "Gegevens opslaan"
 msgstr ""
 
@@ -203,7 +211,7 @@ msgstr ""
 msgid "Huisnummer"
 msgstr ""
 
-#: app/views/blokken/freon-vervoer-edit.html:18
+#: app/views/blokken/freon-vervoer-edit.html:16
 #: app/views/blokken/introduce-vervoer-edit.html:21
 msgid "Ik kom lopend of met de fiets"
 msgstr ""
@@ -218,7 +226,7 @@ msgstr ""
 msgid "Ik slaap thuis"
 msgstr ""
 
-#: app/views/blokken/freon-vervoer-edit.html:17
+#: app/views/blokken/freon-vervoer-edit.html:15
 #: app/views/blokken/introduce-vervoer-edit.html:20
 msgid "Ik word gebracht"
 msgstr ""
@@ -304,7 +312,7 @@ msgstr ""
 msgid "Neem je iemand mee?"
 msgstr ""
 
-#: app/index.html:65
+#: app/index.html:64
 #: app/views/welkom.html:46
 msgid "Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn."
 msgstr ""
@@ -445,12 +453,12 @@ msgstr ""
 msgid "Vervoer wijzigen"
 msgstr ""
 
-#: app/views/blokken/freon-gegevens-edit.html:160
+#: app/views/blokken/freon-gegevens-edit.html:159
 #: app/views/blokken/freon-slapen-edit.html:116
 #: app/views/blokken/freon-starttijd-edit.html:25
-#: app/views/blokken/freon-vervoer-edit.html:36
+#: app/views/blokken/freon-vervoer-edit.html:35
 #: app/views/form-overzicht.html:89
-#: app/views/form-shirts.html:23
+#: app/views/form-shirts.html:17
 msgid "Volgende stap"
 msgstr ""
 
@@ -484,7 +492,7 @@ msgstr ""
 msgid "Wat voor soort overnachting zou je willen?"
 msgstr ""
 
-#: app/index.html:43
+#: app/index.html:42
 #: app/views/welkom.html:21
 msgid ""
 "We nemen u stap voor stap mee door de kaartverkoop voor de Slachtemarathon op 31 augustus en \n"

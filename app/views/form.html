@@ -1,5 +1,9 @@
 <!-- form.html ng-click="setStap(stap.stap)" ng-submit="processForm()"--> 
-<button type="button" class="prev btn btn-info btn-lg" style="z-index:8;position: fixed" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')"><span translate>Vorige stap</span>: <span>{{stappen[stap-1].title}}</span></button>
+
+<div class="whitebar">
+	<button type="button" class="prev btn btn-info btn-lg" style="z-index:8;position: fixed" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')"><span translate>Vorige stap</span>: <span>{{stappen[stap-1].title}}</span></button>
+</div>
+
 </div>
 <div class="row form-group" style="padding:0 0 64px 0">
   <div class="container-fluid" style="width:100%;padding: 0px 32px">

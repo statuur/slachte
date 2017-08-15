@@ -3,7 +3,7 @@
 angular.module('app.controllers', [])
 
 
-.controller('welkomController', function($scope, $http, gettextCatalog) {
+.controller('welkomController', function($scope, $http, gettextCatalog,$cookies) {
 	$http({
 		method: 'GET',
 		url: 'http://slachtemarathon.statuur.nl/api/dorpen/get_dorpen'
@@ -14,6 +14,15 @@ angular.module('app.controllers', [])
 		$scope.dorpen = response.data;
 		
 		});
+		
+	$scope.cookieAgree = (typeof $cookies.getObject('formData')==="undefined")? 0 : $cookies.get("cookies");
+ 	
+ 	$scope.cookieAgreement = function(lang) {
+		 var expireDate = new Date();
+		 expireDate.setDate(expireDate.getDate() + 1);
+		$cookies.put("cookies", 1, {'expires': expireDate});
+		$scope.cookieAgree =1;	
+	}
 		
 	$scope.setLanguage = function(lang) {
         gettextCatalog.setCurrentLanguage(lang);
@@ -87,20 +96,6 @@ angular.module('app.controllers', [])
 		*/	
     }
     
-    	
-	    
-    
-        
-    $scope.toggleTemplate = function(template, view, index){	    
-	    //$scope.formData.introducees 			= [{"pwijzigen":"edit"},{"pwijzigen":"edit"},{"pwijzigen":"edit"}];
-		//console.log($scope.states[index]);
-
-	    //hier moet de $index factor nog bij!
-		//$scope.formData.introducees[index].states[template] = view;	    
-	    $scope.states[index][template] = view; //<!-- deze moet multidimensionaal
-	    $cookies.putObject('formData', $scope.formData); 	   	  
-    }
-    
     $scope.showPrice = function(){
 	   	//TODO ITERATE TROUGHT THE OBJECT AND CHECK IF THE VALUES ARE NOT NULL
 	    
@@ -140,13 +135,15 @@ angular.module('app.controllers', [])
     									"vervoer"	: {"view" : "views/blokken/introduce-vervoer-view.html", "edit":"views/blokken/introduce-vervoer-edit.html"},
     									"slapen"	: {"view" : "views/blokken/introduce-slapen-view.html", "edit":"views/blokken/introduce-slapen-edit.html"},
     									};
-    //$scope.states					= {"gegevens":"edit", "starttijd":"view", "vervoer":"view", "slapen":"view"};
+    
+    $scope.toggleTemplate = function(template, view, index){	    
+	    $scope.states[index][template] = view;
+	    $cookies.putObject('formData', $scope.formData); 	   	  
+    }
     
     $scope.togglepTemplate = function(template, view){	    
-		//als view edit is dan de andere views op view...
 		$scope.pstates[template] = view;
 	    $cookies.putObject('formData', $scope.formData); 	   	
-	    
     }
     
 	/* KOPIEER PERSOONSGEGEVENS NAAR DE INTRODUCEES */

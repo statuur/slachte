@@ -28,7 +28,7 @@
 								  	<div class="col col-xs-8">
 										<h3>{{dorp.typering | lowercase}}</h3>
 										<div ng-bind-html="dorp.post_content"></div> <a href="http://slachtemarathon.statuur.nl/dorp/{{dorp.post_name}}" target="_blank">Ga naar dorpspagina</a> <br/>
-										<button style="margin-top:22px;" type="button" ng-disabled="{{dorp.inschrijf_status==0}}" class="btn btn-primary btn-lg slanted volgende" ng-click="kiesdorp(dorp.post_title);">Hier wil ik slapen</button><br/><div class="toelichting" ng-show="dorp.inschrijf_status==0" translate>Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels bezet zijn.</div>
+										<button style="margin:22px 0px 32px 0;" type="button" ng-disabled="{{dorp.inschrijf_status==0}}" class="btn btn-primary btn-lg slanted volgende" ng-click="kiesdorp(dorp.post_title);">Hier wil ik slapen</button><br/><div class="toelichting" ng-show="dorp.inschrijf_status==0" translate>Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels bezet zijn.</div>
 									</div>
 							  	</div>	
 			
