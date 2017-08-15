@@ -1,4 +1,16 @@
-<div ng-class="{wit:pwijzigen}" class="container-fluid">  
+
+<div ng-class="{wit:pstates.gegevens=='edit'}" class="container-fluid">
+	
+	<div class="row form-group" ng-hide="pstates.gegevens=='edit'" ng-class="{ 'has-error' : form.reg.email.$invalid && (form.reg.email.$dirty) }">
+		<div class="col col-xs-12 has-error">			
+			<h2 translate>Persoonlijke gegevens</h2>
+			<p translate class="toelichting">Vul eerst uw eigen gegevens in. U kunt later extra personen (maximaal 3) toevoegen.</p>
+	
+  		</div>
+	</div>
+
+	
+	
 	<div class="row form-group" ng-class="{ 'has-error' : form.reg.email.$invalid && (form.reg.email.$dirty) }">
 		<div class="col col-xs-12 has-error">			
 			<input type="email" class="form-control" placeholder="" name="email" id="email" ng-model="formData.reg.email" required>
@@ -50,13 +62,17 @@
 
 <div class="row show-grid">
 	<div class="col col-xs-10"> 			
-  		<input type="text" class="form-control" placeholder="" name="straatnaam" id="straatnaam" ng-model="formData.reg.straatnaam" required>
+  		<input type="text" class="form-control" placeholder="" name="straatnaam" id="straat" ng-model="formData.reg.straat" required>
   		<label for="straatnaam" translate>Straatnaam</label>
   	</div>
   		
   	<div class="col col-xs-2"> 			
-  		<input type="text" class="form-control" placeholder="" name="huisnummer" id="huisnummer" ng-model="formData.reg.huisnummer">
+  		<input type="text" class="form-control" placeholder="" name="huisnummer" id="huisnummer" ng-model="formData.reg.huisnummer" required>
   		<label for="huisnummer" translate>Huisnummer</label>
+  		<div ng-show='form.huisnummer$error.required && form.huisnummer.$dirty' class="alert alert-danger" role="alert">
+			<span ng-if="form.huisnummer.$error.required" translate>Dit veld mag niet leeg zijn</span>
+		</div>
+  	
   	</div>  		
 </div>
 
@@ -72,7 +88,7 @@
   	</div>
   
   	<div class="col col-xs-7"> 			
-  		<input type="text" class="form-control" placeholder="" name="woonplaats" id="woonplaats" ng-model="formData.reg.woonplaats">
+  		<input type="text" class="form-control" placeholder="" name="woonplaats" id="plaats" ng-model="formData.reg.plaats" required>
   		<label for="woonplaats" translate>Woonplaats</label>
   	</div>
 </div>
@@ -96,16 +112,18 @@
 		<label for="geboortedatum" translate>Geboortedatum</label>
   	</div>
   		
-  	<div class="col col-xs-7btn-group"><span translate>Geslacht</span>: 
-	    <label class="btn btn-lg btn-info man" ng-model="formData.reg.geslacht" uib-btn-radio="'man'" translate>man</label><label class="btn btn-lg btn-info vrouw" ng-model="formData.reg.geslacht" uib-btn-radio="'vrouw'" translate>vrouw</label><label class="btn btn-lg btn-info x" ng-model="formData.reg.geslacht" uib-btn-radio="'x'">x</label>
-	  
+  	<div class="col col-xs-7btn-group"><span translate>Geslacht </span>* 
+	    <label class="btn btn-lg btn-info onder man" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'man'" uncheckable required translate>man</label><label class="btn btn-lg btn-info onder vrouw" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'vrouw'" uncheckable required translate>vrouw</label><label class="btn btn-lg btn-info onder x" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'x'" uncheckable required>x</label>
+		<span ng-show='form.geslacht.$error.required && form.$dirty' class="alert alert-danger" role="alert">
+			<span ng-if="form.geslacht.$error.required" styles="display:inline;line-height:32px;" translate>Maak een keuze</span>
+		</span>
 	</div>
 </div>	
 
 <div class="row show-grid">
 	<div class="col col-xs-12 btn-group">		
 		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachte?</span><br/>    
-	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required="required">{{keer}}</label>
+	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required="required">{{keer}}</label>
 		
 	    <div ng-show='form.deelgenomen.$error.required && form.$dirty' class="alert alert-danger" role="alert">
 			<span ng-if="form.deelgenomen.$error.required" style="display:inline;line-height:32px;" translate>Maak een keuze</span>
@@ -123,22 +141,24 @@
 <div class="row show-grid">
 	<div class="col col-xs-12 btn-group">			
 		<span translate>Hoeveel kaarten wil je bestellen?</span><br/>    
-	    <label ng-repeat="i in maxkaarten" class="btn btn-lg btn-info" name="kaarten" id="kaarten" ng-model="formData.kaarten" uib-btn-radio="{{i}}" required>{{i}}</label>
+	    <label ng-repeat="i in maxkaarten" class="btn btn-lg btn-info onder" name="kaarten" id="kaarten" ng-model="formData.kaarten" uib-btn-radio="{{i}}" required>{{i}}</label>
 	    <div ng-show='form.kaarten.$error.required && form.$dirty' class="alert alert-danger" role="alert">
 			<span ng-if="form.kaarten.$error.required" style="display:inline;padding-left:32px;" translate>Maak een keuze</span>
 		</div>
   	</div>
-</div>
 
-<div ng-show='pwijzigen'>
+<div ng-show="pstates.gegevens=='edit'">
 			<div class="col-xs-12">
 				<button class="btn btn-primary btn-lg slanted pull-right" ng-click="togglepTemplate('gegevens', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 </div>
 
-<div class="row show-grid" ng-hide="pwijzigen">
+<div class="row show-grid" ng-hide="pstates.gegevens=='edit'">
 		<div class="col-xs-12">
   		<button class="btn btn-primary btn-lg volgende slanted" ng-disabled="form.$invalid" ng-click="form.$valid && setStap(stap+1,'forwards')" translate>Volgende stap</button>
 	</div>
 </div>
+  	
+</div>
+

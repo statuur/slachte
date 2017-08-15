@@ -11,7 +11,7 @@
 			<div class="slide-animate-container">
 				<h2 style="padding:16px 0 16px 15px;margin-bottom:0px;font-size:22px;">
 					<span translate>Persoonlijke gegevens</span> 
-					<span ng-click="togglepTemplate('gegevens', 'edit')" ng-hide='pwijzigen' class='pull-right wijzigen' translate>Persoonsgegevens wijzigen</span>
+					<span ng-click="togglepTemplate('gegevens', 'edit')" ng-hide="pstates.gegevens=='edit'" class='pull-right wijzigen' translate>Persoonsgegevens wijzigen</span>
 				</h2>
 			
 				<div id="persoonsgegevens-stap" class="slide-animate" ng-include="ftemplates.gegevens[pstates['gegevens']]"></div>
@@ -25,7 +25,7 @@
 			<div class="slide-animate-container">
 				<h2 style="padding:16px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
 					<span translate>Starttijd</span> 
-					<span ng-click="togglepTemplate('starttijd', 'edit')" class='pull-right wijzigen' ng-hide='pwijzigen' translate>Starttijd wijzigen</span></h2>
+					<span ng-click="togglepTemplate('starttijd', 'edit')" class='pull-right wijzigen' ng-hide="pstates.starttijd=='edit'" translate>Starttijd wijzigen</span></h2>
 		
 					<div id="starttijd-stap" class="slide-animate" ng-include="ftemplates.starttijd[pstates['starttijd']]"></div>
 					
@@ -38,7 +38,7 @@
 			<div class="slide-animate-container">	
 				<h2 style="padding:16px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
 					<span translate>Vervoer</span> 
-					<span ng-click="togglepTemplate('vervoer', 'edit')" class='pull-right wijzigen' ng-hide='pwijzigen' translate>Vervoer wijzigen</span>
+					<span ng-click="togglepTemplate('vervoer', 'edit')" class='pull-right wijzigen' ng-hide="pstates.vervoer=='edit'" translate>Vervoer wijzigen</span>
 				</h2>
 		
 				<div id="vervoer-stap" class="slide-animate" ng-include="ftemplates.vervoer[pstates['vervoer']]"></div>
@@ -53,7 +53,7 @@
 			<div class="slide-animate-container">	
 				<h2 style="padding:16px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
 					<span translate>Slapen</span> 
-					<span ng-click="togglepTemplate('slapen', 'edit')" class='pull-right wijzigen' ng-hide='pwijzigen' translate>Slapen wijzigen</span>
+					<span ng-click="togglepTemplate('slapen', 'edit')" class='pull-right wijzigen' ng-hide="pstates.slapen=='edit'" translate>Slapen wijzigen</span>
 				</h2>
 				
 				<div id="slapen-stap" class="slide-animate" ng-include="ftemplates.slapen[pstates['slapen']]"></div>

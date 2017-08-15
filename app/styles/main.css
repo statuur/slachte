@@ -40,7 +40,7 @@ html, body {
     width:100%;
     margin:0px;
     padding:0px;
-    background:#ededed;
+    background:#fff;
     font-family: 'Frutiger LT Std';
     overflow: hidden;
     font-weight: 400;
@@ -69,14 +69,16 @@ html, body {
 	z-index:112;
 	left:50%;
 	top:0px;
-	transform: translate(-50%,50%);
+	transform: translate(-50%,0%);
+	height:64px;
+	width:auto;
 }
 
 h1, h2, h3{
 	margin:0px;
 	padding:0px;
 	color:#000;
-	font-weight:  400;
+	font-weight: 400;
 }
 
 h1{
@@ -92,21 +94,29 @@ h2:first-child{
 h2{
 	font-size:35px;
 	color:#E00915;
-	margin:64px 0 20px 0;
+	margin:0px 0 20px 0;
 }
 
 
 h1.welkom{
-	margin-top:64px;
+	margin-top:45px;
 	font-size:50px;
 	color:#E00915;
 }
 
+h1.welkom span{
+	color:#fff;
+	padding: 0px 12px;
+}
+
 ui-view{
+	background:#fff;
+}
+
+.view{
 	width:1280px;
 	display: block;
 	margin: 64px auto;
-	background:#fff;
 	height: calc(100% - 128px);
 	padding:0px;
 	overflow-y:auto;
@@ -131,6 +141,10 @@ ui-view{
 	color:#000;
 }
 /* stappen die nog moeten*/
+#stappen li a{
+	text-decoration: none;
+}
+
 #stappen li a:before{
 	content:"";
 	display:block;
@@ -226,11 +240,6 @@ b{
 .form-control{
 	height:auto;
 }
-/*
-input.ng-invalid{
-	border:1px solid red!important;
-}
-*/
 
 .alert{
 	font-size:14px;
@@ -239,12 +248,13 @@ input.ng-invalid{
 	background:transparent;
 	border:none;
 	color:#e10915!important;
-
 }
 
-form.ng-invalid button{
-	spointer-events: none;
-	sopacity:0.5;
+.melding{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
@@ -263,7 +273,7 @@ input{/*.ng-valid */
 	line-height: 16px!important;
 	border-radius:0!important;
 	border:1px solid #a5a5a5!important;
-	padding:10px!important; 
+	padding:13px!important; 
 	overflow: visible;
 	background:#ededed!important;	
 }
@@ -277,19 +287,24 @@ input:focus[type=date]{
 color: #555!important;
 }
 
+input:required ~ label:after{
+	content: " *";
+	color:#e10915;
+}
+
 input[type=password] ~ label,
 input[type=text] ~ label,
 input[type=email] ~ label,
 input[type=date] ~ label{
 	position: absolute;
 	top: 0;
-	right: 1px;
+	margin-top:10px;
 	bottom: 1px;
 	left: 2em;
 	z-index: 1;
-	height: 1em;
+	height: 15px;
 	font-size: 16px;
-	line-height: 3em;
+	padding:2px 6px;
 	color:#666;
 	white-space: nowrap;
 	cursor: text;
@@ -301,29 +316,26 @@ input:focus[type=password] ~ label,
 input:focus[type=text] ~ label,
 input:focus[type=email] ~ label,
 input:focus[type=date] ~ label{
+	background: #fff!important;
+	line-height:16px;
 	font-size:11px;
 	font-weight:bold;
 	left:25px;
 	top:-16px;
 	color:#000;
 }
-/*
-input[type=password] ~ label,
-input[type=text] ~ label,
-input[type=email] ~ label,
-input[type=date] ~ label{
-	font-size:11px;
-	font-weight:bold;
-	left:25px;
-	top:-14px;
-	color:#000;
-}
-*/
+
 .btn{
 	font-size:16px;
 }
+
 .btn-slg:last-child{
 	margin-left:-1px;
+}
+
+.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn{
+	background:#ededed;
+	opacity: 1;
 }
 
 i.pull-right:after{
@@ -331,8 +343,42 @@ i.pull-right:after{
 	position:absolute;
 	left:-50px;
 	font-family: 'Frutiger LT Std';
-	font-weight:200;
 }
+
+uib-accordion h3{
+	font-size:26px;
+	color:#E00915;
+	margin:33px 0 22px 0;
+}
+
+.panel-default > .panel-heading[aria-selected='true']{
+	background:#fff!important;
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+    border-top: 1px solid #A5A5A5;
+    border-left: 3px solid #E00915;
+    border-right: 1px solid #A5A5A5;
+    border-bottom: 1px solid #A5A5A5;
+}
+
+
+.panel-default > .panel-heading{
+	background:#ededed;
+}
+
+.panel{
+	border-radius: 0px!important;
+}
+
+.panel-group .panel + .panel{
+	margin-top:-1px;
+}
+
+uib-accordion a:hover,
+uib-accordion a:active{
+	text-decoration: none;
+}
+
 .panel-title span > span{
 	color:#828282;
 }
@@ -352,6 +398,10 @@ i.pull-right:after{
 .btn-slg > span{
 	padding-top:24px;
 	display: inline-block;
+}
+
+.btn-slg.active img{
+	margin-left:-2px;
 }
 
 .btn-slg img{
@@ -429,7 +479,18 @@ i.pull-right:after{
 }
 
 .btn-info.active,.btn-info:active, .btn-info.active:hover{
+	border-top:1px solid #A5A5A5;
 	border-left: 3px solid #E00915;
+	border-right:1px solid #A5A5A5;
+	border-bottom: 1px solid #A5A5A5;
+	
+}
+
+.btn-info.onder.active, .btn-info.onder:active, .btn-info.onder.active:hover{
+	border-top:1px solid #A5A5A5;
+	border-left:1px solid #A5A5A5;
+	border-right:1px solid #A5A5A5;
+	border-bottom: 3px solid #E00915;
 }
 
 .btn-el.active{
@@ -476,12 +537,6 @@ i.pull-right:after{
     display: flex;
 }
 
-uib-accordion h3{
-	font-size:26px;
-	color:#E00915;
-	margin:33px 0 22px 0;
-}
-
 .vraag{
 	font-size: 20px;
 	margin-bottom:16px;
@@ -500,23 +555,6 @@ uib-accordion h3{
 	font-size: 20px;
 	padding-right:8px;
 	font-weight:700;
-}
-
-.panel-default > .panel-heading{
-	background:#ededed;
-}
-
-.panel{
-	border-radius: 0px!important;
-}
-
-.panel-group .panel + .panel{
-	margin-top:-1px;
-}
-
-uib-accordion a:hover,
-uib-accordion a:active{
-	text-decoration: none;
 }
 
 hr.hr-30{

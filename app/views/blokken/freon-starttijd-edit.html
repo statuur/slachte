@@ -1,5 +1,5 @@
-<div ng-class="{wit:pwijzigen}"> 
-	<p class="toelichting" translate>Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor geen garanties gegeven. Indeling gebeurt op basis van volgorde van inschrijving.</p>
+<div ng-class="{wit:pstates.starttijd=='edit'}"> 
+<p class="toelichting" translate>Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor geen garanties gegeven. Indeling gebeurt op basis van volgorde van inschrijving.</p>
 	<div class="row form-group">
 		<div class="col col-xs-12">			
 			<div class="vraag" translate>Kies een tijdstip:</div>
@@ -13,14 +13,14 @@
 	  	
 	</div>
 	
-	<div ng-show='pwijzigen'>
+	<div ng-show="pstates.starttijd=='edit'">
 			<div class="col-xs-12">
 				<button class="btn btn-primary btn-lg slanted pull-right" ng-click="togglepTemplate('starttijd', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="row show-grid" ng-hide="pwijzigen">
+	<div class="row show-grid" ng-hide="pstates.starttijd=='edit'">
 		<div class="col-xs-12"><!-- -->
 	  		<button class="btn btn-primary btn-lg volgende slanted spull-right" ng-disabled="!formData.reg.starttijd" ng-click="setStap(stap+1,'forwards')"  translate>Volgende stap</button>
 		</div>

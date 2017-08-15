@@ -1,4 +1,4 @@
-<h2 translate>Inloggen</h2>
+<h2 style="margin-top:72px" translate>Inloggen</h2>
 <p class="toelichting" translate>Als freon heb je eerder van ons een e-mail gekregen met een gebruikersnaam en een wachtwoord.</p>
 
 <div class="row form-group">
@@ -6,7 +6,7 @@
 		<input type="text" class="form-control" placeholder="" name="user" id="user" ng-model="formData.user" required>
 		<label for="user">Gebruikersnaam</label>
 		
-		<div ng-show='form.user.$error.required && form.user.$dirty'class="alert alert-danger" role="alert">
+		<div ng-show='form.user.$error.required && form.user.$dirty'class="alert alert-danger" role="alert" translate>
 			Dit is een verlicht veld
 		</div>
 		
@@ -17,8 +17,7 @@
 	<div class="col col-xs-6">			
 		<input type="password" class="form-control" placeholder="" name="password" id="password" ng-model="formData.password" required>
 		<label for="password">Wachtwoord</label>
-		<div ng-show='form.password.$error.required'class="alert alert-danger" role="alert">
-		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<div ng-show='form.password.$error.required'class="alert alert-danger" role="alert" translate>
 			Dit is een verlicht veld
 		</div>
   	</div>
@@ -32,7 +31,7 @@
 			<span><strong>Fout:</strong> De ingevulde gebruikersnaam of wachtwoord zijn helaas niet goed</span>
 		</div>
   		
-  		<button type="button" class="btn btn-primary btn-lg volgende slanted" ng-disabled="logingIn || form.$invalid" ng-click="inloggen()">Volgende stap</button>
+  		<button style="margin-top:25px;" type="button" class="btn btn-primary btn-lg volgende slanted" ng-disabled="logingIn || form.$invalid" ng-click="inloggen()">Volgende stap</button>
 		
 	</div>
 </div>
