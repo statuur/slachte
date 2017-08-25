@@ -22,7 +22,7 @@ angular
     'ui.router',
     'gettext'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   if(document.location.href.indexOf("tickets")!= -1){
   
 	  $stateProvider
@@ -39,6 +39,11 @@ angular
 	            templateUrl: 'views/form-inloggen.html'
 	            
 	     }) 
+	    
+	     .state('form.aantalkaarten', {
+	            url: '/aantalkaarten',
+	            templateUrl: 'views/form-aantalkaarten.html'
+	        })  
 	        
 	    .state('form.persoonlijke-gegevens', {
 	            url: '/persoonlijke-gegevens',
@@ -77,28 +82,32 @@ angular
 	    .state('form.betalensimulatie', {
 	            url: '/betalensimulatie',
 	            templateUrl: 'views/form-betalen-simulatie.html'
+	            //templateUrl: 'betalen.php'
 	        })
 	    
 	    .state('bedankt', {
-	            url: '/betalen',
-	            templateUrl: 'views/bedankt.html'
+	            url: '/bedankt',
+	            templateUrl: 'views/bedankt.html',
+	            controller: 'formController'
 	        });
 	    
 	 $urlRouterProvider.otherwise('/form/inloggen');
+	 
+
   }
-  
+  	$httpProvider.defaults.useXDomain = true;
+  	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+  	
   }).run(function(gettextCatalog, $http){
    	
-   	gettextCatalog.debug = true;
-    //gettextCatalog.debugPrefix = ":-(";
-    //window.localStorage.taal="nl_NL";
-   	gettextCatalog.baseLanguage = "fy_NL";
-    //console.log(gettextCatalog);
-	if(typeof window.localStorage.taal==="undefined"){
+   	gettextCatalog.debug 		= true;
+    gettextCatalog.baseLanguage = "fy_NL";
+    
+    if(typeof window.localStorage.taal==="undefined"){
 		gettextCatalog.setCurrentLanguage('fy_NL');
 		window.localStorage.taal = 'fy_NL';
 	}else{		
-		//window.localStorage["taal"] = (window.localStorage["taal"] == "en") ? "fy_NL" : window.localStorage["taal"]; 
 		gettextCatalog.setCurrentLanguage(window.localStorage.taal);
 	}
 	

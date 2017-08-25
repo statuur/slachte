@@ -9,6 +9,12 @@
         </a>
       </li><!-- end ngRepeat: stap in stappen --><li ng-repeat="stap in stappen" class="ng-scope">
         
+        <li ng-repeat="stap in stappen" class="ng-scope">
+        <a translate ui-sref-active="active" ui-sref="form.persoonlijke-gegevens" title="form.persoonlijke-gegevens" class="ng-binding" href="#!/form/persoonlijke-gegevens"> 
+            form.aantalkaarten
+        </a>
+      </li>
+        
         <a translate ui-sref-active="active" ui-sref="form.inloggen" title="form.inloggen" class="ng-binding" href="#!/form/inloggen"> 
             form.inloggen
         </a>
@@ -45,5 +51,11 @@
         <a translate ui-sref-active="active" ui-sref="form.betalen" title="form.betalen" class="ng-binding" href="#!/form/betalen"> 
            form.betalensimulatie
         </a>
+        <span translate>Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.</span>
+        <span translate>Sneek</span>
+        <span translate>Leeuwarden</span>
+        <span translate>Heerenveen</span>
+        <span translate>Franeker/Harlingen</span>
+        
       </li><!-- end ngRepeat: stap in stappen -->             
  </ul>

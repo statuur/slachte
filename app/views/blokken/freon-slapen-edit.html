@@ -15,26 +15,26 @@
 	  		<hr class="hr-30"/>
 		</div>
 	</div>
-	<!-- <div class="row form-group" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route'">formData.reg.dorp!=dorp.post_title -->
+	<!-- kiesdorp(dorp.post_title); formData.reg.dorp!=dorp.post_title -->
 	
 	<div class="row show-grid" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route'">
-		<div class="col col-xs-12" >					
+		<div class="col col-xs-12">					
 			<div class="vraag" translate>Kies een dorp waar je wilt slapen</div>
-			<uib-accordion close-others="false">					
+			<uib-accordion close-others="true">					
 							<div uib-accordion-group ng-repeat="(key, dorp) in dorpen" is-disabled="dorp.inschrijf_status==0" is-open-later="(formData.reg.dorp==dorp.post_title)?true:false" class="panel-default">
-							  	<uib-accordion-heading>{{dorp.post_title}}, <span>{{dorp.typering | lowercase}} {{formData.reg.dorp}}</span> <span ng-show="dorp.inschrijf_status==0">(vol)</span><i class="pull-right glyphicon" ></i></uib-accordion-heading>
+							  	<uib-accordion-heading>{{dorp.post_title}}, <span>{{dorp.typering | lowercase}}</span> <span ng-show="dorp.inschrijf_status==0">(vol)</span><i class="pull-right glyphicon" ></i></uib-accordion-heading>
 							  	<div class="row row-eq-height"> 						  	
 							  		<div class="col col-xs-4 dorpicon"><img ng-src="{{dorp.afbeelding}}" alt="{{dorp.post_title}}" title="{{dorp.post_title}}"/></div>
 								  	<div class="col col-xs-8">
 										<h3>{{dorp.typering | lowercase}}</h3>
-										<div ng-bind-html="dorp.post_content"></div> <a href="http://slachtemarathon.statuur.nl/dorp/{{dorp.post_name}}" target="_blank">Ga naar dorpspagina</a> <br/>
-										<button style="margin:22px 0px 32px 0;" type="button" ng-disabled="{{dorp.inschrijf_status==0}}" class="btn btn-primary btn-lg slanted volgende" ng-click="kiesdorp(dorp.post_title);">Hier wil ik slapen</button><br/><div class="toelichting" ng-show="dorp.inschrijf_status==0" translate>Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels bezet zijn.</div>
+										<div ng-bind-html="dorp.post_content"></div> <a href="https://www.slachtemarathon.nl/dorp/{{dorp.post_name}}" target="_blank">Ga naar dorpspagina</a><br/><!-- $location.hash('soort-overnachting'); -->
+										<button style="margin:22px 0px 32px 0;" type="button" ng-disabled="{{dorp.inschrijf_status==0}}" class="btn btn-primary btn-lg slanted volgende" ng-click="formData.reg.dorp=dorp.post_title;$location.hash('soort-overnachting')">Hier wil ik slapen</button><br/><div class="toelichting" ng-show="dorp.inschrijf_status==0" translate>Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels bezet zijn.</div>
 									</div>
 							  	</div>	
 			
 			</uib-accordion>
 		</div>
-			<p class="toelichting"> Meer informatie over de dorpen en hun karakter is <a href='http://slachtemarathon.statuur.nl/dorp'>hier te vinden</a></p>
+			<p class="toelichting"> Meer informatie over de dorpen en hun karakter is <a href='https://www.slachtemarathon.nl/dorp' target="_blank">hier te vinden</a></p>
 	</div>
 	</div>
 	<div class="row show-grid" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.dorp">
@@ -48,8 +48,7 @@
 		
 		<div class="col-xs-12">
 		  	<div class="vraag" translate>Wat voor soort overnachting zou je willen?</div>
-				
-				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek=''" uib-btn-radio="'In een groepsaccomodatie'" uncheckable translate>In een groepsaccomodatie (dorpshuis of sporthal)</label>
+		  	<label style="margin-lefT:-1px" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek=''" uib-btn-radio="'In een groepsaccomodatie'" uncheckable translate>In een groepsaccomodatie (dorpshuis of sporthal)</label>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek=''" uib-btn-radio="'Bij iemand thuis'" uncheckable translate>Bij iemand thuis</label>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek='Ik regel het zelf'" uib-btn-radio="'Festipi'" uncheckable translate>Festipi (grote gezamenlijke slaaptent van de organisatie, zelf apart te boeken: meer info in bevestigingsmail)</label>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" uib-btn-radio="'Eigen tent'" uncheckable translate>Eigen tent</label>
@@ -63,7 +62,7 @@
 		</div>
 	</div>
 		<!-- || formData.reg.soortovernachting==='Festipi'-->
-	<div class="row show-grid" ng-show="(formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' ||formData.reg.soortovernachting==='Bij iemand thuis') && formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.soortovernachting">
+	<div class="row show-grid" ng-show="(formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.soortovernachting">
 		<div class="col-xs-12">
 		  	<div class="vraag" translate>Wil je zelf je slaapplek regelen of doen wij dat voor je?</div>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.slaapplek" uib-btn-radio="'Ik regel het zelf'" uncheckable translate>Ik regel het zelf</label>
@@ -79,11 +78,11 @@
 		
 		<div class="row show-grid" ng-show="(formData.reg.soortovernachting==='Eigen tent' || formData.reg.soortovernachting==='Eigen camper') && formData.reg.slapen=='In één van út en thús dorpen langs de route'">
 			<div class="col-xs-12">
-		  		<div class="vraag" translate>Neem je iemand mee?</div>
+		  		<div class="vraag" translate>Neem je iemand mee? De kosten voor een extra persoon zijn &euro;{{bijslaper.toFixed(2)}}</div>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'Nee'" uncheckable translate>Nee</label>
 		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'1 persoon extra'" uncheckable translate>1 persoon extra</label>
-		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'2 personen extra'" uncheckable translate>2 personen extra</label>
-		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'3 personen extra'" uncheckable translate>3 personen extra</label>		        	
+		        <!--<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'2 personen extra'" uncheckable translate>2 personen extra</label>
+		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.extrapersonen" uib-btn-radio="'3 personen extra'" uncheckable translate>3 personen extra</label>-->		        	
 			</div>
 		</div>
 		
@@ -97,23 +96,23 @@
 			<div class="col-xs-12">
 				<h2 translate>Bagage</h2>
 				<div class="vraag" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div>
-					<label class="btn btn-slg btn-info col-xs-6 vervoer" ng-model="formData.reg.bagage" uib-btn-radio="'Ja, graag vrijdag meenemen'" uncheckable><img src="images/bagage.svg" alt="" align="absmiddle"/><span translate>Ja, graag vrijdag meenemen</span>
+					<label class="btn btn-slg btn-info col-xs-6 vervoer" ng-model="formData.reg.bagage" uib-btn-radio="'Ja, graag vrijdag meenemen'" required uncheckable><img src="images/bagage.svg" alt="" align="absmiddle"/><span translate>Ja, graag vrijdag meenemen</span>
 					</label>
-					<label class="btn btn-slg btn-info col-xs-6 vervoer" ng-model="formData.reg.bagage" uib-btn-radio="'Nee'" uncheckable><img src="images/bagage-nee.svg" alt="" align="absmiddle"/><span translate>Nee</span></label>	    
+					<label class="btn btn-slg btn-info col-xs-6 vervoer" ng-model="formData.reg.bagage" uib-btn-radio="'Nee'" required uncheckable><img src="images/bagage-nee.svg" alt="" align="absmiddle"/><span translate>Nee</span></label>	    
 				</div>
 			</div>		
 		</div>
 				
 	<div ng-show="pstates.slapen=='edit'">
 			<div class="col-xs-12">
-				<button class="btn btn-primary btn-lg slanted pull-right" ng-click="togglepTemplate('slapen', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted pull-right" ng-class="{'disabled' : !formData.reg.slaapplek && !formData.reg.bagage}"  ng-click="(!formData.reg.slaapplek && !formData.reg.bagage) ? alert(required) : togglepTemplate('slapen', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>
 
 	<div class="row show-grid" ng-hide="pstates.slapen=='edit'">
-		<div class="col-xs-12"><!-- -->
-	  		<button class="btn btn-primary btn-lg slanted volgende" ng-disabled="!formData.reg.slapen" ng-click="setStap(stap+1,'forwards')"  translate>Volgende stap</button>
+		<div class="col-xs-12"><!--( (formData.reg.soortovernachting==='Eigen tent' || formData.reg.soortovernachting==='Eigen camper') && !formData.reg.bagage) || ( (formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && !formData.reg.slaapplek) -->
+	  		<button class="slanted volgende" ng-class="{'disabled' : !formData.reg.slaapplek && !formData.reg.bagage}" ng-click="(!formData.reg.slaapplek && !formData.reg.bagage) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 		</div>
 	</div>
 	

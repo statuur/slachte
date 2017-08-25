@@ -34,32 +34,6 @@
   font-weight:  400;
 }
 
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
-
-}
-
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-
-}
-
 /* rood: #E00915 */
 html, body {
     height: 100%;
@@ -72,18 +46,34 @@ html, body {
     font-weight: 400;
     font-size:16px;
 }
+a:hover, a:active{
+	color:#000!important;
+}
+
+.btn-primary:hover {
+	background:#000;
+}
 
 .welkom.body{
 	margin:16px;
 }
-.welkom#background{
+
+.welkom #background{
 	width:calc(100% - 32px);
 	height:calc(100% - 32px);
 }
 
+.main-container{
+	width:100%;
+	padding: 0px 32px;
+}
+
+.stappen-container{
+	padding-top:72px;
+}
 .whitebar{
 	max-width:1280px;
-	height:70px;
+	height:66px;
 	width:calc(100% - 64px);
 	background:#fff;
 	z-index:10;
@@ -111,16 +101,40 @@ ui-view{
 	overflow-x: hidden!important;
 }
 
+#startkaarten h1{
+	font-weight: 200;
+	color:#000;
+	overflow:hidden;
+	font-size:28px;
+}
+
 #overzicht h1{
 	font-weight: 200;
 	color:#000;
 	overflow:hidden;
+	font-size:28px;
+	background:#dcdcdc;
+	padding:16px 0;
 }
 
+.startkaart .panel-body{
+	padding:0px!important;
+}
+
+#startkaarten h1 span,
 #overzicht h1 span{
 	font-weight: 700;
 }
-	
+
+#skostenoverzicht{/*.form-group*/
+	background:#ededed;
+}
+#skostenoverzicht .form-group .col{
+	padding-top: 15px;	
+	padding-bottom: 15px;	
+	border-bottom:1px solid #fff;
+}
+
 #logo{
 	position: fixed;
 	z-index:112;
@@ -154,7 +168,6 @@ h2{
 	margin:0px 0 20px 0;
 }
 
-
 h1.welkom{
 	margin-top:45px;
 	font-size:50px;
@@ -165,8 +178,6 @@ h1.welkom span{
 	color:#fff;
 	padding: 0px 12px;
 }
-
-
 
 #stappen{
 	padding:0px;
@@ -264,6 +275,7 @@ pre{
 	left:50%;
 	transform: translate(-50%, 0);
 	font-size: 9px;
+	overflow:auto;
 }
 
 .btn{
@@ -286,13 +298,28 @@ b{
 	height:auto;
 }
 
+.validatie{
+	positsion:relative!important;
+	margin:5px 0 0 14px!important;
+	height:20px;
+	font-size:14px;
+	color:#e20613;
+	font-weight: 700;
+}
+
+.validatie span:not(:first-child):before{
+	content:" / ";
+}
+
+/*nog nodig?*/
 .alert{
 	font-size:14px;
 	padding:4px 32px 4px 4px;
 	margin:8px 0 0 0;
 	background:transparent;
 	border:none;
-	color:#e10915!important;
+	color:#54747c!important;
+	/*color:#e10915!important;*/
 }
 
 .melding{
@@ -300,6 +327,18 @@ b{
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
+    text-align: center;
+}
+
+#error_wrapper{
+	background:rgba(255,255,255,0.95);
+	width:100%;
+	height:100%;
+	z-index:10;
+	position: absolute;
+	top:0px;
+	left:0px;
+	padding:25%;
 }
 
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
@@ -313,7 +352,12 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     margin-bottom: 15px;
 }
 
-input{/*.ng-valid */
+input.ng-dirty.ng-invalid{
+	background:#ffde00!important;
+	color:#000;	
+}
+
+input{
 	font-size:16px!important;
 	line-height: 16px!important;
 	border-radius:0!important;
@@ -334,9 +378,12 @@ color: #555!important;
 
 input:required ~ label:after{
 	content: " *";
-	color:#e10915;
+	color:#e20613;
 }
 
+.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn {
+    background: #ededed!important;
+}
 input[type=password] ~ label,
 input[type=text] ~ label,
 input[type=email] ~ label,
@@ -350,7 +397,7 @@ input[type=date] ~ label{
 	height: 15px;
 	font-size: 16px;
 	padding:2px 6px;
-	color:#666;
+	color:#7d7d7d;
 	white-space: nowrap;
 	cursor: text;
 	transition:all .1s ease;
@@ -395,7 +442,7 @@ uib-accordion h3{
 	color:#E00915;
 	margin:33px 0 22px 0;
 }
-
+/*
 .panel-default > .panel-heading[aria-selected='true']{
 	background:#fff!important;
 	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
@@ -405,7 +452,7 @@ uib-accordion h3{
     border-right: 1px solid #A5A5A5;
     border-bottom: 1px solid #A5A5A5;
 }
-
+*/
 
 .panel-default > .panel-heading{
 	background:#ededed;
@@ -515,12 +562,15 @@ uib-accordion a:active{
 }
 
 
-.btn-info:active, .btn-info:hover, .btn-info.active:hover, .btn-info.active, .open > .dropdown-toggle.btn-info{
+.btn-info:active, .btn-info.active:hover, .btn-info.active, .open > .dropdown-toggle.btn-info{
 	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
 	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
 	background: #fff;
+	color:#000;	
+}
+
+.btn-info:hover{
 	color:#000;
-	
 }
 
 .btn-info.active,.btn-info:active, .btn-info.active:hover{
@@ -609,24 +659,12 @@ hr.hr-30{
 	width:30%;
 }
 
+
+/*
 .slanted{
 	position: relative;
 }
-.volgende{
-	padding:13px 64px 13px 32px;
-	font-size:20px;
-}
-.volgende:before{
-	content: "";
-	position: absolute;
-	width:28px;
-	color:#fff;
-	height:23px;
-	transform:rotate(90deg);
-	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
-	display: inline-block;
-	left: calc(100% - 48px);
-}
+
 .slanted:after {
     content:"";
     position:absolute;
@@ -637,6 +675,7 @@ hr.hr-30{
     border-color:transparent #fff #fff transparent;
     transform: translate(-100%, -100%)
 }
+*/
 .deelnemer{
 	background:#000;
 	padding: 10px 48px 10px 16px;
@@ -655,11 +694,11 @@ hr.hr-30{
 .wit{
 	padding:32px;	
 }
-
+/*
 .wit .slanted:after {
 	 border-color:transparent #ededed #ededed transparent!important;
 }
- 
+*/
 .wit input{
 	background:#fff!important
 }
@@ -684,7 +723,8 @@ hr.hr-30{
 #overzicht .col-xs-5{
 	font-weight: 200;
 }
-#overzicht .col-xs-7{
+
+#overzicht .col-xs-7.bold{
 	font-weight: 700;
 }
 
@@ -694,11 +734,33 @@ hr.hr-30{
 	text-decoration: underline;
 	cursor:pointer;
 }
+
 .grey{
 	border-top: 1px solid #a5a5a5;
 	margin:9px 15px 2px 15px;
 }
 
+#kostenoverzicht{
+	font-size:20px;
+}
+
+.kosten, .totaal {
+	margin:0px 0px 2px 0px;
+}
+
+.kosten .col{
+	background:#ededed;
+	padding:20px 26px;
+}
+.kosten.line{
+	border-bottom:2px solid #e20613;
+	
+}
+
+.totaal .col{
+	padding:20px 26px;
+	color:#e20613;
+}
 /* ANIMATIONS
 ============================================================================= */
 /* enter animation */
@@ -836,21 +898,114 @@ ul.validation-list li{
 */
 
 
+
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1280px) {
 	.view{
-	width: calc(100% - 64px);
+		width: calc(100% - 32px)!important;
+		display: block;
+		margin: 16px auto;
+		height: calc(100% - 32px);
+	}
+	
+	#logo{
+		height:32px;
+		width:auto;
+	}
+	
+	.main-container{
+		width:100%;
+		padding: 0px 16px;
 	}
 }
-
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-	
+	.stappen-container ul li{
+		font-size:12px!important;
+	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+	body, .btn {
+		font-size:14px;
+	}
+	#background{
+		width:100%;
+		height:100%;
+		position: absolute;
+		background:#fff;
+	}
+	.whitebar{
+		width:calc(100% - 20px);
+		height:46px;
+	}
+	.view{
+		width: calc(100% - 20px)!important;
+		display: block;
+		margin: 10px auto;
+		height: calc(100% - 20px);
+	}
+	
+	h2 {
+    font-size: 27px;
+    text-align: center;
+	}
+	
+	h2:first-child{
+		margin: 64px 0 20px 0;
+	}
+	
+	.stappen-container{
+		display:none;
+	}
+	
+	
+	
+	.view, .whitebar, input:not(.ng-empty) ~ label, input:focus[type=password] ~ label, input:focus[type=text] ~ label, input:focus[type=email] ~ label, input:focus[type=date] ~ label {
+		background: #ededed!important;
+	}
+	
+	.prev{
+		background:#fff!important;
+		font-size:14px;
+		padding:16px 8px 14px 8px;
+		margin-top:-10px;
+	}
+	
+	.prev span:not(:first-child){
+		display: none;
+	}
+	.main-col{
+		width:100%;
+		padding:0px 15px;
+	}
+	
+	labsel.btn{
+		width:calc(100% - 20px);
+		margin: -1px auto 0px auto!important;
+	}
+	/*	
+	.slanted:after {
+    	border-color:transparent #ededed #ededed transparent;
+	}
+	*/
+	.btn-el, .panel-heading{
+		padding:14px;
+	}
+	
+	.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn {
+		background:#f6f6f6;
+	}	
+	
+	.vervoer.active:before {
+		    margin: 8px 0 0 10px;
+	}
+	
+	label.vervoer{
+		min-height:170px;
+	}
+	/* de rest vh responsive ontwerp */
 }
 
 /* Extra Small Devices, Phones */ 
@@ -861,4 +1016,138 @@ ul.validation-list li{
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
 
+}
+/*
+	.vsolgende{
+	padding:13px 64px 13px 32px;
+	font-size:20px;
+}
+
+.svolgende:before{
+	content: "";
+	position: absolute;
+	width:28px;
+	color:#fff;
+	height:23px;
+	transform:rotate(90deg);
+	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
+	display: inline-block;
+	left: calc(100% - 48px);
+}
+
+*/
+
+.opslaan{
+	margin-top:32px;
+}
+.slanted{
+	position: relative;
+	padding: 18px 60px 18px!important;
+	overflow: hidden; 
+	font-weight: 700;
+	font-size:20px;
+	text-align: center;
+	text-decoration: none;
+	background: transparent;
+	border:none;
+	text-decoration: none;
+	color:#fff!important;
+	z-index:3;
+	position: relative;
+	color:#fff!important;
+}
+
+.slanted.block{
+	display:block;	
+	width:100%;
+}
+
+.slanted.disabled{
+	pointer-events:all	
+}
+
+.slanted.disabled:hover:before,
+.slanted.disabled:before{
+	background:#ededed;
+}
+
+.slanted.disabled:hover::after,
+.slanted.disabled:after{
+	border-color:#ededed;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.volgende:before,
+.volgende:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted.volgende span{
+	display:block;
+	padding-right:24px;	
+}
+
+.slanted.volgende span:after{
+	content: "";
+	position: absolute;
+	width:28px;
+	color:#fff;
+	height:23px;
+	transform:rotate(90deg);
+	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
+	display: inline-block;
+	left: calc(100% - 48px);
+}
+	
+.slanted:before,
+.slanted:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted:hover:before{
+	background-color: #000;
+}
+
+.slanted:before,
+.slanted:after {
+	content: '';
+	position: absolute;
+	left: 0; 
+	z-index: -1; 	
+}
+
+.slanted:before {
+	top: 0;
+	right: 0; 
+	bottom: 14px; 
+}
+
+.slanted:after { 
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.slanted:hover:after,
+.slanted:active:after{
+	background-color: #000;
+	border-color: #000;
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent;  
 }

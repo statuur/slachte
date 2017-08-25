@@ -1,1 +1,3 @@
-<div class="col-xs-5">{{formData.reg.vervoer}}</div>
+<div class="col-xs-5" translate>Vervoer</div><div class="col-xs-7 bold">{{formData.reg.vervoer}}</div>
+<div class="col-xs-5" ng-show="formData.reg.vervoer=='Per bus'" translate>Opstapplek</div><div class="col-xs-7 bold" ng-show="formData.reg.vervoer=='Per bus'">{{formData.reg.opstapplek}}</div>
+

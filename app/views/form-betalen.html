@@ -1,31 +1,29 @@
 <h2 translate>Betalen</h2>
-<div class="vraag" translate>Hieronder de totale kosten. Als je op onderstaande knop drukt wordt je doorgestuurd naar de online betalingsomgeving van onze bank. Het is belangrijk dat je het gehele proces afrond.</div>
-
-<div class="row form-group">
-	<div class="col col-xs-5" translate>aantal bestelde tickets:</div>
-	<div class="col col-xs-4">{{formData.kaarten}} * {{ticketprice.toFixed(2)}}</div>
-	<div class="col col-xs-3">&euro; {{totaaltickets.toFixed(2)}}</div>
+<div class="vraags" style="margin-bottom:16px;" translate>Hieronder de totale kosten. Als je op onderstaande knop drukt wordt je doorgestuurd naar de online betalingsomgeving van onze bank. Het is belangrijk dat je het gehele proces afrond.</div>
+<div id="kostenoverzicht">
+	<div class="row form-group kosten">
+		<div class="col col-xs-1" style="text-align: center">{{formData.kaarten}}</div>
+		<div class="col col-xs-9" translate>startkaarten Slachtemarathon 2018</div>
+		<div class="col col-xs-2" style="text-align: right">&euro; {{totaaltickets.toFixed(2)}}</div>
+	</div>
 	
-	<div class="col col-xs-5" translate>extra overnachtingen:</div>
-	<div class="col col-xs-4">{{extrapersonen}} * {{overnachting.toFixed(2)}}</div>
-	<div class="col col-xs-3">&euro; {{totaalovernacht.toFixed(2)}}</div>
+	<div class="row form-group kosten">
+		<div class="col col-xs-1" style="text-align: center">{{extrapersonen}}</div>
+		<div class="col col-xs-9" translate>extra overnachtingen</div>
+		<div class="col col-xs-2" style="text-align: right">&euro; {{totaalovernacht.toFixed(2)}}</div>
+	</div>
 	
+	<div class="row form-group kosten line">
+		<div class="col col-xs-1" style="text-align: center">{{aantaltshirts}}</div>
+		<div class="col col-xs-9" translate>aantal bestelde shirts</div>
+		<div class="col col-xs-2" style="text-align: right">&euro; {{totaaltshirts.toFixed(2)}}</div>
+	</div>	
 	
-	<div class="col col-xs-5" translate>aantal bestelde shirts:</div>
-	<div class="col col-xs-4">{{aantaltshirts}} * {{tshirtprice.toFixed(2)}}</div>
-	<div class="col col-xs-3">&euro; {{totaaltshirts.toFixed(2)}}</div>
-</div>	
-
-	<div class="row show-grid" ng-show="formData.reg.extrapersonen">
-	<div class="col-xs-12">
-  		<hr class="hr-30"/>
+	<div class="row form-group totaal">
+		<div class="col col-xs-1">&nbsp;</div>
+		<div class="col col-xs-9" translate style="text-align:right">Totaal te betalen</div>
+		<div class="col col-xs-2" style="text-align: right" id='showtotaalbedrag' ng-model="formData.totaalbedrag" ng-init="showPrice()"></div>
 	</div>
 </div>
-
-<div class="row form-group">
-	<div class="col col-xs-5">Totaal te betalen</div>
-	<div class="col col-xs-4" ></div>
-	<div class="col col-xs-3" id='showtotaalbedrag' ng-init="showPrice()"></div>
-</div>
-
-<button type="button" class="btn btn-primary btn-lg slanted volgende" ng-click="processForm()" translate>Akkoord en betalen</button>
+	
+	<button type="button" class="btn btn-primary btn-lg slanted volgende" ng-disabled="opslaan" ng-click="processForm()" translate>Akkoord en betalen</button>

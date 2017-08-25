@@ -2,7 +2,7 @@
 <p class="toelichting" translate>Als freon heb je eerder van ons een e-mail gekregen met een gebruikersnaam en een wachtwoord.</p>
 
 <div class="row form-group">
-	<div class="col col-xs-6">			
+	<div class="col col-sm-6">			
 		<input type="text" class="form-control" placeholder="" name="user" id="user" ng-model="formData.user" required>
 		<label for="user">Gebruikersnaam</label>
 		
@@ -14,7 +14,7 @@
 </div>
 
 <div class="row form-group">
-	<div class="col col-xs-6">			
+	<div class="col col-sm-6">			
 		<input type="password" class="form-control" placeholder="" name="password" id="password" ng-model="formData.password" required>
 		<label for="password">Wachtwoord</label>
 		<div ng-show='form.password.$error.required'class="alert alert-danger" role="alert" translate>
@@ -30,8 +30,8 @@
 			<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
 			<span><strong>Fout:</strong> De ingevulde gebruikersnaam of wachtwoord zijn helaas niet goed</span>
 		</div>
-  		
-  		<button style="margin-top:25px;" type="button" class="btn btn-primary btn-lg volgende slanted" ng-disabled="logingIn || form.$invalid" ng-click="inloggen()">Volgende stap</button>
+  		<!-- btn btn-primary btn-lg  -->
+  		<button style="margin-top:25px;" type="button" class="volgende slanted" ng-class="{'disabled' : buttondisabled}" ng-click="(buttondisabled)? alert(required) : inloggen()"><span translate>Volgende stap</span></button>
 		
 	</div>
 </div>

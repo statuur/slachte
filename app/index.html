@@ -3,27 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Slachtemarathon 2018  | Ticketservice</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-	<link rel="manifest" href="/images/icons/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
-    
-    <meta name="description" content="">
+    <link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" />
+	<meta name="description" content="Ticketservice Slachtemarathon">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -35,43 +26,51 @@
   </head>
   <body ng-app="slachtemarathonApp" ng-controller="welkomController" style="margin:16px;">
   <div id="background">
-  <div class="view">
-  	<div ng-show="inschrijving_status==1">
-		<h1 class="welkom">Welkom <span>|</span> Wolkom <span>|</span> Welcome</h1>
-		<div class="row" style="margin-top:14px;">
-			<div class="col-xs-10"><p class="toelichtings col-xs-8 clearfix" style="padding:0px" translate>We nemen u stap voor stap mee door de kaartverkoop voor de Slachtemarathon op 31 augustus en 
+  {{inschrijving_status}}
+  	<div class="view">
+  		<div ng-show="inschrijving_status==1">
+			<h1 class="welkom">Welkom <span>|</span> Wolkom <span>|</span> Welcome</h1>
+			<div class="row" style="margin-top:14px;">
+				<div class="col-xs-10"><p class="toelichtings col-xs-8 clearfix" style="padding:0px" translate>We nemen u stap voor stap mee door de kaartverkoop voor de Slachtemarathon op 31 augustus en 
 1 september 2018. Heeft u moeite met het invullen? Kijk dan op de website de filmpjes en lees goed door wat u allemaal bij de hand moet houden.</p>
+				</div>
+				<div class="col-xs-4"></div>
 			</div>
-		<div class="col-xs-4"></div>
+
+			<div class="row" style="margin-top:64px;">
+				<div class="col-xs-3">
+					<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('nl_NL') : alert(cookiea)">Bestel tickets</button>    
+			    </div>        
+				<div class="col-xs-3">
+			    	<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('fy_NL') : alert(cookiea)">Bestel kaartsjes</button>
+				</div> 
+				<div class="col-xs-3">
+			        <button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('en_EN') : alert(cookiea)">Order tickets</button>
+				</div>    
+			</div>
+  		</div>
+
+
+
+  		<div ng-show="inschrijving_status==0">
+  			<h1 class="welkom">Helaas...</h1>
+  			<p class="toelichting" translate>Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn.</p>	
 		</div>
-
- <div class="row" style="margin-top:64px;">
-	<div class="col-xs-3">
-		<button type="button" class="btn btn-primary btn-lg btn-block slanted" style="padding:19px 0;" ng-click="setLanguage('nl_NL')">Bestel tickets</button>
-    </div>        
-	<div class="col-xs-3">
-    	<button type="button" class="btn btn-primary btn-lg btn-block slanted" style="padding:19px 0;" ng-click="setLanguage('fy_NL')">Bestel kaartsjes</button>
-	</div> 
-	<div class="col-xs-3">
-        <button type="button" class="btn btn-primary btn-lg btn-block slanted" style="padding:19px 0;" ng-click="setLanguage('en_EN')">Order tickets</button>
-	</div>    
-</div>
-
-
-
-<div ng-show="inschrijving_status==0">
-	<h1 class="welkom">Helaas...</h1>
-	<p class="toelichting" translate>Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn.</p>	
-</div>
-  </div>
-  <img src="images/slachtemarathon-logo.svg" alt="slachtemarathon" title="slachtemarathon" id="logo"/>   
+  
+  
+		<img src="images/slachtemarathon-logo.svg" alt="slachtemarathon" title="slachtemarathon" id="logo"/>   
  
   <div ng-hide="cookieAgree==1" style="width:100%;bottom:00px;left:0px;height:92px;padding:10px 15px 32px 15px;position:absolute;background:rgba(255,255,255,0.95);z-index:113;">
   	<div class="melding alert alert-warning">
   		<strong translate>Cookie Instellingen</strong> <span translate>Deze website maakt gebruikt van cookies om de voortgang van het invullen van uw persoonsgegevens en keuzes tijdelijk op te slaan</span>
-  			<button type="button" class="btn btn-primary btn-lg slanted pull-right" ng-click="cookieAgreement()" sng-disabled="!formData.bagage">Akkoord</button>
+  			<button type="button" class="btn btn-primary btn-lg slanted pull-right" ng-click="cookieAgreement()">Akkoord</button>
 	</div>
   </div>
+ 
+  	</div> 
+  
+  
+  
   <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -88,8 +87,7 @@
     <script src="bower_components/angular-ui-validate/dist/validate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-    
+   
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
 	<script src="scripts/controllers.js"></script>

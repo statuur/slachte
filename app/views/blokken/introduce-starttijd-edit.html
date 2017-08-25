@@ -16,7 +16,7 @@
 
 <div class="row form-group">
 	<div class="col-xs-12" ng-show="formData.introducees[$index].pwijzigen=='edit' ">
-			<button class="btn btn-primary btn-lg slanted pull-right" ng-click="toggleTemplate('starttijd', 'view', $index)" translate>Gegevens Opslaan</button>
+			<button class="btn btn-primary btn-lg slanted" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid) ? alert(required) : toggleTemplate('starttijd', 'view', $index)" translate>Gegevens Opslaan</button>
 		</div>
 </div>
 

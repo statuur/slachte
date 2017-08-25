@@ -1,20 +1,38 @@
 <h2>T-shirts</h2>
 <div class="vraag" translate>Hoeveel t-shirts wil je bestellen?</div>
-<p class="toelichting" translate>Maximaal 2 per deelnemer</p>
-<div class="row form-group" ng-show="$index==1 || (formData.shirts[$index-1].gender!=null && formData.shirts[$index-1].size!=null)" ng-repeat="x in [].constructor( (formData.kaarten *2)+1) track by $index">
-	<div class="col col-xs-12" >
-		<span style="padding-right:16px;" translate>Geslacht:</span>
-		<label class="btn btn-lg btn-info man" ng-model="formData.shirts[$index].gender" uib-btn-radio="'m'" translate uncheckable>man</label><label class="btn btn-lg btn-info vrouw" ng-model="formData.shirts[$index].gender" uib-btn-radio="'v'" translate uncheckable>vrouw</label>
-		<span style="padding:0px 16px;" translate>Maat:</span>
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'s'" uncheckable>s</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'m'" uncheckable>m</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'l'" uncheckable>l</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xl'" uncheckable>xl</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xxl'" uncheckable>xxl</label>
-		
+<p class="toelichting" translate>Maximaal 2 per deelnemer, een t-shirt kost &euro;{{tshirtprice.toFixed(2)}}</p>
+
+<div class="row show-grid">
+	<div class="col col-xs-12 btn-group">			
+		<span translate>Hoeveel t-shirts wil je bestellen?</span><br/>    
+	    <label ng-repeat="x in [].constructor( (formData.kaarten *2)) track by $index" class="btn btn-lg btn-info onder" name="aantaltshirts" id="aantaltshirts" ng-model="formData.aantaltshirts" uib-btn-radio="{{$index+1}}" uncheckable>{{$index+1}}</label>
+	    <!--<div ng-show='form.kaarten.$error.required && form.$dirty' class="alert alert-danger" role="alert">
+			<span ng-if="form.kaarten.$error.required" style="display:inline;padding-left:32px;" translate>Maak een keuze</span>
+		</div>-->
+  	</div>
+</div>
+
+<div class="row show-grid" ng-show="formData.aantaltshirts">
+	<div class="col-xs-12">
+  		<hr class="hr-30"/>
 	</div>
+</div>
+<!--<pre>{{formData.shirts}}</pre>-->
+
+<div class="row form-group" ng-show="formData.aantaltshirts" ng-repeat="x in [].constructor(formData.aantaltshirts) track by $index">
+	<div class="col col-xs-12">
+		<span style="padding-right:16px;" translate>Geslacht:</span>
+		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'m'" translate uncheckable>man</label><label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'v'" translate required uncheckable>vrouw</label>
+		<span style="padding:0px 16px;" translate>Maat:</span>
+		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'s'" required uncheckable>s</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'m'" uncheckable required >m</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'l'" uncheckable required>l</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xl'" uncheckable required >xl</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xxl'" uncheckable required >xxl</label>
+		
+		</div>
 	
 </div>	
 
 <div class="row show-grid">
-	<div class="col-xs-12">
-  		<button class="btn btn-primary btn-lg slanted volgende" ng-click="setStap(stap+1,'forwards')"  translate>Volgende stap</button>
+	<div class="col-xs-12"><!-- ngs-disabled="formData.aantaltshirts!=null && form.$invalid" -->
+  		<button class="slanted volgende" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid)? alert(required) : setStap(stap+1,'forwards')"  translate>Volgende stap</button>
 
 	</div>
 </div>
