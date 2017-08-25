@@ -2,6 +2,7 @@
 	<p class="vraag" translate>Hoe kom je bij de start?</p>
 	
 	<div class="row form-group">
+		
 		<div class="col col-xs-12">					
 		    <label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.reg.vervoer" uib-btn-radio="'Per bus'" required uncheckable>
 		    <img src="images/bus.svg" alt="" align="abmiddle"/><span translate>Per bus</span>
@@ -17,6 +18,7 @@
 	        </label>
 	  	</div>
 	</div>
+	  	
 	  	<div class="row show-grid" >
 			<div class="col col-xs-12 translate toelichting">
 			Eigen auto meenemen niet mogelijk. Dit vanwege...
@@ -41,7 +43,7 @@
 	
 	<div class="row show-grid" ng-show="pstates.vervoer=='edit'">
 			<div class="col-xs-12">
-				<button class="slanted pull-right" ng-click="togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>
