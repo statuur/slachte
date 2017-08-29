@@ -1,5 +1,13 @@
-<div ng-class="{wit:states.vervoer=='edit'}">
-<p class="vraag" translate>Hoe kom je bij de start?</p>
+<div ng-class="{wit:states.vervoer=='edit'}" class="container-fluid wit">
+<!--<p class="vraag" translate>Hoe kom je bij de start?</p>-->
+	
+	<div class="row form-group">	
+		<div class="col col-xs-12">			
+			
+			<h2 style="padding:16px 0;margin-bottom:0px;font-size:22px;"><span translate>Vervoer</span></h2>
+			<div class="vraag" translate>Kies een tijdstip:</div>
+		</div>
+	</div>		
 	
 	<div class="row form-group">
 		<div class="col col-xs-12">					
@@ -40,7 +48,7 @@
 	
 	<div class="row show-grid">
 			<div class="col-xs-12">
-				<button class="btn btn-primary btn-lg slanted pull-right" ng-disabled="form.$invalid" ng-click="togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted" ng-class="{'disabled' : (!formData.introducees[$index].opstapplek && formData.introducees[$index].vervoer=='Per bus') || !formData.introducees[$index].vervoer}" ng-click="((!formData.introducees[$index].opstapplek && formData.introducees[$index].vervoer=='Per bus') || !formData.introducees[$index].vervoer) ? alert(required) : togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>

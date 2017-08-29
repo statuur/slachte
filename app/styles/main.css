@@ -692,8 +692,13 @@ hr.hr-30{
 }
 
 .wit{
-	padding:32px;	
+	padding:0px 32px 32px 32px;	
 }
+
+.iview{
+	padding:0px 32px 32px 32px;
+}
+
 /*
 .wit .slanted:after {
 	 border-color:transparent #ededed #ededed transparent!important;
@@ -993,11 +998,11 @@ ul.validation-list li{
 	.btn-el, .panel-heading{
 		padding:14px;
 	}
-	
+	/*
 	.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn {
 		background:#f6f6f6;
 	}	
-	
+	*/
 	.vervoer.active:before {
 		    margin: 8px 0 0 10px;
 	}
@@ -1063,7 +1068,7 @@ ul.validation-list li{
 }
 
 .slanted.disabled{
-	pointer-events:all	
+	cursor: default;
 }
 
 .slanted.disabled:hover:before,

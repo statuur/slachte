@@ -16,7 +16,7 @@
 			<button class="slanted" ng-click="togglepTemplate('kaarten', 'view')" translate>Gegevens opslaan</button>
 		</div>
 
-		<div class="col-xs-12" ng-hide="pstates.kaarten=='edit'">
+		<div class="col-xs-12 opslaan" ng-hide="pstates.kaarten=='edit'">
   			<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}" ssssng-disabled="form.$invalid" ng-click="form.$valid && setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 		</div>
 	</div>	

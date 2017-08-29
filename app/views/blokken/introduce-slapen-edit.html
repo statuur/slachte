@@ -1,4 +1,12 @@
-<div ng-class="{wit:formData.introducees[$index].pwijzigen=='edit'}" style="background:#fff">
+<div ng-class="{wit:formData.introducees[$index].pwijzigen=='edit'}" class="container-fluid wit">
+
+	<div class="row form-group">	
+		<div class="col col-xs-12">			
+			<!--<div class="vraag" translate>Kies een tijdstip:</div>-->
+			<h2 style="padding:16px 0;margin-bottom:0px;font-size:22px;"><span translate>Slapen</span></h2>
+		</div>
+	</div>		
+
 
 <div class="row form-group">
 		<div class="col col-xs-12">					
@@ -105,7 +113,7 @@
 				
 	<div>
 			<div class="col-xs-12">
-				<button class="btn btn-primary btn-lg slanted pull-right" ng-disabled="form.$invalid" ng-click="togglepTemplate('slapen', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted" ng-class="{'disabled' : !formData.introducees[$index].slaapplek && !formData.introducees[$index].bagage}" ng-click="(!formData.introducees[$index].slaapplek && !formData.introducees[$index].bagage) ? alert(required) : togglepTemplate('slapen', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>

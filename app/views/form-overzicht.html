@@ -3,7 +3,7 @@
 
 	<div id="overzicht" class="row show-grid">
 		
-		<div class="col-xs-12" style="background:#dcdcdc;">
+		<div class="col-xs-12" style="background:#dcdcdc;padding-left:30px">
 	  		<h1><span translate>Freon</span> {{formData.reg.voornaam}} {{formData.reg.achternaam}}</h1>
 		</div>
 		
@@ -82,32 +82,19 @@
 	</div>
 		
 		<div id="startkaarten">
-		<uib-accordion close-others="true" class="startkaart">					
-				<div uib-accordion-group ng-repeat="x in [].constructor(formData.kaarten-1) track by $index" is-disabled="false" class="panel-default">
-					<uib-accordion-heading><h1><span translate>Startkaart</span> {{$index+1}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1></uib-accordion-heading>
-					<div ng-init="" ng-include="'views/form-introduce-overzicht.html'"></div>	
+		<uib-accordion close-others="false" is-open="true" class="startkaart">					
+				<div uib-accordion-group ng-repeat="x in [].constructor(formData.kaarten-1) track by $index" class="panel-default">
+					
+					<uib-accordion-heading><h1 style="padding-left:11px"><span translate>Startkaart</span> {{$index+1}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1></uib-accordion-heading>
+					
+					<div ng-include="'views/form-introduce-overzicht.html'"></div>	
 				</div>
 			</uib-accordion>
 		</div>	
-		<!-- INTRUDUCE LOOP -->
-		<!--<div ng-repeat="x in [].constructor(formData.kaarten-1) track by $index">
-			<div class="row show-grid" ng-hide="i === 4">
-				<div class="col-xs-12">
-		  			<hr class="hr-30"/>
-				</div>
-			</div>
-			
-			
-			<div class="row show-grid" nsg-hide="i === 4">
-				<div class="col-xs-12">					
-		  			<div ng-init="" ng-include="'views/form-introduce-overzicht.html'"></div>
-				</div>
-			</div>	
-		</div>-->
 		
-		<div>
-			<div class="col-xs-12">
-				<button type="button" class="btn btn-primary btn-lg slanted volgende" ng-disableds="nog-een-conditie" ng-click="setStap(stap+1,1)" translate>Volgende stap</button>
+		<div class="row show-grid">
+			<div class="col-xs-12 opslaan">
+				<button type="button" class="slanted volgende" ng-click="setStap(stap+1,1)" translate>Volgende stap</button>
 			</div>
 		</div>
 		

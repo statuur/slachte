@@ -7,7 +7,7 @@ angular.module('app.controllers', [])
 	
 	$http({
 		method: 'GET',
-		url: 'https://www.slachtemarathon.nl/api/registreer/status'
+		url: 'https://www.slachtemarathon.nl/api/systeem/status/'
 	}).then(function successCallback(response) {
 		delete response.data.status;
 		$scope.inschrijving_status = response.data.inschrijving_status;
@@ -75,8 +75,8 @@ angular.module('app.controllers', [])
     $scope.formData.taal				= window.localStorage.taal;
 	
     $scope.ticketprice					= 95;
-	$scope.tshirtprice					= 13;
-	$scope.overnachting					= 19.50;
+	$scope.tshirtprice					= 11.50;
+	$scope.overnachting					= 13;
 	$scope.bijslaper					= 12.50;
     $scope.genders 						= ["m","v"];
     $scope.sizes 						= ["s","m","l","xl", "xxl"];
@@ -124,7 +124,7 @@ angular.module('app.controllers', [])
 	    $scope.aantaltshirts			= Object.keys($scope.formData.shirts).length;
 	    $scope.totaaltshirts			= (Object.keys($scope.formData.shirts).length > 0) ? Object.keys($scope.formData.shirts).length * $scope.tshirtprice : 0;
 	    
-	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen + 1 : 0;
+	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen : 0;
 	    $scope.totaalovernacht			= $scope.overnachting * $scope.extrapersonen;
 		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts).toFixed(2);;
 	    
@@ -163,7 +163,7 @@ angular.module('app.controllers', [])
 				angular.forEach(states, function(view1, template1) {
 					
 					if(index!=i){//als het niet om de betreffende view gaat
-						console.log($scope.states[i][template]);
+						//console.log($scope.states[i][template]);
 						$scope.states[i][template] = "view";
 					}
 					
@@ -215,10 +215,12 @@ angular.module('app.controllers', [])
    		$cookies.putObject('formData', $scope.formData, {"secure":true}); 
 	   	$scope.buttondisabled 	= true;
 	   	$scope.loginError 		= false;
+	   	
+	   	console.log($scope.formData);
 	   	$http({
 		    method: 'POST',
 		    //url: 'http://slachtemarathon.statuur.nl/login',
-		    url :'https://www.slachtemarathon.nl/api/registreer/login',
+		    url :'https://www.slachtemarathon.nl/api/freon/login',
 		    data: $.param($scope.formData),//"message=aap",
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
@@ -236,7 +238,7 @@ angular.module('app.controllers', [])
 	} 	
 		
 	$scope.parseData = function(data){
-		//console.log(data);
+		console.log(data);
 		$scope.formData.reg.userID 			= data.ID;		
 		$scope.formData.reg.email 			= data.user_email;
 		$scope.formData.reg.email2 			= data.user_email;		
@@ -250,18 +252,22 @@ angular.module('app.controllers', [])
 		$scope.formData.reg.telefoon 		= data.Telefoon;
 		$scope.formData.reg.geboortedatum 	= new Date(data.Geb_datum);
 		$scope.formData.reg.geslacht 		= data.Geslacht;
+		$scope.formData.reg.betaald 		= data.betaald;
 		$cookies.putObject('formData', $scope.formData, {"secure":true}); 
 	}
 	
 	 $scope.Bedankt = function() {
    	 
    	 //get user_id and update it to betalen ajax request to deeelnemer betaald
-   	 //$scope.formData.reg.betaald
+   	 if(typeof $scope.formData.reg.userID==="undefined" || $scope.formData.reg.userID==""){//controleren of er een goede cookie is.
+	   	 document.location.href='tickets.html'
+   	 }else{
+   	 
    	 
    	 $http({
 		    method: 'POST',
-		    url :'https://www.slachtemarathon.nl/api/registreer/betaald',
-		    data: $.param({"userID": $scope.formData.reg.userID, "betaald":"1"}),//"message=aap",
+		    url :'https://www.slachtemarathon.nl/api/freon/betaald',
+		    data: $.param({"userID": $scope.formData.reg.userID, "order_id": $scope.formData.order_id, "betaald":"1"}),//"message=aap",
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 			console.log(response);
@@ -272,7 +278,7 @@ angular.module('app.controllers', [])
 	    		$scope.setError("Helaas is er even iets mis met het updaten van de betaalstatus, neem contact op met de organisatie en vermeld betalingsID ".$scope.formData.paymentID); 
     		}
 	  	});
-   	 
+   	 }
    	 
    	 }
 	
@@ -284,14 +290,14 @@ angular.module('app.controllers', [])
        $scope.opslaan = 1;
        $http({
 		    method: 'POST',
-		    url :'https://www.slachtemarathon.nl/api/registreer/deelnemer',
+		    url :'https://www.slachtemarathon.nl/api/freon/update',
 		    data: $.param($scope.formData),//"message=aap",
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
 		    	$scope.opslaan = 0;
-				//document.location.href='betalen.php'; //bij live
-		    	$state.go('form.betalensimulatie');
+				document.location.href='betalen.php'; //bij live
+		    	//$state.go('form.betalensimulatie');
 	    	}else{
 		    	//hier een foutmelding
 	    	}
@@ -360,7 +366,7 @@ angular.module('app.controllers', [])
     //get dorpen.json "?"+new Date().toString() json/dorpen.json https://www.slachtemarathon.nl/api/dorpen/get_dorpen
     $http({
 		method: 'GET',
-		url: 'https://www.slachtemarathon.nl/api/dorpen/get_dorpen'
+		url: 'https://www.slachtemarathon.nl/api/systeem/dorpen/'
 	}).then(function successCallback(response) {
 		delete response.data.status;
 		$scope.inschrijving_status = response.data.inschrijving_status;

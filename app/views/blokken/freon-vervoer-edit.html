@@ -41,14 +41,14 @@
 	</div>
 	
 	
-	<div class="row show-grid" ng-show="pstates.vervoer=='edit'">
+	<div class="row show-grid opslaan" ng-show="pstates.vervoer=='edit'">
 			<div class="col-xs-12">
 				<button class="slanted" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>
 	<!-- formData.reg.opstapplek!="" || formData.reg.vervoer=='Ik word gebracht (kiss & ride)' -->
-	<div class="row show-grid" ng-hide="pstates.vervoer=='edit'">
+	<div class="row show-grid opslaan" ng-hide="pstates.vervoer=='edit'">
 		<div class="col-xs-12">
 	  		<button class="slanted volgende" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 		</div>

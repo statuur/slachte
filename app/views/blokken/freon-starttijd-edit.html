@@ -17,8 +17,8 @@
 			<button class="slanted" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid) ? alert(required) : togglepTemplate('starttijd', 'view')" translate>Gegevens opslaan</button>
 		</div>
 
-		<div class="col-xs-12" ng-hide="pstates.starttijd=='edit'">
-	  		<button class="volgende slanted" ng-class="{'disabled' : !formData.reg.starttijd || buttondisabled}" ng-click="(!formData.reg.starttijd || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
+		<div class="col-xs-12 opslaan" ng-hide="pstates.starttijd=='edit'">
+	  		<button class="volgende slanted" ng-class="{'disabled' : !formData.reg.starttijd}" ng-click="(!formData.reg.starttijd || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 		</div>
 	
 </div>

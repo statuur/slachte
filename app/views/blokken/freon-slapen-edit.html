@@ -94,7 +94,7 @@
 		
 		<div class="row show-grid" ng-show="formData.reg.slapen=='In één van út en thús dorpen langs de route' && formData.reg.extrapersonen">
 			<div class="col-xs-12">
-				<h2 translate>Bagage</h2>
+				<h2 style="margin: 32px 0 20px;" translate>Bagage</h2>
 				<div class="vraag" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div>
 					<label class="btn btn-slg btn-info col-xs-6 vervoer" ng-model="formData.reg.bagage" uib-btn-radio="'Ja, graag vrijdag meenemen'" required uncheckable><img src="images/bagage.svg" alt="" align="absmiddle"/><span translate>Ja, graag vrijdag meenemen</span>
 					</label>
@@ -111,7 +111,7 @@
 		</div>
 
 		<div class="row show-grid" ng-hide="pstates.slapen=='edit'">
-			<div class="col-xs-12"><!--( (formData.reg.soortovernachting==='Eigen tent' || formData.reg.soortovernachting==='Eigen camper') && !formData.reg.bagage) || ( (formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && !formData.reg.slaapplek) -->
+			<div class="col-xs-12 opslaan"><!--( (formData.reg.soortovernachting==='Eigen tent' || formData.reg.soortovernachting==='Eigen camper') && !formData.reg.bagage) || ( (formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && !formData.reg.slaapplek) -->
 		  		<button class="slanted volgende" ng-class="{'disabled' : !formData.reg.slaapplek && !formData.reg.bagage}" ng-click="(!formData.reg.slaapplek && !formData.reg.bagage) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 			</div>
 		</div>
