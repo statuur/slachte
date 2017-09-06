@@ -21,7 +21,7 @@
 
 <div class="row form-group" ng-show="formData.aantaltshirts" ng-repeat="x in [].constructor(formData.aantaltshirts) track by $index">
 	<div class="col col-xs-12">
-		<span style="padding-right:16px;" translate>Geslacht:</span>
+		<span style="padding-right:16px;" translate>Model:</span>
 		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'m'" translate uncheckable>man</label><label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'v'" translate required uncheckable>vrouw</label>
 		<span style="padding:0px 16px;" translate>Maat:</span>
 		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'s'" required uncheckable>s</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'m'" uncheckable required >m</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'l'" uncheckable required>l</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xl'" uncheckable required >xl</label><label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xxl'" uncheckable required >xxl</label>

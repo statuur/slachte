@@ -87,10 +87,10 @@
 		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='Eigen tent' || formData.introducees[$index].soortovernachting==='Eigen camper') && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route'">
 			<div class="col-xs-12">
 		  		<div class="vraag" translate>Neem je iemand mee? De kosten voor een extra persoon zijn &euro;{{bijslaper.toFixed(2)}}</div>
+				
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].extrapersonen" uib-btn-radio="'Nee'" uncheckable translate>Nee</label>
-		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].extrapersonen" uib-btn-radio="'1 persoon extra'" uncheckable translate>1 persoon extra</label>
-		        <!--<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].extrapersonen" uib-btn-radio="'2 personen extra'" uncheckable translate>2 personen extra</label>
-		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].extrapersonen" uib-btn-radio="'3 personen extra'" uncheckable translate>3 personen extra</label>-->		        	
+		        <label ng-repeat="x in [].constructor(formData.kaarten*2) track by $index" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$parent.$index].extrapersonen" uib-btn-radio="'{{$index+1}}'" uncheckable translate translate-n="{{$index+1}}" translate-plural="{{$count}} personen extra">1 persoon extra</label>
+		       	        	
 			</div>
 		</div>
 		
@@ -113,7 +113,7 @@
 				
 	<div>
 			<div class="col-xs-12">
-				<button class="slanted" ng-class="{'disabled' : !formData.introducees[$index].slaapplek && !formData.introducees[$index].bagage}" ng-click="(!formData.introducees[$index].slaapplek && !formData.introducees[$index].bagage) ? alert(required) : togglepTemplate('slapen', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted" ng-class="{'disabled' : formData.introducees[$index].slapen =='In één van út en thús dorpen langs de route' && !formData.introducees[$index].bagage}" ng-click="(!formData.introducees[$index].slaapplek && !formData.introducees[$index].bagage) ? alert(required) : toggleTemplate('slapen', 'view', $index)" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>

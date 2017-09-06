@@ -1,14 +1,19 @@
 <!-- form.html ng-click="setStap(stap.stap)" ng-submit="processForm()"--> 
 
 <div class="whitebar">
-	<button type="button" class="prev btn btn-info btn-lg" style="z-index:8;position: fixed" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')"><span translate>Vorige stap</span><span>:</span> <span>{{stappen[stap-1].title}}</span></button>
+	<button type="button" class="prev btn btn-info btn-lg" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')">
+	<span translate>Vorige stap</span>
+	<span>:</span> 
+	<span>{{stappen[stap-1].title}}</span>
+	<div translate>terug</div>
+	</button>
 	</div>
 
 <div id="error_wrapper" ng-show="errors">
 	<div class="melding alert alert-warning" style="background:#E00915;border-radius:0;color:#fff!important;position: relative;left:0%;top:0%;transform: translate(0%,-100%)" ng-bind-html="errormessage">{{errormessage}}</div>
 </div>
 
-
+<div id="stappen-mobile"><span>{{stappen[stap].stap-1}}</span><span>/</span><span>9</span></div>
 <div class="row form-group" style="padding:0 0 64px 0">
   <div class="container-fluid main-container">
   	<div class="main-col col-xs-{{stap==0?12:9}}">

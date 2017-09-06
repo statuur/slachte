@@ -31,23 +31,30 @@
   		<div ng-show="inschrijving_status==1">
 			<h1 class="welkom">Welkom <span>|</span> Wolkom <span>|</span> Welcome</h1>
 			<div class="row" style="margin-top:14px;">
-				<div class="col-xs-10"><p class="toelichtings col-xs-8 clearfix" style="padding:0px" translate>We nemen u stap voor stap mee door de kaartverkoop voor de Slachtemarathon op 31 augustus en 
+				<div class="col col-sm-10"><p class="toelichtings col-sm-8 clearfix" style="padding:0px" translate>We nemen u stap voor stap mee door de kaartverkoop voor de Slachtemarathon op 31 augustus en 
 1 september 2018. Heeft u moeite met het invullen? Kijk dan op de website de filmpjes en lees goed door wat u allemaal bij de hand moet houden.</p>
 				</div>
 				<div class="col-xs-4"></div>
 			</div>
-
-			<div class="row" style="margin-top:64px;">
-				<div class="col-xs-3">
-					<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('nl_NL') : alert(cookiea)">Bestel tickets</button>    
-			    </div>        
-				<div class="col-xs-3">
-			    	<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('fy_NL') : alert(cookiea)">Bestel kaartsjes</button>
-				</div> 
-				<div class="col-xs-3">
-			        <button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('en_EN') : alert(cookiea)">Order tickets</button>
-				</div>    
-			</div>
+			
+			<div class="row" style="margin-top:20%;">
+				<div class="col col-lg-9">
+					<div class="row">
+						<div class="col col-md-4">
+							<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('nl_NL') : alert(cookiea)">Bestel tickets</button>    
+					    </div>        
+						<div class="col col-md-4">
+					    	<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('fy_NL') : alert(cookiea)">Bestel kaartsjes</button>
+						</div> 
+						<div class="col col-md-4">
+					        <button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('en_EN') : alert(cookiea)">Order tickets</button>
+						</div>    
+					</div>
+				</div>
+			</div>	
+			
+			
+  		
   		</div>
 
 
@@ -85,6 +92,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-validate/dist/validate.js"></script>
+    <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
    

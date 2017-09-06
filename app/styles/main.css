@@ -179,6 +179,45 @@ h1.welkom span{
 	padding: 0px 12px;
 }
 
+#stappen-mobile{
+	display:none;
+	position:fixed;
+	top:86px;
+	left:0px;
+	width:40px;
+	height:40px;
+	background:#E00915;
+	color:#fff;
+	z-index:9;
+}
+
+#stappen-mobile:before{
+	width:2px;
+	height:70px;
+	background:#000;
+	position: absolute;
+	top:-70px;
+	left:17px;
+	content:"";
+	
+}
+
+#stappen-mobile span:first-child{
+	font-weight: 700;
+	font-size: 27px;
+	padding:4px 0px 0px 4px;
+	display: inline-block;
+}
+
+#stappen-mobile span:not(:first-child){
+	font-weight: 200;
+	font-size: 15px;
+	padding:0px 0px 0px 2px;
+	position: relative;
+	top:-9px;
+}
+
+
 #stappen{
 	padding:0px;
 	margin-left:32px;
@@ -196,7 +235,8 @@ h1.welkom span{
 #stappen.finished:after{
 	color:#000;
 }
-/* stappen die nog moeten*/
+
+/* stappen die nog moeten */
 #stappen li a{
 	text-decoration: none;
 }
@@ -367,6 +407,18 @@ input{
 	background:#ededed!important;	
 }
 
+label.first{
+	margin-left:-1px;
+}
+
+label[disabled]{
+	opacity:0.2!important;
+}
+
+label[disabled]:after{
+	content: attr(data-vol);
+	padding-left:30px;
+}
 /* we put label on top of the input */
 input[type=date].ng-empty{
 color: transparent!important;
@@ -442,8 +494,8 @@ uib-accordion h3{
 	color:#E00915;
 	margin:33px 0 22px 0;
 }
-/*
-.panel-default > .panel-heading[aria-selected='true']{
+
+.panel-default.selected .panel-heading{
 	background:#fff!important;
 	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
@@ -452,7 +504,7 @@ uib-accordion h3{
     border-right: 1px solid #A5A5A5;
     border-bottom: 1px solid #A5A5A5;
 }
-*/
+
 
 .panel-default > .panel-heading{
 	background:#ededed;
@@ -517,8 +569,12 @@ uib-accordion a:active{
 .prev{
 	border:none;
 	padding: 19px 20px;
+	z-index:8;
+	position: fixed
 }
-
+.prev div{
+	display:none;
+}
 .prev span:last-child{
 	font-weight: 200;
 }
@@ -536,27 +592,27 @@ uib-accordion a:active{
 
 .man:before{
 	content: "";
-	width:17px;
-	height:17px;
-	background: url("../images/man.svg") center center / 17px 17px no-repeat;
+	width:18px;
+	height:23px;
+	background: url("../images/man.svg") center center / 18px 23px no-repeat;
 	display: inline-block;
 	margin-right:11px;
 }
 
 .vrouw:before{
 	content: "";
-	width:17px;
-	height:17px;
-	background: url("../images/vrouw.svg") center center / 17px 17px no-repeat;
+	width:18px;
+	height:23px;
+	background: url("../images/vrouw.svg") center center / 18px 23px no-repeat;
 	display: inline-block;
 	margin-right:11px;
 }
 
 .x:before{
 	content: "";
-	width:17px;
-	height:17px;
-	background: url("../images/x.svg") center center / 17px 17px no-repeat;
+	width:18px;
+	height:23px;
+	background: url("../images/x.svg") center center / 18px 23px no-repeat;
 	display: inline-block;
 	margin-right:11px;
 }
@@ -766,6 +822,139 @@ hr.hr-30{
 	padding:20px 26px;
 	color:#e20613;
 }
+
+
+/**** SLANTED BUTTON *****/
+.opslaan{
+	margin-top:32px;
+}
+.slanted{
+	position: relative;
+	padding: 18px 60px 18px!important;
+	overflow: hidden; 
+	font-weight: 700;
+	font-size:20px;
+	text-align: center;
+	text-decoration: none;
+	background: transparent;
+	border:none;
+	text-decoration: none;
+	color:#fff!important;
+	z-index:3;
+	position: relative;
+	color:#fff!important;
+}
+
+.slanted.block{
+	display:block;	
+	width:100%;
+}
+
+.slanted.disabled{
+	cursor: default;
+}
+
+.slanted.disabled:hover:before,
+.slanted.disabled:before{
+	background:#ededed;
+}
+
+.wit .slanted.disabled:hover:before,
+.wit .slanted.disabled:before{
+	background:#d9d9d9;
+} 
+
+.wit .slanted.disabled:hover::after,
+.wit .slanted.disabled:after{
+	border-color:#d9d9d9;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.slanted.disabled:hover::after,
+.slanted.disabled:after{
+	border-color:#ededed;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.volgende:before,
+.volgende:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted.volgende span{
+	display:block;
+	padding-right:24px;	
+}
+
+.slanted.volgende span:after{
+	content: "";
+	position: absolute;
+	width:28px;
+	color:#fff;
+	height:23px;
+	transform:rotate(90deg);
+	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
+	display: inline-block;
+	left: calc(100% - 48px);
+}
+	
+.slanted:before,
+.slanted:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted:hover:before{
+	background-color: #000;
+}
+
+.slanted:before,
+.slanted:after {
+	content: '';
+	position: absolute;
+	left: 0; 
+	z-index: -1; 	
+}
+
+.slanted:before {
+	top: 0;
+	right: 0; 
+	bottom: 14px; 
+}
+
+.slanted:after { 
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.slanted:hover:after,
+.slanted:active:after{
+	background-color: #000;
+	border-color: #000;
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent;  
+}
+
+
 /* ANIMATIONS
 ============================================================================= */
 /* enter animation */
@@ -773,15 +962,7 @@ hr.hr-30{
 #form-views{
 	position:relative;
 }
-/*
-#form-views.forwards{
-	border:2px solid green;
-}
 
-#form-views.backwards{
-	border:2px solid red;
-}
-*/
 #form-views.ng-enter,
 #form-views.ng-leave      { 
 	position:absolute;
@@ -866,21 +1047,21 @@ ul.validation-list li{
 
 .slide-animate.ng-enter, .slide-animate.ng-leave {
   	sposition:absolute; 
-	transition:1s all ease; 
-    -moz-transition:1s all ease; 
-    -webkit-transition:1s all ease; 
+	transition:.3s all ease; 
+    -moz-transition:.3s all ease; 
+    -webkit-transition:.3s all ease; 
 }
 
 .slide-animate.ng-enter {
-  -webkit-animation:slideEnter 1s both ease;
-    -moz-animation:slideEnter 1s both ease;
-    animation:slideEnter 1s both ease;
+  -webkit-animation:slideEnter .3s both ease;
+    -moz-animation:slideEnter .3s both ease;
+    animation:slideEnter .3s both ease;
 }
 
 .slide-animate.ng-leave {
- 	-webkit-animation:slideLeave 1s both ease;
-    -moz-animation:slideLeave 1s both ease;
-    animation:slideLeave 1s both ease;
+ 	-webkit-animation:slideLeave .3s both ease;
+    -moz-animation:slideLeave .3s both ease;
+    animation:slideLeave .3s both ease;
  	
 }
 
@@ -894,13 +1075,6 @@ ul.validation-list li{
     from    { opacity:1 }
     to      { opacity:0}
 }
-/*
-@media (max-width:768px){
-	.col-xs-9 {
-	    width: 50%!important;
-	}
-}
-*/
 
 
 
@@ -913,6 +1087,14 @@ ul.validation-list li{
 		height: calc(100% - 32px);
 	}
 	
+	#background{
+		width:100%;
+		height:100%;
+		position: absolute;
+		background:#ededed url('../images/slachtemarathon-2018.jpg') center center / cover no-repeat;
+
+	}
+	
 	#logo{
 		height:32px;
 		width:auto;
@@ -922,11 +1104,17 @@ ul.validation-list li{
 		width:100%;
 		padding: 0px 16px;
 	}
+	
 }
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
 	.stappen-container ul li{
 		font-size:12px!important;
+	}
+	
+	.col:not(:last-child){
+		margin-bottom: 15px;
 	}
 }
 
@@ -935,26 +1123,36 @@ ul.validation-list li{
 	body, .btn {
 		font-size:14px;
 	}
+	
 	#background{
-		width:100%;
-		height:100%;
-		position: absolute;
 		background:#fff;
 	}
+		
+	h1.welkom{
+		font-size: 5.3vw!important;
+	}	
+	
 	.whitebar{
-		width:calc(100% - 20px);
+		width:calc(100% - 40px);
 		height:46px;
+		background: #ededed;
+	}
+	
+	#stappen-mobile{
+	display:block;
 	}
 	.view{
 		width: calc(100% - 20px)!important;
 		display: block;
 		margin: 10px auto;
 		height: calc(100% - 20px);
+		padding:10px;
+		background: #ededed
 	}
 	
 	h2 {
-    font-size: 27px;
-    text-align: center;
+    	font-size: 27px;
+		text-align: center;
 	}
 	
 	h2:first-child{
@@ -964,45 +1162,36 @@ ul.validation-list li{
 	.stappen-container{
 		display:none;
 	}
-	
-	
-	
-	.view, .whitebar, input:not(.ng-empty) ~ label, input:focus[type=password] ~ label, input:focus[type=text] ~ label, input:focus[type=email] ~ label, input:focus[type=date] ~ label {
+		
+	input:not(.ng-empty) ~ label, input:focus[type=password] ~ label, input:focus[type=text] ~ label, input:focus[type=email] ~ label, input:focus[type=date] ~ label {
 		background: #ededed!important;
 	}
 	
 	.prev{
 		background:#fff!important;
 		font-size:14px;
-		padding:16px 8px 14px 8px;
-		margin-top:-10px;
+		padding:8px 14px 8px 8px;
+		margin:-10px 0 0 -10px;
 	}
 	
-	.prev span:not(:first-child){
+	.prev span{
+	/*.prev span:not(:first-child){*/
 		display: none;
 	}
+	
+	.prev div{
+		display:inline;
+	}
+		
 	.main-col{
 		width:100%;
 		padding:0px 15px;
 	}
 	
-	labsel.btn{
-		width:calc(100% - 20px);
-		margin: -1px auto 0px auto!important;
-	}
-	/*	
-	.slanted:after {
-    	border-color:transparent #ededed #ededed transparent;
-	}
-	*/
 	.btn-el, .panel-heading{
 		padding:14px;
 	}
-	/*
-	.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn {
-		background:#f6f6f6;
-	}	
-	*/
+	
 	.vervoer.active:before {
 		    margin: 8px 0 0 10px;
 	}
@@ -1010,149 +1199,43 @@ ul.validation-list li{
 	label.vervoer{
 		min-height:170px;
 	}
+
 	/* de rest vh responsive ontwerp */
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
+	.sprev{
+		padding:0px;
+		left:10px;
+	}
+	
+	h1.welkom{
+		font-size: 4.9vw!important;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
 
+	h1.welkom span{
+		sdisplay: none;
+	}
+	
+	.slanted{
+		display:block;
+		width:100%;
+		margin-bottom:10px;
+	}
+	
+	.col{
+		width:100%;
+	}
+	
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 320px) {
 
 }
-/*
-	.vsolgende{
-	padding:13px 64px 13px 32px;
-	font-size:20px;
-}
 
-.svolgende:before{
-	content: "";
-	position: absolute;
-	width:28px;
-	color:#fff;
-	height:23px;
-	transform:rotate(90deg);
-	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
-	display: inline-block;
-	left: calc(100% - 48px);
-}
 
-*/
-
-.opslaan{
-	margin-top:32px;
-}
-.slanted{
-	position: relative;
-	padding: 18px 60px 18px!important;
-	overflow: hidden; 
-	font-weight: 700;
-	font-size:20px;
-	text-align: center;
-	text-decoration: none;
-	background: transparent;
-	border:none;
-	text-decoration: none;
-	color:#fff!important;
-	z-index:3;
-	position: relative;
-	color:#fff!important;
-}
-
-.slanted.block{
-	display:block;	
-	width:100%;
-}
-
-.slanted.disabled{
-	cursor: default;
-}
-
-.slanted.disabled:hover:before,
-.slanted.disabled:before{
-	background:#ededed;
-}
-
-.slanted.disabled:hover::after,
-.slanted.disabled:after{
-	border-color:#ededed;
-	border-style: solid;
-	border-width: 15px 15px 0 0;
-	background-color: transparent;
-	border-right-color: transparent; 
-}
-
-.volgende:before,
-.volgende:after{
-	background: #e20613;
-	border-color: #e20613;
-	display:inline-block;
-}
-
-.slanted.volgende span{
-	display:block;
-	padding-right:24px;	
-}
-
-.slanted.volgende span:after{
-	content: "";
-	position: absolute;
-	width:28px;
-	color:#fff;
-	height:23px;
-	transform:rotate(90deg);
-	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
-	display: inline-block;
-	left: calc(100% - 48px);
-}
-	
-.slanted:before,
-.slanted:after{
-	background: #e20613;
-	border-color: #e20613;
-	display:inline-block;
-}
-
-.slanted:hover:before{
-	background-color: #000;
-}
-
-.slanted:before,
-.slanted:after {
-	content: '';
-	position: absolute;
-	left: 0; 
-	z-index: -1; 	
-}
-
-.slanted:before {
-	top: 0;
-	right: 0; 
-	bottom: 14px; 
-}
-
-.slanted:after { 
-	top: auto; 
-	right: -5px;
-	bottom: 0;
-	border-style: solid;
-	border-width: 15px 15px 0 0;
-	background-color: transparent;
-	border-right-color: transparent; 
-}
-
-.slanted:hover:after,
-.slanted:active:after{
-	background-color: #000;
-	border-color: #000;
-	top: auto; 
-	right: -5px;
-	bottom: 0;
-	border-style: solid;
-	border-width: 15px 15px 0 0;
-	background-color: transparent;
-	border-right-color: transparent;  
-}

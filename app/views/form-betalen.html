@@ -25,5 +25,9 @@
 		<div class="col col-xs-2" style="text-align: right" id='showtotaalbedrag' ng-model="formData.totaalbedrag" ng-init="showPrice()"></div>
 	</div>
 </div>
+
+<div class="row form-group">
+		<div class="col col-xs-12"><input type="checkbox" ng-model="formData.opslaan" ng-cslick="av==1" name="algemene_voorwaarden" id="algemene_voorwaarden"> <label style="font-size:16px;" for="algemene_voorwaarden" translate>Ik ga akkoord met de <a href="https://www.slachtemarathon.nl/algemene-voorwaarden/" target="_blank">algemene voorwaarden</a></label></div>
+</div>		
 	
-	<button type="button" class="slanted volgende" ng-class="{'disabled' : opslaan}" ng-click="processForm()" translate>Akkoord en betalen</button>
+	<button type="button" class="slanted volgende" ng-class="{'disabled' : !formData.opslaan}" ng-click="processForm()" translate>Akkoord en betalen</button>

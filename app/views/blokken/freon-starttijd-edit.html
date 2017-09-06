@@ -4,11 +4,7 @@
 		
 		<div class="col col-xs-12">			
 			<div class="vraag" translate>Kies een tijdstip:</div>
-	        <label style="margin-left:-1px;" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 06:00-07:00'" uncheckable required translate>Tussen 06:00 en 07:00</label>
-	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 07:00-08:00'" uncheckable required  translate>Tussen 07:00 en 08:00</label>
-	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 08:00-09:00'" uncheckable required  translate>Tussen 08:00 en 09:00</label>
-	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 09:00-10:00'" uncheckable required  translate>Tussen 09:00 en 10:00</label>
-	        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'tussen 10:00-11:00'" uncheckable required  translate>Tussen 10:00 en 11:00</label>        
+	        	<label data-vol="{{'Starttijd volgeboekt'|translate}}" ng-repeat="(key, starttijd) in starttijden" ng-disabled="starttijd.capaciteit - starttijd.inschrijvingen <= 0" ng-class="{first:$first}" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'{{starttijd.selector}}'" uncheckable required><span translate>Tussen</span> {{starttijd.van}} <span translate>en</span> {{starttijd.tot}}</label>
 	  	</div>  	
 	
 	

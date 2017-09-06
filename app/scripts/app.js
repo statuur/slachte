@@ -20,7 +20,8 @@ angular
     //'ngTouch',
     'ui.bootstrap',
     'ui.router',
-    'gettext'
+    'gettext',
+    'angular-google-analytics'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   if(document.location.href.indexOf("tickets")!= -1){
@@ -95,17 +96,20 @@ angular
 	 
 
   }
-  	//$httpProvider.defaults.useXDomain = true;
   	delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  	
-  }).run(function(gettextCatalog, $http){
+  }).config(['AnalyticsProvider', function (AnalyticsProvider) {
+   // Add configuration code as desired
+   	AnalyticsProvider.setAccount('UA-2619816-14');  //UU-XXXXXXX-X should be your tracking code
+}])
+.run(['Analytics', function(Analytics) { }])
+.run(function(gettextCatalog, $http){
    	
    	gettextCatalog.debug 		= true;
-    gettextCatalog.baseLanguage = "fy_NL";
+    gettextCatalog.baseLanguage = "nl_NL";
     
     if(typeof window.localStorage.taal==="undefined"){
-		gettextCatalog.setCurrentLanguage('fy_NL');
-		window.localStorage.taal = 'fy_NL';
+		gettextCatalog.setCurrentLanguage('nl_NL');
+		window.localStorage.taal = 'nl_NL';
 	}else{		
 		gettextCatalog.setCurrentLanguage(window.localStorage.taal);
 	}
