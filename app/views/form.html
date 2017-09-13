@@ -1,9 +1,9 @@
-<!-- form.html ng-click="setStap(stap.stap)" ng-submit="processForm()"--> 
+<!-- form.html ng-click="setStap(stap.stap)" ng-submit="processForm()" stap > 0 && --> 
 
 <div class="whitebar">
-	<button type="button" class="prev btn btn-info btn-lg" ng-show="stap > 0" ng-click="setStap(stap-1, 'backwards')">
+	<button type="button" class="prev btn btn-info btn-lg" ng-show="!betaald" ng-click="setStap(stap-1, 'backwards')">
 	<span translate>Vorige stap</span>
-	<span>:</span> 
+	<span ng-show="stappen[stap-1].title">:</span> 
 	<span>{{stappen[stap-1].title}}</span>
 	<div translate>terug</div>
 	</button>
@@ -13,7 +13,7 @@
 	<div class="melding alert alert-warning" style="background:#E00915;border-radius:0;color:#fff!important;position: relative;left:0%;top:0%;transform: translate(0%,-100%)" ng-bind-html="errormessage">{{errormessage}}</div>
 </div>
 
-<div id="stappen-mobile"><span>{{stappen[stap].stap-1}}</span><span>/</span><span>9</span></div>
+<div id="stappen-mobile"><span>{{stappen[stap].stap-1}}</span><span>/</span><span>{{stappen.length}}</span></div>
 <div class="row form-group" style="padding:0 0 64px 0">
   <div class="container-fluid main-container">
   	<div class="main-col col-xs-{{stap==0?12:9}}">
@@ -21,8 +21,9 @@
 	  	 <form id="signup-form" method="post" name="form" angular-validator novalidate>
 			<input type="hidden" name="totaalbedrag" id="totaalbedrag" ng-model="totaalbedrag">
 			<!-- our nested state views will be injected here -->
-            <div id="form-views" ng-class="direction" ui-view></div>
-        </form>	  		  	
+            <div id="form-views" ng-class="direction" ui-view autoscroll="false"></div>
+        </form>
+        		  	
   	</div>
   	
   	<div class="col-xs-3 stappen-container">

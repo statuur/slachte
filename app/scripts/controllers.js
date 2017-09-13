@@ -3,7 +3,7 @@
 angular.module('app.controllers', [])
 
 //DUBBEL
-.controller('welkomController', function($scope, $http, gettext, gettextCatalog,$cookies) {
+.controller('welkomController', function($scope, $http, gettext, gettextCatalog, $cookies) {
 	
 	$http({
 		method: 'GET',
@@ -12,7 +12,8 @@ angular.module('app.controllers', [])
 		delete response.data.status;
 		$scope.inschrijving_status = response.data.inschrijving_status;
 	}, function error(response) {
-        console.log(response)
+        //console.log(response)
+        $scope.setError($scope.errortxt);
     });
     
 	//$cookies.remove('cookies');	
@@ -40,64 +41,82 @@ angular.module('app.controllers', [])
     
 })
 
-.controller('formController', function($scope, $http, gettextCatalog, $state, gettext, $transitions, $cookies, $location, $anchorScroll) {
+.controller('formController', function($rootScope, $scope, $http, gettextCatalog, $state, gettext, $transitions, $cookies, $location, $anchorScroll, $uiRouter) {
+	//$cookies.remove('betaald') 
 	//$cookies.remove('formData');
 	//console.log($cookies.getObject('formData', $scope.formData));
-	$scope.locale						= window.localStorage.taal;
+	//delete window.localStorage.formData
+	//console.log(JSON.parse(window.localStorage.formData));
+	//$scope.locale						= (typeof $scope.formData.reg.taal!=="undefined")window.localStorage.taal;
+	//window.localStorage.clear();
+	
+		
+	
 	$scope.buttondisabled				= false;     
 	$scope.required						= gettextCatalog.getString("Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.");
+	$scope.sendlogintxt					= gettextCatalog.getString("Vul hieronder het e-mailadres in waarmee je als Freon geregistreerd staat en we versturen de e-mail met login gegevens opnieuw.");
+	$scope.errortxt						= gettextCatalog.getString("Helaas is er even iets mis met het systeem, herlaad de pagina en probeer het nog eens.");
+	$scope.sendloginsucces				= gettextCatalog.getString("Er is een e-mail naar je onderweg met de logingegevens. Controleer je e-mail.");	
 	
-	$scope.svs							= ["starttijd", "vervoer", "slapen"];
-    $scope.opstapplekken				= [gettext("Sneek"), gettext("Leeuwarden"), gettext("Heerenveen"), gettext("Franeker/Harlingen")];
-        
+	$scope.opstapplekken				= [gettext("Sneek"), gettext("Leeuwarden"), gettext("Heerenveen"), gettext("Franeker/Harlingen")];       
     $scope.deelname						= ["1 keer", "2 keer","3 keer","4 keer","5 keer", "nog nooit"];
-    $scope.formData 					= (typeof $cookies.getObject('formData')==="undefined")? {} : $cookies.getObject('formData', $scope.formData); 
-    $scope.direction 					= "forwards";
+    $scope.formData 					= (typeof window.localStorage.formData==="undefined")? {} : JSON.parse(window.localStorage.formData); 
     $scope.formData.kaarten 			= (typeof $scope.formData.kaarten==="undefined") ? "" : $scope.formData.kaarten;
     $scope.formData.shirts 				= (typeof $scope.formData.shirts==="undefined") ? {} : $scope.formData.shirts;
     $scope.formData.reg 				= (typeof $scope.formData.reg==="undefined")? {} : $scope.formData.reg;
     $scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
     //$scope.formData.reg.slaapplek		= (typeof $scope.formData.reg!=="undefined" && $scope.formData.reg.soortovernachting=="Festipi") ? "Ik regel het zelf" : "";
+   
     $scope.formData.reg.betaald 		= (typeof $scope.formData.reg==="undefined") ? "" : 0;
-    $scope.formData.user 				= "test";
-    $scope.formData.password			= "testpersoon1234";
+    $scope.formData.user 				= "testpersoon1";
+    $scope.formData.password			= "tpersoon_1234*";
+    $scope.direction 					= "forwards";
+   
+    $scope.initIntroducees = function(){
+	     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */		     
+	    $scope.formData.introducees 		= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
+	    $scope.formData.introducees[0] 		= (typeof $scope.formData.introducees[0]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[0];
+	    $scope.formData.introducees[0].geboortedatum 	= (typeof $scope.formData.introducees[0].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[0].geboortedatum);
+	    
+	    $scope.formData.introducees[1] 		= (typeof $scope.formData.introducees[1]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[1];
+	    $scope.formData.introducees[1].geboortedatum 	= (typeof $scope.formData.introducees[1].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[1].geboortedatum);
+	    
+	    $scope.formData.introducees[2] 		= (typeof $scope.formData.introducees[2]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[2];
+	    $scope.formData.introducees[2].geboortedatum 	= (typeof $scope.formData.introducees[2].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[2].geboortedatum);
+    }
     
-    /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */
-    $scope.formData.introducees 		= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
-    $scope.formData.introducees[0] 		= (typeof $scope.formData.introducees[0]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[0];
-    $scope.formData.introducees[0].geboortedatum 	= (typeof $scope.formData.introducees[0].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[0].geboortedatum);
-    
-    $scope.formData.introducees[1] 		= (typeof $scope.formData.introducees[1]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[1];
-    $scope.formData.introducees[1].geboortedatum 	= (typeof $scope.formData.introducees[1].geboortedatum==="undefined") ? undefined : new Date($scope.formData.introducees[1].geboortedatum);
-    
-    $scope.formData.introducees[2] 		= (typeof $scope.formData.introducees[2]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[2];
-    $scope.formData.introducees[2].geboortedatum 	= (typeof $scope.formData.introducees[2].geboortedatum==="undefined") ? undefined : new Date($scope.formData.introducees[2].geboortedatum);
+    $scope.initIntroducees();
+   
     $scope.formData.taal				= window.localStorage.taal;
 	
     $scope.ticketprice					= 95;
-	$scope.tshirtprice					= 11.50;
+	$scope.tshirtprice					= 23.50;
+	$scope.hoodieprice					= 18.50;
 	$scope.overnachting					= 13;
-	$scope.bijslaper					= 12.50;
+	$scope.bijslaper					= 13;
     $scope.genders 						= ["m","v"];
     $scope.sizes 						= ["s","m","l","xl", "xxl"];
-    $scope.maxkaarten 					= [1,2,3,4]; 
-	$scope.pwijzigen					= 0;	
-    $scope.stap 						= 1;
-    $scope.prevstap 					= 0;
+    $scope.maxkaarten 					= [1,2,3,4]; 	
+	$scope.stap 						= 1;
     
+    //console.log($scope.formData);
     //to update the menu at the right timing
     $transitions.onSuccess( {}, function(){		
 		setTimeout(function(){
 			 $scope.menu();
+			 $('.view').scrollTop(0)
+			 // document.body.scrollTop = document.documentElement.scrollTop = 0;
+			 console.log($('.view').scrollTop());
 		}, 600);
 		
 	
 	});
+	
+	
     
     $scope.errors 						= false;
 	
     /* TODO : sluitknop */
-   
     $scope.setError = function(message){	    
 	    $scope.errors 			= 1;		
 		$scope.errormessage		= message;
@@ -112,33 +131,32 @@ angular.module('app.controllers', [])
 	 
 	$scope.copyGegevens = function(checked, index){
 	    angular.forEach($scope.formData.reg, function(value, key) {
-	    if(key=="email" || key=="email2" || key=="voornaam" || key=="tussenvoegsels" || key=="achternaam" || key=="betaald" || key=="extrapersonen" || key=="geboortedatum" || key=="geslacht" || key=="userID")return false;
+	    if(key=="email" || key=="email2" || key=="voornaam" || key=="tussenvoegsels" || key=="achternaam" || key=="betaald" || key=="extrapersonen" || key=="geboortedatum" || key=="geslacht" || key=="ID" || key=="user_login")return false;
 	    $scope.formData.introducees[index][key] = (checked) ? value : "";
 	    });
 	}   
-        
+   	       
     $scope.showPrice = function(){
 	   	//TODO ITERATE TROUGHT THE OBJECT AND CHECK IF THE VALUES ARE NOT NULL
 	    $scope.formData.extrapersonen	= parseInt($scope.formData.reg.extrapersonen)
 	   	$scope.totaaltickets 			= $scope.formData.kaarten * $scope.ticketprice	    
 	    $scope.aantaltshirts			= Object.keys($scope.formData.shirts).length;
 	    $scope.totaaltshirts			= (Object.keys($scope.formData.shirts).length > 0) ? Object.keys($scope.formData.shirts).length * $scope.tshirtprice : 0;
-	    
+	    //TODO: hier moet Tritsum nog bij
+	    console.log($scope.formData.reg.dorp);
+	    $scope.tritzum					= ($scope.formData.reg.dorp=="Tritzum") ? 65 : 0;
 	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen : 0;
+	    console.log($scope.overnachting * $scope.extrapersonen);
 	    $scope.totaalovernacht			= $scope.overnachting * $scope.extrapersonen;
-		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts).toFixed(2);;
+		$scope.formData.totaalbedrag 	= ($scope.tritzum + $scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts).toFixed(2);;
 	    
 	    angular.element(document.getElementById('totaalbedrag')).val($scope.totaalbedrag)
 	    angular.element(document.getElementById('showtotaalbedrag')).html('&euro; '+$scope.formData.totaalbedrag)
-	    
-	    
-	    
-	    //console.log(parseInt($scope.formData.reg.extrapersonen))    	           
     }
        
     /* OVERZICHT FUNCTIES */    
     /** functie voor togglen introducee edit <> view **/
-    $scope.states					= [{"gegevens":"edit", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"}];
+    $scope.states					= [{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"}];
     $scope.pstates					= {"kaarten":"view", "gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view"};									
     
     $scope.ftemplates 				= { "kaarten"	: {"view" : "views/blokken/freon-kaarten-view.html", "edit":"views/blokken/freon-kaarten-edit.html"},
@@ -170,8 +188,9 @@ angular.module('app.controllers', [])
 				});
 			});
 	    }
-	    
-	    $cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	  
+	    window.localStorage.formData = JSON.stringify($scope.formData);
+	    //window.localStorage.formData = $scope.formData;
+	   ///$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	  
     }
     
     $scope.togglepTemplate = function(template, view){	    
@@ -194,12 +213,15 @@ angular.module('app.controllers', [])
 				})
 		});
 		
-	    $cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
+		window.localStorage.formData = JSON.stringify($scope.formData);
+		//window.localStorage.formData = $scope.formData;
+	    //$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
     }
     
 	/* KOPIEER PERSOONSGEGEVENS NAAR DE INTRODUCEES */
     $scope.setIntroduceData			= function(index){
 	    var copyfields = ["starttijd","vervoer", "slapen", "dorp", "soortovernachting", "slaapplek", "bagage"];
+		//console.log($scope.formData);
 		angular.forEach($scope.formData.reg, function(value, key) {
 		  if(copyfields.indexOf(key) > -1 ){
 		  $scope.formData.introducees[index][key] = value;
@@ -207,65 +229,145 @@ angular.module('app.controllers', [])
 		});
     }
     
-    $scope.loginError	= false;
-   	
-   	$scope.inloggen = function(){
-   		$cookies.putObject('formData', $scope.formData, {"secure":true}); 
-	   	$scope.buttondisabled 	= true;
-	   	$scope.loginError 		= false;
-	   	
-	   	console.log($scope.formData);
-	   	$http({
+    $scope.sendInlog = function(){
+	    
+	    $scope.buttondisabled 	= true;
+	    $http({
 		    method: 'POST',
-		    //url: 'http://slachtemarathon.statuur.nl/login',
-		    url :'https://www.slachtemarathon.nl/api/freon/login',
-		    data: $.param($scope.formData),//"message=aap",
+		    url :'https://www.slachtemarathon.nl/api/freon/sendInlog',
+		    data: $.param({"email":$scope.formData.emailfreon}),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
-	    		$scope.parseData(response.data.data);
-				$scope.setStap(1,'forwards');
-	    	}else{
-		    	$scope.loginError = true;
+				$scope.sendlogintxt	= $scope.sendloginsucces;
+				setTimeout(function(){
+					document.location.reload();
+				}, 8000);
 	    	}
 	    	$scope.buttondisabled  = false;
 	  	}, function errorCallback(response) {
+	    	$scope.setError($scope.errortxt);
+	    	console.error(response);
+	  	});
+    }
+    
+    $scope.loginError	= false;
+   	
+	   	$scope.inloggen = function(){
+		//$cookies.putObject('formData', $scope.formData, {"secure":true}); 
+	   	$scope.buttondisabled 	= true;
+	   	$scope.loginError 		= false;
+	   	
+	   	
+	   	$http({
+		    method: 'POST',
+		    url :'https://www.slachtemarathon.nl/api/freon/inloggen',
+		    data: $.param($scope.formData),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).then(function successCallback(response) {
+	    	if(response.data.status==="ok"){
+				
+				if(response.data.betaald > 1504628362){
+					//stappen uit het proces halen?
+					$uiRouter.stateRegistry.deregister("form.aantalkaarten");
+					$uiRouter.stateRegistry.deregister("form.persoonlijke-gegevens");
+					$uiRouter.stateRegistry.deregister("form.starttijd");
+					$uiRouter.stateRegistry.deregister("form.vervoer");
+					$uiRouter.stateRegistry.deregister("form.slapen");
+					$uiRouter.stateRegistry.deregister("form.shirts");
+					$uiRouter.stateRegistry.deregister("form.betalen");	
+					
+					//sla dit op in een cookie voor de reload.
+					$cookies.put('betaald', "1",{"secure":true});//{"secure":true}
+					$scope.loggedin = 1;
+					
+				}
+				$scope.parseData(response.data);
+				//console.log("zou oke moeten zijn");
+				setTimeout(function(){
+					$scope.menu();
+					$scope.setStap(1,'forwards');
+				}, 500);
+				
+	    	}else{
+		    	$scope.loginError = true;
+	    	}
+	    	
+	    	$scope.buttondisabled  = false;
+	  	}, function errorCallback(response) {
+	    	$scope.setError($scope.errortxt);
 	    	console.error(response);
 	  	});
 	
 	} 	
-		
-	$scope.parseData = function(data){
-		//console.log(data);
-		$scope.formData.reg.userID 			= data.ID;		
-		$scope.formData.reg.email 			= data.user_email;
-		$scope.formData.reg.email2 			= data.user_email;		
-		$scope.formData.reg.voornaam 		= data.first_name;
-		$scope.formData.reg.achternaam 		= data.last_name;
-		$scope.formData.reg.tussenvoegsels	= data.tussenvoegsels;
-		$scope.formData.reg.straat	 		= data.Straat;
-		$scope.formData.reg.huisnummer 		= data.Huisnummer;
-		$scope.formData.reg.postcode 		= data.Postcode;
-		$scope.formData.reg.plaats 			= data.Plaats;
-		$scope.formData.reg.telefoon 		= data.Telefoon;
-		$scope.formData.reg.geboortedatum 	= new Date(data.Geb_datum);
-		$scope.formData.reg.geslacht 		= data.Geslacht;
-		$scope.formData.reg.betaald 		= data.betaald;
-		$cookies.putObject('formData', $scope.formData, {"secure":true}); 
-	}
 	
-	 $scope.Bedankt = function() {
+	$scope.parseData = function(data){
+		
+		data.reg.geboortedatum 	= new Date(data.reg.geboortedatum);
+		data.reg.email			= data.reg.user_email;
+		data.reg.email2			= data.reg.user_email;
+		data.user				= data.reg.user_login;
+		//data.password			= data.reg.user_login;
+		
+		if(typeof data.reg.taal!=="undefined" && data.reg.taal!=""){
+			gettextCatalog.setCurrentLanguage(data.reg.taal);
+			window.localStorage.taal = data.reg.taal;
+		}
+		//delete data.status;
+		//delete data.reg.user_email;
+		
+		$scope.formData.user 				= data.reg.user_login;
+		$scope.formData.password			= "testpersoon1234";//WEG BIJ LIVE
+		
+		$scope.formData = data;
+		
+		//AFHANKELIJK VAN KEUZE WEL/NIET INLOGGEN MEELOPER
+		if(typeof $scope.formData.introducees==="undefined" && $scope.formData.reg.role!="meeloper"){
+			$scope.initIntroducees();
+		}
+		//console.log($scope.formData);
+		
+		window.localStorage.formData = JSON.stringify($scope.formData);
+		//window.localStorage.formData = $scope.formData;
+		//$cookies.putObject('formData', $scope.formData, {"secure":true}); 
+	}
+
+
+	
+	
+	$scope.isBetaald = function(){
+		
+		if(typeof $cookies.get('betaald')!==undefined && $cookies.get('betaald')==1 && !$scope.loggedin){
+			
+			$uiRouter.stateRegistry.deregister("form.aantalkaarten");
+			$uiRouter.stateRegistry.deregister("form.persoonlijke-gegevens");
+			$uiRouter.stateRegistry.deregister("form.starttijd");
+			$uiRouter.stateRegistry.deregister("form.vervoer");
+			$uiRouter.stateRegistry.deregister("form.slapen");
+			$uiRouter.stateRegistry.deregister("form.shirts");
+			$uiRouter.stateRegistry.deregister("form.betalen");	
+			setTimeout(function(){
+					$scope.menu();
+					$scope.setStap(1,'forwards');
+				}, 500);
+		}
+	}	
+	
+	$scope.bedankt = function() {
    	 
    	 //get user_id and update it to betalen ajax request to deeelnemer betaald
-	   	 if(typeof $scope.formData.reg.userID==="undefined" || $scope.formData.reg.userID==""){//controleren of er een goede cookie is.
+	   	 if(typeof $scope.formData.reg.ID==="undefined" || $scope.formData.reg.ID==""){//controleren of er een goede cookie is.
 		   	 document.location.href='tickets.html'
 	   	 }else{  	 
 	   	 
 	   	// $cookies.getObject('paymentID');
+	   	 $scope.formData.orderID = $cookies.get('orderID');
+	   	 $scope.formData.paymentID = $cookies.get('paymentID');
+	   	 
 	   	 $http({
 			    method: 'POST',
 			    url :'https://www.slachtemarathon.nl/api/freon/betaald',
-			    data: $.param({"userID": $scope.formData.reg.userID, "order_id": $cookies.get('orderID'), "betaald":"1", "starttijd": $scope.formData.reg.starttijd, "kaarten":$scope.formData.kaarten, "meelopers":$scope.formData.introducees}),//"message=aap",
+			    data: $.param($scope.formData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
 				console.log(response);
@@ -284,8 +386,9 @@ angular.module('app.controllers', [])
 	$scope.formData.opslaan = false;
 	// function to process the form
     $scope.processForm = function() {
-       
-       $cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
+       window.localStorage.formData = JSON.stringify($scope.formData);
+       //window.localStorage.formData = $scope.formData;
+       //$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
        $scope.formData.opslaan = false;
        $http({
 		    method: 'POST',
@@ -293,15 +396,16 @@ angular.module('app.controllers', [])
 		    data: $.param($scope.formData),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
-	    	console.error(response);
+	    	//console.error(response);
 	    	if(response.data.status==="ok"){
-		    	//$scope.opslaan = 0;
+		    	$cookies.putObject('betalingsinfo', {"userID":$scope.formData.reg.ID,"voornaam":$scope.formData.reg.voornaam,"achternaam":$scope.formData.reg.achternaam, "totaalbedrag": $scope.formData.totaalbedrag, "kaarten":$scope.formData.kaarten}, {"secure":true});
 				document.location.href='betalen.php'; //bij live
 		    	//$state.go('form.betalensimulatie');
 	    	}else{
-		    	console.error(response);
+		    	console.error(response);//TODO foutmelding tbv api controller
 	    	}
 	  	}, function errorCallback(response) {
+	    	$scope.setError($scope.errortxt);
 	    	console.error(response);//hier een foutmelding
 	  	});
     };
@@ -320,44 +424,45 @@ angular.module('app.controllers', [])
 		alert(mes);
 	}   
     $scope.setStap	= function(stap, direction){
-		//console.log(direction);
-		
 		$scope.stap		= stap;		
-		$scope.direction = direction;//($scope.prevstap > $scope.stap) ? "backwards" : "forwards";		
-		//console.log($scope.stap, $scope.direction);
-		setTimeout(function(){
-			$state.go($scope.stappen[stap].name);			
-		}, 50)
-	    
-	    $cookies.putObject('formData', $scope.formData); 	   	       
-		$scope.prevstap = stap;
+		$scope.direction = direction;		
+		console.log($scope.stap);
 		
+			if(stap==-1){
+				document.location.href='index.html';
+			}else{
+			$state.go($scope.stappen[stap].name);			
+			}
+		//setTimeout(function(){//}, 50)
+	    
+	   	   	       
+		window.localStorage.formData = JSON.stringify($scope.formData);
+
 	};
 	
     $scope.menu		= function() {
          var formsteps = $state.get();    
-		 //console.log(formsteps);
 		 var stappen = [];
-		 //var stappeno = {};
+		 
 		 var passed	 = 1;
 		 var i = 0;
 		 angular.forEach(formsteps, function(stap, key) {
 		 	 if (stap.name.match(/(form.betalensimulatie)/i)) return false;//KANWEG
 		 	 if (stap.name.match(/(form.)/i)) {
-		 	 	 
 		 	 	 var translated = gettextCatalog.getString(stap.name);
 		 	 	 stap.title 	= translated;
 		 	 	 stap.active	= $state.current.name===stap.name;
 		 	 	 $scope.stap 	= (stap.active) ? i : $scope.stap;
 		 	 	 passed			= ($state.current.name===stap.name) ? 0 : passed;
 		 	 	 stap.passed	= passed;
-		 	 	 //$scope.prevstap = (stap.active) ? i : $scope.prevstap;
 		 	 	 stap.stap		= key;
 		 	 	 this.push(stap);
 		 	 	 i++;
 		 	 }	 	 
 		}, stappen);     
-		$scope.stappen = stappen;            
+		$scope.stappen = stappen;    
+		//stappen['-1'] = "aap"
+		//console.log(stappen);        
 		
     };	
     
@@ -366,25 +471,79 @@ angular.module('app.controllers', [])
     //get basisinfo.json "?"+new Date().toString() json/basisinfo.json
     $http({
 		method: 'GET',
-		url: 'https://www.slachtemarathon.nl/api/systeem/basisinfo/'
+		url: 'https://www.slachtemarathon.nl/api/systeem/basisinfo/?taal='+window.localStorage.taal
 	}).then(function successCallback(response) {
 		$scope.inschrijving_status 	= response.data.inschrijving_status;
 		$scope.dorpen 				= response.data.dorpen;
 		$scope.starttijden 			= response.data.starttijden;
-		
 		}, function errorCallback(response) {
     		if(response.status == -1){
 	    		$scope.setError("Helaas is er even iets mis met het systeem, probeer het zo nog even");
     		}
      });
    
-}).directive('matchValidator', [function() {
+})
+.directive('freonenEmailExists', function($http, $q) {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, ngModel) {
+             ngModel.$asyncValidators.freonenEmailExists = function(modelValue, viewValue) {
+					 if(ngModel.$pristine || scope.originalEmail===ngModel.$viewValue){return $q(function(r) {r(1);});}else{
+						 return $http({
+									    method: 'POST',
+									    url :'https://www.slachtemarathon.nl/api/freon/emailCheck',
+									    data: $.param({"email":ngModel.$viewValue}),
+									    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+									}).then(function successCallback(response) {
+							    		//console.log(response);
+							    	if(response.data.exists){
+								    	return $q.resolve('goed e-mailadres');							    	
+							    	}else{
+								    	return $q.reject('e-mail bestaat niet');
+							    	}
+							  	}, function errorCallback(response) {							    	
+							    	console.error(response);
+							    	return $q.reject('selected username does not exists');
+							  	});
+					 }
+				}; 	 
+        }
+    };
+})
+.directive('emailExists', function($http, $q) {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, ngModel) {
+             ngModel.$asyncValidators.emailExists = function(modelValue, viewValue) {
+					 if(ngModel.$pristine || scope.originalEmail===ngModel.$viewValue){return $q(function(r) {r(1);});}else{
+						 return $http({
+									    method: 'POST',
+									    url :'https://www.slachtemarathon.nl/api/freon/emailCheck',
+									    data: $.param({"email":ngModel.$viewValue}),
+									    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+									}).then(function successCallback(response) {
+							    		//console.log(response);
+							    	if(response.data.exists){
+								    	return $q.reject('e-mail bestaat al');							    	
+							    	}else{
+								    	return $q.resolve('goed e-mailadres');
+							    	}
+							  	}, function errorCallback(response) {							    	
+							    	console.error(response);
+							    	return $q.reject('selected username does not exists');
+							  	});
+					 }
+				}; 	 
+        }
+    };
+})
+.directive('matchValidator', [function() {
         return {
             require: 'ngModel',
             link: function(scope, elm, attr, ctrl) {
-                var pwdWidget = elm.inheritedData('$formController')[attr.matchValidator];
-				//console.log("?????");
-                ctrl.$parsers.push(function(value) {
+                	//store original value otherwise there will always be  a double return value
+                	var pwdWidget = elm.inheritedData('$formController')[attr.matchValidator];
+					ctrl.$parsers.push(function(value) {
                     if (value === pwdWidget.$viewValue) {
                         ctrl.$setValidity('match', true);                            
                         return value;

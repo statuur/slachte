@@ -79,13 +79,13 @@ angular
 	            url: '/betalen',
 	            templateUrl: 'views/form-betalen.html'
 	        })
-	        
+	    /*    
 	    .state('form.betalensimulatie', {
 	            url: '/betalensimulatie',
 	            templateUrl: 'views/form-betalen-simulatie.html'
 	            //templateUrl: 'betalen.php'
 	        })
-	    
+	    */
 	    .state('bedankt', {
 	            url: '/bedankt',
 	            templateUrl: 'views/bedankt.html',
@@ -99,11 +99,12 @@ angular
   	delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }).config(['AnalyticsProvider', function (AnalyticsProvider) {
    // Add configuration code as desired
-   	AnalyticsProvider.setAccount('UA-2619816-14');  //UU-XXXXXXX-X should be your tracking code
+   	AnalyticsProvider.setAccount('UA-2619816-14').logAllCalls(true).startOffline(true);  //UU-XXXXXXX-X should be your tracking code
 }])
 .run(['Analytics', function(Analytics) { }])
 .run(function(gettextCatalog, $http){
    	
+   	   	
    	gettextCatalog.debug 		= true;
     gettextCatalog.baseLanguage = "nl_NL";
     

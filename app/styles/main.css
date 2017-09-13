@@ -107,7 +107,11 @@ ui-view{
 	overflow:hidden;
 	font-size:28px;
 }
-
+/*
+#startkaarten .panel-default{
+	margin-bottom:64px;
+}
+*/
 #overzicht h1{
 	font-weight: 200;
 	color:#000;
@@ -522,7 +526,7 @@ uib-accordion a:hover,
 uib-accordion a:active{
 	text-decoration: none;
 }
-
+/*WEG?*/
 .panel-title span > span{
 	color:#828282;
 }
@@ -700,7 +704,15 @@ uib-accordion a:active{
 	margin:16px 0 23px 0;
 }
 
-.toelichting:before{
+
+.uitroepteken{
+	font-size: 16px;
+	color:#606060;
+	line-height: 22px;
+	margin:16px 0 23px 0;
+}
+
+.uitroepteken:before{
 	content:"!";
 	color:#E00915;
 	font-size: 20px;

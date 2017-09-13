@@ -1,5 +1,6 @@
-<h2 translate>Overzicht </h2>
-<div class="toelichting" translate>Voor alle extra kaarten zijn standaard de keuzes overgenomen van de eerste persoon. Deze moeten per persoon nog worden aangepast</div>
+<h2 ng-init="isBetaald()" translate>Overzicht</h2>
+<div class="toelichting" translate>Je hebt nu de gegevens voor de eerste deelnemer ingevuld.
+Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 
 	<div id="overzicht" class="row show-grid">
 		
@@ -75,11 +76,19 @@
 		
 		</div>
 		
-		<div class="row sshow-grid" ng-show="formData.reg.slapen">
+		<div class="row show-grid" ng-show="formData.reg.slapen">
 		<div class="col-xs-12">
 	  		<hr class="hr-30"/>
 		</div>
 	</div>
+		
+		<div class="row show-grid" ng-show="formData.reg.slapen">
+		<div class="col-xs-12" translate>
+	  		Je hebt meerdere kaarten besteld.
+We hebben de gegevens van de eerste kaart overgenomen. Pas deze hieronder aan. We willen nu in ieder geval graag de juiste namen van de deelnemers weten.<br/>Weet je nu niet alle overige informatie? Dan heb je twee weken de tijd om de gegevens alsnog aan te passen. We sturen je een e-mail met een link om dit later nog te doen.
+		</div>
+	</div>
+		
 		
 		<div id="startkaarten">
 		<uib-accordion close-others="false" is-open="true" class="startkaart">					
@@ -94,9 +103,11 @@
 		
 		<div class="row show-grid">
 			<div class="col-xs-12 opslaan">
-				<button type="button" class="slanted volgende" ng-click="setStap(stap+1,'forwards')" translate>Volgende stap</button>
+				<button type="button" class="slanted volgende" ng-click="setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 			</div>
 		</div>
+		
+		
 		
 		<!--<button type="button" class="btn btn-primary btn-lg slanted pull-right" ng-click="processForm()" sng-disabled="!formData.bagage">Akkoord en afronden</button>-->
 			
