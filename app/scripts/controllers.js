@@ -20,11 +20,11 @@ angular.module('app.controllers', [])
 	$scope.cookieAgree 	= (typeof $cookies.getObject('cookies')==="undefined")? 0 : $cookies.get("cookies");
  	$scope.cookiea		= gettextCatalog.getString("Ga je akkoord met de Cookie instellingen?");
 	
- 	 $scope.alert	= function(mes){
+ 	$scope.alert	= function(mes){
 		mes = gettext(mes);
 		alert(mes);
-	} 
- 	
+	}
+	 
  	$scope.cookieAgreement = function(lang) {
 		 var expireDate = new Date();
 		 expireDate.setDate(expireDate.getDate() + 1);
@@ -48,15 +48,14 @@ angular.module('app.controllers', [])
 	//delete window.localStorage.formData
 	//console.log(JSON.parse(window.localStorage.formData));
 	//$scope.locale						= (typeof $scope.formData.reg.taal!=="undefined")window.localStorage.taal;
-	//window.localStorage.clear();
-	
-		
-	
+	window.localStorage.clear();
 	$scope.buttondisabled				= false;     
 	$scope.required						= gettextCatalog.getString("Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.");
 	$scope.sendlogintxt					= gettextCatalog.getString("Vul hieronder het e-mailadres in waarmee je als Freon geregistreerd staat en we versturen de e-mail met login gegevens opnieuw.");
 	$scope.errortxt						= gettextCatalog.getString("Helaas is er even iets mis met het systeem, herlaad de pagina en probeer het nog eens.");
 	$scope.sendloginsucces				= gettextCatalog.getString("Er is een e-mail naar je onderweg met de logingegevens. Controleer je e-mail.");	
+	
+	
 	
 	$scope.opstapplekken				= [gettext("Sneek"), gettext("Leeuwarden"), gettext("Heerenveen"), gettext("Franeker/Harlingen")];       
     $scope.deelname						= ["1 keer", "2 keer","3 keer","4 keer","5 keer", "nog nooit"];
@@ -66,7 +65,10 @@ angular.module('app.controllers', [])
     $scope.formData.reg 				= (typeof $scope.formData.reg==="undefined")? {} : $scope.formData.reg;
     $scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
     //$scope.formData.reg.slaapplek		= (typeof $scope.formData.reg!=="undefined" && $scope.formData.reg.soortovernachting=="Festipi") ? "Ik regel het zelf" : "";
-   
+	
+	$scope.formData.taal				= window.localStorage.taal;
+	
+	
     $scope.formData.reg.betaald 		= (typeof $scope.formData.reg==="undefined") ? "" : 0;
     $scope.formData.user 				= "testpersoon1";
     $scope.formData.password			= "tpersoon_1234*";
@@ -74,6 +76,7 @@ angular.module('app.controllers', [])
    
     $scope.initIntroducees = function(){
 	     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */		     
+	    
 	    $scope.formData.introducees 		= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
 	    $scope.formData.introducees[0] 		= (typeof $scope.formData.introducees[0]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[0];
 	    $scope.formData.introducees[0].geboortedatum 	= (typeof $scope.formData.introducees[0].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[0].geboortedatum);
@@ -86,9 +89,7 @@ angular.module('app.controllers', [])
     }
     
     $scope.initIntroducees();
-   
-    $scope.formData.taal				= window.localStorage.taal;
-	
+    
     $scope.ticketprice					= 95;
 	$scope.tshirtprice					= 23.50;
 	$scope.hoodieprice					= 18.50;
@@ -104,9 +105,9 @@ angular.module('app.controllers', [])
     $transitions.onSuccess( {}, function(){		
 		setTimeout(function(){
 			 $scope.menu();
-			 $('.view').scrollTop(0)
+			 //$('.view').scrollTop(0)
 			 // document.body.scrollTop = document.documentElement.scrollTop = 0;
-			 console.log($('.view').scrollTop());
+			 //console.log($('.view').scrollTop());
 		}, 600);
 		
 	
@@ -142,13 +143,11 @@ angular.module('app.controllers', [])
 	   	$scope.totaaltickets 			= $scope.formData.kaarten * $scope.ticketprice	    
 	    $scope.aantaltshirts			= Object.keys($scope.formData.shirts).length;
 	    $scope.totaaltshirts			= (Object.keys($scope.formData.shirts).length > 0) ? Object.keys($scope.formData.shirts).length * $scope.tshirtprice : 0;
-	    //TODO: hier moet Tritsum nog bij
-	    console.log($scope.formData.reg.dorp);
-	    $scope.tritzum					= ($scope.formData.reg.dorp=="Tritzum") ? 65 : 0;
+	    
 	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen : 0;
 	    console.log($scope.overnachting * $scope.extrapersonen);
 	    $scope.totaalovernacht			= $scope.overnachting * $scope.extrapersonen;
-		$scope.formData.totaalbedrag 	= ($scope.tritzum + $scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts).toFixed(2);;
+		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts).toFixed(2);;
 	    
 	    angular.element(document.getElementById('totaalbedrag')).val($scope.totaalbedrag)
 	    angular.element(document.getElementById('showtotaalbedrag')).html('&euro; '+$scope.formData.totaalbedrag)
@@ -228,14 +227,14 @@ angular.module('app.controllers', [])
 		  }		  
 		});
     }
-    
+   
     $scope.sendInlog = function(){
 	    
 	    $scope.buttondisabled 	= true;
 	    $http({
 		    method: 'POST',
 		    url :'https://www.slachtemarathon.nl/api/freon/sendInlog',
-		    data: $.param({"email":$scope.formData.emailfreon}),
+		    data: $.param({"email":$scope.formData.emailfreon, "taal":$scope.formData.taal}),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
@@ -335,8 +334,7 @@ angular.module('app.controllers', [])
 
 	
 	
-	$scope.isBetaald = function(){
-		
+	$scope.isBetaald = function(){//angular.element(document.getElementById('totaalbedrag')).val($scope.totaalbedrag)		
 		if(typeof $cookies.get('betaald')!==undefined && $cookies.get('betaald')==1 && !$scope.loggedin){
 			
 			$uiRouter.stateRegistry.deregister("form.aantalkaarten");
@@ -419,24 +417,34 @@ angular.module('app.controllers', [])
 		$anchorScroll();
     };
     
-    $scope.alert	= function(mes){
-		mes = gettext(mes);
-		alert(mes);
-	}   
+    
+    
     $scope.setStap	= function(stap, direction){
 		$scope.stap		= stap;		
 		$scope.direction = direction;		
-		console.log($scope.stap);
+		
+			if($scope.stap==2 && $scope.direction=="forwards"){
+				$http({
+					method: 'POST',
+					url :'https://www.slachtemarathon.nl/api/systeem/aantalKaarten',
+					data: $.param({"aantalkaarten":$scope.formData.kaarten}),
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				}).then(function successCallback(response) {
+					console.log(response.data);	    						    	
+				}, function errorCallback(response) {							    	
+				console.error(response);
+							    	
+				});
+     
+			}	
 		
 			if(stap==-1){
 				document.location.href='index.html';
 			}else{
-			$state.go($scope.stappen[stap].name);			
+				$state.go($scope.stappen[stap].name);			
 			}
-		//setTimeout(function(){//}, 50)
-	    
-	   	   	       
-		window.localStorage.formData = JSON.stringify($scope.formData);
+		
+	    window.localStorage.formData = JSON.stringify($scope.formData);
 
 	};
 	

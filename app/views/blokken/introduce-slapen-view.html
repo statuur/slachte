@@ -4,15 +4,42 @@
 				<span ng-click="toggleTemplate('slapen', 'edit', $index)" class='pull-right wijzigen' translate>Slapen wijzigen</span>
 			</h2>
 		</div>
-		<div class="col-xs-5" style="padding-left:32px;" translate>Waar wil je het liefste slapen?</div><div class="col-xs-7 bold">{{formData.introducees[$index].slapen}}&nbsp;</div>
-		<div class="col-xs-5" style="padding-left:32px;" translate>Het dorp waar je wilt slapen</div><div class="col-xs-7 bold">{{formData.introducees[$index].dorp}}&nbsp;</div>
-		<div class="col-xs-5" style="padding-left:32px;" translate>Wat voor soort overnachting zou je willen?</div><div class="col-xs-7 bold">{{formData.introducees[$index].soortovernachting}}&nbsp;</div>
-		<div class="col-xs-5" style="padding-left:32px;" translate>Wil je zelf je slaapplek regelen?</div><div class="col-xs-7 bold">{{formData.introducees[$index].slaapplek}}&nbsp;</div>
 		
-		<!--<div class="col-xs-5" style="padding-left:32px;" translate>Neem je iemand mee?</div><div class="col-xs-7 bold">{{formData.introducees[$index].extrapersonen}}&nbsp;</div>-->
+		<div class="col-xs-5" style="padding-left:32px;" translate>Slaapplek</div><div class="col-xs-7 bold">{{formData.introducees[$index].slapen}}&nbsp;</div>
 		
-		<div class="col-xs-5" style="padding-left:32px;" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div><div class="col-xs-7 bold">{{formData.introducees[$index].bagage}}&nbsp;</div>
+		
+		<div ng-show="formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route'">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Het dorp waar je wilt slapen</div><div class="col-xs-7 bold">{{formData.introducees[$index].dorp}}&nbsp;</div>
+		</div>
+		
+		<div ng-show="formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route'">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Soort overnachting</div><div class="col-xs-7 bold">{{formData.introducees[$index].soortovernachting}}&nbsp;</div>
+		</div>
+		
+		<div ng-show="(formData.introducees[$index].soortovernachting==='Festipi' || formData.introducees[$index].soortovernachting==='In een groepsaccomodatie' || formData.introducees[$index].soortovernachting==='Bij iemand thuis') && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route' && formData.introducees[$index].soortovernachting">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Wil je zelf je slaapplek regelen?</div><div class="col-xs-7 bold">{{formData.introducees[$index].slaapplek}}&nbsp;</div>
 		</div>
 		
 		
-	
+		<div ng-show="formData.introducees[$index].soortovernachting==='Bij iemand thuis' && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route' && formData.introducees[$index].soortovernachting">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Hoeveel nachten blijf je slapen?</div><div class="col-xs-7 bold">{{formData.introducees[$index].nachtenslapen}}&nbsp;</div>
+		</div>
+		
+		<div ng-show="formData.introducees[$index].soortovernachting==='Bij iemand thuis' && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route' && formData.introducees[$index].soortovernachting">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Wanneer breng je je tent, caravan, camper?</div><div class="col-xs-7 bold">{{formData.introducees[$index].tentcaravancamper}}&nbsp;</div>
+		</div>
+		
+		
+		<div ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route'">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon?</div><div class="col-xs-7 bold">{{formData.introducees[$index].extrapersonen}}&nbsp;</div>
+		</div>
+		
+		<div ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route'">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div><div class="col-xs-7 bold">{{formData.introducees[$index].extrapersonen}}&nbsp;</div>
+		</div>
+		
+		<div ng-show="formData.introducees[$index].slapen=='In één van út en thús dorpen langs de route' && formData.introducees[$index].soortovernachting">
+			<div class="col-xs-5" style="padding-left:32px;" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div>
+			<div class="col-xs-7 bold">{{formData.introducees[$index].bagage}}&nbsp;</div>
+		</div>
+		

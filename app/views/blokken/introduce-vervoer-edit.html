@@ -1,7 +1,83 @@
+<div ng-class="{wit:states.vervoer=='edit'}" class="container-fluid wit">
+	<p class="vraag" translate>Hoe kom je bij de start?</p>
+	
+	<div class="row form-group">
+		
+		<div class="col col-xs-12" style="margin-bottom:16px;" ng-show="formData.introducees[$index].vervoer=='Met de Slachtemarathonbus'">	
+		* Vanaf verschillende centraal gelegen parkeerterreinen worden Slachtemarathonbussen ingezet. Als je met de Slachtemarathonbus gaat, kun je kiezen uit verschillende opstapplekken.
+		</div>	
+		<div class="col col-xs-12">					
+		    <label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.introducees[$index].vervoer" uib-btn-radio="'Met de Slachtemarathonbus'" required uncheckable>
+		    <img src="images/bus.svg" alt="" align="abmiddle"/><span translate>Met de Slachtemarathonbus *</span>
+		    </label><label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.introducees[$index].vervoer" uib-btn-radio="'Ik word gebracht'" uncheckable><img src="images/kiss-en-ride.svg" alt="" align="absmiddle"/><span><span translate>Ik word gebracht</span> (tút & der út)</span>
+	        </label>
+
+		    <!--<label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.reg.vervoer" uib-btn-radio="'Eigen vervoer'" required uncheckable>
+	        <img src="images/eigen-vervoer.svg" alt="" align="absmiddle"/>
+			<span translate>Eigen vervoer</span>
+			</label>-->
+		</div>	
+		
+		<div class="col col-xs-12" style="margin:-1px 0 0 1px;">		
+	        <label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.introducees[$index].vervoer" uib-btn-radio="'Ik kom lopend of met de fiets'" uncheckable><img src="images/fiets.svg" alt="" align="absmiddle"/><span translate>Ik kom lopend of met de fiets</span>
+	        </label>
+	  	</div>
+	</div>
+	  	
+	  	<div class="row show-grid" >
+		  	<div class="col col-xs-12 translate toelichting" translate>
+			Eigen auto meenemen naar de start en daar parkeren is helaas niet mogelijk.
+			</div>
+	  	</div>
+	
+	<div class="row show-grid" ng-show="formData.introducees[$index]=='Met de Slachtemarathonbus'">
+		<div class="col-xs-12">
+	  		<hr class="hr-30"/>
+		</div>
+	</div>
+	
+	
+	<div class="row form-group" ng-show="formData.introducees[$index].vervoer=='Met de Slachtemarathonbus'" ng-init="outerIndex=$index">
+		<div class="col col-xs-12">			
+			<div class="vraag" translate>Kies een plek waar je wilt opstappen:</div>
+	        <label ng-repeat="opstapplek in opstapplekken" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[outerIndex].opstapplek" uib-btn-radio="'{{opstapplek}}'" required uncheckable><span translate>In {{opstapplek|translate}} opstappen</span></label>
+	        
+	  	</div>  	
+	</div>
+
+	
+	<div class="row show-grid">
+			<div class="col-xs-12">
+				<button class="slanted" ng-class="{'disabled' : (!formData.introducees[$index].opstapplek && formData.introducees[$index].vervoer=='Per bus') || !formData.introducees[$index].vervoer}" ng-click="togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
+	</div>
+		
+		
+	</div>
+	
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 
 <div ng-class="{wit:states.vervoer=='edit'}" class="container-fluid wit">
-<!--<p class="vraag" translate>Hoe kom je bij de start?</p>-->
-	
+<p class="vraag" translate>Hoe kom je bij de start?</p>	
 	<div class="row form-group">
 		<div class="col-xs-12">
 			<h2 style="padding:16px 0 16px 0px;margin-bottom:0px;font-size:22px;">
@@ -17,7 +93,7 @@
 		    <!--<label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.reg.vervoer" uib-btn-radio="'Eigen vervoer'" required uncheckable>
 	        <img src="images/eigen-vervoer.svg" alt="" align="absmiddle"/>
 			<span translate>Eigen vervoer</span>
-			</label>-->
+			</label>
 		</div>	
 		
 		<div class="col col-xs-12" style="margin:-1px 0 0 1px;">		
@@ -54,4 +130,4 @@
 		</div>
 	</div>
 
-</div>
+</div>-->

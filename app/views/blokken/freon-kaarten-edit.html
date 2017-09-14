@@ -20,7 +20,7 @@ Neem dus rustig de tijd om het systeem te doorlopen en alle gevraagde gegevens i
 		</div>
 
 		<div class="col-xs-12 opslaan" ng-hide="pstates.kaarten=='edit'"><!-- TODO: hier het aantal kaarten opslaan via de API -->
-  			<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}" ng-click="form.$valid && setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
+  			<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}" ng-click="form.$valid && setStap(stap+1,'forwards') && logKaarten()"><span translate>Volgende stap</span></button>
 		</div>
 	</div>	
 </div>
