@@ -163,7 +163,7 @@ h1{
 
 
 h2:first-child{
-	margin:130px 0 20px 0;
+	margin:0px 0 20px 0;
 }
 
 h2{
@@ -385,6 +385,33 @@ b{
 	padding:25%;
 }
 
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgba(0,0,0,.0);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:rgba(0,0,0,.0);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:rgba(0,0,0,.0);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:rgba(0,0,0,.0);
+}
+
+input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgba(0,0,0,.2);
+}
+input:focus::-moz-placeholder { /* Firefox 19+ */
+  color:rgba(0,0,0,.2);
+}
+input:focus:-ms-input-placeholder { /* IE 10+ */
+  color:rgba(0,0,0,.2);
+}
+input:focus:-moz-placeholder { /* Firefox 18- */
+  color:rgba(0,0,0,.2);
+}
+
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
     border-color: none;
     box-shadow: none;
@@ -493,6 +520,9 @@ i.pull-right:after{
 	font-family: 'Frutiger LT Std';
 }
 
+#startkaarten i.pull-right:after{
+	top:-20px;
+}
 uib-accordion h3{
 	font-size:26px;
 	color:#E00915;
@@ -973,6 +1003,7 @@ hr.hr-30{
 
 #form-views{
 	position:relative;
+	padding-top:130px
 }
 
 #form-views.ng-enter,
@@ -1028,26 +1059,6 @@ hr.hr-30{
     to      { transform: translateY(-200%);}
 }
 
-ul.validation-list{
-	padding:0px;
-	margin:0px;
-}
-
-ul.validation-list li{
-	list-style-type: none;
-	
-}
-
-.tooltip-arrow{
-	border-left:5px solid transparent;
-    border-right:5px solid transparent;
-    border-bottom:5px solid #E00915!important;
-}
-
-.tooltip-inner{
-	background: #E00915;
-	border-radius: 0px;
-}
 
 .slide-animate-container {
   position:relative;
@@ -1089,6 +1100,29 @@ ul.validation-list li{
 }
 
 
+
+/*
+.tooltip-arrow{
+	border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:5px solid #E00915!important;
+}
+
+.tooltip-inner{
+	background: #E00915;
+	border-radius: 0px;
+}
+*/
+
+ul.validation-list{
+	padding:0px;
+	margin:0px;
+}
+
+ul.validation-list li{
+	list-style-type: none;
+	
+}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1280px) {

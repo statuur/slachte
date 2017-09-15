@@ -21,7 +21,7 @@
 	  	 <form id="signup-form" method="post" name="form" angular-validator novalidate>
 			<input type="hidden" name="totaalbedrag" id="totaalbedrag" ng-model="totaalbedrag">
 			<!-- our nested state views will be injected here -->
-            <div id="form-views" ng-class="direction" ui-view autoscroll="false"></div>
+            <div id="form-views" ng-class="direction" ui-view autoscroll="true"></div>
         </form>
         		  	
   	</div>
@@ -39,7 +39,7 @@
 </div>
 
  <pre style="width:calc(100% - 64px);overflow: visible;word-break:break-all;
-">{{formData}}</pre>
+">{{formData.hoodies}}</pre>
 
 
 

@@ -1,5 +1,5 @@
 <h2 translate>Betalen</h2>
-<div class="vraags" style="margin-bottom:16px;" translate>Hieronder de totale kosten. Als je op onderstaande knop drukt wordt je doorgestuurd naar de online betalingsomgeving van onze bank. Het is belangrijk dat je het gehele proces afrond.</div>
+<div class="vraags" style="margin-bottom:16px;" translate>Hieronder staan de totale kosten. Als je op de onderstaande knop drukt word je doorgestuurd naar de online betalingsomgeving van onze bank. Het is belangrijk dat je het gehele proces afrondt.</div>
 <div id="kostenoverzicht">
 	<div class="row form-group kosten">
 		<div class="col col-xs-1" style="text-align: center">{{formData.kaarten}}&nbsp;</div>
@@ -13,10 +13,16 @@
 		<div class="col col-xs-2" style="text-align: right">&euro; {{totaalovernacht.toFixed(2)}}</div>
 	</div>
 	
-	<div class="row form-group kosten line">
-		<div class="col col-xs-1" style="text-align: center">{{aantaltshirts}}</div>
+	<div class="row form-group kosten" ng-show="formData.aantaltshirts">
+		<div class="col col-xs-1" style="text-align: center">{{formData.aantaltshirts}}</div>
 		<div class="col col-xs-9" translate>aantal bestelde shirts</div>
 		<div class="col col-xs-2" style="text-align: right">&euro; {{totaaltshirts.toFixed(2)}}</div>
+	</div>
+	
+	<div class="row form-group kosten line" ng-show="formData.aantalhoodies">
+		<div class="col col-xs-1" style="text-align: center">{{formData.aantalhoodies}}</div>
+		<div class="col col-xs-9" translate>aantal bestelde hoodies</div>
+		<div class="col col-xs-2" style="text-align: right">&euro; {{totaalhoodies.toFixed(2)}}</div>
 	</div>	
 	
 	<div class="row form-group totaal">
@@ -27,7 +33,7 @@
 </div>
 
 <div class="row form-group">
-		<div class="col col-xs-12"><input type="checkbox" ng-model="formData.opslaan" ng-cslick="av==1" name="algemene_voorwaarden" id="algemene_voorwaarden"> <label style="font-size:16px;" for="algemene_voorwaarden"><span translate>Ik ga akkoord met de</span> <a ng-href="https://www.slachtemarathon.nl/algemene-voorwaarden/" target="_blank" translate>algemene voorwaarden</a></label></div>
+		<div class="col col-xs-12"><input type="checkbox" ng-model="formData.opslaan" name="algemene_voorwaarden" id="algemene_voorwaarden"> <label style="font-size:16px;" for="algemene_voorwaarden"><span translate>Ik ga akkoord met de</span> <a ng-href="https://www.slachtemarathon.nl/algemene-voorwaarden/" target="_blank" translate>algemene voorwaarden</a></label></div>
 </div>		
 	
 	<button type="button" class="slanted volgende" ng-class="{'disabled' : !formData.opslaan}" ng-click="processForm()" translate>Akkoord en betalen</button>

@@ -12,6 +12,10 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: app/views/blokken/freon-slapen-edit.html:27
+msgid "(vol)"
+msgstr "(vol)"
+
 #: app/views/blokken/freon-kaarten-view.html:1
 msgid "Aantal"
 msgstr "Aantal"
@@ -21,7 +25,7 @@ msgid "Aantal wijzigen"
 msgstr "Aantal wijzigen"
 
 #: app/views/blokken/freon-gegevens-edit.html:60
-#: app/views/blokken/introduce-gegevens-edit.html:55
+#: app/views/blokken/introduce-gegevens-edit.html:50
 msgid "Achternaam"
 msgstr "Achternaam"
 
@@ -34,6 +38,7 @@ msgid "Akkoord en betalen"
 msgstr "Akkoord en betalen"
 
 #: app/views/blokken/freon-slapen-edit.html:60
+#: app/views/blokken/introduce-slapen-edit.html:66
 msgid ""
 "Als je overnacht in een eigen tent, caravan of camper is het mogelijk om "
 "iemand die niet meedoet met de Slachtemarathon bij je te laten logeren. "
@@ -46,7 +51,8 @@ msgstr ""
 "en deze persoon krijgt dan op dag twee ook een ontbijt."
 
 #: app/views/blokken/freon-slapen-edit.html:140
-#: app/views/blokken/introduce-slapen-edit.html:109
+#: app/views/blokken/freon-slapen-view.html:37
+#: app/views/blokken/introduce-slapen-edit.html:146
 msgid "Bagage"
 msgstr "Bagage"
 
@@ -54,8 +60,9 @@ msgstr "Bagage"
 msgid "Bedankt!"
 msgstr "Bedankt!"
 
-#: app/views/blokken/freon-gegevens-edit.html:123
-#: app/views/blokken/introduce-gegevens-edit.html:120
+#: app/views/blokken/freon-gegevens-edit.html:130
+#: app/views/blokken/freon-gegevens-edit.html:137
+#: app/views/blokken/introduce-gegevens-edit.html:106
 msgid "Bent u niet te oud om deel te nemen aan de Slachtemarathon?"
 msgstr "Bent u niet te oud om deel te nemen aan de Slachtemarathon?"
 
@@ -68,11 +75,19 @@ msgid "Betalen simulatie"
 msgstr "Betalen simulatie"
 
 #: app/views/blokken/freon-slapen-edit.html:55
-#: app/views/blokken/introduce-slapen-edit.html:60
+#: app/views/blokken/introduce-slapen-edit.html:61
 msgid "Bij iemand thuis"
 msgstr "Bij iemand thuis"
 
+#: app/views/blokken/freon-slapen-view.html:32
+#: app/views/blokken/introduce-slapen-view.html:34
+msgid ""
+"Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon?"
+msgstr ""
+"Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon?"
+
 #: app/views/blokken/freon-slapen-edit.html:124
+#: app/views/blokken/introduce-slapen-edit.html:130
 msgid ""
 "Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon? De "
 "kosten voor een extra persoon zijn &euro; {{bijslaper.toFixed(2)}}"
@@ -80,12 +95,12 @@ msgstr ""
 "Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon? De "
 "kosten voor een extra persoon zijn &euro; {{bijslaper.toFixed(2)}}"
 
-#: app/index.html:72
+#: app/index.html:75
 msgid "Cookie Instellingen"
 msgstr "Cookie Instellingen"
 
 #: app/views/blokken/freon-gegevens-edit.html:37
-#: app/views/blokken/introduce-gegevens-edit.html:33
+#: app/views/blokken/introduce-gegevens-edit.html:28
 msgid "De e-mail velden zijn niet hetzelfde"
 msgstr "De e-mail velden zijn niet hetzelfde"
 
@@ -99,7 +114,7 @@ msgstr ""
 "het nog een keer of <a href=“#” ng-click=“reminder=1”>klik hier</a> om uw "
 "logingegevens op te vragen."
 
-#: app/views/blokken/freon-slapen-edit.html:23
+#: app/views/blokken/introduce-slapen-edit.html:29
 msgid ""
 "De ‘út-en-thús-dorpen’ liggen op de route. Je start de tweede dag in het "
 "dorp waar je de nacht doorgebracht hebt. De totale afstand van de "
@@ -109,7 +124,17 @@ msgstr ""
 "dorp waar je de nacht doorgebracht hebt. De totale afstand van de "
 "Slachtemarathon is 91 km.”"
 
-#: app/index.html:72
+#: app/views/blokken/freon-slapen-edit.html:23
+msgid ""
+"De ‘út-en-thús-dorpen’ liggen op de route. Je start de tweede dag in het "
+"dorp waar je de nacht doorgebracht hebt. De totale afstand van de "
+"Slachtemarathon.”"
+msgstr ""
+"De ‘út-en-thús-dorpen’ liggen op de route. Je start de tweede dag in het "
+"dorp waar je de nacht doorgebracht hebt. De totale afstand van de "
+"Slachtemarathon.”"
+
+#: app/index.html:75
 msgid ""
 "Deze website maakt gebruikt van cookies om de voortgang van het invullen van "
 "uw persoonsgegevens en keuzes tijdelijk op te slaan"
@@ -125,26 +150,27 @@ msgstr "Dit e-mailadres is al geregistreerd"
 msgid "Dit e-mailadres is niet bij ons geregistreerd"
 msgstr "Dit e-mailadres is niet bij ons geregistreerd"
 
-#: app/views/form-inloggen.html:16 app/views/form-inloggen.html:8
+#: app/views/form-inloggen.html:16
 msgid "Dit is een verlicht veld"
 msgstr "Dit is een verlicht veld"
 
+#: app/views/form-inloggen.html:8
+msgid "Dit is een verplicht veld"
+msgstr "Dit is een verplicht veld"
+
 #: app/views/blokken/freon-gegevens-edit.html:101
 #: app/views/blokken/freon-gegevens-edit.html:111
-#: app/views/blokken/freon-gegevens-edit.html:122
+#: app/views/blokken/freon-gegevens-edit.html:129
+#: app/views/blokken/freon-gegevens-edit.html:136
 #: app/views/blokken/freon-gegevens-edit.html:48
 #: app/views/blokken/freon-gegevens-edit.html:62
 #: app/views/blokken/freon-gegevens-edit.html:72
 #: app/views/blokken/freon-gegevens-edit.html:80
 #: app/views/blokken/freon-gegevens-edit.html:91
-#: app/views/blokken/introduce-gegevens-edit.html:106
-#: app/views/blokken/introduce-gegevens-edit.html:119
-#: app/views/blokken/introduce-gegevens-edit.html:44
-#: app/views/blokken/introduce-gegevens-edit.html:57
-#: app/views/blokken/introduce-gegevens-edit.html:67
-#: app/views/blokken/introduce-gegevens-edit.html:75
-#: app/views/blokken/introduce-gegevens-edit.html:85
-#: app/views/blokken/introduce-gegevens-edit.html:95
+#: app/views/blokken/introduce-gegevens-edit.html:39
+#: app/views/blokken/introduce-gegevens-edit.html:52
+#: app/views/blokken/introduce-gegevens-edit.html:62
+#: app/views/blokken/introduce-gegevens-edit.html:70
 msgid "Dit veld mag niet leeg zijn"
 msgstr "Dit veld mag niet leeg zijn"
 
@@ -159,22 +185,16 @@ msgid "E-mail controle..."
 msgstr "E-mail controle…"
 
 #: app/views/blokken/freon-gegevens-edit.html:33
-#: app/views/blokken/introduce-gegevens-edit.html:29
+#: app/views/blokken/introduce-gegevens-edit.html:25
 msgid "E-mail ter controle"
 msgstr "E-mail ter controle"
 
-#: app/views/blokken/freon-gegevens-edit.html:23
 #: app/views/blokken/freon-gegevens-edit.html:35
-#: app/views/blokken/introduce-gegevens-edit.html:20
-#: app/views/blokken/introduce-gegevens-edit.html:31
 #: app/views/form-inloggen.html:44
 msgid "E-mail veld mag niet leeg zijn"
 msgstr "E-mail veld mag niet leeg zijn"
 
-#: app/views/blokken/freon-gegevens-edit.html:24
 #: app/views/blokken/freon-gegevens-edit.html:36
-#: app/views/blokken/introduce-gegevens-edit.html:21
-#: app/views/blokken/introduce-gegevens-edit.html:32
 #: app/views/form-inloggen.html:45
 msgid "E-mail veld verkeerd geschreven"
 msgstr "E-mail veld verkeerd geschreven"
@@ -185,33 +205,12 @@ msgstr "E-mail veld verkeerd geschreven"
 msgid "E-mailadres"
 msgstr "E-mailadres"
 
-#: app/views/blokken/introduce-vervoer-edit.html:30
-msgid ""
-"Eigen auto meenemen is helaas niet mogelijk. Dit vanwege parkeercapaciteit."
-msgstr ""
-"Eigen auto meenemen is helaas niet mogelijk. Dit vanwege parkeercapaciteit."
-
-#: app/views/blokken/freon-vervoer-edit.html:28
+#: app/views/blokken/freon-vervoer-edit.html:26
+#: app/views/blokken/introduce-vervoer-edit.html:28
 msgid ""
 "Eigen auto meenemen naar de start en daar parkeren is helaas niet mogelijk."
 msgstr ""
 "Eigen auto meenemen naar de start en daar parkeren is helaas niet mogelijk."
-
-#: app/views/blokken/introduce-slapen-edit.html:63
-msgid "Eigen camper"
-msgstr "Eigen camper"
-
-#: app/views/blokken/introduce-slapen-edit.html:62
-msgid "Eigen tent"
-msgstr "Eigen tent"
-
-#: app/views/blokken/introduce-slapen-edit.html:61
-msgid ""
-"Festipi (grote gezamenlijke slaaptent van de organisatie, zelf apart te "
-"boeken: meer info in bevestigingsmail)"
-msgstr ""
-"Festipi (grote gezamenlijke slaaptent van de organisatie, zelf apart te "
-"boeken: meer info in bevestigingsmail)"
 
 #: app/views/vertalen-menu.html:58
 msgid "Franeker/Harlingen"
@@ -229,9 +228,9 @@ msgstr ""
 "Freonen hebben van ons een e-mail met gebruikersnaam en wachtwoord gekregen. "
 "Vul deze gegevens hier in."
 
-#: app/views/blokken/freon-gegevens-edit.html:120
+#: app/views/blokken/freon-gegevens-edit.html:127
 #: app/views/blokken/freon-gegevens-view.html:12
-#: app/views/blokken/introduce-gegevens-edit.html:117
+#: app/views/blokken/introduce-gegevens-edit.html:104
 #: app/views/blokken/introduce-gegevens-view.html:20
 msgid "Geboortedatum"
 msgstr "Geboortedatum"
@@ -244,23 +243,25 @@ msgstr "Gebruikersnaam"
 msgid "Gegevens Opslaan"
 msgstr "Gegevens Opslaan"
 
-#: app/views/blokken/freon-gegevens-edit.html:156
-#: app/views/blokken/freon-kaarten-edit.html:19
+#: app/views/blokken/freon-gegevens-edit.html:170
+#: app/views/blokken/freon-kaarten-edit.html:18
+#: app/views/blokken/freon-kleding-edit.html:65
 #: app/views/blokken/freon-slapen-edit.html:151
 #: app/views/blokken/freon-starttijd-edit.html:13
-#: app/views/blokken/freon-vervoer-edit.html:51
-#: app/views/blokken/introduce-slapen-edit.html:120
-#: app/views/blokken/introduce-vervoer-edit.html:52
+#: app/views/blokken/freon-vervoer-edit.html:59
+#: app/views/blokken/introduce-slapen-edit.html:157
+#: app/views/blokken/introduce-slapen-edit.html:164
+#: app/views/blokken/introduce-vervoer-edit.html:51
 msgid "Gegevens opslaan"
 msgstr "Gegevens Opslaan"
 
 #: app/views/blokken/freon-gegevens-view.html:14
-#: app/views/blokken/introduce-gegevens-edit.html:125
+#: app/views/blokken/introduce-gegevens-edit.html:111
 #: app/views/blokken/introduce-gegevens-view.html:22
 msgid "Geslacht"
 msgstr "Geslacht"
 
-#: app/views/blokken/freon-gegevens-edit.html:129
+#: app/views/blokken/freon-gegevens-edit.html:143
 msgid "Geslacht *"
 msgstr "Geslacht *"
 
@@ -268,44 +269,56 @@ msgstr "Geslacht *"
 msgid "Heerenveen"
 msgstr "Heerenveen"
 
-#: app/views/blokken/freon-slapen-view.html:2
-#: app/views/blokken/introduce-slapen-view.html:8
+#: app/views/blokken/freon-slapen-view.html:7
+#: app/views/blokken/introduce-slapen-view.html:12
 msgid "Het dorp waar je wilt slapen"
 msgstr "Het dorp waar je wilt slapen"
 
-#: app/views/form-betalen.html:2
-msgid ""
-"Hieronder de totale kosten. Als je op onderstaande knop drukt wordt je "
-"doorgestuurd naar de online betalingsomgeving van onze bank. Het is "
-"belangrijk dat je het gehele proces afrond."
-msgstr ""
-"Hieronder de totale kosten. Als je op onderstaande knop drukt wordt je "
-"doorgestuurd naar de online betalingsomgeving van onze bank. Het is "
-"belangrijk dat je het gehele proces afrond."
+#: app/views/blokken/freon-gegevens-edit.html:23
+msgid "Het e-mail veld mag niet leeg zijn"
+msgstr "Het e-mail veld mag niet leeg zijn"
+
+#: app/views/blokken/freon-gegevens-edit.html:24
+msgid "Het e-mailadres is verkeerd geschreven"
+msgstr "Het e-mailadres is verkeerd geschreven"
 
 #: app/views/blokken/freon-starttijd-edit.html:2
 msgid ""
-"Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons "
-"uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor "
-"geen garanties gegeven. Indeling gebeurt op basis van volgorde van "
+"Hieronder kun je je voorkeur aangeven voor een starttijd. Wij doen ons "
+"uiterste best om je in te delen in de gevraagde starttijd. We kunnen "
+"daarvoor geen garanties gegeven. Indeling gebeurt op basis van volgorde van "
 "inschrijving."
 msgstr ""
-"Hieronder kunt u uw voorkeur aangeven voor een starttijd. Wij doen ons "
-"uiterste best om u in te delen in de gevraagde starttijd. We kunnen daarvoor "
-"geen garanties gegeven. Indeling gebeurt op basis van volgorde van "
+"Hieronder kun je je voorkeur aangeven voor een starttijd. Wij doen ons "
+"uiterste best om je in te delen in de gevraagde starttijd. We kunnen "
+"daarvoor geen garanties gegeven. Indeling gebeurt op basis van volgorde van "
 "inschrijving."
 
+#: app/views/form-betalen.html:2
+msgid ""
+"Hieronder staan de totale kosten. Als je op de onderstaande knop drukt word "
+"je doorgestuurd naar de online betalingsomgeving van onze bank. Het is "
+"belangrijk dat je het gehele proces afrondt."
+msgstr ""
+"Hieronder staan de totale kosten. Als je op de onderstaande knop drukt word "
+"je doorgestuurd naar de online betalingsomgeving van onze bank. Het is "
+"belangrijk dat je het gehele proces afrondt."
+
 #: app/views/blokken/freon-vervoer-edit.html:2
+#: app/views/blokken/introduce-vervoer-edit.html:2
 msgid "Hoe kom je bij de start?"
 msgstr "Hoe kom je bij de start?"
 
-#: app/views/blokken/freon-gegevens-edit.html:139
 #: app/views/blokken/freon-gegevens-view.html:16
 #: app/views/blokken/introduce-gegevens-view.html:24
 msgid "Hoe vaak heb je deelgenomen aan de Slachte?"
 msgstr "Hoe vaak heb je deelgenomen aan de Slachte?"
 
-#: app/views/form-shirts.html:30
+#: app/views/blokken/freon-gegevens-edit.html:153
+msgid "Hoe vaak heb je deelgenomen aan de Slachtemarathon?"
+msgstr "Hoe vaak heb je deelgenomen aan de Slachtemarathon?"
+
+#: app/views/blokken/freon-kleding-edit.html:43
 msgid ""
 "Hoeveel hoodies wil je bestellen? Een hoodie kost &euro; {{hoodieprice."
 "toFixed(2)}}"
@@ -314,6 +327,9 @@ msgstr ""
 "toFixed(2)}}"
 
 #: app/views/blokken/freon-slapen-edit.html:88
+#: app/views/blokken/freon-slapen-view.html:22
+#: app/views/blokken/introduce-slapen-edit.html:94
+#: app/views/blokken/introduce-slapen-view.html:25
 msgid "Hoeveel nachten blijf je slapen?"
 msgstr "Hoeveel nachten blijf je slapen?"
 
@@ -321,7 +337,7 @@ msgstr "Hoeveel nachten blijf je slapen?"
 msgid "Hoeveel startkaarten wil je bestellen?"
 msgstr "Hoeveel startkaarten wil je bestellen?"
 
-#: app/views/form-shirts.html:4
+#: app/views/blokken/freon-kleding-edit.html:6
 msgid ""
 "Hoeveel t-shirts wil je bestellen? Er is een dames- en een herenmodel. Een "
 "shirt kost &euro; {{tshirtprice.toFixed(2)}}"
@@ -329,7 +345,8 @@ msgstr ""
 "Hoeveel t-shirts wil je bestellen? Er is een dames- en een herenmodel. Een "
 "shirt kost &euro; {{tshirtprice.toFixed(2)}}"
 
-#: app/views/form-shirts.html:29
+#: app/views/blokken/freon-kleding-edit.html:42
+#: app/views/blokken/freon-kleding-view.html:2
 msgid "Hoodies"
 msgstr "Hoodies"
 
@@ -337,47 +354,53 @@ msgstr "Hoodies"
 msgid "Huisnr."
 msgstr "Huisnr."
 
-#: app/views/blokken/introduce-gegevens-edit.html:73
+#: app/views/blokken/introduce-gegevens-edit.html:68
 msgid "Huisnummer"
 msgstr "Huisnummer"
 
 #: app/views/blokken/freon-slapen-edit.html:90
+#: app/views/blokken/introduce-slapen-edit.html:96
 msgid "Ik blijf 1 nacht slapen (vrijdagnacht)"
 msgstr "Ik blijf 1 nacht slapen (vrijdagnacht)"
 
 #: app/views/blokken/freon-slapen-edit.html:89
+#: app/views/blokken/introduce-slapen-edit.html:95
 msgid "Ik blijf 2 nachten slapen (donderdagnacht en vrijdagnacht)"
 msgstr "Ik blijf 2 nachten slapen (donderdagnacht en vrijdagnacht)"
 
 #: app/views/form-betalen.html:36
-msgid ""
-"Ik ga akkoord met de <a ng-href=\"https://www.slachtemarathon.nl/algemene-"
-"voorwaarden/\" target=\"_blank\">algemene voorwaarden</a>"
-msgstr ""
-"Ik ga akkoord met de <a ng-href=“https://www.slachtemarathon.nl/algemene-"
-"voorwaarden/“ target=“_blank”>algemene voorwaarden</a>"
+msgid "Ik ga akkoord met de"
+msgstr "Ik ga akkoord met de"
 
-#: app/views/blokken/freon-vervoer-edit.html:22
-#: app/views/blokken/introduce-vervoer-edit.html:24
+#: app/views/blokken/freon-vervoer-edit.html:20
+#: app/views/blokken/introduce-vervoer-edit.html:22
 msgid "Ik kom lopend of met de fiets"
 msgstr "Ik kom lopend of met de fiets"
 
 #: app/views/blokken/freon-slapen-edit.html:73
-#: app/views/blokken/introduce-slapen-edit.html:76
+#: app/views/blokken/introduce-slapen-edit.html:79
 msgid "Ik regel het zelf"
 msgstr "Ik regel het zelf"
 
 #: app/views/blokken/freon-slapen-edit.html:9
-#: app/views/blokken/introduce-slapen-edit.html:17
+#: app/views/blokken/introduce-slapen-edit.html:15
 msgid "Ik slaap thuis"
 msgstr "Ik slaap thuis"
 
-#: app/views/blokken/freon-vervoer-edit.html:12
-#: app/views/blokken/introduce-vervoer-edit.html:14
+#: app/views/blokken/freon-vervoer-edit.html:10
+#: app/views/blokken/introduce-vervoer-edit.html:12
 msgid "Ik word gebracht"
 msgstr "Ik word gebracht"
 
 #: app/views/blokken/freon-slapen-edit.html:56
+msgid ""
+"In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra "
+"kosten aan verbonden)"
+msgstr ""
+"In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra "
+"kosten aan verbonden)"
+
+#: app/views/blokken/introduce-slapen-edit.html:62
 msgid ""
 "In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra "
 "kosten aan verbonden)."
@@ -386,46 +409,49 @@ msgstr ""
 "kosten aan verbonden)."
 
 #: app/views/blokken/freon-slapen-edit.html:54
-#: app/views/blokken/introduce-slapen-edit.html:59
+#: app/views/blokken/introduce-slapen-edit.html:60
 msgid "In een groepsaccomodatie (dorpshuis of sporthal)"
 msgstr "In een groepsaccomodatie (dorpshuis of sporthal)"
 
 #: app/views/blokken/freon-slapen-edit.html:58
+#: app/views/blokken/introduce-slapen-edit.html:64
 msgid "In eigen camper of caravan"
 msgstr "In eigen camper of caravan"
 
 #: app/views/blokken/freon-slapen-edit.html:57
+#: app/views/blokken/introduce-slapen-edit.html:63
 msgid "In eigen tent"
 msgstr "In eigen tent"
 
-#: app/views/blokken/freon-vervoer-edit.html:43
+#: app/views/blokken/introduce-vervoer-edit.html:43
 msgid "In {{opstapplek|translate}} opstappen"
 msgstr "In {{opstapplek|translate}} opstappen"
 
-#: app/views/blokken/freon-slapen-edit.html:7
-#: app/views/blokken/introduce-slapen-edit.html:15
+#: app/views/blokken/introduce-slapen-edit.html:13
 msgid "In één van de dorpen langs de route"
 msgstr "In één van de dorpen langs de route"
+
+#: app/views/blokken/freon-slapen-edit.html:7
+msgid "In één van de út-en-thús-dorpen"
+msgstr "In één van de út-en-thús-dorpen"
 
 #: app/views/form-inloggen.html:1
 msgid "Inloggen"
 msgstr "Inloggen"
 
 #: app/views/blokken/freon-slapen-edit.html:127
+#: app/views/blokken/introduce-slapen-edit.html:133
 msgid "Ja, 1 persoon extra"
 msgid_plural "Ja, {{$count}} personen extra"
 msgstr[0] "1 persoon extra"
 msgstr[1] "Ja, {{$count}} personen extra"
 
 #: app/views/blokken/freon-slapen-edit.html:142
+#: app/views/blokken/introduce-slapen-edit.html:148
 msgid "Ja, graag verzorgen"
 msgstr "Ja, graag verzorgen"
 
-#: app/views/blokken/introduce-slapen-edit.html:111
-msgid "Ja, graag vrijdag meenemen"
-msgstr "Ja, graag vrijdag meenemen"
-
-#: app/views/form-overzicht.html:86
+#: app/views/form-overzicht.html:99
 msgid ""
 "Je hebt meerdere kaarten besteld.\n"
 "We hebben de gegevens van de eerste kaart overgenomen. Pas deze hieronder "
@@ -449,8 +475,7 @@ msgstr ""
 "Je hebt nu de gegevens voor de eerste deelnemer ingevuld.\n"
 "Controleer hier alles en pas indien nodig nog gegevens aan."
 
-#: app/views/blokken/freon-slapen-edit.html:34
-#: app/views/blokken/introduce-slapen-edit.html:39
+#: app/views/blokken/introduce-slapen-edit.html:40
 msgid ""
 "Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels "
 "bezet zijn."
@@ -458,17 +483,32 @@ msgstr ""
 "Je kunt helaas niet meer in dit dorp slapen omdat alle plaatsen inmiddels "
 "bezet zijn."
 
+#: app/views/blokken/freon-slapen-edit.html:34
+msgid ""
+"Je kunt helaas niet meer in dit dorp slapen omdat er geen slaapplaatsen meer "
+"beschikbaar zijn."
+msgstr ""
+"Je kunt helaas niet meer in dit dorp slapen omdat er geen slaapplaatsen meer "
+"beschikbaar zijn."
+
+#: app/views/blokken/freon-vervoer-edit.html:49
+msgid "Je ontvangt later informatie waar de opstapplek precies is."
+msgstr "Je ontvangt later informatie waar de opstapplek precies is."
+
 #: app/views/blokken/freon-kaarten-edit.html:3
 msgid "Kaarten"
 msgstr "Kaarten"
 
 #: app/views/blokken/freon-slapen-edit.html:22
-#: app/views/blokken/introduce-slapen-edit.html:30
+#: app/views/blokken/introduce-slapen-edit.html:28
 msgid "Kies een dorp waar je wilt slapen"
 msgstr "Kies een dorp waar je wilt slapen"
 
-#: app/views/blokken/freon-vervoer-edit.html:42
-#: app/views/blokken/introduce-vervoer-edit.html:44
+#: app/views/blokken/freon-vervoer-edit.html:45
+msgid "Kies een plek waar je wilt opstappen."
+msgstr "Kies een plek waar je wilt opstappen."
+
+#: app/views/blokken/introduce-vervoer-edit.html:42
 msgid "Kies een plek waar je wilt opstappen:"
 msgstr "Kies een plek waar je wilt opstappen:"
 
@@ -477,9 +517,13 @@ msgstr "Kies een plek waar je wilt opstappen:"
 msgid "Kies een tijdstip:"
 msgstr "Kies een tijdstip:"
 
-#: app/views/form-shirts.html:1
+#: app/views/blokken/freon-kleding-edit.html:3 app/views/form-overzicht.html:82
 msgid "Kleding"
 msgstr "Kleding"
+
+#: app/views/form-overzicht.html:83
+msgid "Kleding wijzigen"
+msgstr "Kleding wijzigen"
 
 #: app/views/bedankt.html:6
 msgid ""
@@ -493,27 +537,31 @@ msgstr ""
 msgid "Leeuwarden"
 msgstr "Leeuwarden"
 
-#: app/views/blokken/freon-gegevens-edit.html:132
-#: app/views/blokken/freon-gegevens-edit.html:142
-#: app/views/blokken/freon-kaarten-edit.html:14
-#: app/views/blokken/introduce-gegevens-edit.html:128
+#: app/views/blokken/freon-gegevens-edit.html:146
+#: app/views/blokken/freon-gegevens-edit.html:156
+#: app/views/blokken/freon-kaarten-edit.html:13
+#: app/views/blokken/introduce-gegevens-edit.html:114
 msgid "Maak een keuze"
 msgstr "Maak een keuze"
 
-#: app/views/form-shirts.html:18
+#: app/views/blokken/freon-kleding-edit.html:20
+#: app/views/blokken/freon-kleding-edit.html:57
 msgid "Maat:"
 msgstr "Maat:"
 
-#: app/views/blokken/freon-vervoer-edit.html:11
+#: app/views/blokken/freon-vervoer-edit.html:9
+#: app/views/blokken/introduce-vervoer-edit.html:11
 msgid "Met de Slachtemarathonbus *"
 msgstr "Met de Slachtemarathonbus *"
 
-#: app/views/blokken/freon-gegevens-edit.html:124
-#: app/views/blokken/introduce-gegevens-edit.html:121
+#: app/views/blokken/freon-gegevens-edit.html:131
+#: app/views/blokken/freon-gegevens-edit.html:138
+#: app/views/blokken/introduce-gegevens-edit.html:107
 msgid "Minimum leeftijd om deel te nemen is 18 jaar"
 msgstr "Minimum leeftijd om deel te nemen is 18 jaar"
 
-#: app/views/form-shirts.html:16
+#: app/views/blokken/freon-kleding-edit.html:18
+#: app/views/blokken/freon-kleding-edit.html:55
 msgid "Model:"
 msgstr "Model:"
 
@@ -523,23 +571,25 @@ msgid "Naam"
 msgstr "Naam"
 
 #: app/views/blokken/freon-slapen-edit.html:125
-#: app/views/blokken/introduce-slapen-edit.html:113
+#: app/views/blokken/introduce-slapen-edit.html:131
 msgid "Nee"
 msgstr "Nee"
 
 #: app/views/blokken/freon-slapen-edit.html:144
+#: app/views/blokken/introduce-slapen-edit.html:150
 msgid "Nee, dit verzorg ik zelf"
 msgstr "Nee, dit verzorg ik zelf"
-
-#: app/views/blokken/freon-slapen-view.html:5
-msgid "Neem je iemand mee?"
-msgstr "Neem je iemand mee?"
 
 #: app/views/blokken/freon-slapen-edit.html:54
 #: app/views/blokken/freon-slapen-edit.html:55
 #: app/views/blokken/freon-slapen-edit.html:56
 #: app/views/blokken/freon-slapen-edit.html:57
 #: app/views/blokken/freon-slapen-edit.html:58
+#: app/views/blokken/introduce-slapen-edit.html:60
+#: app/views/blokken/introduce-slapen-edit.html:61
+#: app/views/blokken/introduce-slapen-edit.html:62
+#: app/views/blokken/introduce-slapen-edit.html:63
+#: app/views/blokken/introduce-slapen-edit.html:64
 msgid "Niet meer beschikbaar"
 msgstr "Niet meer beschikbaar"
 
@@ -547,7 +597,7 @@ msgstr "Niet meer beschikbaar"
 msgid "Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na."
 msgstr "Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na."
 
-#: app/index.html:64 app/views/welkom.html:30
+#: app/index.html:67
 msgid ""
 "Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de "
 "Slachtemarathon 2018 verkocht zijn."
@@ -555,11 +605,25 @@ msgstr ""
 "Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de "
 "Slachtemarathon 2018 verkocht zijn."
 
+#: app/index.html:62
+msgid ""
+"Op dit moment kun je je nog niet inschrijven omdat de kaartverkoop pas start "
+"per 23 september om exact 6.00u.<br>Ondertussen tref je op <a ng-href="
+"\"https://www.slachtemarathon.nl\" target=\"_blank\">slachtemarathon.nl</a> "
+"meer informatie over het kaartverkoop proces."
+msgstr ""
+"Op dit moment kun je je nog niet inschrijven omdat de kaartverkoop pas start "
+"per 23 september om exact 6.00u.<br>Ondertussen tref je op <a ng-"
+"href=“https://www.slachtemarathon.nl” target=“_blank”>slachtemarathon.nl</a> "
+"meer informatie over het kaartverkoop proces."
+
 #: app/views/blokken/freon-slapen-edit.html:109
+#: app/views/blokken/introduce-slapen-edit.html:115
 msgid "Op donderdag 30 augustus"
 msgstr "Op donderdag 30 augustus"
 
 #: app/views/blokken/freon-slapen-edit.html:108
+#: app/views/blokken/introduce-slapen-edit.html:114
 msgid "Op vrijdag 31 augustus"
 msgstr "Op vrijdag 31 augustus"
 
@@ -569,17 +633,13 @@ msgid "Opstapplek"
 msgstr "Opstapplek"
 
 #: app/views/blokken/freon-slapen-edit.html:74
-#: app/views/blokken/introduce-slapen-edit.html:77
+#: app/views/blokken/introduce-slapen-edit.html:80
 msgid "Organisatie regelt dat voor mij"
 msgstr "Organisatie regelt dat voor mij"
 
 #: app/views/form-overzicht.html:1
 msgid "Overzicht"
 msgstr "Overzicht"
-
-#: app/views/blokken/introduce-vervoer-edit.html:13
-msgid "Per bus"
-msgstr "Per bus"
 
 #: app/views/blokken/freon-gegevens-edit.html:5
 #: app/views/blokken/introduce-gegevens-edit.html:5
@@ -588,13 +648,16 @@ msgstr "Per bus"
 msgid "Persoonlijke gegevens"
 msgstr "Persoonlijke gegevens"
 
-#: app/views/blokken/introduce-gegevens-view.html:6
 #: app/views/form-overzicht.html:28
+msgid "Persoonlijke gegevens wijzigen"
+msgstr "Persoonlijke gegevens wijzigen"
+
+#: app/views/blokken/introduce-gegevens-view.html:6
 msgid "Persoonsgegevens wijzigen"
 msgstr "Persoonsgegevens wijzigen"
 
 #: app/views/blokken/freon-gegevens-edit.html:89
-#: app/views/blokken/introduce-gegevens-edit.html:83
+#: app/views/blokken/introduce-gegevens-edit.html:78
 msgid "Postcode"
 msgstr "Postcode"
 
@@ -604,16 +667,19 @@ msgid "Postcode en woonplaats"
 msgstr "Postcode en woonplaats"
 
 #: app/views/blokken/freon-gegevens-edit.html:92
-#: app/views/blokken/introduce-gegevens-edit.html:86
 msgid "Postcode is te kort"
 msgstr "Postcode is te kort"
 
 #: app/views/blokken/freon-gegevens-edit.html:93
-#: app/views/blokken/introduce-gegevens-edit.html:87
 msgid "Postcode is te lang"
 msgstr "Postcode is te lang"
 
-#: app/views/blokken/introduce-slapen-edit.html:6
+#: app/views/blokken/freon-slapen-view.html:2
+#: app/views/blokken/introduce-slapen-view.html:8
+msgid "Slaapplek"
+msgstr "Slaapplek"
+
+#: app/views/blokken/introduce-slapen-edit.html:5
 #: app/views/blokken/introduce-slapen-view.html:3
 #: app/views/form-overzicht.html:69 app/views/form-slapen.html:1
 msgid "Slapen"
@@ -628,7 +694,12 @@ msgstr "Slapen wijzigen"
 msgid "Sneek"
 msgstr "Sneek"
 
-#: app/views/form-overzicht.html:97
+#: app/views/blokken/freon-slapen-view.html:12
+#: app/views/blokken/introduce-slapen-view.html:16
+msgid "Soort overnachting"
+msgstr "Soort overnachting"
+
+#: app/views/form-overzicht.html:110
 msgid "Startkaart"
 msgstr "Startkaart"
 
@@ -653,7 +724,7 @@ msgid "Starttijd wijzigen"
 msgstr "Starttijd wijzigen"
 
 #: app/views/blokken/freon-gegevens-edit.html:70
-#: app/views/blokken/introduce-gegevens-edit.html:65
+#: app/views/blokken/introduce-gegevens-edit.html:60
 msgid "Straatnaam"
 msgstr "Straatnaam"
 
@@ -662,7 +733,7 @@ msgid "Stuur inloggegevens"
 msgstr "Stuur inloggegevens"
 
 #: app/views/blokken/freon-gegevens-edit.html:109
-#: app/views/blokken/introduce-gegevens-edit.html:104
+#: app/views/blokken/introduce-gegevens-edit.html:92
 msgid "Telefoon"
 msgstr "Telefoon"
 
@@ -672,12 +743,12 @@ msgid "Telefoonnummer"
 msgstr "Telefoonnummer"
 
 #: app/views/blokken/freon-gegevens-edit.html:112
-#: app/views/blokken/introduce-gegevens-edit.html:107
+#: app/views/blokken/introduce-gegevens-edit.html:94
 msgid "Telefoonnummer is te kort"
 msgstr "Telefoonnummer is te kort"
 
 #: app/views/blokken/freon-gegevens-edit.html:113
-#: app/views/blokken/introduce-gegevens-edit.html:108
+#: app/views/blokken/introduce-gegevens-edit.html:95
 msgid "Telefoonnummer is te lang"
 msgstr "Telefoonnummer is te lang"
 
@@ -685,7 +756,8 @@ msgstr "Telefoonnummer is te lang"
 msgid "Totaal te betalen"
 msgstr "Totaal te betalen"
 
-#: app/views/form-shirts.html:3
+#: app/views/blokken/freon-kleding-edit.html:5
+#: app/views/blokken/freon-kleding-view.html:1
 msgid "Trainingsshirts"
 msgstr "Trainingsshirts"
 
@@ -695,7 +767,7 @@ msgid "Tussen"
 msgstr "Tussen"
 
 #: app/views/blokken/freon-gegevens-edit.html:55
-#: app/views/blokken/introduce-gegevens-edit.html:50
+#: app/views/blokken/introduce-gegevens-edit.html:45
 msgid "Tussenvoegsels"
 msgstr "Tussenvoegsels"
 
@@ -704,7 +776,6 @@ msgid "Veel plezier gewenst tijdens de Slachtemarathon"
 msgstr "Veel plezier gewenst tijdens de Slachtemarathon"
 
 #: app/views/blokken/freon-vervoer-view.html:1
-#: app/views/blokken/introduce-vervoer-edit.html:8
 #: app/views/blokken/introduce-vervoer-view.html:12
 #: app/views/blokken/introduce-vervoer-view.html:15
 #: app/views/form-overzicht.html:54 app/views/form-vervoer.html:1
@@ -716,16 +787,17 @@ msgstr "Vervoer"
 msgid "Vervoer wijzigen"
 msgstr "Vervoer wijzigen"
 
-#: app/views/blokken/freon-kaarten-edit.html:23
+#: app/views/blokken/freon-kaarten-edit.html:22
+#: app/views/blokken/freon-kleding-edit.html:71
 #: app/views/blokken/freon-slapen-edit.html:158
 #: app/views/blokken/freon-starttijd-edit.html:17
-#: app/views/blokken/freon-vervoer-edit.html:58 app/views/form-inloggen.html:54
-#: app/views/form-overzicht.html:106 app/views/form-shirts.html:43
+#: app/views/blokken/freon-vervoer-edit.html:66 app/views/form-inloggen.html:54
+#: app/views/form-overzicht.html:119
 msgid "Volgende stap"
 msgstr "Volgende stap"
 
 #: app/views/blokken/freon-gegevens-edit.html:46
-#: app/views/blokken/introduce-gegevens-edit.html:42
+#: app/views/blokken/introduce-gegevens-edit.html:37
 msgid "Voornaam"
 msgstr "Voornaam"
 
@@ -735,16 +807,14 @@ msgstr "Vorige stap"
 
 #: app/views/blokken/freon-gegevens-edit.html:6
 msgid ""
-"Vul eerst je eigen gegevens in. Je kunt later extra personen (maximaal 3) "
+"Vul eerst je eigen gegevens in. Je kunt later extra deelnemers (maximaal 3) "
 "toevoegen."
 msgstr ""
-"Vul eerst je eigen gegevens in. Je kunt later extra personen (maximaal 3) "
+"Vul eerst je eigen gegevens in. Je kunt later extra deelnemers (maximaal 3) "
 "toevoegen."
 
 #: app/views/blokken/freon-slapen-edit.html:5
-#: app/views/blokken/freon-slapen-view.html:1
-#: app/views/blokken/introduce-slapen-edit.html:13
-#: app/views/blokken/introduce-slapen-view.html:7
+#: app/views/blokken/introduce-slapen-edit.html:11
 msgid "Waar wil je het liefste slapen?"
 msgstr "Waar wil je het liefste slapen?"
 
@@ -753,49 +823,24 @@ msgid "Wachtwoord"
 msgstr "Wachtwoord"
 
 #: app/views/blokken/freon-slapen-edit.html:107
+msgid "Wanneer breng je je tent, caravan of camper?"
+msgstr "Wanneer breng je je tent, caravan of camper?"
+
+#: app/views/blokken/freon-slapen-view.html:27
+#: app/views/blokken/introduce-slapen-edit.html:113
+#: app/views/blokken/introduce-slapen-view.html:29
 msgid "Wanneer breng je je tent, caravan, camper?"
 msgstr "Wanneer breng je je tent, caravan, camper?"
 
 #: app/views/blokken/freon-slapen-edit.html:53
+#: app/views/blokken/introduce-slapen-edit.html:59
 msgid "Wat voor soort overnachting wil je?"
 msgstr "Wat voor soort overnachting wil je?"
 
-#: app/views/blokken/freon-slapen-view.html:3
-#: app/views/blokken/introduce-slapen-edit.html:58
-#: app/views/blokken/introduce-slapen-view.html:9
-msgid "Wat voor soort overnachting zou je willen?"
-msgstr "Wat voor soort overnachting zou je willen?"
-
-#: app/index.html:34
-msgid ""
-"We nemen je stap voor stap mee door de kaartverkoop voor de Slachtemarathon "
-"op 31 augustus en 1 september 2018. Heb je moeite met het invullen? Bekijk "
-"dan de informatie op <a ng-href=\"https://www.slachtemarathon.nl/\" target="
-"\"_blank\">de website</a> en het filmpje zodat je weet welke informatie je "
-"nodig hebt."
-msgstr ""
-"We nemen je stap voor stap mee door de kaartverkoop voor de Slachtemarathon "
-"op 31 augustus en 1 september 2018. Heb je moeite met het invullen? Bekijk "
-"dan de informatie op <a ng-href=“https://www.slachtemarathon.nl/“ "
-"target=“_blank”>de website</a> en het filmpje zodat je weet welke informatie "
-"je nodig hebt."
-
-#: app/views/welkom.html:6
-msgid ""
-"We nemen je stap voor stap mee door de kaartverkoop voor de Slachtemarathon "
-"op 31 augustus en 1 september 2018. Heb je moeite met het invullen? Bekijk "
-"dan de informatie op de website en het filmpje zodat je weet welke "
-"informatie je nodig hebt."
-msgstr ""
-"We nemen je stap voor stap mee door de kaartverkoop voor de Slachtemarathon "
-"op 31 augustus en 1 september 2018. Heb je moeite met het invullen? Bekijk "
-"dan de informatie op de website en het filmpje zodat je weet welke "
-"informatie je nodig hebt."
-
 #: app/views/blokken/freon-slapen-edit.html:141
-#: app/views/blokken/freon-slapen-view.html:6
-#: app/views/blokken/introduce-slapen-edit.html:110
-#: app/views/blokken/introduce-slapen-view.html:14
+#: app/views/blokken/introduce-slapen-edit.html:147
+#: app/views/blokken/introduce-slapen-view.html:38
+#: app/views/blokken/introduce-slapen-view.html:42
 msgid ""
 "Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je "
 "slaapplek wordt gebracht en op zaterdag naar de finish?"
@@ -804,42 +849,48 @@ msgstr ""
 "slaapplek wordt gebracht en op zaterdag naar de finish?"
 
 #: app/views/blokken/freon-slapen-edit.html:72
-#: app/views/blokken/introduce-slapen-edit.html:75
+#: app/views/blokken/introduce-slapen-edit.html:78
 msgid "Wil je zelf je slaapplek regelen of doen wij dat voor je?"
 msgstr "Wil je zelf je slaapplek regelen of doen wij dat voor je?"
 
-#: app/views/blokken/freon-slapen-view.html:4
-#: app/views/blokken/introduce-slapen-view.html:10
+#: app/views/blokken/freon-slapen-view.html:17
+#: app/views/blokken/introduce-slapen-view.html:20
 msgid "Wil je zelf je slaapplek regelen?"
 msgstr "Wil je zelf je slaapplek regelen?"
 
 #: app/views/blokken/freon-gegevens-edit.html:99
-#: app/views/blokken/introduce-gegevens-edit.html:93
+#: app/views/blokken/introduce-gegevens-edit.html:84
 msgid "Woonplaats"
 msgstr "Woonplaats"
 
 #: app/views/blokken/freon-gegevens-edit.html:102
-#: app/views/blokken/introduce-gegevens-edit.html:96
 msgid "Woonplaats moet uit minimaal 2 tekens bestaan"
 msgstr "Woonplaats moet uit minimaal 2 tekens bestaan"
 
 #: app/views/blokken/freon-kaarten-edit.html:10
 msgid ""
 "Zodra je naar het volgende scherm gaat, zijn je kaarten gedurende 30 minuten "
-"gereserveerd.\n"
-"Neem dus rustig de tijd om het systeem te doorlopen en alle gevraagde "
-"gegevens in te vullen."
+"gereserveerd. Neem dus rustig de tijd om het systeem te doorlopen en alle "
+"gevraagde gegevens in te vullen."
 msgstr ""
 "Zodra je naar het volgende scherm gaat, zijn je kaarten gedurende 30 minuten "
-"gereserveerd.\n"
-"Neem dus rustig de tijd om het systeem te doorlopen en alle gevraagde "
-"gegevens in te vullen."
+"gereserveerd. Neem dus rustig de tijd om het systeem te doorlopen en alle "
+"gevraagde gegevens in te vullen."
 
 #: app/views/form-betalen.html:24
+msgid "aantal bestelde hoodies"
+msgstr "aantal bestelde hoodies"
+
+#: app/views/form-betalen.html:18
 msgid "aantal bestelde shirts"
 msgstr "aantal bestelde shirts"
 
-#: app/views/form-shirts.html:17
+#: app/views/form-betalen.html:36
+msgid "algemene voorwaarden"
+msgstr "algemene voorwaarden"
+
+#: app/views/blokken/freon-kleding-edit.html:19
+#: app/views/blokken/freon-kleding-edit.html:56
 msgid "dames"
 msgstr "dames"
 
@@ -872,6 +923,10 @@ msgstr "Betalen simulatie"
 msgid "form.inloggen"
 msgstr "Inloggen"
 
+#: app/views/vertalen-menu.html:34
+msgid "form.kleding"
+msgstr "Kleding"
+
 #: app/views/vertalen-menu.html:42
 msgid "form.overzicht"
 msgstr "Overzicht"
@@ -879,10 +934,6 @@ msgstr "Overzicht"
 #: app/views/vertalen-menu.html:7
 msgid "form.persoonlijke-gegevens"
 msgstr "Persoonlijke gegevens"
-
-#: app/views/vertalen-menu.html:34
-msgid "form.shirts"
-msgstr "Shirts"
 
 #: app/views/vertalen-menu.html:30
 msgid "form.slapen"
@@ -900,18 +951,19 @@ msgstr "Vervoer"
 msgid "form.welkom"
 msgstr "Welkom"
 
-#: app/views/form-shirts.html:17
+#: app/views/blokken/freon-kleding-edit.html:19
+#: app/views/blokken/freon-kleding-edit.html:56
 msgid "heren"
 msgstr "heren"
 
-#: app/views/blokken/freon-gegevens-edit.html:130
-#: app/views/blokken/introduce-gegevens-edit.html:126
+#: app/views/blokken/freon-gegevens-edit.html:144
+#: app/views/blokken/introduce-gegevens-edit.html:112
 msgid "man"
 msgstr "man"
 
-#: app/views/form-betalen.html:18
-msgid "overnachten in Tritzum, meerprijs&nbsp;"
-msgstr "overnachten in Tritzum, meerprijs&nbsp;"
+#: app/views/blokken/freon-slapen-view.html:33
+msgid "personen"
+msgstr "personen"
 
 #: app/views/form-betalen.html:6
 msgid "startkaarten Slachtemarathon 2018"
@@ -921,10 +973,83 @@ msgstr "startkaarten Slachtemarathon 2018"
 msgid "terug"
 msgstr "terug"
 
-#: app/views/blokken/freon-gegevens-edit.html:130
-#: app/views/blokken/introduce-gegevens-edit.html:126
+#: app/views/blokken/freon-gegevens-edit.html:144
+#: app/views/blokken/introduce-gegevens-edit.html:112
 msgid "vrouw"
 msgstr "vrouw"
+
+#: app/views/blokken/freon-vervoer-edit.html:46
+msgid "{{opstapplek|translate}}"
+msgstr "{{opstapplek|translate}}"
+
+#~ msgid "form.shirts"
+#~ msgstr "Kleding"
+
+#~ msgid ""
+#~ "Eigen auto meenemen is helaas niet mogelijk. Dit vanwege "
+#~ "parkeercapaciteit."
+#~ msgstr ""
+#~ "Eigen auto meenemen is helaas niet mogelijk. Dit vanwege "
+#~ "parkeercapaciteit."
+
+#~ msgid "Eigen camper"
+#~ msgstr "Eigen camper"
+
+#~ msgid "Eigen tent"
+#~ msgstr "Eigen tent"
+
+#~ msgid ""
+#~ "Festipi (grote gezamenlijke slaaptent van de organisatie, zelf apart te "
+#~ "boeken: meer info in bevestigingsmail)"
+#~ msgstr ""
+#~ "Festipi (grote gezamenlijke slaaptent van de organisatie, zelf apart te "
+#~ "boeken: meer info in bevestigingsmail)"
+
+#~ msgid ""
+#~ "Ik ga akkoord met de <a ng-href=\"https://www.slachtemarathon.nl/algemene-"
+#~ "voorwaarden/\" target=\"_blank\">algemene voorwaarden</a>"
+#~ msgstr ""
+#~ "Ik ga akkoord met de <a ng-href=“https://www.slachtemarathon.nl/algemene-"
+#~ "voorwaarden/“ target=“_blank”>algemene voorwaarden</a>"
+
+#~ msgid "Ja, graag vrijdag meenemen"
+#~ msgstr "Ja, graag vrijdag meenemen"
+
+#~ msgid "Neem je iemand mee?"
+#~ msgstr "Neem je iemand mee?"
+
+#~ msgid "Per bus"
+#~ msgstr "Per bus"
+
+#~ msgid "Wat voor soort overnachting zou je willen?"
+#~ msgstr "Wat voor soort overnachting zou je willen?"
+
+#~ msgid ""
+#~ "We nemen je stap voor stap mee door de kaartverkoop voor de "
+#~ "Slachtemarathon op 31 augustus en 1 september 2018. Heb je moeite met het "
+#~ "invullen? Bekijk dan de informatie op <a ng-href=\"https://www."
+#~ "slachtemarathon.nl/\" target=\"_blank\">de website</a> en het filmpje "
+#~ "zodat je weet welke informatie je nodig hebt."
+#~ msgstr ""
+#~ "We nemen je stap voor stap mee door de kaartverkoop voor de "
+#~ "Slachtemarathon op 31 augustus en 1 september 2018. Heb je moeite met het "
+#~ "invullen? Bekijk dan de informatie op <a ng-href=“https://www."
+#~ "slachtemarathon.nl/“ target=“_blank”>de website</a> en het filmpje zodat "
+#~ "je weet welke informatie je nodig hebt."
+
+#~ msgid ""
+#~ "We nemen je stap voor stap mee door de kaartverkoop voor de "
+#~ "Slachtemarathon op 31 augustus en 1 september 2018. Heb je moeite met het "
+#~ "invullen? Bekijk dan de informatie op de website en het filmpje zodat je "
+#~ "weet welke informatie je nodig hebt."
+#~ msgstr ""
+#~ "We nemen je stap voor stap mee door de kaartverkoop voor de "
+#~ "Slachtemarathon op 31 augustus en 1 september 2018. Heb je moeite met het "
+#~ "invullen? Bekijk dan de informatie op de website en het filmpje zodat je "
+#~ "weet welke informatie je nodig hebt."
+
+#~ msgid "overnachten in Tritzum, meerprijs&nbsp;"
+#~ msgstr "overnachten in Tritzum, meerprijs&nbsp;"
 
 #~ msgid "Postcode {{form.postcode.$error}}"
 #~ msgstr "Postcode {{form.postcode.$error}}"
@@ -981,9 +1106,6 @@ msgstr "vrouw"
 #~ msgid "aantal bestelde tickets:"
 #~ msgstr "aantal bestelde tickets:"
 
-#~ msgid "2 personen extra"
-#~ msgstr "2 personen extra"
-
 #~ msgid "3 personen extra"
 #~ msgstr "3 personen extra"
 
@@ -1000,9 +1122,6 @@ msgstr "vrouw"
 #~ msgid "Gewenste aantal kaarten"
 #~ msgstr "Gewenste aantal kaarten"
 
-#~ msgid "In één van út en thús dorpen langs de route"
-#~ msgstr "In één van út en thús dorpen langs de route"
-
 #~ msgid "Startkaarten wijzigen"
 #~ msgstr "Startkaarten wijzigen"
 
@@ -1014,9 +1133,6 @@ msgstr "vrouw"
 
 #~ msgid "Je kunt later nog extra personen toevoegen"
 #~ msgstr "Je kunt later nog extra personen toevoegen"
-
-#~ msgid "E-mail is verkeerd geschreven"
-#~ msgstr "E-mail is verkeerd geschreven"
 
 #~ msgid "Wil je ook mooie t-shirts bestellen?"
 #~ msgstr "Wil je ook mooie t-shirts bestellen?"

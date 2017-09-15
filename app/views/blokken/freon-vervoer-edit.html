@@ -3,9 +3,7 @@
 	
 	<div class="row form-group">
 		
-		<div class="col col-xs-12" style="margin-bottom:16px;" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">	
-		* Vanaf verschillende centraal gelegen parkeerterreinen worden Slachtemarathonbussen ingezet. Als je met de Slachtemarathonbus gaat, kun je kiezen uit verschillende opstapplekken.
-		</div>	
+		
 		<div class="col col-xs-12">					
 		    <label class="btn btn-slg btn-info col-xs-6 onder vervoer" ng-model="formData.reg.vervoer" uib-btn-radio="'Met de Slachtemarathonbus'" required uncheckable>
 		    <img src="images/bus.svg" alt="" align="abmiddle"/><span translate>Met de Slachtemarathonbus *</span>
@@ -28,6 +26,11 @@
 		  	<div class="col col-xs-12 translate toelichting" translate>
 			Eigen auto meenemen naar de start en daar parkeren is helaas niet mogelijk.
 			</div>
+			
+			<div class="col col-xs-12" style="margin-bottom:16px;" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">	
+		* Vanaf verschillende centraal gelegen parkeerterreinen worden Slachtemarathonbussen ingezet. Als je met de Slachtemarathonbus gaat, kun je kiezen uit verschillende opstapplekken.
+
+		</div>	
 	  	</div>
 	
 	<div class="row show-grid" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">
@@ -39,10 +42,15 @@
 	
 	<div class="row form-group" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">
 		<div class="col col-xs-12">			
-			<div class="vraag" translate>Kies een plek waar je wilt opstappen:</div>
-	        <label ng-repeat="opstapplek in opstapplekken" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.opstapplek" uib-btn-radio="'{{opstapplek}}'" required uncheckable><span translate>In {{opstapplek|translate}} opstappen</span></label>
-	        
-	  	</div>  	
+			<div class="vraag" translate>Kies een plek waar je wilt opstappen.</div>
+	        <label ng-repeat="opstapplek in opstapplekken" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.opstapplek" uib-btn-radio="'{{opstapplek}}'" required uncheckable><span translate>{{opstapplek|translate}}</span></label>   
+	  	</div> 
+	  	
+	  	<div class="col col-xs-12 toelichting" translate>	
+		Je ontvangt later informatie waar de opstapplek precies is.
+		</div>	
+		
+		 	
 	</div>
 	
 	

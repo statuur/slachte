@@ -5,7 +5,7 @@
 	<div class="col col-sm-6">			
 		<input type="text" class="form-control" placeholder="" name="user" id="user" ng-model="formData.user" required>
 		<label for="user" translate>Gebruikersnaam</label>
-		<div ng-show='form.user.$error.required && form.user.$dirty'class="alert alert-danger" role="alert" translate>Dit is een verlicht veld</div>		
+		<div ng-show='form.user.$error.required && form.user.$dirty'class="alert alert-danger" role="alert" translate>Dit is een verplicht veld</div>		
   	</div>
 </div>
 
@@ -23,7 +23,7 @@
 	<div class="col col-xs-6">
   		<div class="alert alert-danger fade in alert-dismissable" ng-show="loginError">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-			<span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of <a href="#" ng-click="reminder=true">klik hier</a> om uw logingegevens op te vragen.</span>
+			<span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of <a href="#" ng-click="reminder=1">klik hier</a> om uw logingegevens op te vragen.</span>
 		</div>		
 	</div>
 </div>

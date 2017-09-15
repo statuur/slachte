@@ -1,0 +1,6 @@
+<div class="col-xs-5" translate>Trainingsshirts</div><div class="col-xs-7 bold">{{formData.aantaltshirts}}&nbsp;</div>
+<div class="col-xs-5" translate>Hoodies</div><div class="col-xs-7 bold">{{formData.aantalhoodies}}&nbsp;
+	<span ng-repeat="x in [].constructor(formData.aantaltshirts) track by $index">Model: {{formData.shirts[$index].gender}} Maat: {{formData.shirts[$index].size}}</span>
+
+	
+</div>

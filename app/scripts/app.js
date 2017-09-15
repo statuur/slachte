@@ -66,9 +66,9 @@ angular
 	            templateUrl: 'views/form-slapen.html'
 	        })          
 		
-		.state('form.shirts', {
-	            url: '/shirts',
-	            templateUrl: 'views/form-shirts.html'
+		.state('form.kleding', {
+	            url: '/kleding',
+	            templateUrl: 'views/form-kleding.html'
 	        })
 	    .state('form.overzicht', {
 	            url: '/overzicht',

@@ -3,7 +3,7 @@
 	<div class="row form-group" ng-hide="pstates.gegevens=='edit'">
 		<div class="col col-xs-12 has-error">			
 			<h2 translate>Persoonlijke gegevens</h2>
-			<p translate class="toelichting">Vul eerst je eigen gegevens in. Je kunt later extra personen (maximaal 3) toevoegen.</p>
+			<p translate class="toelichting">Vul eerst je eigen gegevens in. Je kunt later extra deelnemers (maximaal 3) toevoegen.</p>
 	
   		</div>
 	</div>
@@ -20,8 +20,8 @@
 			<div ng-show='(form.email.$error.emailExists || form.email.$error.required || form.email.$error.email) && form.email.$dirty || form.email.$pending.emailExists' class="validatie" role="alert">
 				<span ng-if="form.email.$error.emailExists" translate>Dit e-mailadres is al geregistreerd</span>
 				<span ng-show="form.email.$pending.emailExists" translate>E-mail controle...</span>				
-				<span ng-if="form.email.$error.required" translate>E-mail veld mag niet leeg zijn</span>
-				<span ng-if="form.email.$error.email" translate>E-mail veld verkeerd geschreven</span>
+				<span ng-if="form.email.$error.required" translate>Het e-mail veld mag niet leeg zijn</span>
+				<span ng-if="form.email.$error.email" translate>Het e-mailadres is verkeerd geschreven</span>
 			</div>
 				
   		</div>
@@ -116,8 +116,22 @@
 </div>
 <div class="row form-group">
 	<div class="col col-xs-3">			
-		<input type="date" dsata-date-format="DD MMMM YYYY" min="1935-01-01" max="2000-01-01" class="form-control" name="geboortedatum" id="geboortedatum" ng-model="formData.reg.geboortedatum" ng-model-options="{updateOn:'blur'}" required>
+		<!-- <input type="date" dsata-date-format="DD MMMM YYYY" min="1935-01-01" max="2000-01-01" class="form-control" name="geboortedatum" id="geboortedatum" ng-model="formData.reg.geboortedatum" ng-model-options="{updateOn:'blur'}" required> -->
+		<input type="text" placeholder="dd-mm-yyyy" name="geboortedatum" id="geboortedatum" ng-model="formData.reg.geboortedatum" required>
+
+		<!-- 
+		<input type="text" name="dag"  placeholder="dd" class="col col-xs-4" ng-model="formData.reg.geboortedatum.dag" required>	
+		<input type="text" name="maand" placeholder="mm"class="col col-xs-4" ng-model="formData.reg.geboortedatum.maand" required>
+		<input type="text" name="jaar" placeholder="yyyy" class="col col-xs-4" ng-model="formData.reg.geboortedatum.jaar" required> -->
+		
 		<label for="geboortedatum" translate>Geboortedatum</label>
+		<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
+			<span ng-if="form.geboortedatum.$error.required" translate>Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
+			<span ng-if="form.geboortedatum.$error.max" translate>Minimum leeftijd om deel te nemen is 18 jaar</span>
+		</div>
+		
+		
 		<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
 			<span ng-if="form.geboortedatum.$error.required" translate>Dit veld mag niet leeg zijn</span>
 			<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
@@ -136,7 +150,7 @@
 
 <div class="row form-group">
 	<div class="col col-xs-12 btn-group">		
-		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachte?</span><br/>    
+		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachtemarathon?</span><br/>    
 	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}}</label>
 		<div ng-show='form.deelgenomen.$error' class="validatie" role="alert">
 			<span style="margin:12px 0;float:left;" ng-if="form.deelgenomen.$error.required" translate>Maak een keuze</span>

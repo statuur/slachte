@@ -100,7 +100,7 @@
 	
 	<div class="row show-grid">
 		<div class="col col-xs-5">			
-			<input type="date" data-date-format="DD MM YYYY" min="1935-01-01" max="2000-01-01" class="form-control" name="geboortedatum" id="geboortedatum" ng-model="formData.introducees[$index].geboortedatum" ng-model-options="{updateOn:'blur'}">
+			<input type="text" placeholder="dd-mm-yyyy" name="geboortedatum" id="geboortedatum" ng-model="formData.introducees[$index].geboortedatum" required>
 			<label for="geboortedatum" translate>Geboortedatum</label>
 			<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
 				<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
