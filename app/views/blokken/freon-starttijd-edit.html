@@ -4,7 +4,7 @@
 		
 		<div class="col col-xs-12">			
 			<div class="vraag" translate>Kies een tijdstip:</div>
-	        	<label data-vol="{{'Starttijd volgeboekt'|translate}}" ng-repeat="(key, starttijd) in starttijden" ng-disabled="starttijd.capaciteit - starttijd.inschrijvingen <= 0" ng-class="{first:$first}" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'{{starttijd.selector}}'" uncheckable required><span translate>Tussen</span> {{starttijd.van}} <span translate>en</span> {{starttijd.tot}}</label>
+	        	<label data-vol="{{'Starttijd volgeboekt'|translate}}" ng-repeat="(key, starttijd) in starttijden" ng-disabled="starttijd.capaciteit - starttijd.inschrijvingen <= 0" ng-class="{first:$first}" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.starttijd" uib-btn-radio="'{{starttijd.van}}-{{starttijd.tot}}'" uncheckable required><span translate>Tussen</span> {{starttijd.van}} <span translate>en</span> {{starttijd.tot}}</label>
 	  	</div>  	
 	
 	

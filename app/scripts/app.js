@@ -102,7 +102,7 @@ angular
    	AnalyticsProvider.setAccount('UA-2619816-14').logAllCalls(true).startOffline(true);  //UU-XXXXXXX-X should be your tracking code
 }])
 .run(['Analytics', function(Analytics) { }])
-.run(function(gettextCatalog, $http){
+.run(function(gettextCatalog, $rootScope){
    	
    	   	
    	gettextCatalog.debug 		= true;
@@ -111,11 +111,13 @@ angular
     if(typeof window.localStorage.taal==="undefined"){
 		gettextCatalog.setCurrentLanguage('nl_NL');
 		window.localStorage.taal = 'nl_NL';
+		
 	}else{		
 		gettextCatalog.setCurrentLanguage(window.localStorage.taal);
 	}
 	
-	 
+	 //$rootScope.taal = window.localStorage.taal;
+	 //console.log($rootScope);
   })
   
   

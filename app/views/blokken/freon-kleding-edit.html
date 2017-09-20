@@ -53,7 +53,8 @@
 <div class="row form-group" ng-show="formData.aantalhoodies" ng-repeat="x in [].constructor(formData.aantalhoodies) track by $index">
 	<div class="col col-xs-12">
 		<span style="padding-right:16px;" translate>Model:</span>
-		<label ng-repeat="(value, key) in mgenders" class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$parent.$index].gender" uib-btn-radio="key" translate uncheckable>{{key}}</label>
+		<!--<label ng-repeat="(value, key) in mgenders" class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$parent.$index].gender" uib-btn-radio="key" uncheckable>{{key|translate}}</label>-->
+		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label><label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>
 		
 		<!--<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label>
 		<label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>

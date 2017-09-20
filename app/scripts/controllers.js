@@ -35,10 +35,15 @@ angular.module('app.controllers', [])
 	$scope.setLanguage = function(lang) {
         gettextCatalog.setCurrentLanguage(lang);
 		window.localStorage.taal = lang;
-        
+		     
         document.location.href = "tickets.html";        
     };	
-    
+    /*
+	    var imported = document.createElement('script');
+var fileImport = 'angular-locale_' + selFormat + '.js';
+imported.src = 'https://code.angularjs.org/1.2.10/i18n/' + fileImport;
+document.head.appendChild(imported);
+	   */ 
 })
 
 .controller('formController', function($filter, $scope, $http, gettextCatalog, $state, gettext, $transitions, $cookies, $location, $anchorScroll, $uiRouter) {
@@ -49,37 +54,31 @@ angular.module('app.controllers', [])
 	//console.log(JSON.parse(window.localStorage.formData));
 	//$scope.locale						= (typeof $scope.formData.reg.taal!=="undefined")window.localStorage.taal;
 	//window.localStorage.clear();
-	$scope.checkboxModel = false;
-	$scope.wissen = function(){
-		window.localStorage.clear();
-		$scope.checkboxModel = false;
-		$scope.formData = {};
-		document.location.href = "tickets.html#!/form/inloggen";
-		//console.log($scope.checkboxModel);
-	}
-	
+	$scope.dateOptions					= {
+										    formatYear: 'yyyy',
+										    datepickerMode: 'year',
+										    maxDate: new Date(2006, 8, 31),
+										    minDate: new Date(1930, 8, 31),
+										    startingDay: 1,
+										    showWeeks: false
+										  }
 	$scope.buttondisabled				= false;     
 	$scope.required						= gettextCatalog.getString("Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.");
 	$scope.sendlogintxt					= gettextCatalog.getString("Vul hieronder het e-mailadres in waarmee je als Freon geregistreerd staat en we versturen de e-mail met login gegevens opnieuw.");
 	$scope.errortxt						= gettextCatalog.getString("Helaas is er even iets mis met het systeem, herlaad de pagina en probeer het nog eens.");
 	$scope.sendloginsucces				= gettextCatalog.getString("Er is een e-mail naar je onderweg met de logingegevens. Controleer je e-mail.");	
-	
-	
-	
 	$scope.opstapplekken				= [gettext("Sneek"), gettext("Leeuwarden"), gettext("Heerenveen"), gettext("Franeker/Harlingen")];       
-    $scope.deelname						= ["1 keer", "2 keer","3 keer","4 keer","5 keer", "nog nooit"];
+    $scope.deelname						= [1,2,3,4,5, gettextCatalog.getString("nog nooit")];
     $scope.formData 					= (typeof window.localStorage.formData==="undefined")? {} : JSON.parse(window.localStorage.formData); 
     $scope.formData.kaarten 			= (typeof $scope.formData.kaarten==="undefined") ? "" : $scope.formData.kaarten;
     $scope.formData.shirts 				= (typeof $scope.formData.shirts==="undefined") ? {} : $scope.formData.shirts;
     $scope.formData.hoodies 			= (typeof $scope.formData.hoodies==="undefined") ? {} : $scope.formData.hoodies;
     $scope.formData.reg 				= (typeof $scope.formData.reg==="undefined")? {} : $scope.formData.reg;
     
-    //$scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
+    $scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
     //$scope.formData.reg.slaapplek		= (typeof $scope.formData.reg!=="undefined" && $scope.formData.reg.soortovernachting=="Festipi") ? "Ik regel het zelf" : "";
 	
-	$scope.formData.taal				= window.localStorage.taal;
-	
-	
+	$scope.formData.reg.taal			= window.localStorage.taal;
     $scope.formData.reg.betaald 		= (typeof $scope.formData.reg==="undefined") ? "" : 0;
     $scope.formData.user 				= "testpersoon1";
     $scope.formData.password			= "tpersoon_1234*";
@@ -87,23 +86,18 @@ angular.module('app.controllers', [])
    
     $scope.initIntroducees = function(){
 	     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */		     
-	    
 	    $scope.formData.introducees 		= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
 	    $scope.formData.introducees[0] 		= (typeof $scope.formData.introducees[0]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[0];
-	    $scope.formData.introducees[0].geboortedatum 	= (typeof $scope.formData.introducees[0].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[0].geboortedatum);
-	    
 	    $scope.formData.introducees[1] 		= (typeof $scope.formData.introducees[1]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[1];
-	    $scope.formData.introducees[1].geboortedatum 	= (typeof $scope.formData.introducees[1].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[1].geboortedatum);
-	    
 	    $scope.formData.introducees[2] 		= (typeof $scope.formData.introducees[2]==="undefined") ? {"pwijzigen":"edit"} : $scope.formData.introducees[2];
-	    $scope.formData.introducees[2].geboortedatum 	= (typeof $scope.formData.introducees[2].geboortedatum==="undefined") ? "" : new Date($scope.formData.introducees[2].geboortedatum);
-    }
+	}
     
     $scope.initIntroducees();
     
     $scope.ticketprice					= 95;
 	$scope.tshirtprice					= 23.50;
 	$scope.hoodieprice					= 18.50;
+	$scope.verzendkosten				= 6.95;
 	$scope.overnachting					= 13;
 	$scope.bijslaper					= 13;
     $scope.mgenders						= {"m": gettextCatalog.getString("heren"), "v": gettextCatalog.getString("dames")}
@@ -112,21 +106,8 @@ angular.module('app.controllers', [])
     $scope.maxkaarten 					= [1,2,3,4]; 	
 	$scope.stap 						= 1;
     
-    //console.log($scope.formData);
-    //to update the menu at the right timing
-    $transitions.onSuccess( {}, function(){		
-		setTimeout(function(){
-			 $scope.menu();
-			 //$('.view').scrollTop(0)
-			 // document.body.scrollTop = document.documentElement.scrollTop = 0;
-			 //console.log($('.view').scrollTop());
-		}, 600);
-		
-	
-	});
-    
+   
     $scope.errors 						= false;
-	
     /* TODO : sluitknop */
     $scope.setError = function(message){	    
 	    $scope.errors 			= 1;		
@@ -141,8 +122,9 @@ angular.module('app.controllers', [])
 	 //$scope.setError("nu doet ie het wel.");
 	 
 	$scope.copyGegevens = function(checked, index){
+	    //$scope.formData.introducees[index] = [];
 	    angular.forEach($scope.formData.reg, function(value, key) {
-	    if(key=="email" || key=="email2" || key=="voornaam" || key=="tussenvoegsels" || key=="achternaam" || key=="betaald" || key=="extrapersonen" || key=="geboortedatum" || key=="geslacht" || key=="ID" || key=="user_login")return false;
+	    if(key=="user_email" || key=="verzend-email" || key=="email" || key=="email2" || key=="voornaam" || key=="tussenvoegsels" || key=="achternaam" || key=="betaald" || key=="extrapersonen" || key=="geboortedatum" || key=="geslacht" || key=="ID" || key=="user_login")return false;
 	    $scope.formData.introducees[index][key] = (checked) ? value : "";
 	    });
 	}   
@@ -153,14 +135,14 @@ angular.module('app.controllers', [])
 	   	$scope.totaaltickets 			= $scope.formData.kaarten * $scope.ticketprice	    
 	    //$scope.aantaltshirts			= Object.keys($scope.formData.shirts).length;
 	    $scope.totaaltshirts			= ($scope.formData.aantaltshirts > 0) ? $scope.formData.aantaltshirts * $scope.tshirtprice : 0;
-	    
-	    //$scope.aantalhoodies			= Object.keys($scope.formData.hoodies).length;
 	    $scope.totaalhoodies			= ($scope.formData.aantalhoodies > 0) ? $scope.formData.aantalhoodies * $scope.hoodieprice : 0;
 	    
+	    $scope.verzendkosten			= ($scope.totaaltshirts > 0 || $scope.totaalhoodies > 0) ? $scope.verzendkosten	: 0;
+	    
 	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen : 0;
-	    console.log($scope.overnachting * $scope.extrapersonen);
+	    
 	    $scope.totaalovernacht			= $scope.overnachting * $scope.extrapersonen;
-		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts + $scope.totaalhoodies).toFixed(2);;
+		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts + $scope.totaalhoodies + $scope.verzendkosten).toFixed(2);;
 	    
 	    angular.element(document.getElementById('totaalbedrag')).val($scope.totaalbedrag)
 	    angular.element(document.getElementById('showtotaalbedrag')).html('&euro; '+$scope.formData.totaalbedrag)
@@ -168,7 +150,7 @@ angular.module('app.controllers', [])
        
     /* OVERZICHT FUNCTIES */    
     /** functie voor togglen introducee edit <> view **/
-    $scope.states					= [{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"}];
+    $scope.states					= [{"gegevens":"edit", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"},{"gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"}];
     $scope.pstates					= {"kaarten":"view", "gegevens":"view", "starttijd":"view", "vervoer":"view", "slapen":"view", "kleding":"view"};									
     
     $scope.ftemplates 				= { "kaarten"	: {"view" : "views/blokken/freon-kaarten-view.html", "edit":"views/blokken/freon-kaarten-edit.html"},
@@ -187,20 +169,18 @@ angular.module('app.controllers', [])
     
     $scope.toggleTemplate = function(template, view, index){	    
 	    $scope.states[index][template] = view;
-	    //TODO: alle andere velden kunnen beter ook uit
-	    if(view=="edit"){ // = gegevens bewerken, dan andere bewerkingsvelden uit.
-		    angular.forEach($scope.states, function(states, i) {
-				//console.log(states, i);
-				angular.forEach(states, function(view1, template1) {
-					
-					if(index!=i){//als het niet om de betreffende view gaat
+	    
+	       angular.forEach($scope.states, function(states, i) {
+				angular.forEach(states, function(view1, template1) {					
+					//console.log(view+" : "+view1);
+					if(template!=template1){//als het niet om de betreffende introducee gaat
 						//console.log($scope.states[i][template]);
-						$scope.states[i][template] = "view";
+						$scope.states[i][template1] = "view";
 					}
 					
 				});
 			});
-	    }
+	    
 	    window.localStorage.formData = JSON.stringify($scope.formData);
 	    //window.localStorage.formData = $scope.formData;
 	   ///$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	  
@@ -208,12 +188,11 @@ angular.module('app.controllers', [])
     
     $scope.togglepTemplate = function(template, view){	    
 		$scope.pstates[template] = view;
-		
 		/*** als er een veld bewerkt wordt dan alle andere velden op view ***/
 		if(view=="edit"){ 
 			angular.forEach($scope.pstates, function(view1, template1) {
+
 				if(template1!=template){
-					//console.log(template, template1, view1);
 					$scope.pstates[template1] = "view";
 				}
 		});
@@ -287,7 +266,7 @@ angular.module('app.controllers', [])
 					$uiRouter.stateRegistry.deregister("form.starttijd");
 					$uiRouter.stateRegistry.deregister("form.vervoer");
 					$uiRouter.stateRegistry.deregister("form.slapen");
-					$uiRouter.stateRegistry.deregister("form.shirts");
+					$uiRouter.stateRegistry.deregister("form.kleding");
 					$uiRouter.stateRegistry.deregister("form.betalen");	
 					
 					//sla dit op in een cookie voor de reload.
@@ -320,6 +299,19 @@ angular.module('app.controllers', [])
 		//console.log(new Date(data.reg.geboortedatum));
 		data.reg.geboortedatum 	= $filter('date')(new Date(data.reg.geboortedatum), 'dd-MM-yyyy');
 		}
+		
+		if(angular.fromJson(data.reg.shirts) !== null){
+			data.shirts 			= angular.fromJson(data.reg.shirts)
+			data.aantaltshirts		= data.shirts.length;
+			console.log(data.shirts);
+		}
+		
+		if(angular.fromJson(data.reg.hoodies) !== null){
+			data.hoodies	 		= angular.fromJson(data.reg.hoodies);
+			data.aantalhoodies		= data.hoodies.length;
+		}
+		data.reg.shirts			= undefined;	
+		data.reg.hoodies		= undefined;	
 		data.reg.email			= data.reg.user_email;
 		data.reg.email2			= data.reg.user_email;
 		data.user				= data.reg.user_login;
@@ -359,7 +351,7 @@ angular.module('app.controllers', [])
 			$uiRouter.stateRegistry.deregister("form.starttijd");
 			$uiRouter.stateRegistry.deregister("form.vervoer");
 			$uiRouter.stateRegistry.deregister("form.slapen");
-			$uiRouter.stateRegistry.deregister("form.shirts");
+			$uiRouter.stateRegistry.deregister("form.kleding");
 			$uiRouter.stateRegistry.deregister("form.betalen");	
 			setTimeout(function(){
 					$scope.menu();
@@ -402,6 +394,7 @@ angular.module('app.controllers', [])
 	// function to process the form
     $scope.processForm = function() {
        window.localStorage.formData = JSON.stringify($scope.formData);
+       console.log($scope.formData);
        //window.localStorage.formData = $scope.formData;
        //$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
        $scope.formData.opslaan = false;
@@ -411,11 +404,10 @@ angular.module('app.controllers', [])
 		    data: $.param($scope.formData),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
-	    	//console.error(response);
+	    	console.error(response.data);
 	    	if(response.data.status==="ok"){
 		    	$cookies.putObject('betalingsinfo', {"userID":$scope.formData.reg.ID,"voornaam":$scope.formData.reg.voornaam,"achternaam":$scope.formData.reg.achternaam, "totaalbedrag": $scope.formData.totaalbedrag, "kaarten":$scope.formData.kaarten}, {"secure":true});
 				document.location.href='betalen.php'; //bij live
-		    	//$state.go('form.betalensimulatie');
 	    	}else{
 		    	console.error(response);//TODO foutmelding tbv api controller
 	    	}
@@ -424,18 +416,9 @@ angular.module('app.controllers', [])
 	    	console.error(response);//hier een foutmelding
 	  	});
     };
+    
     $scope.$location = $location;
-    
-    $scope.kiesdorp = function(dorp, index){//TODO: compatible with introducee
-	    $scope.formData.reg.dorp = dorp;
-	    //soort-overnachting
-	    $location.hash('soort-overnachting');
-	    // call $anchorScroll()
-		$anchorScroll();
-    };
-    
-    
-    
+        
     $scope.setStap	= function(stap, direction){
 		$scope.stap		= stap;		
 		$scope.direction = direction;		
@@ -465,10 +448,21 @@ angular.module('app.controllers', [])
 
 	};
 	
+	//to update the menu at the right timing
+    $transitions.onSuccess( {}, function(transition){		
+		setTimeout(function(){
+			 $scope.menu();
+		}, 1010);
+		
+	
+	});
+      
+
+	
     $scope.menu		= function() {
          var formsteps = $state.get();    
 		 var stappen = [];
-		 
+		 //console.log($state.current);
 		 var passed	 = 1;
 		 var i = 0;
 		 angular.forEach(formsteps, function(stap, key) {
@@ -477,6 +471,7 @@ angular.module('app.controllers', [])
 		 	 	 var translated = gettextCatalog.getString(stap.name);
 		 	 	 stap.title 	= translated;
 		 	 	 stap.active	= $state.current.name===stap.name;
+		 	 	 
 		 	 	 $scope.stap 	= (stap.active) ? i : $scope.stap;
 		 	 	 passed			= ($state.current.name===stap.name) ? 0 : passed;
 		 	 	 stap.passed	= passed;
@@ -485,15 +480,17 @@ angular.module('app.controllers', [])
 		 	 	 i++;
 		 	 }	 	 
 		}, stappen);     
-		$scope.stappen = stappen;    
+		
+		//$scope.$apply(function () {
+			$scope.stappen = stappen;    
+		//});
 		//stappen['-1'] = "aap"
 		//console.log(stappen);        
 		
     };	
     
     $scope.menu(); 
-       
-    //get basisinfo.json "?"+new Date().toString() json/basisinfo.json
+
     $http({
 		method: 'GET',
 		url: 'https://www.slachtemarathon.nl/api/systeem/basisinfo/?taal='+window.localStorage.taal
@@ -535,6 +532,7 @@ angular.module('app.controllers', [])
         }
     };
 })
+ 
 .directive('emailExists', function($http, $q) {
     return {
         require: 'ngModel',

@@ -8,34 +8,34 @@
 	<div class="col-xs-7 bold bold">{{formData.reg.dorp}}&nbsp;</div>
 </div>
 
-<div ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route'">
+<div ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.dorp!='Tritzum'">
 	<div class="col-xs-5" translate>Soort overnachting</div>
-	<div class="col-xs-7 bold">{{formData.reg.soortovernachting}}&nbsp;</div>
+	<div class="col-xs-7 bold">{{formData.reg.soortovernachting|translate}}&nbsp;</div>
 </div>
 
-<div ng-show="(formData.reg.soortovernachting==='Festipi' || formData.reg.soortovernachting==='In een groepsaccomodatie' || formData.reg.soortovernachting==='Bij iemand thuis') && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.soortovernachting">
+<div ng-show="(formData.reg.soortovernachting==='Bij iemand thuis') && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.soortovernachting && formData.reg.dorp!='Tritzum'">
 	<div class="col-xs-5" translate>Wil je zelf je slaapplek regelen?</div>
-	<div class="col-xs-7 bold">{{formData.reg.slaapplek}}&nbsp;</div>
+	<div class="col-xs-7 bold">{{formData.reg.slaapplek|translate}}&nbsp;</div>
 </div>
 
-<div style="display:block;clear:both;" ng-show="formData.reg.soortovernachting==='Bij iemand thuis' && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.soortovernachting">
+<div style="display:block;clear:both;" ng-show="formData.reg.soortovernachting==='In eigen camper of caravan' && formData.reg.dorp!='Tritzum'">
 	<div class="col-xs-5" translate>Hoeveel nachten blijf je slapen?</div>
-	<div class="col-xs-7 bold">{{formData.reg.nachtenslapen}}&nbsp;</div>
+	<div class="col-xs-7 bold">{{formData.reg.nachtenslapen|translate}}&nbsp;</div>
 </div>
 
 <div style="display:block;clear:both;" ng-show="(formData.reg.soortovernachting==='In eigen tent' || formData.reg.soortovernachting==='In eigen camper of caravan') && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route'">
 	<div class="col-xs-5" translate>Wanneer breng je je tent, caravan, camper?</div>
-	<div class="col-xs-7 bold">{{formData.reg.tentcaravancamper}}&nbsp;</div>
+	<div class="col-xs-7 bold">{{formData.reg.tentcaravancamper|translate}}&nbsp;</div>
 </div>
 
-<div style="display:block;clear:both;" ng-show="(formData.reg.soortovernachting==='In eigen tent' || formData.reg.soortovernachting==='In eigen camper of caravan') && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route'">
+<div style="display:block;clear:both;" ng-show="(formData.reg.soortovernachting==='In eigen tent' || formData.reg.soortovernachting==='In eigen camper of caravan') && formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.dorp!='Tritzum'">
 	<div class="col-xs-5" translate>Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon?</div>
 	<div class="col-xs-7 bold">{{formData.reg.extrapersonen}} <span translate>personen</span></div>
 </div>
 
-<div style="display:block;clear:both;" ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.soortovernachting">
+<div style="display:block;clear:both;" ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.soortovernachting && formData.reg.dorp!='Tritzum'">
 	<div class="col-xs-5" translate>Bagage</div>
-	<div class="col-xs-7 bold">{{formData.reg.bagage}}</div>
+	<div class="col-xs-7 bold">{{formData.reg.bagage|translate}}</div>
 </div>
 	
 
@@ -43,7 +43,7 @@
 
 
 <!--
-<div class="col-xs-5" ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && (formData.reg.soortovernachting=='In een groepsaccomodatie' || formData.reg.soortovernachting=='Bij iemand thuis')" translate>Wil je zelf je slaapplek regelen?</div><div ng-show="formData.reg.soortovernachting=='In een groepsaccomodatie' || formData.reg.soortovernachting=='Bij iemand thuis'" class="col-xs-7 bold">{{formData.reg.slaapplek}}&nbsp;</div>
+<div class="col-xs-5" ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && (formData.reg.soortovernachting=='In een groepsaccommodatie' || formData.reg.soortovernachting=='Bij iemand thuis')" translate>Wil je zelf je slaapplek regelen?</div><div ng-show="formData.reg.soortovernachting=='In een groepsaccommodatie' || formData.reg.soortovernachting=='Bij iemand thuis'" class="col-xs-7 bold">{{formData.reg.slaapplek}}&nbsp;</div>
 <div class="col-xs-5" ng-show="formData.reg.soortovernachting=='Eigen tent' || formData.reg.soortovernachting=='Eigen Camper'" translate>Neem je iemand mee?</div><div ng-show="formData.reg.soortovernachting=='Eigen tent' || formData.reg.soortovernachting=='Eigen Camper'" class="col-xs-7 bold">{{formData.reg.extrapersonen}}&nbsp;</div>
 <div class="col-xs-5" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div><div class="col-xs-7 bold">{{formData.reg.bagage}}&nbsp;</div>
 

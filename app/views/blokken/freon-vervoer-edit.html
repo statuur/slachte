@@ -43,7 +43,7 @@
 	<div class="row form-group" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">
 		<div class="col col-xs-12">			
 			<div class="vraag" translate>Kies een plek waar je wilt opstappen.</div>
-	        <label ng-repeat="opstapplek in opstapplekken" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.opstapplek" uib-btn-radio="'{{opstapplek}}'" required uncheckable><span translate>{{opstapplek|translate}}</span></label>   
+	        <label ng-repeat="opstapplek in opstapplekken" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.opstapplek" uib-btn-radio="'{{opstapplek}}'" required uncheckable><span>{{(formData.taal=="fy_NL")? opstapplek : opstapplek|translate}}</span></label>   <!-- opstapplek|translate-->
 	  	</div> 
 	  	
 	  	<div class="col col-xs-12 toelichting" translate>	

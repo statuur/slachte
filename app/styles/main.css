@@ -221,10 +221,9 @@ h1.welkom span{
 	top:-9px;
 }
 
-
 #stappen{
 	padding:0px;
-	margin-left:32px;
+	margin: 64px 0 0 32px;
 	font-weight: 200;
 	position:fixed;
 }
@@ -236,44 +235,9 @@ h1.welkom span{
 	top:7px;
 	color: #CFCFCF;
 }
+
 #stappen.finished:after{
 	color:#000;
-}
-
-/* stappen die nog moeten */
-#stappen li a{
-	text-decoration: none;
-}
-
-#stappen li a:before{
-	content:"";
-	display:block;
-	width:8px;
-	height:8px;
-	background:#CFCFCF;
-	position: absolute;
-	top:-0px;
-	left:-5px;
-}
-
-#stappen li.passed a:before{
-	background:#000;
-	width:12px;
-	height:12px;
-	top:-2px;
-	left:-7px
-}
-
-#stappen li.active a:before{
-	background:#E00915;
-	width:20px;
-	height:20px;
-	top:-4px;
-	left:-11px;
-}
-
-#stappen li.active a{
-	color:#E00915!important;
 }
 
 #stappen li{
@@ -284,14 +248,86 @@ h1.welkom span{
 	font-weight: 400;	
 }
 
+
+#stappen li a{
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	left: -2px;
+	top:5px;
+}
+#stappen li a.passed{
+	color:#000;
+}
+	
+#stappen li a.passed:before{
+	background:#000;
+	width:12px;
+	height:12px;
+	top:10px;
+	left:-5px
+}
+
+#stappen li a.passed:after{
+	content:"";
+	display:block;
+	position: absolute;
+	width:2px;
+	height:40px;
+	background:#000;
+	top:16px;
+	left: 0px;
+	z-index:0;
+}
+
+#stappen li a:before{
+	content:"";
+	display:block;
+	width:8px;
+	height:8px;
+	background:#CFCFCF;
+	position: absolute;
+	top:15px;
+	left:-3px;
+}
+
+#stappen li a.active{
+	color: #E00915;
+	font-weight: 700;
+}
+#stappen li a.active:before{
+	background:#E00915;
+	width:20px;
+	height:20px;
+	top:8px;
+	left:-10px;
+	z-index:10;
+}
+
+#stappen li a.apassed{
+	border-left:2px solid #000;
+}
+
+
+
+/*
+
+
+
+
+
+
+#stappen li.active a{
+	color:#E00915!important;
+}
+
+
+
 #stappen li.active{
 	border-left:2px solid #CFCFCF!important;
 }
 
-#stappen li.passed{
-	border-left:2px solid #000;
-	font-weight: 200;
-}
+
 
 #stappen li.active{
 	font-weight: 700;
@@ -302,7 +338,7 @@ h1.welkom span{
 	color:#000;
 	cursor: pointer;
 }
-
+*/
 #stappen li a{
 	padding: 0px 0px 0px 32px;	
 	position: relative;
@@ -350,7 +386,12 @@ b{
 	color:#e20613;
 	font-weight: 700;
 }
-
+.validatie span{
+	position: relative;
+	z-index:100;
+	msin-width:160px;
+	dsisplay: inline-block;
+}
 .validatie span:not(:first-child):before{
 	content:" / ";
 }
@@ -520,9 +561,13 @@ i.pull-right:after{
 	font-family: 'Frutiger LT Std';
 }
 
-#startkaarten i.pull-right:after{
+#startkaarten > uib-accordion i.pull-right:after{
 	top:-20px;
+	left:-140px;
+	content: attr(data-wijzigen);
+	min-width:200px;
 }
+
 uib-accordion h3{
 	font-size:26px;
 	color:#E00915;
@@ -710,6 +755,10 @@ uib-accordion a:active{
 }
 
 .dorpicon img{
+	position:relative;
+	transform: translate(10%,10%);
+}
+.dorpicon ismg{
 	position:relative;
 	left:50%;
 	top:50%;

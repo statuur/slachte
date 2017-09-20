@@ -116,26 +116,16 @@
 </div>
 <div class="row form-group">
 	<div class="col col-xs-3">			
-		<!-- <input type="date" dsata-date-format="DD MMMM YYYY" min="1935-01-01" max="2000-01-01" class="form-control" name="geboortedatum" id="geboortedatum" ng-model="formData.reg.geboortedatum" ng-model-options="{updateOn:'blur'}" required> -->
-		<input type="text" placeholder="dd-mm-yyyy" name="geboortedatum" id="geboortedatum" ng-model="formData.reg.geboortedatum" required>
-
-		<!-- 
-		<input type="text" name="dag"  placeholder="dd" class="col col-xs-4" ng-model="formData.reg.geboortedatum.dag" required>	
-		<input type="text" name="maand" placeholder="mm"class="col col-xs-4" ng-model="formData.reg.geboortedatum.maand" required>
-		<input type="text" name="jaar" placeholder="yyyy" class="col col-xs-4" ng-model="formData.reg.geboortedatum.jaar" required> -->
-		
+		 
+		 
+		 <input type="text" class="form-control" ng-click="popup='1'" name="geboortedatum" id="geboortedatum" uib-datepicker-popup="dd-MM-yyyy" ng-model="formData.reg.geboortedatum" is-open="popup" datepicker-options="dateOptions" ng-required="true" close-text="Sluiten" />
+         
 		<label for="geboortedatum" translate>Geboortedatum</label>
+		 
 		<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
 			<span ng-if="form.geboortedatum.$error.required" translate>Dit veld mag niet leeg zijn</span>
 			<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
-			<span ng-if="form.geboortedatum.$error.max" translate>Minimum leeftijd om deel te nemen is 18 jaar</span>
-		</div>
-		
-		
-		<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
-			<span ng-if="form.geboortedatum.$error.required" translate>Dit veld mag niet leeg zijn</span>
-			<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
-			<span ng-if="form.geboortedatum.$error.max" translate>Minimum leeftijd om deel te nemen is 18 jaar</span>
+			<span ng-if="form.geboortedatum.$error.max" translate>Minimum leeftijd om deel te nemen is 12 jaar</span>
 		</div>
   	</div>
   		
@@ -151,7 +141,7 @@
 <div class="row form-group">
 	<div class="col col-xs-12 btn-group">		
 		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachtemarathon?</span><br/>    
-	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}}</label>
+	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}} <span ng-show="$index < 5" translate>keer</span></label>
 		<div ng-show='form.deelgenomen.$error' class="validatie" role="alert">
 			<span style="margin:12px 0;float:left;" ng-if="form.deelgenomen.$error.required" translate>Maak een keuze</span>
 		</div>	
@@ -173,7 +163,7 @@
 
 <div class="row form-group opslaan" ng-hide="pstates.gegevens=='edit'">
 		<div class="col-xs-12">
-  		<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}"  ng-click="(form.$invalid || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"; ><span>Volgende stap</span></button>
+  		<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}"  ng-click="(form.$invalid || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"; ><span translate>Volgende stap</span></button>
 	</div>
 </div>
   	

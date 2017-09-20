@@ -5,7 +5,7 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 	<div id="overzicht" class="row show-grid">
 		
 		<div class="col-xs-12" style="background:#dcdcdc;padding-left:30px">
-	  		<h1><span translate>Freon</span> {{formData.reg.voornaam}} {{formData.reg.achternaam}}</h1>
+	  		<h1><span translate>Freon</span> {{formData.reg.voornaam}}{{(formData.reg.tussenvoegsels!="") ? " "+formData.reg.tussenvoegsels+" " : formData.reg.tussenvoegsels}}{{formData.reg.achternaam}}</h1>
 		</div>
 		
 		<div class="col-xs-12">
@@ -60,7 +60,7 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 			</div>	
 		</div>
 
-		
+		<div class="col-xs-12"><hr class="grey" style="border-top: 1px solid #a5a5a5"/></div>
 		
 		
 		<div class="col-xs-12">
@@ -104,10 +104,10 @@ We hebben de gegevens van de eerste kaart overgenomen. Pas deze hieronder aan. W
 		
 		
 		<div id="startkaarten">
-		<uib-accordion close-others="false" is-open="true" class="startkaart">					
-				<div uib-accordion-group ng-repeat="x in [].constructor(formData.kaarten-1) track by $index" class="panel-default">
+		<uib-accordion close-others="false" ng-repeat="x in [].constructor(formData.kaarten-1) track by $index"  class="startkaart">					
+				<div uib-accordion-group class="panel-default" is-open="$first">
 					
-					<uib-accordion-heading class="taart"><h1 style="padding-left:11px"><span translate>Startkaart</span> {{$index+1}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1><i class="pull-right glyphicon" ></i></uib-accordion-heading>
+					<uib-accordion-heading class="taart" ><h1 style="padding-left:11px"><span translate>Deelnemer</span> {{$index+1}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1><i class="pull-right glyphicon" data-wijzigen="{{ 'gegevens wijzigen' | translate }} +"></i></uib-accordion-heading>
 					
 					<div ng-include="'views/form-introduce-overzicht.html'"></div>	
 				</div>
@@ -116,13 +116,7 @@ We hebben de gegevens van de eerste kaart overgenomen. Pas deze hieronder aan. W
 		
 		<div class="row show-grid">
 			<div class="col-xs-12 opslaan">
-				<button type="button" class="slanted volgende" ng-click="setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
+				<button type="button" class="slanted volgende" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid)? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 			</div>
 		</div>
-		
-		
-		
-		<!--<button type="button" class="btn btn-primary btn-lg slanted pull-right" ng-click="processForm()" sng-disabled="!formData.bagage">Akkoord en afronden</button>-->
-			
-
 </div>	

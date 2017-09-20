@@ -1,4 +1,4 @@
-<h2 style="margin-top:72px" translate>Inloggen</h2>
+<h2 translate>Inloggen</h2>
 <p class="toelichting" ng-hide="reminder" translate>Freonen hebben van ons een e-mail met gebruikersnaam en wachtwoord gekregen. Vul deze gegevens hier in.</p>
 
 <div class="row form-group" ng-hide="reminder">
@@ -23,7 +23,7 @@
 	<div class="col col-xs-6">
   		<div class="alert alert-danger fade in alert-dismissable" ng-show="loginError">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-			<span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of <a href="#" ng-click="reminder=1">klik hier</a> om uw logingegevens op te vragen.</span>
+			<span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of <a href="#" ng-click="reminder='1'">klik hier</a> om uw logingegevens op te vragen.</span>
 		</div>		
 	</div>
 </div>

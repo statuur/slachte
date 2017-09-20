@@ -6,7 +6,7 @@
 		
 		<div class="col col-xs-12 btn-group">			
 			<p class="toelichting" translate>Hoeveel startkaarten wil je bestellen?</p>   
-			<input type="checkbox" name="wissen" id="wissen" ng-click="wissen()" ng-model="checkboxModel"> <label for="wissen">TEST: opgeslagen persoonsgegevens helemaal wissen.</label>			
+						
 			<p class="uitroepteken" translate>Zodra je naar het volgende scherm gaat, zijn je kaarten gedurende 30 minuten gereserveerd. Neem dus rustig de tijd om het systeem te doorlopen en alle gevraagde gegevens in te vullen.</p> 
 		    <label ng-repeat="i in maxkaarten" class="btn btn-lg btn-info onder" name="kaarten" id="kaarten" ng-model="formData.kaarten" uib-btn-radio="{{i}}" required>{{i}}</label>
 		    <div ng-show='form.kaarten.$error.required && form.$dirty' class="alert alert-danger" role="alert">
