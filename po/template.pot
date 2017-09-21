@@ -73,7 +73,7 @@ msgstr ""
 msgid "Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon? De kosten voor een extra persoon zijn &euro; {{bijslaper.toFixed(2)}}"
 msgstr ""
 
-#: app/index.html:75
+#: app/index.html:86
 msgid "Cookie Instellingen"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Deelnemer"
 msgstr ""
 
-#: app/index.html:75
+#: app/index.html:86
 msgid "Deze website maakt gebruikt van cookies om de voortgang van het invullen van uw persoonsgegevens en keuzes tijdelijk op te slaan"
 msgstr ""
 
@@ -503,12 +503,8 @@ msgstr ""
 msgid "Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na."
 msgstr ""
 
-#: app/index.html:67
+#: app/index.html:78
 msgid "Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn."
-msgstr ""
-
-#: app/index.html:62
-msgid "Op dit moment kun je je nog niet inschrijven omdat de kaartverkoop pas start per 23 september om exact 6.00u.<br>Ondertussen tref je op <a ng-href=\"https://www.slachtemarathon.nl\" target=\"_blank\">slachtemarathon.nl</a> meer informatie over het kaartverkoop proces."
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:108

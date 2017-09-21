@@ -394,7 +394,7 @@ document.head.appendChild(imported);
 	// function to process the form
     $scope.processForm = function() {
        window.localStorage.formData = JSON.stringify($scope.formData);
-       console.log($scope.formData);
+       //console.log($scope.formData);
        //window.localStorage.formData = $scope.formData;
        //$cookies.putObject('formData', $scope.formData, {"secure":true}); 	   	
        $scope.formData.opslaan = false;
