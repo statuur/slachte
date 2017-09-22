@@ -1,4 +1,4 @@
-<div ng-class="{wit:states.vervoer=='edit'}" class="container-fluid wit">  
+<div ng-class="{wit:states.gegevens=='edit'}" ng-init="setDirty();" class="container-fluid wit">  
 
 	<div class="row form-group">
 		<div class="col-xs-12">
@@ -100,7 +100,8 @@
 	
 	<div class="row show-grid">
 		<div class="col col-xs-5">			
-			<input type="text" placeholder="dd-mm-yyyy" name="geboortedatum" id="geboortedatum" ng-model="formData.introducees[$index].geboortedatum">
+			<!--<input type="text" placeholder="dd-mm-yyyy" name="geboortedatum" id="geboortedatum" ng-model="formData.introducees[$index].geboortedatum">-->
+			<input type="text" class="form-contrsol" ng-click="popup='1'" name="geboortedatum" id="geboortedatum" uib-datepicker-popup="dd-MM-yyyy" ng-model="formData.introducees[$index].geboortedatum" is-open="popup" datepicker-options="dateOptions" close-text="Sluiten" />
 			<label for="geboortedatum" translate>Geboortedatum</label>
 			<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
 				<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
@@ -109,12 +110,24 @@
 	  	</div>
 	  		
 	  	<div class="col col-xs-7btn-group"><span translate>Geslacht</span>: 
-		    <label class="btn btn-lg btn-info onder man" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'man'" uncheckable translate>man</label><label class="btn btn-lg btn-info onder vrouw" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'vrouw'" uncheckable translate>vrouw</label><label class="btn btn-lg btn-info onder x" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'x'" uncheckable>x</label>
+		    <label class="btn btn-lg btn-info onder man" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'man'" uncheckable translate>man</label><label class="btn btn-lg btn-info onder vrouw" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'vrouw'" uncheckable translate>vrouw</label><label class="btn btn-lg btn-info onder x" ng-model="formData.introducees[$index].geslacht" uib-btn-radio="'genderneutraal'" uncheckable>genderneutraal</label>
 		    <span ng-show='form.geslacht.$error.required && form.$dirty' class="validatie" role="alert">
 				<span ng-if="form.geslacht.$error.required" styles="display:inline;line-height:32px;" translate>Maak een keuze</span>
 			</span> 
 		</div>
 		
+		
+		
+	<div class="col col-xs-12 btn-group">		
+		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachtemarathon?</span><br/>    
+	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}} <span ng-show="$index < 5" translate>keer</span></label>
+		<div ng-show='form.deelgenomen.$error' class="validatie" role="alert">
+			<span style="margin:12px 0;float:left;" ng-if="form.deelgenomen.$error.required" translate>Maak een keuze</span>
+		</div>	
+
+  	</div>
+
+			
 			<div class="col-xs-12 opslaan">
 				<button class="slanted" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid) ? alert(required) :  toggleTemplate('gegevens', 'view', $index)">Gegevens opslaan</button>
 			</div>

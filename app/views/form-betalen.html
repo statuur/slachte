@@ -3,11 +3,11 @@
 <div id="kostenoverzicht">
 	<div class="row form-group kosten">
 		<div class="col col-xs-1" style="text-align: center">{{formData.kaarten}}&nbsp;</div>
-		<div class="col col-xs-9" translate>startkaarten Slachtemarathon 2018</div>
+		<div class="col col-xs-9"><span translate translate-n="{{formData.kaarten}}" translate-plural="startkaarten">startkaart</span> Slachtemarathon 2018</div>
 		<div class="col col-xs-2" style="text-align: right">&euro; {{totaaltickets.toFixed(2)}}</div>
 	</div>
 	
-	<div class="row form-group kosten">
+	<div class="row form-group kosten" ng-show="extrapersonen">
 		<div class="col col-xs-1" style="text-align: center">{{extrapersonen}}&nbsp;</div>
 		<div class="col col-xs-9" translate>extra overnachtingen</div>
 		<div class="col col-xs-2" style="text-align: right">&euro; {{totaalovernacht.toFixed(2)}}</div>
@@ -25,10 +25,10 @@
 		<div class="col col-xs-2" style="text-align: right">&euro; {{totaalhoodies.toFixed(2)}}</div>
 	</div>	
 	
-	<div class="row form-group kosten line" ngs-show="formData.aantaltshirts">
+	<div class="row form-group kosten line" ng-show="formData.aantaltshirts || formData.aantalhoodies">
 		<div class="col col-xs-1" style="text-align: center">1</div>
 		<div class="col col-xs-9" translate>verzendkosten</div>
-		<div class="col col-xs-2" style="text-align: right">&euro; {{verzendkosten.toFixed(2)}}</div>
+		<div class="col col-xs-2" style="text-align: right">&euro; {{verzendkostent.toFixed(2)}}</div>
 	</div>
 	
 	<div class="row form-group totaal">

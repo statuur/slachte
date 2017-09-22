@@ -4,6 +4,9 @@
 
 <div class="vraag" translate>Trainingsshirts</div>
 <p class="toelichting" translate>Hoeveel t-shirts wil je bestellen? Er is een dames- en een herenmodel. Een shirt kost &euro; {{tshirtprice.toFixed(2)}}</p>
+<!--{{modellen.Trainingsshirt}}
+ <label ng-repeat="model in modellen.Trainingsshirt">{{model}}</label><br/>
+ modellen.Trainingsshirtmodel for model in modellen.Trainingsshirt | unique:'model'-->
 
 <div class="row show-grid">
 	<div class="col col-xs-12 btn-group">			
@@ -12,23 +15,13 @@
 	    <label ng-repeat="x in [].constructor( (formData.kaarten *2)) track by $index" class="btn btn-lg btn-info onder" name="aantaltshirts" id="aantaltshirts" ng-model="formData.aantaltshirts" uib-btn-radio="{{$index+1}}" uncheckable>{{$index+1}}</label>	   
   	</div>
 </div>
-
 <div class="row form-group" ng-show="formData.aantaltshirts" ng-repeat="x in [].constructor(formData.aantaltshirts) track by $index">
 	<div class="col col-xs-12">
+		
 		<span style="padding-right:16px;" translate>Model:</span>
 		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label><label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.shirts[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>
-		<span style="padding:0px 16px;" translate>Maat:</span>
-		
-		<label class="btn btn-lg btn-info" ng-repeat="size in sizes" ng-model="formData.shirts[$parent.$index].size" uib-btn-radio="size" required uncheckable>{{size}}</label>
-
-		<!--
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'s'" required uncheckable>s</label>
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'m'" uncheckable required >m</label>
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'l'" uncheckable required>l</label>
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xl'" uncheckable required >xl</label>
-		<label class="btn btn-lg btn-info" ng-model="formData.shirts[$index].size" uib-btn-radio="'xxl'" uncheckable required >xxl</label>
-		$scope.sizes -->
-		
+		<span style="padding:0px 16px;" ng-show="formData.shirts[$index].gender" translate>Maat:</span>		
+		<label class="btn btn-lg btn-info" ng-repeat="size in Trainingsshirt.sizes[formData.shirts[$index].gender]" ng-model="formData.shirts[$parent.$index].size" uib-btn-radio="size" required uncheckable>{{size}}</label>		
 		</div>
 </div>	
 
@@ -54,14 +47,15 @@
 	<div class="col col-xs-12">
 		<span style="padding-right:16px;" translate>Model:</span>
 		<!--<label ng-repeat="(value, key) in mgenders" class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$parent.$index].gender" uib-btn-radio="key" uncheckable>{{key|translate}}</label>-->
-		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label><label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>
+		<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label>
+		<label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>
 		
 		<!--<label class="btn btn-lg btn-info man" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'m'" translate uncheckable>heren</label>
 		<label class="btn btn-lg btn-info vrouw" style="padding:10px 32px 10px 16px;" ng-model="formData.hoodies[$index].gender" uib-btn-radio="'v'" translate required uncheckable>dames</label>
 		-->
 		
 		<span style="padding:0px 16px;" translate>Maat:</span>
-		<label class="btn btn-lg btn-info" ng-repeat="size in sizes" ng-model="formData.hoodies[$parent.$index].size" uib-btn-radio="size" required uncheckable>{{size}}</label>
+		<label class="btn btn-lg btn-info" ng-repeat="size in Hoodie.sizes" ng-model="formData.hoodies[$parent.$index].size" uib-btn-radio="size" required uncheckable>{{size}}</label>
 		
 		</div>
 </div>

@@ -89,19 +89,14 @@
 		</div>
 	</div>
 		<!-- || formData.introducees[$index].soortovernachting==='Festipi'-->
-	<div class="row show-grid" ng-show="formData.introducees[$index].soortovernachting==='In eigen camper of caravan' && formData.introducees[$index].dorp!='Tritzum'">
+	<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen camper of caravan' || formData.introducees[$index].soortovernachting==='In eigen tent') && formData.introducees[$index].dorp!='Tritzum'">
 		<div class="col-xs-12">
 		  	<div class="vraag" translate>Hoeveel nachten blijf je slapen?</div>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].nachtenslapen" uib-btn-radio="'Ik blijf 2 nachten slapen'" uncheckable translate>Ik blijf 2 nachten slapen (donderdagnacht en vrijdagnacht)</label>
 		        <label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].nachtenslapen" uib-btn-radio="'Ik blijf 1 nacht slapen'" uncheckable translate>Ik blijf 1 nacht slapen (vrijdagnacht)</label>		        	
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
+			
 		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].dorp!='Tritzum'">
 			<div class="col-xs-12">
 		  		<hr class="hr-30"/>
@@ -119,29 +114,29 @@
 		</div>
 
 		
-		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].dorp!='Tritzum'">
+		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].dorp!='Tritzum' && !betaald">
 			<div class="col-xs-12">
 		  		<hr class="hr-30"/>
 			</div>
 		</div>
 		
-		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].dorp!='Tritzum'">
+		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].dorp!='Tritzum' && !betaald">
 			<div class="col-xs-12">
 		  		<div class="vraag" translate>Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon? De kosten voor een extra persoon zijn &euro; {{bijslaper.toFixed(2)}}</div>
 				<label class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].extrapersonen" uib-btn-radio="'Nee'" uncheckable translate>Nee</label>
 		        
-		        <label ng-repeat="x in [].constructor(formData.kaarten*2) track by $index" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[outerIndex].extrapersonen" uib-btn-radio="'{{$index+1}}'" uncheckable translate translate-n="{{$index+1}}" translate-plural="Ja, {{$count}} personen extra">Ja, 1 persoon extra</label>
+		        <label ng-repeat="x in [].constructor(formData.kaarten) track by $index" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[outerIndex].extrapersonen" uib-btn-radio="'{{$index+1}}'" uncheckable translate translate-n="{{$index+1}}" translate-plural="Ja, {{$count}} personen extra">Ja, 1 persoon extra</label>
 		        		        	
 			</div>
 		</div>
 		
-		<div class="row show-grid" ng-show="formData.introducees[$index]=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
+		<div class="row show-grid" ng-show="formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
 			<div class="col-xs-12">
 		  		<hr class="hr-30"/>
 			</div>
 		</div>
 		
-		<div class="row show-grid" ng-show="formData.introducees[$index]=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
+		<div class="row show-grid" ng-show="formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
 			<div class="col-xs-12">
 				<h2 style="margin: 32px 0 20px;" translate>Bagage</h2>
 				<div class="vraag" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div>

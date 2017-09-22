@@ -18,12 +18,17 @@
   	</div>
 </div>
 
+<div class="row show-grid" ng-hide="reminder">
+	<div class="col col-xs-6">
+  		<a href="#" ng-click="setReminder('1')" translate>wachtwoord vergeten?</a>
+	</div>
+</div>
 	
 <div class="row show-grid" ng-hide="reminder">
 	<div class="col col-xs-6">
   		<div class="alert alert-danger fade in alert-dismissable" ng-show="loginError">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-			<span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of <a href="#" ng-click="reminder='1'">klik hier</a> om uw logingegevens op te vragen.</span>
+			<span><span translate>De ingevoerde gebruikersnaam of wachtwoord zijn helaas niet goed.<br/>Probeer het nog een keer of</span> <a href="#" ng-click="setReminder('0')" translate>klik hier</a> <span translate>om uw logingegevens op te vragen.</span></span>
 		</div>		
 	</div>
 </div>
@@ -43,7 +48,10 @@
 				
 				<span ng-if="form.freonenemaill.$error.required" translate>E-mail veld mag niet leeg zijn</span>
 				<span ng-if="form.freonenemail.$error.email" translate>E-mail veld verkeerd geschreven</span>
+		
 			</div>
+		
+		<div style="margin-top:16px"><a href="#" ng-click="setReminder(0)" translate>&laquo; terug</a></div>
 		
 		<button style="margin-top:25px;" type="button" class="slanted" ng-class="{'disabled' : !formData.emailfreon}" ng-click="sendInlog();"><span translate>Stuur inloggegevens</span></button>
 	</div>

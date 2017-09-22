@@ -27,7 +27,7 @@
 			Eigen auto meenemen naar de start en daar parkeren is helaas niet mogelijk.
 			</div>
 			
-			<div class="col col-xs-12" style="margin-bottom:16px;" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'">	
+			<div class="col col-xs-12" style="margin-bottom:16px;" ng-show="formData.reg.vervoer=='Met de Slachtemarathonbus'" translate>	
 		* Vanaf verschillende centraal gelegen parkeerterreinen worden Slachtemarathonbussen ingezet. Als je met de Slachtemarathonbus gaat, kun je kiezen uit verschillende opstapplekken.
 
 		</div>	
@@ -56,14 +56,14 @@
 	
 	<div class="row show-grid opslaan" ng-show="pstates.vervoer=='edit'">
 			<div class="col-xs-12">
-				<button class="slanted" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
+				<button class="slanted" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Met de Slachtemarathonbus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Met de Slachtemarathonbus') || !formData.reg.vervoer) ? alert(required) : togglepTemplate('vervoer', 'view')" translate>Gegevens opslaan</button>
 			</div>
 		</div>
 	</div>
-	<!-- formData.reg.opstapplek!="" || formData.reg.vervoer=='Ik word gebracht (kiss & ride)' -->
+	<!-- ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : setStap(stap+1,'forwards')"       formData.reg.opstapplek!="" || formData.reg.vervoer=='Ik word gebracht (kiss & ride)' ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : setStap(stap+1,'forwards')" -->
 	<div class="row show-grid opslaan" ng-hide="pstates.vervoer=='edit'">
 		<div class="col-xs-12">
-	  		<button class="slanted volgende" ng-class="{'disabled' : (!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Per bus') || !formData.reg.vervoer) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
+	  		<button class="slanted volgende" ng-class="{'disabled' : ((!formData.reg.opstapplek && formData.reg.vervoer=='Met de Slachtemarathonbus') || !formData.reg.vervoer)}" ng-click="((!formData.reg.opstapplek && formData.reg.vervoer=='Met de Slachtemarathonbus') || !formData.reg.vervoer) ? alert(required) : setStap(stap+1,'forwards')"><span translate>Volgende stap</span></button>
 		</div>
 	</div>
 

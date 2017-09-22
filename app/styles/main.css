@@ -1174,6 +1174,12 @@ ul.validation-list li{
 }
 
 /* Large Devices, Wide Screens */
+@media only screen and (max-width : 1058px) {
+	.vervoer.active:before {
+    margin: 8px 0 0 10px;
+	}
+}	
+
 @media only screen and (max-width : 1280px) {
 	.view{
 		width: calc(100% - 32px)!important;

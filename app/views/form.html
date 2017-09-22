@@ -29,7 +29,7 @@
   	<div class="col-xs-3 stappen-container">
 		<div ng-show="inschrijving_status==1 && stap!=0">
 			<ul id="stappen" class="" ng-class="(stap==8)?'finished':''">
-				<li ng-repeat="stap in stappen" >
+				<li ng-repeat="stap in stappen">
 					<a ui-sref-active="active" ui-sref="{{stap.name}}" ng-class="{passed : stap.passed, active : stap.active}" title="{{stap.name}}">{{stap.title}}</a>
 				</li>             
 			</ul>	
@@ -38,8 +38,8 @@
   </div>
 </div>
 
- <pre style="width:calc(100% - 64px);overflow: visible;word-break:break-all;
-">{{formData}}</pre>
+ <pre style="display:none;width:calc(100% - 64px);overflow: visible;word-break:break-all;
+">{{formData.reg.extrapersonen}}</pre>
 
 
 
