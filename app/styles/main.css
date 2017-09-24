@@ -344,7 +344,7 @@ h1.welkom span{
 	position: relative;
 	top:-15px;
 	cursor: default;
-	/*pointer-events: none;	*/
+	pointer-events: none;
 	color:#CFCFCF;
 }
 

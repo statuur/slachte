@@ -28,21 +28,7 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
   	
-  	nggettext_extract: {
-    pot: {
-      files: {
-        'po/template.pot': ['app/{,*/}{,*/}/*.html', 'app/views/blokken/*.html', 'app/index.html', 'www/js/*.js']
-      }
-    },
-  },
-
-  	nggettext_compile: {
-    all: {
-      files: {
-        'app/scripts/translations.js': ['po/*.po']
-      }
-    },
-  },
+  
   	
   	
     // Project settings
@@ -460,17 +446,14 @@ module.exports = function (grunt) {
   });
   
   
-  grunt.registerTask('default', ['nggettext_extract', 'nggettext_compile']);
-  grunt.loadNpmTasks('grunt-angular-gettext');
-
+ 
+ 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
     grunt.task.run([
-      'nggettext_extract',
-      'nggettext_compile',
       'clean:server',
       'wiredep',
       'concurrent:server',
@@ -486,8 +469,6 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'nggettext_extract',
-    'nggettext_compile',
     'clean:server',
     'wiredep',
     'concurrent:test',

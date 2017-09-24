@@ -43,7 +43,7 @@
 						<div class="col col-md-4">
 							<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('nl_NL') : alert(cookiea)">Bestel tickets<div style="font-size:10px;">Nederlands</div></button>    
 					    </div>        
-						<div class="col col-md-4">
+					<!--	<div class="col col-md-4">
 					    	<button type="button" ng-class="{'disabled' : cookieAgree==0}" class="slanted block" style="padding:19px 0;" ng-click="(cookieAgree) ? setLanguage('fy_NL') : alert(cookiea)">Bestel kaartsjes<div style="font-size:10px;">Frysk</div></button>
 						</div> 
 						<!--<div class="col col-md-4">
@@ -58,19 +58,8 @@
   		</div>
 
   		<div ng-show="inschrijving_status==2" class="view" style="background:#fff;padding:32px;margin-top:-16px">
-  			<h1 class="welkom" style="margin-top:0px;">Kaartverkoop Freonen</h1>
-  			<p class="toelichting" style="color:#000">Nog even wachten...<br/>
-Zaterdag 23 september 2017 gaat hier om 06.00 uur de kaartverkoop voor Freonen van start.<br/><br/>
-Wil je je goed voorbereiden op de kaartverkoop? 
-Kijk dan op: <a href="https://www.slachtemarathon.nl/meedoen" target="_blank">www.slachtemarathon.nl/meedoen</a> 
-<br/><br/>
-Om kaarten te kunnen bestellen, heb je inloggegevens nodig. Deze heb je uiterlijk 21 september van ons ontvangen in een e-mail. 
-<br/><br/>
-Heb je geen inloggegevens gekregen? Dan kun je het e-mailadres waarmee je ingeschreven staat als Freon zaterdag invoeren bij 'wachtwoord vergeten' en krijg je een nieuw wachtwoord toegestuurd en krijg je een nieuw wachtwoord toegestuurd via de mail. Check ook de spammap van je e-mail, soms komen onze mails daar in terecht. 
-<br/><br/>
-Ben je geen Freon van de Slachtemarathon? <br/>
-Dan kun je vanaf zaterdag 30 september 2017 06.00 uur kaarten bestellen tijdens de reguliere kaartverkoop!
-</p>	
+  			<h1 class="welkom" style="text-align:center;margin-top:32px;font-size:35px;">Start kaartverkoop freonen 24 september om 08.00 uur</h1>
+  			
 		</div>
 
   		<div ng-show="inschrijving_status==0">
@@ -102,7 +91,6 @@ Dan kun je vanaf zaterdag 30 september 2017 06.00 uur kaarten bestellen tijdens 
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-validate/dist/validate.js"></script>
@@ -113,7 +101,6 @@ Dan kun je vanaf zaterdag 30 september 2017 06.00 uur kaarten bestellen tijdens 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
 	<script src="scripts/controllers.js"></script>
-    <script src="scripts/translations.js"></script>
         <!-- endbuild -->
 
   

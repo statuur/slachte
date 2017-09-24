@@ -20,7 +20,6 @@ angular
     //'ngTouch',
     'ui.bootstrap',
     'ui.router',
-    'gettext',
     'angular-google-analytics'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -102,18 +101,12 @@ angular
    	AnalyticsProvider.setAccount('UA-2619816-14').logAllCalls(true).startOffline(true);  //UU-XXXXXXX-X should be your tracking code
 }])
 .run(['Analytics', function(Analytics) { }])
-.run(function(gettextCatalog, $rootScope){
+.run(function( $rootScope){
    	
    	   	
-   	gettextCatalog.debug 		= true;
-    gettextCatalog.baseLanguage = "nl_NL";
-    
+   	 
     if(typeof window.localStorage.taal==="undefined"){
-		gettextCatalog.setCurrentLanguage('nl_NL');
-		window.localStorage.taal = 'nl_NL';
-		
-	}else{		
-		gettextCatalog.setCurrentLanguage(window.localStorage.taal);
+		window.localStorage.taal = 'nl_NL';		
 	}
 	
 	 //$rootScope.taal = window.localStorage.taal;

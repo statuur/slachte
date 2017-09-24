@@ -387,7 +387,7 @@ msgstr "Ik blijf 1 nacht slapen (vrijdagnacht)"
 
 #: app/views/vertalen-menu.html:33
 msgid "Ik blijf 2 nachten slapen"
-msgstr "Ik blijf 2 nachten slapenpersoan"
+msgstr "Ik blijf 2 nachten slapen"
 
 #: app/views/blokken/freon-slapen-edit.html:87
 #: app/views/blokken/introduce-slapen-edit.html:95

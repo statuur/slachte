@@ -5,14 +5,14 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 	<div id="overzicht" class="row show-grid">
 		
 		<div class="col-xs-12" style="background:#dcdcdc;padding-left:30px">
-	  		<h1><span translate>Freon</span> {{formData.reg.voornaam}}{{(formData.reg.tussenvoegsels!="") ? " "+formData.reg.tussenvoegsels+" " : formData.reg.tussenvoegsels}}{{formData.reg.achternaam}}</h1>
+	  		<h1><span>Freon</span> {{formData.reg.voornaam}}{{(formData.reg.tussenvoegsels!="") ? " "+formData.reg.tussenvoegsels+" " : formData.reg.tussenvoegsels}}{{formData.reg.achternaam}}</h1>
 		</div>
 		
 		<div class="col-xs-12">
 			<div class="slide-animate-container" ng-hide="betaald">
 				<h2 style="padding:16px 0 16px 15px;margin-bottom:0px;font-size:22px;">
-					<span translate>Startkaarten</span> 
-					<span ng-click="togglepTemplate('kaarten', 'edit')" ng-hide="pstates.kaarten=='edit'" class='pull-right wijzigen' translate>Aantal wijzigen</span>
+					<span >Startkaarten</span> 
+					<span ng-click="togglepTemplate('kaarten', 'edit')" ng-hide="pstates.kaarten=='edit'" class='pull-right wijzigen'>Aantal wijzigen</span>
 				</h2>
 			
 				<div id="persoonsgegevens-stap" class="slide-animate" ng-include="ftemplates.kaarten[pstates['kaarten']]"></div>
@@ -24,8 +24,8 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 		<div class="col-xs-12">
 			<div class="slide-animate-container">
 				<h2 style="padding:16px 0 16px 15px;margin-bottom:0px;font-size:22px;">
-					<span translate>Persoonlijke gegevens</span> 
-					<span ng-click="togglepTemplate('gegevens', 'edit')" ng-hide="pstates.gegevens=='edit'" class='pull-right wijzigen' translate>Persoonlijke gegevens wijzigen</span>
+					<span>Persoonlijke gegevens</span> 
+					<span ng-click="togglepTemplate('gegevens', 'edit')" ng-hide="pstates.gegevens=='edit'" class='pull-right wijzigen'>Persoonlijke gegevens wijzigen</span>
 				</h2>
 			
 				<div id="persoonsgegevens-stap" class="slide-animate" ng-include="ftemplates.gegevens[pstates['gegevens']]"></div>
@@ -38,8 +38,8 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 		<div class="col-xs-12">
 			<div class="slide-animate-container">
 				<h2 style="padding:0px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
-					<span translate>Starttijd</span> 
-					<span ng-click="togglepTemplate('starttijd', 'edit')" class='pull-right wijzigen' ng-hide="pstates.starttijd=='edit'" translate>Starttijd wijzigen</span></h2>
+					<span>Starttijd</span> 
+					<span ng-click="togglepTemplate('starttijd', 'edit')" class='pull-right wijzigen' ng-hide="pstates.starttijd=='edit'">Starttijd wijzigen</span></h2>
 		
 					<div id="starttijd-stap" class="slide-animate" ng-include="ftemplates.starttijd[pstates['starttijd']]"></div>
 					
@@ -51,8 +51,8 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 		<div class="col-xs-12">
 			<div class="slide-animate-container">	
 				<h2 style="padding:0px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
-					<span translate>Vervoer</span> 
-					<span ng-click="togglepTemplate('vervoer', 'edit')" class='pull-right wijzigen' ng-hide="pstates.vervoer=='edit'" translate>Vervoer wijzigen</span>
+					<span>Vervoer</span> 
+					<span ng-click="togglepTemplate('vervoer', 'edit')" class='pull-right wijzigen' ng-hide="pstates.vervoer=='edit'">Vervoer wijzigen</span>
 				</h2>
 		
 				<div id="vervoer-stap" class="slide-animate" ng-include="ftemplates.vervoer[pstates['vervoer']]"></div>
@@ -66,8 +66,8 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 		<div class="col-xs-12">
 			<div class="slide-animate-container">	
 				<h2 style="padding:0px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
-					<span translate>Slapen</span> 
-					<span ng-click="togglepTemplate('slapen', 'edit')" class='pull-right wijzigen' ng-hide="pstates.slapen=='edit'" translate>Slapen wijzigen</span>
+					<span>Slapen</span> 
+					<span ng-click="togglepTemplate('slapen', 'edit')" class='pull-right wijzigen' ng-hide="pstates.slapen=='edit'">Slapen wijzigen</span>
 				</h2>
 				
 				<div id="slapen-stap" class="slide-animate" ng-include="ftemplates.slapen[pstates['slapen']]"></div>
@@ -79,8 +79,8 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 		<div class="col-xs-12" ng-show="formData.aantaltshirts || formData.aantalhoodies">
 			<div class="slide-animate-container" ng-hide="betaald">	
 				<h2 style="padding:0px 0 16px 15px;;margin-bottom:0px;font-size:22px;">
-					<span translate>Kleding</span> 
-					<span ng-click="togglepTemplate('kleding', 'edit')" class='pull-right wijzigen' ng-hide="pstates.kleding=='edit'" translate>Kleding wijzigen</span>
+					<span>Kleding</span> 
+					<span ng-click="togglepTemplate('kleding', 'edit')" class='pull-right wijzigen' ng-hide="pstates.kleding=='edit'">Kleding wijzigen</span>
 				</h2>
 				
 				<div id="kleding-stap" class="slide-animate" ng-include="ftemplates.kleding[pstates['kleding']]"></div>
@@ -96,7 +96,7 @@ Controleer hier alles en pas indien nodig nog gegevens aan.</div>
 	</div>
 		
 		<div class="row show-grid" ng-show="formData.kaarten > 1">
-		<div class="col-xs-12" translate>
+		<div class="col-xs-12">
 	  		Je hebt meerdere kaarten besteld. Vul hieronder de gegevens van de andere deelnemers in. Het is mogelijk de gegevens van de Freon over te nemen. Vink daarvoor de optie 'adresgegevens overnemen' aan. Weet je nu nog niet alle informatie van de andere deelnemers? Dan heb je tot 15 oktober de tijd om deze gegevens alsnog in te voeren. We sturen je een e-mail met een link om dit later alsnog te doen. 
 Vul in ieder geval nu wel de juiste namen van de deelnemers in.
 		</div>
@@ -107,7 +107,7 @@ Vul in ieder geval nu wel de juiste namen van de deelnemers in.
 		<uib-accordion close-others="false" ng-repeat="x in [].constructor(formData.kaarten-1) track by $index"  class="startkaart">					
 				<div uib-accordion-group class="panel-default" is-open="$first">
 					
-					<uib-accordion-heading class="taart" ><h1 style="padding-left:11px"><span translate>Deelnemer</span> {{$index+2}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1><i class="pull-right glyphicon" data-wijzigen="{{ 'gegevens wijzigen' | translate }} +"></i></uib-accordion-heading>
+					<uib-accordion-heading><h1 style="padding-left:11px"><span>Deelnemer</span> {{$index+2}}: {{formData.introducees[$index].voornaam}} {{formData.introducees[$index].tussenvoegsels}} {{formData.introducees[$index].achternaam}} </h1><i class="pull-right glyphicon" data-wijzigen="{{ 'gegevens wijzigen'}} +"></i></uib-accordion-heading>
 					
 					<div ng-include="'views/form-introduce-overzicht.html'"></div>	
 				</div>

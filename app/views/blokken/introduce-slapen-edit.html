@@ -32,7 +32,7 @@
 							<div uib-accordion-group ng-repeat="(key, dorp) in dorpen" is-disabled="dorp.inschrijf_status==0" ng-class="{selected : formData.introducees[$index].dorp===dorp.uniek}" class="panel-default">
 							  	<uib-accordion-heading>{{dorp.post_title}}<span ng-show="dorp.inschrijf_status==0">(vol)</span><i class="pull-right glyphicon" ></i></uib-accordion-heading>
 							  	<div class="row row-eq-height"> 						  	
-							  		<div class="col col-xs-4 dorpicon"><img ng-src="{{dorp.afbeelding}}" alt="{{dorp.post_title}}" title="{{dorp.post_title}}"/></div>
+							  		<div class="col col-xs-4 dorpicon"><img ng-src="https://www.slachtemarathon.nl/wp-content/uploads/2017/07/{{dorp.post_title | lowercase}}.svg" alt="{{dorp.post_title}}" title="{{dorp.post_title}}"/></div>
 								  	<div class="col col-xs-8">
 										<h3>{{dorp.typering | lowercase}}</h3>
 										<b>{{dorp.afstand | lowercase}}</b><br/><br/>
@@ -57,11 +57,11 @@
 		
 		<div class="col-xs-12">
 		  	<div class="vraag" translate>Wat voor soort overnachting wil je?</div>
-		  	<label style="margin-left:-1px" data-vol="{{'Niet meer beschikbaar'|translate}}" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek=''" uib-btn-radio="'In een groepsaccommodatie'" ng-disabled="dorpen[formData.introducees[$index].dorp].groepsaccommodaties < 1" uncheckable translate>In een groepsaccommodatie (dorpshuis of sporthal)</label>
-				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="{{'Niet meer beschikbaar'|translate}}" ng-disabled="dorpen[formData.introducees[$index].dorp].thuis < 1" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek=''" uib-btn-radio="'Bij iemand thuis'" uncheckable translate>Bij iemand thuis</label>
-				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="{{'Niet meer beschikbaar'|translate}}" ng-disabled="dorpen[formData.introducees[$index].dorp].festipi < 1" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek='Ik regel het zelf'" uib-btn-radio="'Festipi'" uncheckable translate>In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra kosten aan verbonden)</label>
-				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="{{'Niet meer beschikbaar'|translate}}" ng-disabled="dorpen[formData.introducees[$index].dorp].tenten < 1" ng-model="formData.introducees[$index].soortovernachting" uib-btn-radio="'In eigen tent'" uncheckable translate>In eigen tent</label>
-				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="{{'Niet meer beschikbaar'|translate}}" ng-disabled="dorpen[formData.introducees[$index].dorp].campers < 1" ng-model="formData.introducees[$index].soortovernachting" uib-btn-radio="'In eigen camper of caravan'" uncheckable translate>In eigen camper of caravan</label>
+		  	<label style="margin-left:-1px" data-vol="'Niet meer beschikbaar'" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek=''" uib-btn-radio="'In een groepsaccommodatie'" ng-disabled="dorpen[formData.introducees[$index].dorp].groepsaccommodaties < 1" uncheckable translate>In een groepsaccommodatie (dorpshuis of sporthal)</label>
+				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="'Niet meer beschikbaar'" ng-disabled="dorpen[formData.introducees[$index].dorp].thuis < 1" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek=''" uib-btn-radio="'Bij iemand thuis'" uncheckable translate>Bij iemand thuis</label>
+				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="'Niet meer beschikbaar'" ng-disabled="dorpen[formData.introducees[$index].dorp].festipi < 1" ng-model="formData.introducees[$index].soortovernachting" ng-click="formData.introducees[$index].slaapplek='Ik regel het zelf'" uib-btn-radio="'Festipi'" uncheckable translate>In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra kosten aan verbonden)</label>
+				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="'Niet meer beschikbaar'" ng-disabled="dorpen[formData.introducees[$index].dorp].tenten < 1" ng-model="formData.introducees[$index].soortovernachting" uib-btn-radio="'In eigen tent'" uncheckable translate>In eigen tent</label>
+				<label class="btn btn-lg btn-info btn-block btn-el" data-vol="'Niet meer beschikbaar'" ng-disabled="dorpen[formData.introducees[$index].dorp].campers < 1" ng-model="formData.introducees[$index].soortovernachting" uib-btn-radio="'In eigen camper of caravan'" uncheckable translate>In eigen camper of caravan</label>
 			
 			<p class="uitroepteken" translate="">Als je overnacht in een eigen tent, caravan of camper is het mogelijk om iemand die niet meedoet met de Slachtemarathon bij je te laten logeren. Verderop in dit systeem kun je dit aangeven. Extra kosten zijn dan € 13,00 en deze persoon krijgt dan op dag twee ook een ontbijt.</p>
 			</div>
@@ -112,7 +112,7 @@
 		        		        		        	
 			</div>
 		</div>
-
+<!--
 		
 		<div class="row show-grid" ng-show="(formData.introducees[$index].soortovernachting==='In eigen tent' || formData.introducees[$index].soortovernachting==='In eigen camper of caravan') && formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].dorp!='Tritzum' && !betaald">
 			<div class="col-xs-12">
@@ -129,6 +129,7 @@
 		        		        	
 			</div>
 		</div>
+		-->
 		
 		<div class="row show-grid" ng-show="formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
 			<div class="col-xs-12">
@@ -136,7 +137,7 @@
 			</div>
 		</div>
 		
-		<div class="row show-grid" ng-show="formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting && formData.introducees[$index].dorp!='Tritzum'">
+		<div class="row show-grid" ng-show="formData.introducees[$index].slapen=='In één van de út-en-thús-dorpen langs de route' && formData.introducees[$index].soortovernachting">
 			<div class="col-xs-12">
 				<h2 style="margin: 32px 0 20px;" translate>Bagage</h2>
 				<div class="vraag" translate>Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?</div>

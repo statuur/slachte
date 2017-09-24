@@ -2,13 +2,67 @@
 
 angular.module('app.controllers', [])
 
-.controller('formController', function($locale,$filter, $scope, $http, gettextCatalog, $state, gettext, $transitions, $cookies, $location, $anchorScroll, $uiRouter) {
+.controller('formController', function($locale,$filter, $scope, $http, $state, $transitions, $cookies, $location, $anchorScroll, $uiRouter) {
 	/*$cookies.remove('betaald') 
 	$cookies.remove('formData');
 	window.localStorage.clear();
 	window.localStorage.clear();
 	*/
-	//window.localStorage.clear();
+	
+	$scope.$watch('formData.reg.slapen', function (newval, oldval) {
+		
+		if(newval=="Ik slaap thuis"){
+		$scope.formData.extrapersonen 			= "";
+		$scope.extrapersonen 					= "";
+		$scope.formData.reg.dorp 				= "";
+		$scope.formData.reg.slaapplek			= "";
+		$scope.formData.reg.soortovernachting	= "";
+		$scope.formData.reg.nachtenslapen		= "";
+		$scope.formData.reg.tentcaravancamper	= "";
+
+		}
+	})
+	
+	$scope.$watch('formData.reg.dorp', function (newval, oldval) {
+		
+		if(newval=="Tritzum"){
+			$scope.formData.reg.slaapplek 			= "";//
+			$scope.formData.reg.soortovernachting	= "In eigen tent";
+			$scope.formData.reg.nachtenslapen		= "";
+			$scope.formData.reg.tentcaravancamper	= "";
+			$scope.formData.reg.extrapersonen		= "";
+		}else{
+			$scope.formData.reg.soortovernachting	= "";
+		}	
+	});
+		
+	$scope.$watch('formData.introducees[1].dorp', function (newval, oldval) {
+		
+		if(newval=="Tritzum"){
+			$scope.formData.introducees[1].slaapplek 			= "";//
+			$scope.formData.introducees[1].soortovernachting	= "In eigen tent";
+			$scope.formData.introducees[1].nachtenslapen		= "";
+			$scope.formData.introducees[1].tentcaravancamper	= "";
+			$scope.formData.introducees[1].extrapersonen		= "";
+		}else{
+			$scope.formData.introducees[1].soortovernachting	= "";
+		}	
+	});
+
+
+	$scope.$watch('formData.introducees[2].dorp', function (newval, oldval) {
+		
+		if(newval=="Tritzum"){
+			$scope.formData.introducees[2].slaapplek 			= "";//
+			$scope.formData.introducees[2].soortovernachting	= "In eigen tent";
+			$scope.formData.introducees[2].nachtenslapen		= "";
+			$scope.formData.introducees[2].tentcaravancamper	= "";
+			$scope.formData.introducees[2].extrapersonen		= "";
+		}else{
+			$scope.formData.introducees[2].soortovernachting	= "";
+		}	
+	});
+
 	
 	$scope.ticketprice					= 95;
 	$scope.tshirtprice					= 18.50;
@@ -16,7 +70,7 @@ angular.module('app.controllers', [])
 	$scope.verzendkosten				= 6.95;
 	$scope.overnachting					= 13;
 	$scope.bijslaper					= 13;
-    $scope.mgenders						= {"m": gettextCatalog.getString("heren"), "v": gettextCatalog.getString("dames")}
+    $scope.mgenders						= {"m": "heren", "v": "dames"}
     $scope.genders 						= ["m","v"];
     $scope.sizes 						= ["s","m","l","xl", "xxl"];
     $scope.maxkaarten 					= [1,2,3,4]; 	
@@ -33,12 +87,12 @@ angular.module('app.controllers', [])
 										  }
 										  
 	$scope.buttondisabled				= false;     
-	$scope.required						= gettextCatalog.getString("Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.");
-	$scope.sendlogintxt					= gettextCatalog.getString("Vul hieronder het e-mailadres in waarmee je als Freon geregistreerd staat en we versturen de e-mail met login gegevens opnieuw.");
-	$scope.errortxt						= gettextCatalog.getString("Helaas is er even iets mis met het systeem, herlaad de pagina en probeer het nog eens.");
-	$scope.sendloginsucces				= gettextCatalog.getString("Er is een e-mail naar je onderweg met de logingegevens. Controleer je e-mail.");	
-	$scope.opstapplekken				= [gettext("Sneek"), gettext("Leeuwarden"), gettext("Heerenveen"), gettext("Franeker/Harlingen")];       
-    $scope.deelname						= [1,2,3,4,5, gettextCatalog.getString("nog nooit")];
+	$scope.required						= "Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na.";
+	$scope.sendlogintxt					= "Vul hieronder het e-mailadres in waarmee je als Freon geregistreerd staat en we versturen de e-mail met login gegevens opnieuw.";
+	$scope.errortxt						= "Helaas is er even iets mis met het systeem, herlaad de pagina en probeer het nog eens.";
+	$scope.sendloginsucces				= "Er is een e-mail naar je onderweg met de logingegevens. Controleer je e-mail.";	
+	$scope.opstapplekken				= ["Sneek", "Leeuwarden", "Heerenveen", "Franeker/Harlingen"];       
+    $scope.deelname						= [1,2,3,4,5, "nog nooit"];
     $scope.formData 					= (typeof window.localStorage.formData==="undefined")? {} : JSON.parse(window.localStorage.formData); 
     $scope.formData.kaarten 			= (typeof $scope.formData.kaarten==="undefined") ? "" : $scope.formData.kaarten;
     $scope.formData.shirts 				= (typeof $scope.formData.shirts==="undefined") ? {} : $scope.formData.shirts;
@@ -47,11 +101,12 @@ angular.module('app.controllers', [])
     
     $scope.formData.reg.geboortedatum 	= (typeof $scope.formData.reg==="undefined") ? "" : new Date($scope.formData.reg.geboortedatum);
     //$scope.formData.reg.slaapplek		= (typeof $scope.formData.reg!=="undefined" && $scope.formData.reg.soortovernachting=="Festipi") ? "Ik regel het zelf" : "";
-	//console.log($scope.formData.reg.geboortedatum);
-	$scope.formData.reg.taal			= window.localStorage.taal;
+	$scope.personen						= ["persoon","personen", "personen", "personen", "personen"];
+	$scope.skaarten						= ["startkaart","startkaarten"];
+	$scope.formData.reg.taal			= "nl_NL";
     $scope.betaald 						= ($cookies.get('betaald')==1) ? 1 : 0;
-    $scope.formData.user 				= "testpersoon1";
-    $scope.formData.password			= "tpersoon_1234*";
+	$scope.formData.user 				= "";
+    $scope.formData.password			= "";
     $scope.direction 					= "forwards";
 	
 	
@@ -64,11 +119,11 @@ angular.module('app.controllers', [])
 	}
 	
 	$scope.alert	= function(mes){
-		mes = gettext(mes);
+		
 		alert(mes);
 	}
 	
-	
+		
     $scope.initIntroducees = function(){
 	     /* Dit alleen als deze nog niet bestaan, anders wordt de data gewist */		     
 	    $scope.formData.introducees 	= (typeof $scope.formData.introducees==="undefined") ? [] : $scope.formData.introducees;
@@ -92,16 +147,15 @@ angular.module('app.controllers', [])
 	    	if(key=="user_email" || key=="verzendemail" || key=="sendemail" ||  key=="email" || key=="email2" || key=="voornaam" || key=="tussenvoegsels" || key=="achternaam" || key=="betaald" || key=="extrapersonen" || key=="geboortedatum" || key=="geslacht" || key=="ID" || key=="user_login") return false;
 	    
 			$scope.formData.introducees[index][key] = (checked) ? value : "";
-	    //console.log($scope.formData.introducees[index][key]);
-	    //console.log(key);
+	    
 	    
 	    });
 	}   
 
     /* KOPIEER PERSOONSGEGEVENS NAAR DE INTRODUCEES */
-    $scope.setIntroduceData			= function(index){
-	    var copyfields = ["starttijd","vervoer", "slapen", "dorp", "soortovernachting", "slaapplek", "bagage", "nachtenslapen", "tentcaravancamper","extrapersonen", "opstapplek"];
-		//console.log($scope.formData);
+    $scope.setIntroduceData			= function(index){//"extrapersonen",
+	    var copyfields = ["starttijd","vervoer", "slapen", "dorp", "soortovernachting", "slaapplek", "bagage", "nachtenslapen", "tentcaravancamper", "opstapplek"];
+		
 		angular.forEach($scope.formData.reg, function(value, key) {
 		  if(copyfields.indexOf(key) > -1 && value!=""){
 		  $scope.formData.introducees[index][key] = value;
@@ -124,7 +178,7 @@ angular.module('app.controllers', [])
 	   	       
     $scope.showPrice = function(){
 	   	//TODO ITERATE TROUGHT THE OBJECT AND CHECK IF THE VALUES ARE NOT NULL
-	    console.log("showprice");
+	   // 
 	    $scope.formData.extrapersonen	= parseInt($scope.formData.reg.extrapersonen)
 	   	$scope.totaaltickets 			= $scope.formData.kaarten * $scope.ticketprice	    
 	    //$scope.aantaltshirts			= Object.keys($scope.formData.shirts).length;
@@ -135,12 +189,12 @@ angular.module('app.controllers', [])
 	    $scope.extrapersonen			= ($scope.formData.extrapersonen > 0) ? $scope.formData.extrapersonen : 0;
 	    
 	    $scope.totaalovernacht			= $scope.overnachting * $scope.extrapersonen;
-		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts + $scope.totaalhoodies + $scope.verzendkosten).toFixed(2);
+		$scope.formData.totaalbedrag 	= ($scope.totaalovernacht + $scope.totaaltickets + $scope.totaaltshirts + $scope.totaalhoodies + $scope.verzendkostent).toFixed(2);
 	    //quick and dirty
 	    $scope.formData.totaaltickets	= $scope.totaaltickets;
 	    $scope.formData.totaaltshirts	= $scope.totaaltshirts;
 	    $scope.formData.totaalhoodies	= $scope.totaalhoodies;
-	    $scope.formData.verzendkosten	= $scope.verzendkosten;
+	    $scope.formData.verzendkosten	= $scope.verzendkostent;
 	    $scope.formData.totaalovernacht	= $scope.totaalovernacht;
 	     
 	     
@@ -174,7 +228,6 @@ angular.module('app.controllers', [])
 				angular.forEach(states, function(view1, template1) {					
 					
 					if(template!=template1){//als het niet om de betreffende template gaat
-						//console.log($scope.states[i][template]);
 						$scope.states[i][template1] = "view";
 					}else if(i!=index){ //als het niet om de betreffende introducee gaat
 						$scope.states[i][template1] = "view";
@@ -219,8 +272,8 @@ angular.module('app.controllers', [])
 	    $scope.buttondisabled 	= true;
 	    $http({
 		    method: 'POST',
-		    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/sendInlog',
-		    data: $.param({"email":$scope.formData.emailfreon, "taal":$scope.formData.taal}),
+		    url :'https://www.slachtemarathon.nl/api/freon/sendInlog',
+		    data: $.param({"email":$scope.formData.emailfreon, "taal":"nl_NL"}),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
@@ -232,7 +285,7 @@ angular.module('app.controllers', [])
 	    	$scope.buttondisabled  = false;
 	  	}, function errorCallback(response) {
 	    	$scope.setError($scope.errortxt);
-	    	console.error(response);
+	    	
 	  	});
     }
     
@@ -246,13 +299,13 @@ angular.module('app.controllers', [])
 	   	
 	   	$http({
 		    method: 'POST',
-		    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/inloggen',
+		    url :'https://www.slachtemarathon.nl/api/freon/inloggen',
 		    data: $.param($scope.formData),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
 	    	if(response.data.status==="ok"){
-				
-				if(response.data.betaald > 1504628362){
+				 
+				if(typeof response.data.betaald!="undefined" && response.data.betaald > 1504628362){
 					//stappen uit het proces halen?
 					$uiRouter.stateRegistry.deregister("form.aantalkaarten");
 					$uiRouter.stateRegistry.deregister("form.persoonlijke-gegevens");
@@ -263,18 +316,19 @@ angular.module('app.controllers', [])
 					$uiRouter.stateRegistry.deregister("form.betalen");	
 					
 					//sla dit op in een cookie voor de reload.
-					$cookies.put('betaald', "1", {"secure":true});//{"secure":true}
+					$cookies.put('betaald', "1", {"secure":true});
 					$scope.betaald	= 1;
 					//$cookies.put('loggedin', "1");/
 					$scope.loggedin = 1;
 					
 				}else{
-					$cookies.put('betaald', "0", {"secure":true});//{"secure":true}
+					$cookies.put('betaald', "0", {"secure":true});
 					$scope.betaald	= 0;
 					
 				}
+				
 				$scope.parseData(response.data);
-				//console.log("zou oke moeten zijn");
+				
 				setTimeout(function(){
 					$scope.menu();
 					$scope.setStap(1,'forwards');
@@ -287,7 +341,7 @@ angular.module('app.controllers', [])
 	    	$scope.buttondisabled  = false;
 	  	}, function errorCallback(response) {
 	    	$scope.setError($scope.errortxt);
-	    	console.error(response);
+	    	
 	  	});
 	
 	} 	
@@ -299,17 +353,13 @@ angular.module('app.controllers', [])
 	$scope.parseData = function(data){
 		
 		if(data.reg.geboortedatum!=""){
-			//data.reg.geboortedatum = data.reg.geboortedatum.split(" ")[0];
-			//console.log(data.reg.geboortedatum);
 			data.reg.geboortedatum 	= new Date(data.reg.geboortedatum); //$filter('date')(new Date(data.reg.geboortedatum), 'dd-MM-yyyy');
-			//console.log(data.reg.geboortedatum);
 		}
 		/*
 		if($scope.betaald){
 		if(data.reg.shirts!="" && angular.fromJson(data.reg.shirts) !== null){
 			data.shirts 			= angular.fromJson(data.reg.shirts)
 			data.aantaltshirts		= data.shirts.length;
-			console.log(data.shirts);
 		}
 		
 		if(data.reg.hoodies!="" && angular.fromJson(data.reg.hoodies) !== null){
@@ -325,10 +375,9 @@ angular.module('app.controllers', [])
 		data.user				= data.reg.user_login;
 		//data.password			= data.reg.user_login;
 		
-		if(typeof data.reg.taal!=="undefined" && data.reg.taal!=""){
-			gettextCatalog.setCurrentLanguage(data.reg.taal);
+		/*if(typeof data.reg.taal!=="undefined" && data.reg.taal!=""){
 			window.localStorage.taal = data.reg.taal;
-		}
+		}*/
 		//delete data.status;
 		//delete data.reg.user_email;
 		
@@ -340,9 +389,9 @@ angular.module('app.controllers', [])
 		
 		//AFHANKELIJK VAN KEUZE WEL/NIET INLOGGEN MEELOPER
 		
-		if($scope.formData.introducees.length==0){
+		//if($scope.formData.introducees.length==0){
 			$scope.initIntroducees();
-		}
+		//}
 		
 		window.localStorage.formData = JSON.stringify($scope.formData);
 		//window.localStorage.formData = $scope.formData;
@@ -381,20 +430,20 @@ angular.module('app.controllers', [])
 	   	 
 	   	 $http({
 			    method: 'POST',
-			    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/betaald',
+			    url :'https://www.slachtemarathon.nl/api/freon/betaald',
 			    data: $.param($scope.formData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
-				console.log(response);
+				
 				//delete cookies hier
-				/*
+				
 					$cookies.remove('betaald');
 					$cookies.remove('formData');
 					$cookies.remove('paymentID');
 					$cookies.remove('orderID');
 					$cookies.remove('meelopers');
 					window.localStorage.clear();
-				*/	
+				/**/	
 			}, function errorCallback(response) {
 		    	if(response.status==-1){
 		    		//$cookies.getObject('formData');
@@ -412,7 +461,7 @@ angular.module('app.controllers', [])
 		$scope.formData.aanpassen = 1;
 		$http({
 		    method: 'POST',
-		    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/update',
+		    url :'https://www.slachtemarathon.nl/api/freon/update',
 		    data: $.param($scope.formData),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
@@ -422,7 +471,7 @@ angular.module('app.controllers', [])
 				$scope.alert("gegevens opgeslagen, je wordt nu teruggestuurd naaar inloggen");
 				$state.go("form.inloggen");
 	    	}else{
-		    	console.error(response);//TODO foutmelding tbv api controller
+		    	//console.error(response);//TODO foutmelding tbv api controller
 	    	}
 	  	}, function errorCallback(response) {
 	    	$scope.setError($scope.errortxt);
@@ -452,7 +501,7 @@ angular.module('app.controllers', [])
        $scope.formData.opslaan = false;
        $http({
 		    method: 'POST',
-		    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/update',
+		    url :'https://www.slachtemarathon.nl/api/freon/update',
 		    data: $.param($scope.formData),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function successCallback(response) {
@@ -478,13 +527,13 @@ angular.module('app.controllers', [])
 			if($scope.stap==2 && $scope.direction=="forwards"){
 				$http({
 					method: 'POST',
-					url :'https://ontwikkeling.slachtemarathon.nl/api/systeem/aantalKaarten',
+					url :'https://www.slachtemarathon.nl/api/systeem/aantalKaarten',
 					data: $.param({"aantalkaarten":$scope.formData.kaarten}),
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}).then(function successCallback(response) {
-					//console.log(response.data);	    						    	
+		
 				}, function errorCallback(response) {							    	
-				console.error(response);
+				//console.error(response);
 							    	
 				});
      
@@ -508,20 +557,22 @@ angular.module('app.controllers', [])
 		
 	
 	});
-      
-
+ 
 	
     $scope.menu		= function() {
          var formsteps = $state.get();    
 		 var stappen = [];
-		 //console.log($state.current);
+		 
 		 var passed	 = 1;
 		 var i = 0;
 		 angular.forEach(formsteps, function(stap, key) {
 		 	 if (stap.name.match(/(form.betalensimulatie)/i)) return false;//KANWEG
 		 	 if (stap.name.match(/(form.)/i)) {
-		 	 	 var translated = gettextCatalog.getString(stap.name);
-		 	 	 stap.title 	= translated;
+		 	 	 var parts 		= stap.name.split("form.");
+		 	 	 
+		 	 	 var nicename	= parts[1];
+		 	 	 nicename		= nicename.replace("-", " ");
+		 	 	 stap.title 	= nicename;
 		 	 	 stap.active	= $state.current.name===stap.name;
 		 	 	 
 		 	 	 $scope.stap 	= (stap.active) ? i : $scope.stap;
@@ -533,11 +584,9 @@ angular.module('app.controllers', [])
 		 	 }	 	 
 		}, stappen);     
 		
-		//$scope.$apply(function () {
 			$scope.stappen = stappen;    
-		//});
-		//stappen['-1'] = "aap"
-		//console.log(stappen);        
+
+		
 		
     };	
     
@@ -545,14 +594,15 @@ angular.module('app.controllers', [])
 
     $http({
 		method: 'GET',
-		url: 'https://ontwikkeling.slachtemarathon.nl/api/systeem/basisinfo/?taal='+window.localStorage.taal
+		url : 'https://www.slachtemarathon.nl/lightapi/basisinfo/nl_NL'
+		
 	}).then(function successCallback(response) {
+		
 		$scope.inschrijving_status 	= response.data.inschrijving_status;
 		$scope.dorpen 				= response.data.dorpen;
 		$scope.Trainingsshirt		= response.data.Trainingsshirt;
 		$scope.Hoodie				= response.data.Hoodie;
 		$scope.starttijden 			= response.data.starttijden;
-		//console.log($scope.Trainingsshirt);
 		}, function errorCallback(response) {
     		if(response.status == -1){
 	    		$scope.setError("Helaas is er even iets mis met het systeem, probeer het zo nog even");
@@ -560,28 +610,37 @@ angular.module('app.controllers', [])
      });
    
 })
-.controller('welkomController', function($scope, $http, gettext, gettextCatalog, $cookies) {
+.controller('welkomController', function($scope, $http, $cookies) {
 	
 	$http({
 		method: 'GET',
-		url: 'https://ontwikkeling.slachtemarathon.nl/api/systeem/status/'
+		url: 'https://www.slachtemarathon.nl/lightapi/status/'
 	}).then(function successCallback(response) {
 		delete response.data.status;
 		$scope.inschrijving_status = response.data.inschrijving_status;
 	}, function error(response) {
-        //console.log(response)
         $scope.setError($scope.errortxt);
     });
     
 	//$cookies.remove('cookies');	
 	$scope.cookieAgree 	= (typeof $cookies.get('cookies')==="undefined")? 0 : $cookies.get("cookies");
- 	$scope.cookiea		= gettextCatalog.getString("Ga je akkoord met de Cookie instellingen?");
+ 	$scope.cookiea		= "Ga je akkoord met de Cookie instellingen?";
 	
  	$scope.alert	= function(mes){
-		mes = gettext(mes);
+		
 		alert(mes);
 	}
 	
+	$scope.setError = function(message){	    
+	    $scope.errors 			= 1;		
+		$scope.errormessage		= message;
+		
+		setTimeout(function(){
+			 $scope.errors 			= 0;
+			 $scope.errormessage	= "";
+		}, 5000);
+	 }	
+	 
  	$scope.cookieAgreement = function(lang) {
 		 var expireDate = new Date();
 		 expireDate.setDate(expireDate.getDate() + 1);
@@ -590,9 +649,6 @@ angular.module('app.controllers', [])
 	}
 		
 	$scope.setLanguage = function(lang) {
-        gettextCatalog.setCurrentLanguage(lang);
-		window.localStorage.taal = lang;
-		     
         document.location.href = "tickets.html";        
     };	
     /*
@@ -610,11 +666,11 @@ document.head.appendChild(imported);
 					 if(ngModel.$pristine || scope.originalEmail===ngModel.$viewValue){return $q(function(r) {r(1);});}else{
 						 return $http({
 									    method: 'POST',
-									    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/emailCheck',
+									    url :'https://www.slachtemarathon.nl/api/freon/emailCheck',
 									    data: $.param({"email":ngModel.$viewValue}),
 									    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 									}).then(function successCallback(response) {
-							    		//console.log(response);
+							    	
 							    	if(response.data.exists){
 								    	return $q.resolve('goed e-mailadres');							    	
 							    	}else{
@@ -638,11 +694,11 @@ document.head.appendChild(imported);
 					 if(ngModel.$pristine || scope.originalEmail===ngModel.$viewValue){return $q(function(r) {r(1);});}else{
 						 return $http({
 									    method: 'POST',
-									    url :'https://ontwikkeling.slachtemarathon.nl/api/freon/emailCheck',
+									    url :'https://www.slachtemarathon.nl/api/freon/emailCheck',
 									    data: $.param({"email":ngModel.$viewValue}),
 									    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 									}).then(function successCallback(response) {
-							    		//console.log(response);
+							    	
 							    	if(response.data.exists){
 								    	return $q.reject('e-mail bestaat al');							    	
 							    	}else{

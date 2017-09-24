@@ -44,7 +44,7 @@ msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:138
 #: app/views/blokken/freon-slapen-view.html:37
-#: app/views/blokken/introduce-slapen-edit.html:141
+#: app/views/blokken/introduce-slapen-edit.html:142
 #: app/views/blokken/introduce-slapen-view.html:44
 msgid "Bagage"
 msgstr ""
@@ -73,16 +73,15 @@ msgid "Bij iemand thuis"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-view.html:32
-#: app/views/blokken/introduce-slapen-view.html:38
 msgid "Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon?"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:122
-#: app/views/blokken/introduce-slapen-edit.html:125
 msgid "Blijft er iemand bij je logeren die niet meedoet aan de Slachtemarathon? De kosten voor een extra persoon zijn &euro; {{bijslaper.toFixed(2)}}"
 msgstr ""
 
 #: app/index.html:86
+#: app/origineel/index.html:86
 msgid "Cookie Instellingen"
 msgstr ""
 
@@ -108,6 +107,7 @@ msgid "Deelnemer"
 msgstr ""
 
 #: app/index.html:86
+#: app/origineel/index.html:86
 msgid "Deze website maakt gebruikt van cookies om de voortgang van het invullen van uw persoonsgegevens en keuzes tijdelijk op te slaan"
 msgstr ""
 
@@ -207,8 +207,8 @@ msgstr ""
 #: app/views/blokken/freon-slapen-edit.html:149
 #: app/views/blokken/freon-starttijd-edit.html:13
 #: app/views/blokken/freon-vervoer-edit.html:59
-#: app/views/blokken/introduce-slapen-edit.html:152
-#: app/views/blokken/introduce-slapen-edit.html:159
+#: app/views/blokken/introduce-slapen-edit.html:153
+#: app/views/blokken/introduce-slapen-edit.html:160
 #: app/views/blokken/introduce-starttijd-edit.html:14
 #: app/views/blokken/introduce-vervoer-edit.html:51
 msgid "Gegevens opslaan"
@@ -387,14 +387,13 @@ msgid "Inloggen"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:125
-#: app/views/blokken/introduce-slapen-edit.html:128
 msgid "Ja, 1 persoon extra"
 msgid_plural "Ja, {{$count}} personen extra"
 msgstr[0] ""
 msgstr[1] ""
 
 #: app/views/blokken/freon-slapen-edit.html:140
-#: app/views/blokken/introduce-slapen-edit.html:143
+#: app/views/blokken/introduce-slapen-edit.html:144
 msgid "Ja, graag verzorgen"
 msgstr ""
 
@@ -495,12 +494,11 @@ msgid "Naam"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:123
-#: app/views/blokken/introduce-slapen-edit.html:126
 msgid "Nee"
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:142
-#: app/views/blokken/introduce-slapen-edit.html:145
+#: app/views/blokken/introduce-slapen-edit.html:146
 msgid "Nee, dit verzorg ik zelf"
 msgstr ""
 
@@ -522,6 +520,7 @@ msgid "Nog niet alle vereiste velden zijn ingevuld. Kijk de gegevens goed na."
 msgstr ""
 
 #: app/index.html:78
+#: app/origineel/index.html:78
 msgid "Op dit moment kun je je niet meer inschrijven omdat alle kaarten voor de Slachtemarathon 2018 verkocht zijn."
 msgstr ""
 
@@ -753,7 +752,7 @@ msgid ""
 msgstr ""
 
 #: app/views/blokken/freon-slapen-edit.html:139
-#: app/views/blokken/introduce-slapen-edit.html:142
+#: app/views/blokken/introduce-slapen-edit.html:143
 msgid "Wil je dat de organisatie ervoor zorgt dat je bagage vrijdag naar je slaapplek wordt gebracht en op zaterdag naar de finish?"
 msgstr ""
 
@@ -894,7 +893,6 @@ msgid "om uw logingegevens op te vragen."
 msgstr ""
 
 #: app/views/blokken/freon-slapen-view.html:33
-#: app/views/blokken/introduce-slapen-view.html:39
 msgid "personen"
 msgstr ""
 

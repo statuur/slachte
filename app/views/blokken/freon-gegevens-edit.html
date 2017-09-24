@@ -2,8 +2,8 @@
 	<!-- ng-class="{ 'has-error' : form.reg.email.$invalid && (form.reg.email.$dirty) }" -->
 	<div class="row form-group" ng-hide="pstates.gegevens=='edit'">
 		<div class="col col-xs-12 has-error">			
-			<h2 translate>Persoonlijke gegevens</h2>
-			<p translate class="toelichting">Vul eerst je eigen gegevens in. Je kunt later extra deelnemers (maximaal 3) toevoegen.</p>
+			<h2 >Persoonlijke gegevens</h2>
+			<p  class="toelichting">Vul eerst je eigen gegevens in. Je kunt later extra deelnemers (maximaal 3) toevoegen.</p>
 	
   		</div>
 	</div>
@@ -15,13 +15,13 @@
 			
 				
 			<input type="email" email-exists ng-init="originalEmail=formData.reg.email" class="form-control" placeholder="" name="email" id="email" ng-model="formData.reg.email" ng-model-options="{updateOn:'blur'}" required>
-			<label for="email" translate>E-mail</label>
+			<label for="email" >E-mail</label>
 			
 			<div ng-show='(form.email.$error.emailExists || form.email.$error.required || form.email.$error.email) && form.email.$dirty || form.email.$pending.emailExists' class="validatie" role="alert">
-				<span ng-if="form.email.$error.emailExists" translate>Dit e-mailadres is al geregistreerd</span>
-				<span ng-show="form.email.$pending.emailExists" translate>E-mail controle...</span>				
-				<span ng-if="form.email.$error.required" translate>Het e-mail veld mag niet leeg zijn</span>
-				<span ng-if="form.email.$error.email" translate>Het e-mailadres is verkeerd geschreven</span>
+				<span ng-if="form.email.$error.emailExists" >Dit e-mailadres is al geregistreerd</span>
+				<span ng-show="form.email.$pending.emailExists" >E-mail controle...</span>				
+				<span ng-if="form.email.$error.required" >Het e-mail veld mag niet leeg zijn</span>
+				<span ng-if="form.email.$error.email" >Het e-mailadres is verkeerd geschreven</span>
 			</div>
 				
   		</div>
@@ -30,11 +30,11 @@
 <div class="row form-group">	
   	<div class="col col-xs-12">			
 		<input type="email" class="form-control" placeholder="" name="email2" id="email2" ng-model="formData.reg.email2" ng-model-options="{updateOn:'blur'}" match-validator="email" required>
-		<label for="email2" translate>E-mail ter controle</label>
+		<label for="email2" >E-mail ter controle</label>
 		<div ng-show='(form.email2.$error.required || form.email2.$error.email || form.email2.$error.match) && form.email2.$dirty' class="validatie" role="alert">
-			<span ng-if="form.email2.$error.required" translate>E-mail veld mag niet leeg zijn</span>
-			<span ng-if="form.email2.$error.email" translate>E-mail veld verkeerd geschreven</span>
-			<span ng-if="form.email2.$error.match" translate>De e-mail velden zijn niet hetzelfde</span>
+			<span ng-if="form.email2.$error.required" >E-mail veld mag niet leeg zijn</span>
+			<span ng-if="form.email2.$error.email" >E-mail veld verkeerd geschreven</span>
+			<span ng-if="form.email2.$error.match" >De e-mail velden zijn niet hetzelfde</span>
 		</div>
 	        
 	</div>
@@ -43,23 +43,23 @@
 <div class="row form-group">
 	<div class="col col-xs-5">			
 		<input type="text" class="form-control" placeholder="" name="voornaam" id="voornaam" ng-model="formData.reg.voornaam" ng-model-options="{updateOn:'blur'}" required>
-		<label for="voornaam" translate>Voornaam</label>
+		<label for="voornaam" >Voornaam</label>
 		<div ng-show='form.voornaam.$error.required && form.voornaam.$dirty' class="validatie" role="alert">
-			<span ng-if="form.voornaam.$error.required" translate>Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.voornaam.$error.required" >Dit veld mag niet leeg zijn</span>
 		</div>
 
   	</div>
   
   	<div class="col col-xs-2"> 			
   		<input type="text" class="form-control" placeholder="" name="tussenvoegsels" id="tussenvoegsels" ng-model="formData.reg.tussenvoegsels">
-  		<label for="tussenvoegsels" translate>Tussenvoegsels</label>
+  		<label for="tussenvoegsels" >Tussenvoegsels</label>
   	</div>
   
   	<div class="col col-xs-5">
   		<input type="text" class="form-control" placeholder="" name="achternaam" id="achternaam" ng-model="formData.reg.achternaam" required>
-  		<label for="achternaam" translate>Achternaam</label>
+  		<label for="achternaam" >Achternaam</label>
   		<div ng-show='form.achternaam.$error.required && form.achternaam.$dirty' class="validatie" role="alert">
-			<span ng-if="form.achternaam.$error.required" translate>Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.achternaam.$error.required" >Dit veld mag niet leeg zijn</span>
 		</div>
   	</div>
 </div>  
@@ -67,17 +67,17 @@
 <div class="row form-group">
 	<div class="col col-xs-10"> 			
   		<input type="text" class="form-control" placeholder="" name="straat" id="straat" ng-model="formData.reg.straat" required>
-  		<label for="straat" translate>Straatnaam</label>
+  		<label for="straat" >Straatnaam</label>
   		<div ng-show='form.straat.$error.required && form.straat.$dirty' class="validatie" role="alert">
-			<span ng-if="form.straat.$error.required" translate>Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.straat.$error.required" >Dit veld mag niet leeg zijn</span>
 		</div>
   	</div>
   		
   	<div class="col col-xs-2"> 			
   		<input type="text" class="form-control" placeholder="" name="huisnummer" id="huisnummer" ng-model="formData.reg.huisnummer" required>
-  		<label for="huisnummer" translate>Huisnr.</label>
+  		<label for="huisnummer" >Huisnr.</label>
   		<div ng-show='form.huisnummer.$error.required && form.huisnummer.$dirty' class="validatie" role="alert">
-			<span ng-if="form.huisnummer.$error.required" translate>Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.huisnummer.$error.required" >Dit veld mag niet leeg zijn</span>
 		</div>
   	
   	</div>  		
@@ -86,31 +86,31 @@
 <div class="row form-group">
 	<div class="col col-xs-5">			
 		<input type="text" class="form-control" placeholder="" name="postcode" id="postcode" ng-minlength="4" ng-maxlength="8" ng-model="formData.reg.postcode" required>
-		<label for="postcode" translate>Postcode</label>
+		<label for="postcode" >Postcode</label>
 		<div style="display:none;" ng-if='form.postcode.$error' class="validatie" role="alert">
-			<span ng-if="form.postcode.$error.required" translate>Dit veld mag niet leeg zijn</span>
-			<span ng-if="form.postcode.$error.minlength" translate>Postcode is te kort</span>
-			<span ng-if="form.postcode.$error.maxlength" translate>Postcode is te lang</span>
+			<span ng-if="form.postcode.$error.required" >Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.postcode.$error.minlength" >Postcode is te kort</span>
+			<span ng-if="form.postcode.$error.maxlength" >Postcode is te lang</span>
 		</div>
   	</div>
   
   	<div class="col col-xs-7"> 			
   		<input type="text" class="form-control" placeholder="" name="plaats" id="plaats" ng-minlength="2" ng-model="formData.reg.plaats" required>
-  		<label for="plaats" translate>Woonplaats</label>
+  		<label for="plaats" >Woonplaats</label>
   		<div ng-show="form.plaats.$error.required || form.plaats.$error.minlength" class="validatie" role="alert"><!-- form.plaats.$error -->
-			<span ng-if="form.plaats.$error.required" translate>Dit veld mag niet leeg zijn</span>
-			<span ng-if="form.plaats.$error.minlength" translate>Woonplaats moet uit minimaal 2 tekens bestaan</span>
+			<span ng-if="form.plaats.$error.required" >Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.plaats.$error.minlength" >Woonplaats moet uit minimaal 2 tekens bestaan</span>
 		</div>
   	</div>
 </div>
 <div class="row form-group">
   	<div class="col col-xs-12">			
 		<input type="text" class="form-control" placeholder="" name="telefoon" id="telefoon" ng-minlength="10" ng-maxlength="14" ng-model="formData.reg.telefoon" ng-model-options="{updateOn:'blur'}" required>
-		<label for="telefoon" translate>Telefoon</label>
+		<label for="telefoon" >Telefoon</label>
 		<div ng-show="form.telefoon.$error.required || form.telefoon.$error.minlength || form.telefoon.$error.maxlength" class="validatie" role="alert">
-			<span ng-if="form.telefoon.$error.required" translate>Dit veld mag niet leeg zijn</span>
-			<span ng-if="form.telefoon.$error.minlength" translate>Telefoonnummer is te kort</span>
-			<span ng-if="form.telefoon.$error.maxlength" translate>Telefoonnummer is te lang</span>
+			<span ng-if="form.telefoon.$error.required" >Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.telefoon.$error.minlength" >Telefoonnummer is te kort</span>
+			<span ng-if="form.telefoon.$error.maxlength" >Telefoonnummer is te lang</span>
 		</div>	
   	</div>
 </div>
@@ -120,30 +120,30 @@
 		 
 		 <input type="text" class="form-control" ng-click="popup='1'" name="geboortedatum" id="geboortedatum" uib-datepicker-popup="dd-MM-yyyy" ng-model="formData.reg.geboortedatum" is-open="popup" datepicker-options="dateOptions" ng-required="true" close-text="Sluiten" />
          
-		<label for="geboortedatum" translate>Geboortedatum</label>
+		<label for="geboortedatum" >Geboortedatum</label>
 		 
 		<div ng-show='form.geboortedatum.$error && form.geboortedatum.$dirty' class="validatie" role="alert">
-			<span ng-if="form.geboortedatum.$error.required" translate>Dit veld mag niet leeg zijn</span>
-			<span ng-if="form.geboortedatum.$error.min" translate>Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
-			<span ng-if="form.geboortedatum.$error.max" translate>Minimum leeftijd om deel te nemen is 12 jaar</span>
+			<span ng-if="form.geboortedatum.$error.required" >Dit veld mag niet leeg zijn</span>
+			<span ng-if="form.geboortedatum.$error.min" >Bent u niet te oud om deel te nemen aan de Slachtemarathon?</span>
+			<span ng-if="form.geboortedatum.$error.max" >Minimum leeftijd om deel te nemen is 12 jaar</span>
 		</div>
   	</div>
   		
   	<div class="col col-xs-9 btn-group">
-	  	<span class="col-xs-3" style="display: inline-block;text-align:right" translate>Geslacht *</span> 
-	    <label class="col-xs-3 btn btn-lg btn-info onder man" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'man'" uncheckable required translate>man</label><label class="col-xs-3 btn btn-lg btn-info onder vrouw" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'vrouw'" uncheckable required translate>vrouw</label><label class="col-xs-3 btn btn-lg btn-info onder x" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'genderneutraal'" uncheckable required style="font-size:15px;">genderneutraal</label>
+	  	<span class="col-xs-3" style="display: inline-block;text-align:right" >Geslacht *</span> 
+	    <label class="col-xs-3 btn btn-lg btn-info onder man" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'man'" uncheckable required >man</label><label class="col-xs-3 btn btn-lg btn-info onder vrouw" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'vrouw'" uncheckable required >vrouw</label><label class="col-xs-3 btn btn-lg btn-info onder x" name="geslacht" ng-model="formData.reg.geslacht" uib-btn-radio="'genderneutraal'" uncheckable required style="font-size:15px;">genderneutraal</label>
 		<span ng-show='form.geslacht.$error.required && form.$dirty' class="validatie" role="alert">
-			<span ng-if="form.geslacht.$error.required" styles="display:inline;line-height:32px;" translate>Maak een keuze</span>
+			<span ng-if="form.geslacht.$error.required" styles="display:inline;line-height:32px;" >Maak een keuze</span>
 		</span>
 	</div>
 </div>	
 
 <div class="row form-group">
 	<div class="col col-xs-12 btn-group">		
-		<span translate name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachtemarathon?</span><br/>    
-	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}} <span ng-show="$index < 5" translate>keer</span></label>
+		<span  name="deelgenomen2" style="display:inline-block;padding: 3px 0" id="deelgenomen2">Hoe vaak heb je deelgenomen aan de Slachtemarathon?</span><br/>    
+	    <label ng-repeat="keer in deelname" class="col-xs-2 btn btn-lg btn-info onder" name="deelgenomen" id="deelgenomen" ng-model="formData.reg.deelgenomen" uib-btn-radio="'{{keer}}'" uncheckable required>{{keer}} <span ng-show="$index < 5" >keer</span></label>
 		<div ng-show='form.deelgenomen.$error' class="validatie" role="alert">
-			<span style="margin:12px 0;float:left;" ng-if="form.deelgenomen.$error.required" translate>Maak een keuze</span>
+			<span style="margin:12px 0;float:left;" ng-if="form.deelgenomen.$error.required" >Maak een keuze</span>
 		</div>	
 
   	</div>
@@ -157,13 +157,13 @@
 -->
 <div class="row form-group opslaan" ng-show="pstates.gegevens=='edit'">
 	<div class="col-xs-12">
-		<button class="btn btn-primary btn-lg slanted" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid) ? alert(required) : togglepTemplate('gegevens', 'view')" translate>Gegevens opslaan</button>
+		<button class="btn btn-primary btn-lg slanted" ng-class="{'disabled' : form.$invalid}" ng-click="(form.$invalid) ? alert(required) : togglepTemplate('gegevens', 'view')" >Gegevens opslaan</button>
 	</div>
 </div>
 
 <div class="row form-group opslaan" ng-hide="pstates.gegevens=='edit'">
 		<div class="col-xs-12">
-  		<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}"  ng-click="(form.$invalid || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"; ><span translate>Volgende stap</span></button>
+  		<button class="volgende slanted" ng-class="{'disabled' : form.$invalid}"  ng-click="(form.$invalid || buttondisabled) ? alert(required) : setStap(stap+1,'forwards')"; ><span >Volgende stap</span></button>
 	</div>
 </div>
   	

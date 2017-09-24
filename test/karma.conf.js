@@ -28,7 +28,6 @@ module.exports = function(config) {
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-touch/angular-touch.js',
-      'bower_components/angular-gettext/dist/angular-gettext.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-ui-validate/dist/validate.js',
