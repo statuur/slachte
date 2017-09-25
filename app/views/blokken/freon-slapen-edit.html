@@ -48,7 +48,7 @@
 	<div class="row show-grid" ng-show="formData.reg.slapen=='In één van de út-en-thús-dorpen langs de route' && formData.reg.dorp!='Tritzum'">
 		
 		<div class="col-xs-12">
-		  	<div class="vraag" >Wat voor soort overnachting wil je?</div>
+		  	<div class="vraag" >Wat voor soort overnachting wil je? {{dorpen['Easterein']}}</div>
 		  	<label style="margin-left:-1px" data-vol="Niet meer beschikbaar" class="btn btn-lg btn-info btn-block btn-el" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek =''" uib-btn-radio="'In een groepsaccommodatie'" ng-disabled="dorpen[formData.reg.dorp].groepsaccommodaties < 1" required uncheckable >In een groepsaccommodatie (groepstent of sporthal)</label>
 			<label class="btn btn-lg btn-info btn-block btn-el" data-vol="Niet meer beschikbaar" ng-disabled="dorpen[formData.reg.dorp].thuis < 1" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek=''" uib-btn-radio="'Bij iemand thuis'" required uncheckable >Bij iemand thuis</label>
 			<label class="btn btn-lg btn-info btn-block btn-el" data-vol="Niet meer beschikbaar" ng-disabled="dorpen[formData.reg.dorp].festipi < 1" ng-model="formData.reg.soortovernachting" ng-click="formData.reg.slaapplek='Ik regel het zelf'" uib-btn-radio="'Festipi'" required  uncheckable >In een Festipi (ingerichte tent die je zelf moet boeken, hier zijn extra kosten aan verbonden)</label>

@@ -1,0 +1,1342 @@
+@font-face { 
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Bold.svg#ac79850832f70f68e612ede79991fba5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal; 
+  font-weight:  700;
+}
+  
+@font-face {
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Light.svg#576be8a9f1d37c9f23e9d713f716b54e') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Frutiger LT Std';
+  src: url('../fonts/FrutigerLTStd-Roman.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/FrutigerLTStd-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/FrutigerLTStd-Roman.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/FrutigerLTStd-Roman.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/FrutigerLTStd-Roman.svg#51efdb7670e30fa7b02572ed1d807c20') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+/* rood: #E00915 */
+html, body {
+    height: 100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    background:#fff;
+    font-family: 'Frutiger LT Std';
+    overflow: hidden;
+    font-weight: 400;
+    font-size:16px;
+}
+a:hover, a:active{
+	color:#000!important;
+}
+
+.btn-primary:hover {
+	background:#000;
+}
+
+.welkom.body{
+	margin:16px;
+}
+
+.welkom #background{
+	width:calc(100% - 32px);
+	height:calc(100% - 32px);
+}
+
+.main-container{
+	width:100%;
+	padding: 0px 32px;
+}
+
+.stappen-container{
+	padding-top:72px;
+}
+.whitebar{
+	max-width:1280px;
+	height:66px;
+	width:calc(100% - 64px);
+	background:#fff;
+	z-index:10;
+	position:absolute;
+}
+
+#background{
+	width:100%;
+	height:100%;
+	position: absolute;
+	background:#ededed url('../images/slachtemarathon-2018.jpg') center center / 100% auto no-repeat;
+}
+
+ui-view{
+	background:#fff;
+}
+
+.view{
+	width:1280px;
+	display: block;
+	margin: 64px auto;
+	height: calc(100% - 128px);
+	padding:0;
+	overflow-y:auto;
+	overflow-x: hidden!important;
+}
+
+#startkaarten h1{
+	font-weight: 200;
+	color:#000;
+	overflow:hidden;
+	font-size:28px;
+}
+/*
+#startkaarten .panel-default{
+	margin-bottom:64px;
+}
+*/
+#overzicht h1{
+	font-weight: 200;
+	color:#000;
+	overflow:hidden;
+	font-size:28px;
+	background:#dcdcdc;
+	padding:16px 0;
+}
+
+.startkaart .panel-body{
+	padding:0px!important;
+}
+
+#startkaarten h1 span,
+#overzicht h1 span{
+	font-weight: 700;
+}
+
+#skostenoverzicht{/*.form-group*/
+	background:#ededed;
+}
+#skostenoverzicht .form-group .col{
+	padding-top: 15px;	
+	padding-bottom: 15px;	
+	border-bottom:1px solid #fff;
+}
+
+#logo{
+	position: fixed;
+	z-index:112;
+	left:50%;
+	top:0px;
+	transform: translate(-50%,0%);
+	height:64px;
+	width:auto;
+}
+
+h1, h2, h3{
+	margin:0px;
+	padding:0px;
+	color:#000;
+	font-weight: 400;
+}
+
+h1{
+	font-size:38px;
+	color:#E00915;
+}
+
+
+h2:first-child{
+	margin:0px 0 20px 0;
+}
+
+h2{
+	font-size:35px;
+	color:#E00915;
+	margin:0px 0 20px 0;
+}
+
+h1.welkom{
+	margin-top:45px;
+	font-size:50px;
+	color:#E00915;
+}
+
+h1.welkom span{
+	color:#fff;
+	padding: 0px 12px;
+}
+
+#stappen-mobile{
+	display:none;
+	position:fixed;
+	top:86px;
+	left:0px;
+	width:40px;
+	height:40px;
+	background:#E00915;
+	color:#fff;
+	z-index:9;
+}
+
+#stappen-mobile:before{
+	width:2px;
+	height:70px;
+	background:#000;
+	position: absolute;
+	top:-70px;
+	left:17px;
+	content:"";
+	
+}
+
+#stappen-mobile span:first-child{
+	font-weight: 700;
+	font-size: 27px;
+	padding:4px 0px 0px 4px;
+	display: inline-block;
+}
+
+#stappen-mobile span:not(:first-child){
+	font-weight: 200;
+	font-size: 15px;
+	padding:0px 0px 0px 2px;
+	position: relative;
+	top:-9px;
+}
+
+#stappen{
+	padding:0px;
+	margin: 64px 0 0 32px;
+	font-weight: 200;
+	position:fixed;
+}
+
+#stappen:after{
+	content:"Finish";
+	position:relative;
+	left:-15px;
+	top:7px;
+	color: #CFCFCF;
+}
+
+#stappen.finished:after{
+	color:#000;
+}
+
+#stappen li{
+	list-style-type: none;
+	font-size:16px;
+	line-height:40px;
+	border-left:2px solid #CFCFCF;
+	font-weight: 400;	
+}
+
+
+#stappen li a{
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	left: -2px;
+	top:5px;
+}
+#stappen li a.passed{
+	color:#000;
+}
+	
+#stappen li a.passed:before{
+	background:#000;
+	width:12px;
+	height:12px;
+	top:10px;
+	left:-5px
+}
+
+#stappen li a.passed:after{
+	content:"";
+	display:block;
+	position: absolute;
+	width:2px;
+	height:40px;
+	background:#000;
+	top:16px;
+	left: 0px;
+	z-index:0;
+}
+
+#stappen li a:before{
+	content:"";
+	display:block;
+	width:8px;
+	height:8px;
+	background:#CFCFCF;
+	position: absolute;
+	top:15px;
+	left:-3px;
+}
+
+#stappen li a.active{
+	color: #E00915;
+	font-weight: 700;
+}
+#stappen li a.active:before{
+	background:#E00915;
+	width:20px;
+	height:20px;
+	top:8px;
+	left:-10px;
+	z-index:10;
+}
+
+#stappen li a.apassed{
+	border-left:2px solid #000;
+}
+
+
+
+/*
+
+
+
+
+
+
+#stappen li.active a{
+	color:#E00915!important;
+}
+
+
+
+#stappen li.active{
+	border-left:2px solid #CFCFCF!important;
+}
+
+
+
+#stappen li.active{
+	font-weight: 700;
+
+}
+
+#stappen li.passed a{
+	color:#000;
+	cursor: pointer;
+}
+*/
+#stappen li a{
+	padding: 0px 0px 0px 32px;	
+	position: relative;
+	top:-15px;
+	cursor: default;
+	pointer-events: none;
+	color:#CFCFCF;
+}
+
+
+pre{
+	position:absolute;
+	bottom:8px;
+	left:50%;
+	transform: translate(-50%, 0);
+	font-size: 9px;
+	overflow:auto;
+}
+
+.btn{
+	border:none;
+	border-radius: 0;
+	font-size:15px;
+	font-weight:  700;
+}
+
+.btn-info{
+	border:1px solid #A5A5A5;
+	color:#000;
+}
+
+b{
+	font-weight:  700;
+}
+
+.form-control{
+	height:auto;
+}
+
+.validatie{
+	positsion:relative!important;
+	margin:5px 0 0 14px!important;
+	height:20px;
+	font-size:14px;
+	color:#e20613;
+	font-weight: 700;
+}
+.validatie span{
+	position: relative;
+	z-index:100;
+	msin-width:160px;
+	dsisplay: inline-block;
+}
+.validatie span:not(:first-child):before{
+	content:" / ";
+}
+
+/*nog nodig?*/
+.alert{
+	font-size:14px;
+	padding:4px 32px 4px 4px;
+	margin:8px 0 0 0;
+	background:transparent;
+	border:none;
+	color:#54747c!important;
+	/*color:#e10915!important;*/
+}
+
+.melding{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#error_wrapper{
+	background:rgba(255,255,255,0.95);
+	width:100%;
+	height:100%;
+	z-index:10;
+	position: absolute;
+	top:0px;
+	left:0px;
+	padding:25%;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgba(0,0,0,.0);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:rgba(0,0,0,.0);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:rgba(0,0,0,.0);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:rgba(0,0,0,.0);
+}
+
+input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgba(0,0,0,.2);
+}
+input:focus::-moz-placeholder { /* Firefox 19+ */
+  color:rgba(0,0,0,.2);
+}
+input:focus:-ms-input-placeholder { /* IE 10+ */
+  color:rgba(0,0,0,.2);
+}
+input:focus:-moz-placeholder { /* Firefox 18- */
+  color:rgba(0,0,0,.2);
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.show-grid {
+    margin-bottom: 15px;
+}
+
+input.ng-dirty.ng-invalid{
+	background:#ffde00!important;
+	color:#000;	
+}
+
+input{
+	font-size:16px!important;
+	line-height: 16px!important;
+	border-radius:0!important;
+	border:1px solid #a5a5a5!important;
+	padding:13px!important; 
+	overflow: visible;
+	background:#ededed!important;	
+}
+
+label.first{
+	margin-left:-1px;
+}
+
+label[disabled]{
+	opacity:0.2!important;
+}
+
+label[disabled]:after{
+	content: attr(data-vol);
+	padding-left:30px;
+}
+/* we put label on top of the input */
+input[type=date].ng-empty{
+color: transparent!important;
+}
+
+input:focus[type=date]{
+color: #555!important;
+}
+
+input:required ~ label:after{
+	content: " *";
+	color:#e20613;
+}
+
+.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn {
+    background: #ededed!important;
+}
+input[type=password] ~ label,
+input[type=text] ~ label,
+input[type=email] ~ label,
+input[type=date] ~ label{
+	position: absolute;
+	top: 0;
+	margin-top:10px;
+	bottom: 1px;
+	left: 2em;
+	z-index: 1;
+	height: 15px;
+	font-size: 16px;
+	padding:2px 6px;
+	color:#7d7d7d;
+	white-space: nowrap;
+	cursor: text;
+	transition:all .1s ease;
+}
+
+input:not(.ng-empty) ~ label,
+input:focus[type=password] ~ label,
+input:focus[type=text] ~ label,
+input:focus[type=email] ~ label,
+input:focus[type=date] ~ label{
+	background: #fff!important;
+	line-height:16px;
+	font-size:11px;
+	font-weight:bold;
+	left:25px;
+	top:-16px;
+	color:#000;
+}
+
+.btn{
+	font-size:16px;
+}
+
+.btn-slg:last-child{
+	margin-left:-1px;
+}
+
+.btn.disabled, .btn[disabled], .btn[disabled]:hover, fieldset[disabled] .btn{
+	background:#ededed;
+	opacity: 1;
+}
+
+i.pull-right:after{
+	content:"info +";
+	position:absolute;
+	left:-50px;
+	font-family: 'Frutiger LT Std';
+}
+
+#startkaarten > uib-accordion i.pull-right:after{
+	top:-20px;
+	left:-140px;
+	content: attr(data-wijzigen);
+	min-width:200px;
+}
+
+uib-accordion h3{
+	font-size:26px;
+	color:#E00915;
+	margin:33px 0 22px 0;
+}
+
+.panel-default.selected .panel-heading{
+	background:#fff!important;
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+    border-top: 1px solid #A5A5A5;
+    border-left: 3px solid #E00915;
+    border-right: 1px solid #A5A5A5;
+    border-bottom: 1px solid #A5A5A5;
+}
+
+
+.panel-default > .panel-heading{
+	background:#ededed;
+}
+
+.panel{
+	border-radius: 0px!important;
+}
+
+.panel-group .panel + .panel{
+	margin-top:-1px;
+}
+
+uib-accordion a:hover,
+uib-accordion a:active{
+	text-decoration: none;
+}
+/*WEG?*/
+.panel-title span > span{
+	color:#828282;
+}
+
+.panel-open i.pull-right:after{
+	content:"info -";
+	color:#E00915;
+
+}
+
+.btn-slg{
+	padding:27px;	
+	white-space:normal;
+	dissplay: table;
+}
+
+.btn-slg > span{
+	padding-top:24px;
+	display: inline-block;
+}
+
+.btn-slg.active img{
+	margin-left:-2px;
+}
+
+.btn-slg img{
+	margin-right:27px;
+	float: left;
+}
+
+.btn-block + .btn-block{
+	margin-top:-1px;
+}
+
+.btn-info + .btn-info{
+	margin-left:-1px;
+}
+
+.btn-info{
+	text-align: left;
+	font-weight: 400;
+}
+
+.prev{
+	border:none;
+	padding: 19px 20px;
+	z-index:8;
+	position: fixed
+}
+.prev div{
+	display:none;
+}
+.prev span:last-child{
+	font-weight: 200;
+}
+
+.prev:before{
+	content: "";
+	width:15px;
+	height:15px;
+	transform:rotate(-90deg);
+	background: url("../images/pijl.svg") center center / 18px 15px;
+	display: inline-block;
+	margin-right: 11px;
+
+}
+
+.man:before{
+	content: "";
+	width:18px;
+	height:23px;
+	background: url("../images/man.svg") center center / 18px 23px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+.vrouw:before{
+	content: "";
+	width:18px;
+	height:23px;
+	background: url("../images/vrouw.svg") center center / 18px 23px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+.x:before{
+	content: "";
+	width:18px;
+	height:23px;
+	background: url("../images/x.svg") center center / 18px 23px no-repeat;
+	display: inline-block;
+	margin-right:11px;
+}
+
+
+.btn-info:active, .btn-info.active:hover, .btn-info.active, .open > .dropdown-toggle.btn-info{
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125), inset 0 -2px 5px rgba(0, 0, 0, .125);
+	background: #fff;
+	color:#000;	
+}
+
+.btn-info:hover{
+	color:#000;
+}
+
+.btn-info.active,.btn-info:active, .btn-info.active:hover{
+	border-top:1px solid #A5A5A5;
+	border-left: 3px solid #E00915;
+	border-right:1px solid #A5A5A5;
+	border-bottom: 1px solid #A5A5A5;
+	
+}
+
+.btn-info.onder.active, .btn-info.onder:active, .btn-info.onder.active:hover{
+	border-top:1px solid #A5A5A5;
+	border-left:1px solid #A5A5A5;
+	border-right:1px solid #A5A5A5;
+	border-bottom: 3px solid #E00915;
+}
+
+.btn-el.active{
+	padding-left:48px;
+}
+
+.vervoer.active:before{
+	content: "";
+	position: absolute;
+	width:38px;
+	color:#fff;
+	height:35px;
+	background: url("../images/selected.svg") center center / 38px 35px no-repeat;
+	display: inline-block;
+	margin: 8px 0 0 -72px;
+	
+}
+
+.btn-el.active:before{
+	content: "";
+	position: absolute;
+	width:19px;
+	color:#fff;
+	height:19px;
+	background: url("../images/selected.svg") center center / 18px 15px no-repeat;
+	display: inline-block;
+	margin: -2px 0 0 -32px;
+}
+
+.btn-el, .panel-heading{
+	padding:19px;
+}
+
+.dorpicon img{
+	position:relative;
+	transform: translate(10%,10%);
+}
+.dorpicon ismg{
+	position:relative;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.vraag{
+	font-size: 20px;
+	margin-bottom:16px;
+}
+
+.toelichting{
+	font-size: 16px;
+	color:#606060;
+	line-height: 22px;
+	margin:16px 0 23px 0;
+}
+
+
+.uitroepteken{
+	font-size: 16px;
+	color:#606060;
+	line-height: 22px;
+	margin:16px 0 23px 0;
+}
+
+.uitroepteken:before{
+	content:"!";
+	color:#E00915;
+	font-size: 20px;
+	padding-right:8px;
+	font-weight:700;
+}
+
+hr.hr-30{
+	border:none;
+	border-top:2px solid #E00915;
+	margin:46px auto!important;
+	width:30%;
+}
+
+
+/*
+.slanted{
+	position: relative;
+}
+
+.slanted:after {
+    content:"";
+    position:absolute;
+    top:100%;
+    left:100%;
+    border-width:0px 0px 10px 10px;
+    border-style:solid;
+    border-color:transparent #fff #fff transparent;
+    transform: translate(-100%, -100%)
+}
+*/
+.deelnemer{
+	background:#000;
+	padding: 10px 48px 10px 16px;
+}
+.deelnemer:before{
+	content: "+"!important;
+	position: absolute;
+	color:#fff;
+	font-size:30px;
+	display: inline-block;
+	top:0px;
+	left: calc(100% - 32px);
+	font-weight: 200;	
+}
+
+.wit{
+	padding:0px 32px 32px 32px;	
+}
+
+.iview{
+	padding:0px 32px 32px 32px;
+}
+
+/*
+.wit .slanted:after {
+	 border-color:transparent #ededed #ededed transparent!important;
+}
+*/
+.wit input{
+	background:#fff!important
+}
+
+/*** OVERZICHT ******/
+#overzicht{
+	line-height: 28px;
+	background:#ededed;
+	padding-bottom:16px;
+	margin:0px;
+}
+
+#overzicht h2:first-child{
+	margin: 18px 0px 26px 0px;
+}
+#overzicht h2{
+	font-size:26px;
+	color:#E00915;
+	margin: 0px 0px 26px 0px;
+}
+/* AANPASSEN*/
+#overzicht .col-xs-5{
+	font-weight: 200;
+}
+
+#overzicht .col-xs-7.bold{
+	font-weight: 700;
+}
+
+#overzicht .wijzigen{
+	margin-right:13px;
+	font-size: 16px;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+.grey{
+	border-top: 1px solid #a5a5a5;
+	margin:9px 15px 2px 15px;
+}
+
+#kostenoverzicht{
+	font-size:20px;
+}
+
+.kosten, .totaal {
+	margin:0px 0px 2px 0px;
+}
+
+.kosten .col{
+	background:#ededed;
+	padding:20px 26px;
+}
+.kosten.line{
+	border-bottom:2px solid #e20613;
+	
+}
+
+.totaal .col{
+	padding:20px 26px;
+	color:#e20613;
+}
+
+
+/**** SLANTED BUTTON *****/
+.opslaan{
+	margin-top:32px;
+}
+.slanted{
+	position: relative;
+	padding: 18px 60px 18px!important;
+	overflow: hidden; 
+	font-weight: 700;
+	font-size:20px;
+	text-align: center;
+	text-decoration: none;
+	background: transparent;
+	border:none;
+	text-decoration: none;
+	color:#fff!important;
+	z-index:3;
+	position: relative;
+	color:#fff!important;
+}
+
+.slanted.block{
+	display:block;	
+	width:100%;
+}
+
+.slanted.disabled{
+	cursor: default;
+}
+
+.slanted.disabled:hover:before,
+.slanted.disabled:before{
+	background:#ededed;
+}
+
+.wit .slanted.disabled:hover:before,
+.wit .slanted.disabled:before{
+	background:#d9d9d9;
+} 
+
+.wit .slanted.disabled:hover::after,
+.wit .slanted.disabled:after{
+	border-color:#d9d9d9;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.slanted.disabled:hover::after,
+.slanted.disabled:after{
+	border-color:#ededed;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.volgende:before,
+.volgende:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted.volgende span{
+	display:block;
+	padding-right:24px;	
+}
+
+.slanted.volgende span:after{
+	content: "";
+	position: absolute;
+	width:28px;
+	color:#fff;
+	height:23px;
+	transform:rotate(90deg);
+	background: url("../images/pijl-wit.svg") center center / 28px 28px no-repeat;
+	display: inline-block;
+	left: calc(100% - 48px);
+}
+	
+.slanted:before,
+.slanted:after{
+	background: #e20613;
+	border-color: #e20613;
+	display:inline-block;
+}
+
+.slanted:hover:before{
+	background-color: #000;
+}
+
+.slanted:before,
+.slanted:after {
+	content: '';
+	position: absolute;
+	left: 0; 
+	z-index: -1; 	
+}
+
+.slanted:before {
+	top: 0;
+	right: 0; 
+	bottom: 14px; 
+}
+
+.slanted:after { 
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent; 
+}
+
+.slanted:hover:after,
+.slanted:active:after{
+	background-color: #000;
+	border-color: #000;
+	top: auto; 
+	right: -5px;
+	bottom: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+	background-color: transparent;
+	border-right-color: transparent;  
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+/* enter animation */
+
+#form-views{
+	position:relative;
+	padding-top:130px
+}
+
+#form-views.ng-enter,
+#form-views.ng-leave      { 
+	position:absolute;
+	width:calc(100% - 30px); 
+	transition:1s all ease; 
+    -moz-transition:1s all ease; 
+    -webkit-transition:1s all ease; 
+}
+
+.forwards.ng-enter{
+	-webkit-animation:slideEnterForwards 1s both ease;
+    -moz-animation:slideEnterForwards 1s both ease;
+    animation:slideEnterForwards 1s both ease;
+}
+
+.forwards.ng-leave{
+	-webkit-animation:slideLeaveForwards 1s both ease;
+    -moz-animation:slideLeaveForwards 1s both ease;
+    animation:slideLeaveForwards 1s both ease;
+}
+
+.backwards.ng-enter{
+	-webkit-animation:slideEnterBackwards 1s both ease;
+    -moz-animation:slideEnterBackwards 1s both ease;
+    animation:slideEnterBackwards 1s both ease;
+}
+
+.backwards.ng-leave{
+	-webkit-animation:slideLeaveBackwards 1s both ease;
+    -moz-animation:slideLeaveBackwards 1s both ease;
+    animation:slideLeaveBackwards 1s both ease;
+}
+
+@keyframes slideEnterBackwards{
+    from    { transform: translateY(-200%); }
+    to      { transform: translateY(0%);}
+}
+
+@keyframes slideLeaveBackwards{
+    from    { transform: translateY(0%); }
+    to      { transform: translateY(200%);}
+}
+
+@keyframes slideEnterForwards{
+    from    { transform: translateY(200%); }
+    to      { transform: translateY(0%);}
+}
+
+@keyframes slideLeaveForwards{
+    from    { transform: translateY(0%); }
+    to      { transform: translateY(-200%);}
+}
+
+
+.slide-animate-container {
+  position:relative;
+ }
+
+.slide-animate {
+
+}
+
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  	sposition:absolute; 
+	transition:.3s all ease; 
+    -moz-transition:.3s all ease; 
+    -webkit-transition:.3s all ease; 
+}
+
+.slide-animate.ng-enter {
+  -webkit-animation:slideEnter .3s both ease;
+    -moz-animation:slideEnter .3s both ease;
+    animation:slideEnter .3s both ease;
+}
+
+.slide-animate.ng-leave {
+ 	-webkit-animation:slideLeave .3s both ease;
+    -moz-animation:slideLeave .3s both ease;
+    animation:slideLeave .3s both ease;
+ 	
+}
+
+
+@keyframes slideEnter{
+    from    { opacity:0 }
+    to      { opacity:1}
+}
+
+@keyframes slideLeave{
+    from    { opacity:1 }
+    to      { opacity:0}
+}
+
+
+
+/*
+.tooltip-arrow{
+	border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:5px solid #E00915!important;
+}
+
+.tooltip-inner{
+	background: #E00915;
+	border-radius: 0px;
+}
+*/
+
+ul.validation-list{
+	padding:0px;
+	margin:0px;
+}
+
+ul.validation-list li{
+	list-style-type: none;
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1058px) {
+	.vervoer.active:before {
+    margin: 8px 0 0 10px;
+	}
+}	
+
+@media only screen and (max-width : 1280px) {
+	.view{
+		width: calc(100% - 32px)!important;
+		display: block;
+		margin: 16px auto;
+		height: calc(100% - 32px);
+	}
+	
+	#background{
+		width:100%;
+		height:100%;
+		position: absolute;
+		background:#ededed url('../images/slachtemarathon-2018.jpg') center center / cover no-repeat;
+
+	}
+	
+	#logo{
+		height:32px;
+		width:auto;
+	}
+	
+	.main-container{
+		width:100%;
+		padding: 0px 16px;
+	}
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	.stappen-container ul li{
+		font-size:12px!important;
+	}
+	
+	.col:not(:last-child){
+		margin-bottom: 15px;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	body, .btn {
+		font-size:14px;
+	}
+	
+	#background{
+		background:#fff;
+	}
+		
+	h1.welkom{
+		font-size: 5.3vw!important;
+	}	
+	
+	.whitebar{
+		width:calc(100% - 40px);
+		height:46px;
+		background: #ededed;
+	}
+	
+	#stappen-mobile{
+	display:block;
+	}
+	.view{
+		width: calc(100% - 20px)!important;
+		display: block;
+		margin: 10px auto;
+		height: calc(100% - 20px);
+		padding:10px;
+		background: #ededed
+	}
+	
+	h2 {
+    	font-size: 27px;
+		text-align: center;
+	}
+	
+	h2:first-child{
+		margin: 64px 0 20px 0;
+	}
+	
+	.stappen-container{
+		display:none;
+	}
+		
+	input:not(.ng-empty) ~ label, input:focus[type=password] ~ label, input:focus[type=text] ~ label, input:focus[type=email] ~ label, input:focus[type=date] ~ label {
+		background: #ededed!important;
+	}
+	
+	.prev{
+		background:#fff!important;
+		font-size:14px;
+		padding:8px 14px 8px 8px;
+		margin:-10px 0 0 -10px;
+	}
+	
+	.prev span{
+	/*.prev span:not(:first-child){*/
+		display: none;
+	}
+	
+	.prev div{
+		display:inline;
+	}
+		
+	.main-col{
+		width:100%;
+		padding:0px 15px;
+	}
+	
+	.btn-el, .panel-heading{
+		padding:14px;
+	}
+	
+	.vervoer.active:before {
+		    margin: 8px 0 0 10px;
+	}
+	
+	label.vervoer{
+		min-height:170px;
+	}
+
+	/* de rest vh responsive ontwerp */
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	.sprev{
+		padding:0px;
+		left:10px;
+	}
+	
+	h1.welkom{
+		font-size: 4.9vw!important;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	h1.welkom span{
+		sdisplay: none;
+	}
+	
+	.slanted{
+		display:block;
+		width:100%;
+		margin-bottom:10px;
+	}
+	
+	.col{
+		width:100%;
+	}
+	
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+}
+
+

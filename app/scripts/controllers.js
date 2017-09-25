@@ -439,7 +439,7 @@ angular.module('app.controllers', [])
 				
 					$cookies.remove('betaald');
 					$cookies.remove('formData');
-					$cookies.remove('paymentID');
+					//$cookies.remove('paymentID');
 					$cookies.remove('orderID');
 					$cookies.remove('meelopers');
 					window.localStorage.clear();

@@ -1,0 +1,6 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+RewriteEngine On
+RewriteRule ^([a-z0-9]+)/?([^/]*)/?$ index.php?function=$1&taal=$2 [L]
