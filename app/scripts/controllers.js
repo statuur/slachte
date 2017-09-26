@@ -289,12 +289,18 @@ angular.module('app.controllers', [])
 	  	});
     }
     
-    $scope.loginError	= false;
-   	
+    	$scope.loginError	= false;
+   		
+   		
+   		//$scope.formData.user 		= "testpersoon10";
+   		//$scope.formData.password	= "tpersoon_1234*";
+   		
+   		
+   		//window.localStorage.clear();
 	   	$scope.inloggen = function(){
 		//$cookies.putObject('formData', $scope.formData, {"secure":true}); 
-	   	$scope.buttondisabled 	= true;
-	   	$scope.loginError 		= false;
+	   	$scope.buttondisabled 		= true;
+	   	$scope.loginError 			= false;
 	   	
 	   	
 	   	$http({
@@ -326,8 +332,8 @@ angular.module('app.controllers', [])
 					$scope.betaald	= 0;
 					
 				}
-				
-				$scope.parseData(response.data);
+				$scope.formData.reg.ID = response.data.reg.ID;
+				//$scope.parseData(response.data);
 				
 				setTimeout(function(){
 					$scope.menu();
@@ -350,41 +356,29 @@ angular.module('app.controllers', [])
 		$scope.reminder = val;
 	}
 	
+	
 	$scope.parseData = function(data){
 		
-		if(data.reg.geboortedatum!=""){
-			data.reg.geboortedatum 	= new Date(data.reg.geboortedatum); //$filter('date')(new Date(data.reg.geboortedatum), 'dd-MM-yyyy');
-		}
-		/*
-		if($scope.betaald){
-		if(data.reg.shirts!="" && angular.fromJson(data.reg.shirts) !== null){
-			data.shirts 			= angular.fromJson(data.reg.shirts)
-			data.aantaltshirts		= data.shirts.length;
-		}
+		//if(data.reg.geboortedatum!=""){
+		//	data.reg.geboortedatum 	= new Date(data.reg.geboortedatum); //$filter('date')(new Date(data.reg.geboortedatum), 'dd-MM-yyyy');
+		///}
 		
-		if(data.reg.hoodies!="" && angular.fromJson(data.reg.hoodies) !== null){
-			data.hoodies	 		= angular.fromJson(data.reg.hoodies);
-			data.aantalhoodies		= data.hoodies.length;
-		}
-		}
-		*/
-		delete data.reg.shirts	
-		delete data.reg.hoodies	
-		data.reg.email			= data.reg.user_email;
-		data.reg.email2			= data.reg.user_email;
-		data.user				= data.reg.user_login;
-		//data.password			= data.reg.user_login;
+		//delete data.reg.shirts	
+		//delete data.reg.hoodies	
+		//data.reg.email			= data.reg.user_email;
+		//data.reg.email2			= data.reg.user_email;
+		//data.user				= data.reg.user_login;
 		
-		/*if(typeof data.reg.taal!=="undefined" && data.reg.taal!=""){
-			window.localStorage.taal = data.reg.taal;
-		}*/
-		//delete data.status;
-		//delete data.reg.user_email;
 		
-		//$scope.formData.user 				= data.reg.user_login;
-		//$scope.formData.password			= "testpersoon1234";//WEG BIJ LIVE
+		angular.forEach(data.reg, function(value, key) {
+		//	console.log(key+" : "+value);
+		});	
 		
-		$scope.formData = data;
+		//var formData 	= data.reg.ID;
+		
+		
+		//console.log(data);
+		$scope.formData.reg.ID = data.reg.ID;
 		
 		
 		//AFHANKELIJK VAN KEUZE WEL/NIET INLOGGEN MEELOPER
