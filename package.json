@@ -2,7 +2,7 @@
   "name": "slachtemarathon",
   "private": true,
   "devDependencies": {
-    "@angular/cli": "^1.2.6",
+    "@angular/cli": "^15.2.6",
     "@angular/compiler": "^4.3.2",
     "@angular/compiler-cli": "^4.3.2",
     "@angular/core": "^4.3.2",
